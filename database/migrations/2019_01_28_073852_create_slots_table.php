@@ -17,6 +17,7 @@ class CreateSlotsTable extends Migration
             $table->timestamp('starts_at')->nullable();
             $table->timestamp('ends_at')->nullable();
             $table->string('location');
+            $table->string('user_id')->nullable();
             $table->timestamps();
         });
     }

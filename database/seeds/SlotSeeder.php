@@ -2,6 +2,7 @@
 
 use App\Models\Event;
 use App\Models\Slot;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
 
@@ -26,6 +27,7 @@ class SlotSeeder extends Seeder
                 'location' => $roomName,
                 'starts_at' => $slotTime['startsAt'],
                 'ends_at' => $slotTime['endsAt'],
+                'user_id' => faker()->boolean(50) ? User::inRandomOrder()->first() : null,
             ]);
         });
     }
