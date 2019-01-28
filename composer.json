@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.1.3",
         "fideloper/proxy": "^4.0",
+        "friendsofphp/php-cs-fixer": "^2.14",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
         "myclabs/php-enum": "^1.6"
@@ -52,6 +53,9 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
+        "format": [
+            "vendor/bin/php-cs-fixer fix"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"

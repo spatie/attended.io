@@ -15,15 +15,15 @@ class CommentSeeder extends Seeder
         collect([
             Event::class,
             Slot::class,
-        ])->each(function(string $commentableClass) {
+        ])->each(function (string $commentableClass) {
             $this->seedComments($commentableClass);
         });
     }
 
     protected function seedComments(string $commentableClass)
     {
-        $commentableClass::get()->each(function(Model $model) use ($commentableClass) {
-            Collection::make(rand(0, 10))->each(function() use ($model, $commentableClass) {
+        $commentableClass::get()->each(function (Model $model) use ($commentableClass) {
+            Collection::make(rand(0, 10))->each(function () use ($model, $commentableClass) {
                 factory(Comment::class)->create([
                     'commentable_type' => $commentableClass,
                     'commentable_id' => $model->id,
@@ -31,6 +31,5 @@ class CommentSeeder extends Seeder
                 ]);
             });
         });
-
     }
 }

@@ -8,6 +8,4 @@ class SlotType extends Enum
 {
     const TALK = 'talk';
     const WORKSHOP = 'workshop';
-
-
 }

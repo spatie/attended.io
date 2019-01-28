@@ -38,7 +38,7 @@ class SlotSeeder extends Seeder
 
         $startsAt = $event->starts_at;
 
-        while(true) {
+        while (true) {
             $endsAt = $startsAt->copy()->addMinutes(faker()->randomElement([15,30, 60, 90, 120, 360]));
 
             if ($endsAt->greaterThan($event->ends_at)) {
