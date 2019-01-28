@@ -12,6 +12,8 @@ class CreateEventsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description');
+            $table->text('location');
+
             $table->string('website');
             $table->timestamp('starts_at')->nullable();
             $table->timestamp('ends_at')->nullable();
