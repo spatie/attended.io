@@ -2,6 +2,8 @@
 /public/hot
 /public/storage
 /storage/*.key
+/public/css
+/public/js
 /vendor
 .env
 .php_cs.cache
@@ -10,3 +12,5 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+/public/css
+/public/js
