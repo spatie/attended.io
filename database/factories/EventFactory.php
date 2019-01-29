@@ -9,7 +9,7 @@ $factory->define(Event::class, function (Faker $faker) {
     $endsAt = (clone $startsAt)->add(new DateInterval("P{$amountOfDays}D"));
 
     return [
-        'name' => $faker->name,
+        'name' => $faker->word . 'Conf',
         'description' => $faker->paragraphs(3, true),
         'location'=> $faker->word,
         'website' => $faker->url,

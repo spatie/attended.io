@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Event;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -10,8 +11,20 @@ class RouteServiceProvider extends ServiceProvider
     public function map()
     {
         $this
+            ->registerBindings()
             ->mapApiRoutes()
             ->mapWebRoutes();
+    }
+
+    protected function registerBindings()
+    {
+        Route::bind('event', function (string $idSlug) {
+            [$id] = explode('-', $idSlug);
+
+            return Event::find($id);
+        });
+
+        return $this;
     }
 
     protected function mapApiRoutes()
@@ -34,6 +47,4 @@ class RouteServiceProvider extends ServiceProvider
 
         return $this;
     }
-
-
 }

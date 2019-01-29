@@ -1,5 +1,11 @@
 @extends('front.layouts.main')
 
 @section('content')
-    This is the homepage
+    <h1>Recent events</h1>
+
+    <ul>
+        @foreach($events as $event)
+            <li>@include('front.events.partials.listItem')</li>
+        @endforeach
+    </ul>
 @endsection
