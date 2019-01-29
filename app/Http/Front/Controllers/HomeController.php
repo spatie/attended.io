@@ -2,11 +2,11 @@
 
 namespace App\Http\Front\Controllers;
 
-class EventsController
+class HomeController
 {
     public function index()
     {
-        return 'this is event';
+        return view('front.home.index');
     }
 
 }

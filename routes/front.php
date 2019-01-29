@@ -1,5 +1,5 @@
 <?php
 
-use App\Http\Front\Controllers\EventsController;
+use App\Http\Front\Controllers\HomeController;
 
-Route::get('events', [EventsController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
