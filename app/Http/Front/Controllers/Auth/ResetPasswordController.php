@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Front\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
-class ResetPasswordController extends Controller
+class ResetPasswordController
 {
     /*
     |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ class ResetPasswordController extends Controller
     |
     */
 
-    use ResetsPasswords;
+    use ResetsPasswords, ValidatesRequests;
 
     /**
      * Where to redirect users after resetting their password.

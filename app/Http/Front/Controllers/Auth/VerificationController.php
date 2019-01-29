@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Front\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
-class VerificationController extends Controller
+class VerificationController
 {
     /*
     |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ class VerificationController extends Controller
     |
     */
 
-    use VerifiesEmails;
+    use VerifiesEmails, ValidatesRequests;
 
     /**
      * Where to redirect users after verification.
