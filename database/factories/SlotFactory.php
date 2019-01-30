@@ -12,7 +12,7 @@ $factory->define(Slot::class, function (Faker $faker) {
     $endsAt = (clone $startsAt)->add(new DateInterval("P{$amountOfMinutes}M"));
 
     return [
-        'name' => $faker->name,
+        'name' => $faker->sentence,
         'description' => $faker->paragraphs(3, true),
         'location' => $faker->word,
         'event_id' => factory(Event::class),

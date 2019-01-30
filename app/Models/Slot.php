@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use App\Models\Concerns\Commentable;
+use App\Models\Concerns\Sluggable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Slot extends BaseModel
 {
-    use Commentable;
+    use Commentable,
+        Sluggable;
 
     public function event(): BelongsTo
     {

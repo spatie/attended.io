@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Event;
+use App\Models\Slot;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,12 @@ class RouteServiceProvider extends ServiceProvider
             [$id] = explode('-', $idSlug);
 
             return Event::find($id);
+        });
+
+        Route::bind('slot', function (string $idSlug) {
+            [$id] = explode('-', $idSlug);
+
+            return Slot::find($id);
         });
 
         return $this;

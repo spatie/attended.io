@@ -8,6 +8,8 @@ class EventsController
 {
     public function show(Event $event)
     {
+        $event->load('slots');
+
         return view('front.events.show', compact('event'));
     }
 }

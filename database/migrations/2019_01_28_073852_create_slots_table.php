@@ -12,6 +12,7 @@ class CreateSlotsTable extends Migration
             $table->increments('id');
             $table->integer('event_id');
             $table->string('name');
+            $table->string('slug');
             $table->text('description');
             $table->string('type');
             $table->timestamp('starts_at')->nullable();
