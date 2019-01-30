@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Concerns\Commentable;
+use App\Models\Presenters\PresentsEvent;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -10,7 +11,8 @@ use Spatie\Sluggable\SlugOptions;
 class Event extends BaseModel
 {
     use Commentable,
-        HasSlug;
+        HasSlug,
+        PresentsEvent;
 
     public $dates = [
         'starts_at',
