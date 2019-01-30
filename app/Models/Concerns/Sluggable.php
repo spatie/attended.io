@@ -2,18 +2,15 @@
 
 namespace App\Models\Concerns;
 
-use Spatie\Sluggable\HasSlug;
-use Spatie\Sluggable\SlugOptions;
+use Illuminate\Database\Eloquent\Model;
 
 trait Sluggable
 {
-    use HasSlug;
-
-    public function getSlugOptions(): SlugOptions
+    public static function bootSluggable()
     {
-        return SlugOptions::create()
-            ->generateSlugsFrom(['name'])
-            ->saveSlugsTo('slug');
+        static::saving(function(Model $model) {
+            $model->slug = str_slug($model->name);
+        });
     }
 
     public function idSlug(): string
