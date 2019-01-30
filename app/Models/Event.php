@@ -20,6 +20,8 @@ class Event extends BaseModel
 
     public function slots(): HasMany
     {
-        return $this->hasMany(Slot::class);
+        return $this->hasMany(Slot::class)
+            ->orderBy('starts_at')
+            ->orderBy('location');
     }
 }
