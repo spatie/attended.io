@@ -8,8 +8,6 @@ class SlotsController
 {
     public function show(Slot $slot)
     {
-        dd('this is slotscontroller');
+        return view('front.slots.show', compact('slot'));
     }
-
-
 }
