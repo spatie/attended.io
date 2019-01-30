@@ -20,5 +20,6 @@ $factory->define(Slot::class, function (Faker $faker) {
         'starts_at' => $startsAt,
         'ends_at' => $endsAt,
         'user_id' => factory(User::class),
+        'speaker_name' => $faker->name,
     ];
 });
