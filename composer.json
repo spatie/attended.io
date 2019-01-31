@@ -11,6 +11,7 @@
         "php": "^7.1.3",
         "fideloper/proxy": "^4.0",
         "friendsofphp/php-cs-fixer": "^2.14",
+        "laracasts/flash": "^3.0",
         "laravel/framework": "5.7.*",
         "laravel/telescope": "^1.0",
         "laravel/tinker": "^1.0",

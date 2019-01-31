@@ -6,7 +6,7 @@
     {{ $slot->starts_at->format('d M H:i') }} - {{ $slot->location }} - <a href="{{ route('events.show', $slot->event->idSlug()) }}">{{ $slot->event->name }}</a>
     @include('front.slots.partials.by-speaker')
 
-    @include('front.reviews.partials.summary')
+    @include('front.reviews.partials.summary', ['reviewable' => $slot])
 
     {{ $slot->description }}
 

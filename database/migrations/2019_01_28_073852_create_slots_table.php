@@ -20,6 +20,10 @@ class CreateSlotsTable extends Migration
             $table->string('location');
             $table->string('speaker_name');
             $table->string('user_id')->nullable();
+
+            $table->integer('number_of_reviews')->default(0);
+            $table->integer('average_review_rating')->default(0);
+
             $table->timestamps();
         });
     }

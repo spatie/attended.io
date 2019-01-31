@@ -1,5 +1,7 @@
 <div>
-{{ $review->user->name }} {{ $review->updated_at->diffForHumans() }}
+{{ $review->user->name }} {{ $review->updated_at->diffForHumans() }} <br/>
 
-{{ $review->text }}
+Rating {{ $review->rating }}<br/>
+
+{{ $review->remarks }}<br/>
 </div>

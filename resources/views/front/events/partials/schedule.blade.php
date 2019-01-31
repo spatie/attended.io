@@ -23,7 +23,7 @@
                     @include('front.slots.partials.by-speaker')
                 </td>
                 <td>
-                    @include('front.reviews.partials.summary')
+                    @include('front.reviews.partials.summary', ['reviewable' => $slot])
                 </td>
             </tr>
         @endforeach

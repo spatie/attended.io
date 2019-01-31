@@ -2,15 +2,16 @@
 
 namespace App\Models;
 
-use App\Models\Concerns\Reviewable;
-use App\Models\Concerns\Sluggable;
+use App\Models\Concerns\HasReviews;
+use App\Models\Concerns\HasSlug;
+use App\Models\Interfaces\Reviewable;
 use App\Models\Presenters\PresentsEvent;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Event extends BaseModel
+class Event extends BaseModel implements Reviewable
 {
-    use Reviewable,
-        Sluggable,
+    use HasReviews,
+        HasSlug,
         PresentsEvent;
 
     public $dates = [

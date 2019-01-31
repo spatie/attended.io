@@ -1,5 +1,6 @@
 <?php
 
+use App\Actions\RecalculateReviewStatistics;
 use App\Models\Review;
 use App\Models\Event;
 use App\Models\Slot;
@@ -30,6 +31,9 @@ class ReviewSeeder extends Seeder
                     'user_id' => User::inRandomOrder()->first(),
                 ]);
             });
+
+            (new RecalculateReviewStatistics($model))->execute();
+
         });
     }
 }

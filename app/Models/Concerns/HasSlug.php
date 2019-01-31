@@ -4,9 +4,9 @@ namespace App\Models\Concerns;
 
 use Illuminate\Database\Eloquent\Model;
 
-trait Sluggable
+trait HasSlug
 {
-    public static function bootSluggable()
+    public static function bootHasSlug()
     {
         static::saving(function(Model $model) {
             $model->slug = str_slug($model->name);
