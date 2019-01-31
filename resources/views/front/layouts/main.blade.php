@@ -73,6 +73,7 @@
         </nav>
 
         <main class="py-4">
+            @include('front.layouts.partials.flashMessage')
             @yield('content')
         </main>
     </div>

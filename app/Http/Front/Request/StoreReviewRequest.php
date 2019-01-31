@@ -20,6 +20,6 @@ class StoreReviewRequest extends FormRequest
 
     public function reviewable(): Reviewable
     {
-        return $this->reviewable_type::find($this->reviewable->id);
+        return $this->reviewable_type::find($this->reviewable_id);
     }
 }
