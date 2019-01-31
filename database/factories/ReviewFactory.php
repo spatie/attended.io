@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Review;
 use App\Models\Event;
+use App\Models\Review;
 use App\Models\Slot;
 use App\Models\User;
 use Faker\Generator as Faker;

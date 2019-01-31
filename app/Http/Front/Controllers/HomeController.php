@@ -16,5 +16,4 @@ class HomeController
 
         return view('front.home.index', compact('events'));
     }
-
 }

@@ -15,6 +15,3 @@ Route::get('/slots/{slot}', [SlotsController::class, 'show'])->name('slots.show'
 Route::post('reviews', [ReviewsController::class, 'store'])->name('reviews.store');
 
 Route::get('/users/{user}', [UsersController::class, 'show'])->name('users.show');
-
-
-

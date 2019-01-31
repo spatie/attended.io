@@ -8,7 +8,7 @@ trait HasSlug
 {
     public static function bootHasSlug()
     {
-        static::saving(function(Model $model) {
+        static::saving(function (Model $model) {
             $model->slug = str_slug($model->name);
         });
     }

@@ -1,5 +1,5 @@
 <?php
 
-Route::get('dummy', function() {
+Route::get('dummy', function () {
     return 'dummy';
 });

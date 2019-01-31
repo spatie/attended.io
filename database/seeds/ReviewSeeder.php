@@ -1,8 +1,8 @@
 <?php
 
 use App\Actions\RecalculateReviewStatistics;
-use App\Models\Review;
 use App\Models\Event;
+use App\Models\Review;
 use App\Models\Slot;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
@@ -33,7 +33,6 @@ class ReviewSeeder extends Seeder
             });
 
             (new RecalculateReviewStatistics($model))->execute();
-
         });
     }
 }
