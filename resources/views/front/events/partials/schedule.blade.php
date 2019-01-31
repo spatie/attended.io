@@ -23,10 +23,9 @@
                     @include('front.slots.partials.by-speaker')
                 </td>
                 <td>
-                    @include('front.reviews.partials.review-summary')
+                    @include('front.reviews.partials.summary')
                 </td>
             </tr>
-
         @endforeach
     </table>
 @endforeach

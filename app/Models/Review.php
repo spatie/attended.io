@@ -14,6 +14,6 @@ class Review extends BaseModel
 
     public function user(): BelongsTo
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 }

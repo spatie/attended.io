@@ -12,7 +12,7 @@ class CreateReviewsTable extends Migration
             $table->increments('id');
             $table->morphs('reviewable');
             $table->integer('rating');
-            $table->text('comment');
+            $table->text('text');
             $table->unsignedInteger('user_id');
             $table->timestamps();
         });

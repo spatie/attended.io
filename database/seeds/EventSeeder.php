@@ -7,6 +7,6 @@ class EventSeeder extends Seeder
 {
     public function run()
     {
-        factory(Event::class, 40)->create();
+        factory(Event::class, 30)->create();
     }
 }
