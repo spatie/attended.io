@@ -10,6 +10,6 @@ class DatabaseSeeder extends Seeder
             ->call(UserSeeder::class)
             ->call(EventSeeder::class)
             ->call(SlotSeeder::class)
-            ->call(CommentSeeder::class);
+            ->call(ReviewSeeder::class);
     }
 }

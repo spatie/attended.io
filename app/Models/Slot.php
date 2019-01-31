@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use App\Models\Concerns\Commentable;
+use App\Models\Concerns\Reviewable;
 use App\Models\Concerns\Sluggable;
 use App\Models\Presenters\PresentsSlot;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Slot extends BaseModel
 {
-    use Commentable,
+    use Reviewable,
         Sluggable,
         PresentsSlot;
 

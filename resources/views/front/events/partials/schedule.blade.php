@@ -23,7 +23,7 @@
                     @include('front.slots.partials.by-speaker')
                 </td>
                 <td>
-                    Review placeholrs
+                    @include('front.reviews.partials.review-summary')
                 </td>
             </tr>
 

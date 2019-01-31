@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-class Comment extends BaseModel
+class Review extends BaseModel
 {
-    public function commentable(): MorphTo
+    public function reviewable(): MorphTo
     {
         return $this->morphTo();
     }

@@ -20,8 +20,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'password', 'remember_token',
     ];
 
-    public function comments(): HasMany
+    public function reviews(): HasMany
     {
-        $this->hasMany(Comment::class);
+        $this->hasMany(Review::class);
     }
 }
