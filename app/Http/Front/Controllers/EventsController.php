@@ -11,7 +11,7 @@ class EventsController
     {
         $slotsGroupedByDay = $event->slots
             ->sortBy(function (Slot $slot) {
-                return  $slot->starts_at->format('YmdHis') . '-' . optional($slot->track)->id;
+                return $slot->starts_at->format('YmdHis') . '-' . optional($slot->track)->id;
             })
             ->groupBy(function (Slot $slot) {
                 return $slot->starts_at->format('Ymd');
