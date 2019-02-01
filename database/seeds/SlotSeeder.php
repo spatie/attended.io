@@ -21,10 +21,19 @@ class SlotSeeder extends Seeder
                         'event_id' => $track->event->id,
                         'starts_at' => $slotTime['startsAt'],
                         'ends_at' => $slotTime['endsAt'],
-                        'user_id' => faker()->boolean(50) ? User::inRandomOrder()->first() : null,
                     ]);
                 });
             });
+        });
+
+        Slot::all()->each(function (Slot $slot) {
+            $users = User::inRandomOrder()->limit(rand(1, 2))->get();
+
+            if (faker()->boolean(90)) {
+                $users->each(function (User $user) use ($slot) {
+                    $slot->owners()->attach($user);
+                });
+            }
         });
     }
 

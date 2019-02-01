@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasOwners;
 use App\Models\Concerns\HasReviews;
 use App\Models\Concerns\HasSlug;
 use App\Models\Interfaces\Reviewable;
@@ -12,6 +13,7 @@ class Slot extends BaseModel implements Reviewable
 {
     use HasReviews,
         HasSlug,
+        HasOwners,
         PresentsSlot;
 
     public $dates = [

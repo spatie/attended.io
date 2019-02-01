@@ -18,7 +18,6 @@ $factory->define(Slot::class, function (Faker $faker) {
         'type' => $faker->randomElement(SlotType::values()),
         'starts_at' => $startsAt,
         'ends_at' => $endsAt,
-        'user_id' => factory(User::class),
         'speaker_name' => $faker->name,
     ];
 });

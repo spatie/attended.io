@@ -24,4 +24,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->hasMany(Review::class);
     }
+
+    public function events()
+    {
+        return $this->morphedByMany(Event::class, 'ownable');
+    }
+
+    public function slots()
+    {
+        return $this->morphedByMany(Slot::class, 'ownable');
+    }
 }

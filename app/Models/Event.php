@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasOwners;
 use App\Models\Concerns\HasReviews;
 use App\Models\Concerns\HasSlug;
 use App\Models\Interfaces\Reviewable;
@@ -12,7 +13,8 @@ class Event extends BaseModel implements Reviewable
 {
     use HasReviews,
         HasSlug,
-        PresentsEvent;
+        PresentsEvent,
+        HasOwners;
 
     public $dates = [
         'starts_at',
