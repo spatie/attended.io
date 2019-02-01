@@ -6,7 +6,7 @@ use App\Models\Event;
 
 class RecentAndUpcomingEventsListController
 {
-    public function index()
+    public function __invoke()
     {
         $events = Event::query()
             ->where('starts_at', '<=', now()->subDay(4))

@@ -1,12 +1,14 @@
 <?php
 
+use App\Http\Front\Controllers\Events\PastEventsListController;
 use App\Http\Front\Controllers\Events\ShowEventController;
 use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
 use App\Http\Front\Controllers\ReviewsController;
 use App\Http\Front\Controllers\SlotsController;
 use App\Http\Front\Controllers\UsersController;
 
-Route::get('/', [RecentAndUpcomingEventsListController::class, 'index']);
+Route::get('/', RecentAndUpcomingEventsListController::class);
+Route::get('/past-events', PastEventsListController::class);
 
 Route::get('/events/{event}', [ShowEventController::class, 'show'])->name('events.show');
 
