@@ -32,7 +32,7 @@ class ReviewSeeder extends Seeder
                 ]);
             });
 
-            (new RecalculateReviewStatistics($model))->execute();
+            (new RecalculateReviewStatistics())->execute($model);
         });
     }
 }

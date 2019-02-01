@@ -9,7 +9,7 @@ trait HasReviews
 {
     public function reviews(): MorphMany
     {
-        return $this->morphMany(Review::class, 'reviewable');
+        return $this->morphMany(Review::class, 'reviewable')->orderBy('created_at', 'desc');
     }
 
     public function recalculateSummary()

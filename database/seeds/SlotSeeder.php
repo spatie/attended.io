@@ -13,15 +13,15 @@ class SlotSeeder extends Seeder
         Event::get()->each(function (Event $event) {
             $randomScheduleTimes = $this->generateRandomSlotTimes($event);
 
-            $roomNames = Collection::times(rand(1, 3))->map(function () {
+            $trackNames = Collection::times(rand(1, 3))->map(function () {
                 return faker()->word;
             });
 
-            foreach ($roomNames as $roomName) {
-                $randomScheduleTimes->each(function ($slotTime) use ($event, $roomName) {
+            foreach ($trackNames as $trackName) {
+                $randomScheduleTimes->each(function ($slotTime) use ($event, $trackName) {
                     factory(Slot::class)->create([
                         'event_id' => $event->id,
-                        'location' => $roomName,
+                        'track' => $trackName,
                         'starts_at' => $slotTime['startsAt'],
                         'ends_at' => $slotTime['endsAt'],
                         'user_id' => faker()->boolean(50) ? User::inRandomOrder()->first() : null,

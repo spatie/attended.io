@@ -17,7 +17,7 @@ class CreateSlotsTable extends Migration
             $table->string('type');
             $table->timestamp('starts_at')->nullable();
             $table->timestamp('ends_at')->nullable();
-            $table->string('location');
+            $table->string('track');
             $table->string('speaker_name');
             $table->string('user_id')->nullable();
 
