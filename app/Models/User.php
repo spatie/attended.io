@@ -20,6 +20,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'password', 'remember_token',
     ];
 
+    protected $casts = [
+        'admin' => 'bool',
+        'can_create_events_immediately' => 'bool',
+    ];
+
     public function reviews(): HasMany
     {
         $this->hasMany(Review::class);
