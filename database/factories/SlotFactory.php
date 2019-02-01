@@ -3,7 +3,6 @@
 use App\Models\Enums\SlotType;
 use App\Models\Event;
 use App\Models\Slot;
-use App\Models\User;
 use Faker\Generator as Faker;
 
 $factory->define(Slot::class, function (Faker $faker) {

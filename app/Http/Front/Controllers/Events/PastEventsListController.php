@@ -14,6 +14,5 @@ class PastEventsListController
             ->paginate();
 
         return view('front.events.past-events-index', compact('events'));
-
     }
 }

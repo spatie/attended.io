@@ -8,7 +8,6 @@ use Illuminate\Support\ServiceProvider;
 
 use Spatie\Menu\Laravel\Menu;
 
-
 class NavigationServiceProvider extends ServiceProvider
 {
     public function boot()
