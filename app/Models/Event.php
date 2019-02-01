@@ -28,6 +28,6 @@ class Event extends BaseModel implements Reviewable
     {
         return $this->hasMany(Slot::class)
             ->with('track')
-            ->orderBy('starts_at', 'track.name');
+            ->orderBy('starts_at');
     }
 }
