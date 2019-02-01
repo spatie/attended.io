@@ -16,7 +16,8 @@
         "laravel/telescope": "^1.0",
         "laravel/tinker": "^1.0",
         "myclabs/php-enum": "^1.6",
-        "spatie/eloquent-sortable": "^3.4"
+        "spatie/eloquent-sortable": "^3.4",
+        "spatie/laravel-menu": "^3.2"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

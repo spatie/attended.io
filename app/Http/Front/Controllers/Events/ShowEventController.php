@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Front\Controllers;
+namespace App\Http\Front\Controllers\Events;
 
 use App\Models\Event;
 use App\Models\Slot;
 
-class EventsController
+class ShowEventController
 {
     public function show(Event $event)
     {

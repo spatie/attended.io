@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Front\Controllers;
+namespace App\Http\Front\Controllers\Events;
 
 use App\Models\Event;
 
-class HomeController
+class RecentAndUpcomingEventsListController
 {
     public function index()
     {
@@ -14,6 +14,6 @@ class HomeController
             ->limit(10)
             ->get();
 
-        return view('front.home.index', compact('events'));
+        return view('front.events.recent-and-upcoming-index', compact('events'));
     }
 }
