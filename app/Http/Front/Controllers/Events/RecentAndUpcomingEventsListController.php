@@ -9,10 +9,9 @@ class RecentAndUpcomingEventsListController
     public function __invoke()
     {
         $events = Event::query()
-            ->where('starts_at', '<=', now()->subDay(4))
+            ->where('starts_at', '>=', now()->subDay(4))
             ->orderBy('starts_at')
-            ->limit(10)
-            ->get();
+            ->paginate();
 
         return view('front.events.recent-and-upcoming-index', compact('events'));
     }

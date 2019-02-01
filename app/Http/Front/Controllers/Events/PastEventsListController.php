@@ -10,8 +10,8 @@ class PastEventsListController
     {
         $events = Event::query()
             ->where('ends_at', '<', now())
-            ->orderBy('ends_at')
-            ->get();
+            ->orderBy('ends_at', 'desc')
+            ->paginate();
 
         return view('front.events.past-events-index', compact('events'));
 

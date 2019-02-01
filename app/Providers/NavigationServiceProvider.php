@@ -16,7 +16,7 @@ class NavigationServiceProvider extends ServiceProvider
         Menu::macro('events', function () {
             return Menu::new()
                 ->action(RecentAndUpcomingEventsListController::class, 'Recent and upcoming')
-                ->action(PastEventsListController::class, 'Upcoming');
+                ->action(PastEventsListController::class, 'Past events');
         });
     }
 }
