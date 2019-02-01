@@ -4,7 +4,7 @@
         @foreach($slots as $slot)
             @php
                 $startHourChanged = $slot->startHour() !== optional($previousSlot ?? null)->startHour();
-                $trackChanged = $slot->track !== optional($previousSlot ?? null)->track;
+                $trackChanged = $slot->trackName() !== optional($previousSlot ?? null)->trackName();
                 $previousSlot = $slot;
             @endphp
             <tr>
@@ -15,7 +15,7 @@
                 </td>
                 <td>
                     @if ($trackChanged || $startHourChanged)
-                        {{ $slot->track }}
+                        {{ $slot->trackName() }}
                     @endif
                 </td>
                 <td>

@@ -9,6 +9,7 @@ class DatabaseSeeder extends Seeder
         $this
             ->call(UserSeeder::class)
             ->call(EventSeeder::class)
+            ->call(TrackSeeder::class)
             ->call(SlotSeeder::class)
             ->call(ReviewSeeder::class);
     }

@@ -19,6 +19,11 @@ class Slot extends BaseModel implements Reviewable
         'ends_at',
     ];
 
+    public function track(): BelongsTo
+    {
+        return $this->belongsTo(Track::class);
+    }
+
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class);
@@ -27,5 +32,10 @@ class Slot extends BaseModel implements Reviewable
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function trackName(): string
+    {
+        return optional($this->track)->name ?? '';
     }
 }

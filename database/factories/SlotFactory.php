@@ -14,7 +14,6 @@ $factory->define(Slot::class, function (Faker $faker) {
     return [
         'name' => $faker->sentence,
         'description' => $faker->paragraphs(3, true),
-        'track' => $faker->word,
         'event_id' => factory(Event::class),
         'type' => $faker->randomElement(SlotType::values()),
         'starts_at' => $startsAt,

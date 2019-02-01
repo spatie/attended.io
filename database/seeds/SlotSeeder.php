@@ -2,6 +2,7 @@
 
 use App\Models\Event;
 use App\Models\Slot;
+use App\Models\Track;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
@@ -11,23 +12,19 @@ class SlotSeeder extends Seeder
     public function run()
     {
         Event::get()->each(function (Event $event) {
-            $randomScheduleTimes = $this->generateRandomSlotTimes($event);
+            $slotTimes = $this->generateRandomSlotTimes($event);
 
-            $trackNames = Collection::times(rand(1, 3))->map(function () {
-                return faker()->word;
-            });
-
-            foreach ($trackNames as $trackName) {
-                $randomScheduleTimes->each(function ($slotTime) use ($event, $trackName) {
+            $event->tracks->each(function (Track $track) use ($slotTimes) {
+                $slotTimes->each(function ($slotTime) use ($track) {
                     factory(Slot::class)->create([
-                        'event_id' => $event->id,
-                        'track' => $trackName,
+                        'track_id' => faker()->boolean(90) ? $track->id : null,
+                        'event_id' => $track->event->id,
                         'starts_at' => $slotTime['startsAt'],
                         'ends_at' => $slotTime['endsAt'],
                         'user_id' => faker()->boolean(50) ? User::inRandomOrder()->first() : null,
                     ]);
                 });
-            }
+            });
         });
     }
 
@@ -38,7 +35,7 @@ class SlotSeeder extends Seeder
         $startsAt = $event->starts_at;
 
         while (true) {
-            $endsAt = $startsAt->copy()->addMinutes(faker()->randomElement([15,30, 60, 90, 120, 360]));
+            $endsAt = $startsAt->copy()->addMinutes(faker()->randomElement([15, 30, 60, 90, 120, 360]));
 
             if ($endsAt->greaterThan($event->ends_at)) {
                 return $slotTimes;

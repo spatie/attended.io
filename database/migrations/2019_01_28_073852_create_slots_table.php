@@ -10,14 +10,14 @@ class CreateSlotsTable extends Migration
     {
         Schema::create('slots', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('event_id');
+            $table->unsignedInteger('event_id');
+            $table->unsignedInteger('track_id')->nullable();
             $table->string('name');
             $table->string('slug');
             $table->text('description');
             $table->string('type');
             $table->timestamp('starts_at')->nullable();
             $table->timestamp('ends_at')->nullable();
-            $table->string('track');
             $table->string('speaker_name');
             $table->string('user_id')->nullable();
 
