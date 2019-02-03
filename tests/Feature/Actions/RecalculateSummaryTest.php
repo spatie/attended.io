@@ -18,7 +18,6 @@ class RecalculateSummaryTest extends TestCase
             ->addReview($slot, 4)
             ->addReview($slot, 6);
 
-
         (new RecalculateReviewStatisticsAction())->execute($slot);
 
         $this->assertEquals(2, $slot->number_of_reviews);
