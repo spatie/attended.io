@@ -3,7 +3,6 @@
 namespace App\Actions;
 
 use App\Mail\ReviewSlotClaim;
-use App\Models\Ownership;
 use App\Models\PendingOwnership;
 use App\Models\Slot;
 use App\Models\User;
