@@ -11,4 +11,11 @@ trait HasOwners
     {
         return $this->morphToMany(User::class, 'ownable', 'ownerships');
     }
+
+    public function pendingOwners(): MorphToMany
+    {
+        return $this->morphToMany(User::class, 'ownable', 'pending_ownerships');
+    }
+
+
 }

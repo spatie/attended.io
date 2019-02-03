@@ -31,7 +31,9 @@ class SlotSeeder extends Seeder
 
             if (faker()->boolean(90)) {
                 $users->each(function (User $user) use ($slot) {
-                    $slot->owners()->attach($user);
+                    faker()->boolean(90)
+                        ? $slot->owners()->attach($user)
+                        : $slot->pendingOwners()->attach($user);
                 });
             }
         });

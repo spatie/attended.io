@@ -8,6 +8,13 @@
 
     @include('front.reviews.partials.summary', ['reviewable' => $slot])
 
+    @can('claim', $slot)
+        <form method="POST" action="{{ route('slots.claim', $slot->idSlug()) }}">
+            @csrf
+            <button type="submit">Claim</button>
+        </form>
+    @endcan
+
     {{ $slot->description }}
 
     @include('front.reviews.partials.feedback', ['reviewable' => $slot])

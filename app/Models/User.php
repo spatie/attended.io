@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasSlug;
+use App\Models\Interfaces\Ownable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -30,13 +32,27 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->hasMany(Review::class);
     }
 
-    public function events()
+    public function events(): MorphToMany
     {
         return $this->morphedByMany(Event::class, 'ownable');
     }
 
-    public function slots()
+    public function slots(): MorphToMany
     {
         return $this->morphedByMany(Slot::class, 'ownable');
+    }
+
+    public function owns(Ownable $ownable): bool
+    {
+        return $ownable->owners->contains(function (User $owner) {
+            return $owner->id === $this->id;
+        });
+    }
+
+    public function claimingOwnership(Ownable $ownable): bool
+    {
+        return $ownable->pendingOwners->contains(function (User $owner) {
+            return $owner->id === $this->id;
+        });
     }
 }

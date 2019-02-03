@@ -15,6 +15,6 @@ class StoreReviewAction
             'remarks' => $reviewAttributes['remarks'] ?? null,
         ]);
 
-        (new RecalculateReviewStatistics())->execute($reviewable);
+        (new RecalculateReviewStatisticsAction())->execute($reviewable);
     }
 }

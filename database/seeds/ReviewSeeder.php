@@ -1,6 +1,6 @@
 <?php
 
-use App\Actions\RecalculateReviewStatistics;
+use App\Actions\RecalculateReviewStatisticsAction;
 use App\Models\Event;
 use App\Models\Review;
 use App\Models\Slot;
@@ -32,7 +32,7 @@ class ReviewSeeder extends Seeder
                 ]);
             });
 
-            (new RecalculateReviewStatistics())->execute($model);
+            (new RecalculateReviewStatisticsAction())->execute($model);
         });
     }
 }
