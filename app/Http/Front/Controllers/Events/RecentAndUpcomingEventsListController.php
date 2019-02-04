@@ -2,6 +2,7 @@
 
 namespace App\Http\Front\Controllers\Events;
 
+use App\Models\Attendance;
 use App\Models\Event;
 
 class RecentAndUpcomingEventsListController
@@ -13,7 +14,10 @@ class RecentAndUpcomingEventsListController
             ->orderBy('starts_at')
             ->paginate();
 
-        $attendances = Attendance::getForUser(current_user(), $events);
+        $attendances = Attendance::query()
+            ->forEvents($events->items())
+            ->byUser(current_user())
+            ->get();
 
         return view('front.events.recent-and-upcoming-index', compact('events', 'attendances'));
     }
