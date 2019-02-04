@@ -5,15 +5,5 @@
     {{ $event->location }}
     {{ $event->description }}
 
-    @auth
-        @if($event->attendedByCurrentUser())
-            @if($event->ends_at->isFuture())
-                Attending
-            @else
-                Attended
-            @endif
-        @else
-            Attend
-        @endif
-    @endauth
+    @include('front.events.partials.attending', ['attending' => $event->attendedByCurrentUser()])
 </div>

@@ -5,5 +5,7 @@
     {{ $event->timespan() }}
     {{ $event->location }}
 
+    @include('front.events.partials.attending', ['attending' => $event->attendedBy(current_user())])
+
     @include('front.events.partials.schedule')
 @endsection

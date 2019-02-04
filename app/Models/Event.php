@@ -43,12 +43,24 @@ class Event extends BaseModel implements Reviewable, Ownable
 
     public function currentUserAttendance(): HasMany
     {
-        return $this->hasMany(Attendance::class)->where('user_id', current_user()->id);
+        return $this->hasMany(Attendance::class)->where('user_id', optional(current_user())->id);
     }
 
     public function attendedByCurrentUser(): bool
     {
         return count($this->currentUserAttendance) > 0;
+    }
+
+    public function attendedBy(?User $user): bool
+    {
+        if (is_null($user)) {
+            return false;
+        }
+
+        return Attendance::query()
+            ->where('event_id', $this->id)
+            ->where('user_id', $user->id)
+            ->count() > 0;
     }
 
     public function scopeApproved(Builder $query)

@@ -1,0 +1,11 @@
+@auth
+    @if($attending)
+        @if($event->ends_at->isFuture())
+            Attending
+        @else
+            Attended
+        @endif
+    @else
+        Attend
+    @endif
+@endauth
