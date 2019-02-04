@@ -20,7 +20,7 @@ Route::prefix('my-events')->middleware('auth')->group(function () {
     Route::get('events/{event}', [MyEventsController::class, 'edit'])->name('event-admin.events.edit');
 });
 
-Route::prefix('/events/{event}')->group(function() {
+Route::prefix('/events/{event}')->group(function () {
     Route::get('/', [ShowEventController::class, 'show'])->name('events.show');
     Route::post('attend', AttendEventController::class);
     Route::post('do-not-attend', AttendEventController::class);

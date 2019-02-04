@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Services\UserAttendance;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Attendance extends BaseModel

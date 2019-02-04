@@ -2,7 +2,6 @@
 
 namespace App\Http\Front\Controllers\Events;
 
-use App\Models\Attendance;
 use App\Models\Event;
 
 class RecentAndUpcomingEventsListController

@@ -3,7 +3,6 @@
 use App\Models\Attendance;
 use App\Models\Event;
 use App\Models\User;
-use Faker\Generator as Faker;
 
 $factory->define(Attendance::class, function () {
     return [
