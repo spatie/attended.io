@@ -6,6 +6,8 @@ class MyEventsListController
 {
     public function __invoke()
     {
-        return view('front.event-admin.my-events-index');
+        $events = current_user()->events()->paginate();
+
+        return view('front.event-admin.my-events-index', compact('events'));
     }
 }

@@ -12,7 +12,7 @@ use App\Http\Front\Controllers\UsersController;
 Route::get('/', RecentAndUpcomingEventsListController::class);
 Route::get('/past-events', PastEventsListController::class);
 
-Route::prefix('my-events')->group(function () {
+Route::prefix('my-events')->middleware('auth')->group(function () {
     Route::get('/past-events', MyEventsListController::class);
 });
 

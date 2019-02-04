@@ -34,12 +34,14 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function events(): MorphToMany
     {
-        return $this->morphedByMany(Event::class, 'ownable');
+        return $this
+            ->morphedByMany(Event::class, 'ownable', 'ownerships')
+            ->orderBy('starts_at', 'desc');
     }
 
     public function slots(): MorphToMany
     {
-        return $this->morphedByMany(Slot::class, 'ownable');
+        return $this->morphedByMany(Slot::class, 'ownable', 'ownerships');
     }
 
     public function owns(Ownable $ownable): bool
