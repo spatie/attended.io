@@ -6,8 +6,14 @@
     {{ $event->description }}
 
     @auth
-        @if($userAttandance->exist($event))
-            @if($user->ends_at->isFuture())
+        @if($currentUserAttendance->exists($event))
+            @if($events->ends_at->isFuture())
+                Attending
+            @else
+                Attended
+            @endif
+        @else
+            Attend
         @endif
     @endauth
 </div>

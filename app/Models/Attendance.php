@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 
 class Attendance extends BaseModel
 {
-    public static function getForUser(User $user, Collection $events): UserAttendance
+    public static function getForUser(?User $user, Collection $events): UserAttendance
     {
         return new UserAttendance($user, $events);
     }
