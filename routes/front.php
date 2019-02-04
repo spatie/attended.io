@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Front\Controllers\EventAdmin\Events\MyEventsController;
+use App\Http\Front\Controllers\Events\AttendEventController;
 use App\Http\Front\Controllers\Events\PastEventsListController;
 use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
 use App\Http\Front\Controllers\Events\ShowEventController;
@@ -17,7 +18,11 @@ Route::prefix('my-events')->middleware('auth')->group(function () {
     Route::get('events/{event}', [MyEventsController::class, 'edit'])->name('event-admin.events.edit');
 });
 
-Route::get('/events/{event}', [ShowEventController::class, 'show'])->name('events.show');
+Route::prefix('/events/{event}')->group(function() {
+    Route::get('/', [ShowEventController::class, 'show'])->name('events.show');
+    Route::post('attend', AttendEventController::class);
+    Route::post('do-not-attend', AttendEventController::class);
+});
 
 Route::get('/slots/{slot}', ShowSlotController::class)->name('slots.show');
 Route::post('/slots/{slot}/claim', ClaimSlotController::class)->name('slots.claim');

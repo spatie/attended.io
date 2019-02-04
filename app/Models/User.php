@@ -6,6 +6,7 @@ use App\Models\Concerns\HasSlug;
 use App\Models\Interfaces\Ownable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -56,5 +57,20 @@ class User extends Authenticatable implements MustVerifyEmail
         return $ownable->pendingOwners->contains(function (User $owner) {
             return $owner->id === $this->id;
         });
+    }
+
+    public function attendedEvents(): HasManyThrough
+    {
+        return $this->hasManyThrough(Event::class, Attendence::class);
+    }
+
+    public function attended(Event $event): bool
+    {
+        return Attendence::query()
+            ->where([
+                'user_id' => $this->id,
+                'event_id' => $event->id,
+            ])
+            ->count() > 0;
     }
 }

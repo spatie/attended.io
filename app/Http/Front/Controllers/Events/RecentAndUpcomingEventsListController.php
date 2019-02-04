@@ -13,6 +13,8 @@ class RecentAndUpcomingEventsListController
             ->orderBy('starts_at')
             ->paginate();
 
-        return view('front.events.recent-and-upcoming-index', compact('events'));
+        $attendences = Attendance::getForUser(current_user(), $events);
+
+        return view('front.events.recent-and-upcoming-index', compact('events', 'attendences'));
     }
 }

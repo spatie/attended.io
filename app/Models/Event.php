@@ -9,6 +9,7 @@ use App\Models\Interfaces\Ownable;
 use App\Models\Interfaces\Reviewable;
 use App\Models\Presenters\PresentsEvent;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Event extends BaseModel implements Reviewable, Ownable
 {
@@ -32,5 +33,10 @@ class Event extends BaseModel implements Reviewable, Ownable
         return $this->hasMany(Slot::class)
             ->with('track')
             ->orderBy('starts_at');
+    }
+
+    public function attendees(): HasManyThrough
+    {
+        return $this->hasManyThrough(User::class, Attendence::class);
     }
 }
