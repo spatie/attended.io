@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
             ->call(EventSeeder::class)
             ->call(TrackSeeder::class)
             ->call(SlotSeeder::class)
-            ->call(ReviewSeeder::class);
+            ->call(ReviewSeeder::class)
+            ->call(AttendanceSeeder::class);
     }
 }
