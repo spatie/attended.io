@@ -4,7 +4,7 @@ namespace App\Http\Front\Controllers\Events;
 
 use App\Actions\DoNotAttendEventAction;
 
-class AttendEventController
+class DoNotAttendEventController
 {
     public function __invoke(Event $event, DoNotAttendEventAction $doNotAttendEventAction)
     {

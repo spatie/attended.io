@@ -2,6 +2,7 @@
 
 use App\Http\Front\Controllers\EventAdmin\Events\MyEventsController;
 use App\Http\Front\Controllers\Events\AttendEventController;
+use App\Http\Front\Controllers\Events\DoNotAttendEventController;
 use App\Http\Front\Controllers\Events\PastEventsListController;
 use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
 use App\Http\Front\Controllers\Events\ShowEventController;
@@ -23,7 +24,7 @@ Route::prefix('my-events')->middleware('auth')->group(function () {
 Route::prefix('/events/{event}')->group(function () {
     Route::get('/', [ShowEventController::class, 'show'])->name('events.show');
     Route::post('attend', AttendEventController::class);
-    Route::post('do-not-attend', AttendEventController::class);
+    Route::post('do-not-attend', DoNotAttendEventController::class);
 });
 
 Route::get('/slots/{slot}', ShowSlotController::class)->name('slots.show');
