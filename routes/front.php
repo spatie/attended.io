@@ -15,6 +15,8 @@ Route::get('/past-events', PastEventsListController::class);
 
 Route::prefix('my-events')->middleware('auth')->group(function () {
     Route::get('/', [MyEventsController::class, 'index']);
+    Route::get('/create', [MyEventsController::class, 'create'])->name('event-admin.events.create');
+    Route::post('/create', [MyEventsController::class, 'store'])->name('event-admin.events.store');
     Route::get('events/{event}', [MyEventsController::class, 'edit'])->name('event-admin.events.edit');
 });
 

@@ -5,6 +5,7 @@
 
     <h1>My events</h1>
 
+    <a href="{{ route('event-admin.events.create') }}">Host new event</a>
 
     <ul>
         {{ $events->links() }}
