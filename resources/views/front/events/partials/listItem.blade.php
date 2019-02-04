@@ -4,4 +4,10 @@
     {{ $event->timespan() }}
     {{ $event->location }}
     {{ $event->description }}
+
+    @auth
+        @if($userAttandance->exist($event))
+            @if($user->ends_at->isFuture())
+        @endif
+    @endauth
 </div>

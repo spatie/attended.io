@@ -2,11 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Builder;
+use App\Services\UserAttendance;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Collection;
 
 class Attendance extends BaseModel
 {
+    public static function getForUser(User $user, Collection $events): UserAttendance
+    {
+        return new UserAttendance($user, $events);
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -15,15 +21,5 @@ class Attendance extends BaseModel
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class);
-    }
-
-    public function scopeForEvents(Builder $query, array $events)
-    {
-        $query->whereIn('event_id', array_pluck($events, 'id'));
-    }
-
-    public function scopeByUser(Builder $query, ?User $user)
-    {
-        $query->where('user_id', optional($user)->id);
     }
 }
