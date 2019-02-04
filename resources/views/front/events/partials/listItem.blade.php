@@ -6,7 +6,7 @@
     {{ $event->description }}
 
     @auth
-        @if($currentUserAttendance->exists($event))
+        @if($event->attendedByCurrentUser())
             @if($event->ends_at->isFuture())
                 Attending
             @else

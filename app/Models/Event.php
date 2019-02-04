@@ -29,8 +29,6 @@ class Event extends BaseModel implements Reviewable, Ownable
         return $this->hasMany(Track::class)->orderBy('order_column');
     }
 
-
-
     public function slots(): HasMany
     {
         return $this->hasMany(Slot::class)
@@ -43,9 +41,14 @@ class Event extends BaseModel implements Reviewable, Ownable
         return $this->hasManyThrough(User::class, Attendance::class);
     }
 
-    public function currentUserAttendance(): HasManyThrough
+    public function currentUserAttendance(): HasMany
     {
-        return $this->attendees()->where('user_id', current_user()->id);
+        return $this->hasMany(Attendance::class)->where('user_id', current_user()->id);
+    }
+
+    public function attendedByCurrentUser(): bool
+    {
+        return count($this->currentUserAttendance) > 0;
     }
 
     public function scopeApproved(Builder $query)

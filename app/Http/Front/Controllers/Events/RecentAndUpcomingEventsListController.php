@@ -10,15 +10,11 @@ class RecentAndUpcomingEventsListController
     public function __invoke()
     {
         $events = Event::query()
+            ->with('currentUserAttendance')
             ->where('starts_at', '>=', now()->subDay(4))
             ->orderBy('starts_at')
             ->paginate();
 
-        $currentUserAttendance = Attendance::getForUser(current_user(), collect($events->items()));
-
-        return view('front.events.recent-and-upcoming-index', compact(
-            'events',
-            'currentUserAttendance'
-        ));
+        return view('front.events.recent-and-upcoming-index', compact('events'));
     }
 }
