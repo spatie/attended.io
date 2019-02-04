@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Attendence extends BaseModel
+class Attendance extends BaseModel
 {
     public function user(): BelongsTo
     {

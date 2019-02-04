@@ -61,12 +61,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function attendedEvents(): HasManyThrough
     {
-        return $this->hasManyThrough(Event::class, Attendence::class);
+        return $this->hasManyThrough(Event::class, Attendance::class);
     }
 
     public function attended(Event $event): bool
     {
-        return Attendence::query()
+        return Attendance::query()
             ->where([
                 'user_id' => $this->id,
                 'event_id' => $event->id,

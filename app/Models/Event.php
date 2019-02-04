@@ -37,6 +37,6 @@ class Event extends BaseModel implements Reviewable, Ownable
 
     public function attendees(): HasManyThrough
     {
-        return $this->hasManyThrough(User::class, Attendence::class);
+        return $this->hasManyThrough(User::class, Attendance::class);
     }
 }
