@@ -2,6 +2,7 @@
 
 namespace App\Http\Front\Controllers\Events;
 
+use App\Models\Attendance;
 use App\Models\Event;
 
 class PastEventsListController
@@ -13,6 +14,11 @@ class PastEventsListController
             ->orderBy('ends_at', 'desc')
             ->paginate();
 
-        return view('front.events.past-events-index', compact('events'));
+        $currentUserAttendance = Attendance::getForUser(current_user(), collect($events->items()));
+
+        return view('front.events.past-events-index', compact(
+            'events',
+            'currentUserAttendance'
+        ));
     }
 }
