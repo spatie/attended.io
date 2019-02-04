@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Front\Controllers\EventAdmin\MyEventsListController;
+use App\Http\Front\Controllers\EventAdmin\Events\MyEventsController;
 use App\Http\Front\Controllers\Events\PastEventsListController;
 use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
 use App\Http\Front\Controllers\Events\ShowEventController;
@@ -13,9 +13,9 @@ Route::get('/', RecentAndUpcomingEventsListController::class);
 Route::get('/past-events', PastEventsListController::class);
 
 Route::prefix('my-events')->middleware('auth')->group(function () {
-    Route::get('/past-events', MyEventsListController::class);
+    Route::get('/', [MyEventsController::class, 'index']);
+    Route::get('events/{event}', [MyEventsController::class, 'edit'])->name('event-admin.events.edit');
 });
-
 
 Route::get('/events/{event}', [ShowEventController::class, 'show'])->name('events.show');
 
