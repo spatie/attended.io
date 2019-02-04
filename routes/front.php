@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Front\Controllers\EventAdmin\MyEventsListController;
 use App\Http\Front\Controllers\Events\PastEventsListController;
 use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
 use App\Http\Front\Controllers\Events\ShowEventController;
@@ -10,6 +11,11 @@ use App\Http\Front\Controllers\UsersController;
 
 Route::get('/', RecentAndUpcomingEventsListController::class);
 Route::get('/past-events', PastEventsListController::class);
+
+Route::prefix('my-events')->group(function () {
+    Route::get('/past-events', MyEventsListController::class);
+});
+
 
 Route::get('/events/{event}', [ShowEventController::class, 'show'])->name('events.show');
 

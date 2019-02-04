@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Front\Controllers\EventAdmin\MyEventsListController;
 use App\Http\Front\Controllers\Events\PastEventsListController;
 use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
 use Illuminate\Support\ServiceProvider;
@@ -15,7 +16,8 @@ class NavigationServiceProvider extends ServiceProvider
         Menu::macro('events', function () {
             return Menu::new()
                 ->action(RecentAndUpcomingEventsListController::class, 'Recent and upcoming')
-                ->action(PastEventsListController::class, 'Past events');
+                ->action(PastEventsListController::class, 'Past events')
+                ->action(MyEventsListController::class, 'My events');
         });
     }
 }
