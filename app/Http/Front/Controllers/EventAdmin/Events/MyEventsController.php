@@ -2,6 +2,7 @@
 
 namespace App\Http\Front\Controllers\EventAdmin\Events;
 
+use App\Models\Event;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class MyEventsController
@@ -20,6 +21,5 @@ class MyEventsController
         $this->authorize('administer', $event);
 
         return view('front.event-admin.events.edit', compact('event'));
-
     }
 }
