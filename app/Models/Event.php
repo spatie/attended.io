@@ -8,6 +8,7 @@ use App\Models\Concerns\HasSlug;
 use App\Models\Interfaces\Ownable;
 use App\Models\Interfaces\Reviewable;
 use App\Models\Presenters\PresentsEvent;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
@@ -38,5 +39,10 @@ class Event extends BaseModel implements Reviewable, Ownable
     public function attendees(): HasManyThrough
     {
         return $this->hasManyThrough(User::class, Attendance::class);
+    }
+
+    public function scopeApproved(Builder $query)
+    {
+        $query->whereNotNull('approved_at');
     }
 }
