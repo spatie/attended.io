@@ -7,7 +7,7 @@
 
     @auth
         @if($currentUserAttendance->exists($event))
-            @if($events->ends_at->isFuture())
+            @if($event->ends_at->isFuture())
                 Attending
             @else
                 Attended
