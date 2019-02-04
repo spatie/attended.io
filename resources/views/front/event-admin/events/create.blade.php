@@ -2,7 +2,6 @@
 
 @section('content')
     <h1>Host new event</h1>
-    {{ $errors }}
 
     <form action="{{ route('event-admin.events.store') }}" method="POST">
         @csrf

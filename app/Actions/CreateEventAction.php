@@ -7,8 +7,13 @@ use App\Models\Event;
 
 class CreateEventAction
 {
-    public function execute(EventRequest $eventRequest): Event
+    public function execute(EventRequest $request): Event
     {
-        return Event::create($eventRequest->validated());
+        /** @var \App\Models\Event $event */
+        $event = Event::create($request->validated());
+
+        $event->owners()->attach($request->user());
+
+        return $event;
     }
 }

@@ -22,6 +22,8 @@ class CreateEventsTable extends Migration
             $table->integer('number_of_reviews')->default(0);
             $table->integer('average_review_rating')->default(0);
 
+            $table->timestamp('approved_at')->nullable();
+
             $table->timestamps();
         });
     }
