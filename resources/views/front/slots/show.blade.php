@@ -1,5 +1,9 @@
 @extends('front.layouts.main')
 
+@push('headers')
+<link rel="canonical" href="{{ route('slots.show', $slot->idSlug()) }}" />
+@endpush
+
 @section('content')
 
     <h1>{{ $slot->name }}</h1>
