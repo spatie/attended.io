@@ -176,6 +176,7 @@ return [
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         \App\Providers\NavigationServiceProvider::class,
+        \App\Providers\BladeXServiceProvider::class,
 
     ],
 

@@ -21,3 +21,20 @@ function ok(): Response
 {
     return response('', SymfonyResponse::HTTP_NO_CONTENT);
 }
+
+function formValue(
+    string $property,
+    object $object = null,
+    ?string $objectProperty = null,
+    ?string $defaultValue = null
+): ?string {
+    $property = preg_replace('/\[(.+)\]/U', '.$1', $property);
+
+    if (! $object) {
+        return old($property, $defaultValue);
+    }
+
+    $objectProperty = $objectProperty ?? $property;
+
+    return old($property, $object->{$objectProperty} ?? $defaultValue);
+}
