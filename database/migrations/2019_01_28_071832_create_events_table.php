@@ -14,7 +14,13 @@ class CreateEventsTable extends Migration
             $table->string('slug');
             $table->text('description');
             $table->text('location');
+            $table->string('city');
+            $table->string('country');
             $table->string('website');
+
+            $table->boolean('cfp')->default(false);
+            $table->string('cfp_link')->nullable();
+            $table->dateTime('cfp_deadline')->nullable();
 
             $table->timestamp('starts_at')->nullable();
             $table->timestamp('ends_at')->nullable();

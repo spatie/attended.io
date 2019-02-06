@@ -20,7 +20,7 @@
 
             <checkbox-field name="cfp" label="Call for papers" />
             <input-field name="cfp_link" label="Link" />
-            <input-field name=cfp_deadline label="Deadline" />
+            <input-field name=cfp_deadline label="Deadline" type="datetime" />
         </scope>
 
         <button>Save</button>
