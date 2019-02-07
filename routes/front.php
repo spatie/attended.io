@@ -10,6 +10,7 @@ use App\Http\Front\Controllers\ReviewsController;
 use App\Http\Front\Controllers\Slots\ClaimSlotController;
 use App\Http\Front\Controllers\Slots\ShowSlotController;
 use App\Http\Front\Controllers\UsersController;
+use App\Models\Slot;
 
 Route::get('/', RecentAndUpcomingEventsListController::class);
 Route::get('past-events', PastEventsListController::class);
@@ -33,3 +34,7 @@ Route::post('slots/{slot}/claim', ClaimSlotController::class)->name('slots.claim
 Route::post('reviews', [ReviewsController::class, 'store'])->name('reviews.store');
 
 Route::get('users/{user}', [UsersController::class, 'show'])->name('users.show');
+
+Route::get('{slotShortSlug}', function (Slot $slot) {
+    return redirect()->route('slots.show', $slot->idSlug());
+})->where(['slotShortSlug' => '[a-zA-Z0-9]{6}']);

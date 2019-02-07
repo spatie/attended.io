@@ -14,6 +14,7 @@ class CreateSlotsTable extends Migration
             $table->unsignedInteger('track_id')->nullable();
             $table->string('name');
             $table->string('slug');
+            $table->string('short_slug');
             $table->text('description');
             $table->string('type');
             $table->timestamp('starts_at')->nullable();

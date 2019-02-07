@@ -32,6 +32,10 @@ class RouteServiceProvider extends ServiceProvider
             return Slot::find($id);
         });
 
+        Route::bind('slotShortSlug', function (string $shortSlug) {
+            return Slot::findByShortSlug($shortSlug);
+        });
+
         Route::bind('user', function (string $idSlug) {
             [$id] = explode('-', $idSlug);
 
