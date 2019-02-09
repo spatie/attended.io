@@ -2,7 +2,9 @@
 
 namespace App\Models\Concerns;
 
+use App\Models\SlotOwnershipClaim;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 trait HasOwners

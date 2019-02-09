@@ -16,8 +16,6 @@ class ReviewsController
             $request->validated()
         );
 
-
-
         flash()->success("Thank you for your review!");
 
         return back();

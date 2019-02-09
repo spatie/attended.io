@@ -31,12 +31,31 @@ class SlotSeeder extends Seeder
 
             if (faker()->boolean(90)) {
                 $users->each(function (User $user) use ($slot) {
+                    $this->addRelation($user, $slot);
+
                     faker()->boolean(90)
                         ? $slot->owners()->attach($user)
-                        : $slot->pendingOwners()->attach($user);
+                        : $slot->claimingUsers()->attach($user);
                 });
             }
         });
+    }
+
+    protected function addRelation(User $user, Slot $slot)
+    {
+        if (faker()->boolean(90)) {
+            $slot->owners()->attach($user);
+
+            return;
+        }
+
+        if (faker()->boolean(50)) {
+            $slot->claimingUsers()->attach($user);
+
+            return;
+        }
+
+        $slot->invitedToBeOwners()->attach($user);
     }
 
     protected function generateRandomSlotTimes(Event $event): Collection

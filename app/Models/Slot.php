@@ -10,6 +10,8 @@ use App\Models\Interfaces\Ownable;
 use App\Models\Interfaces\Reviewable;
 use App\Models\Presenters\PresentsSlot;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Slot extends BaseModel implements Reviewable, Ownable
 {
@@ -42,5 +44,16 @@ class Slot extends BaseModel implements Reviewable, Ownable
     public function trackName(): string
     {
         return optional($this->track)->name ?? '';
+    }
+
+    public function claimingUsers(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'slot_ownership_claims')->withTimestamps();
+    }
+
+    public function invitedToBeOwners(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'slot_ownership_invites')->withTimestamps();
+
     }
 }
