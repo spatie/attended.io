@@ -13,7 +13,7 @@ class ClaimSlotController
 
     public function __invoke(Slot $slot, ClaimSlotAction $claimSlotAction)
     {
-        $this->authorize(SlotPolicy::ABILITY_CLAIM, $slot);
+        $this->authorize('claim', $slot);
 
         $claimSlotAction->execute(current_user(), $slot);
 

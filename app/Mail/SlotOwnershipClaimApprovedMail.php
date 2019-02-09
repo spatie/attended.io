@@ -9,15 +9,15 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ReviewSlotClaim extends Mailable
+class SlotOwnershipClaimApprovedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     /** @var \App\Mail\User */
-    protected $claimingUser;
+    public $claimingUser;
 
     /** @var \App\Models\Slot */
-    protected $slot;
+    public $slot;
 
     public function __construct(User $claimingUser, Slot $slot)
     {
@@ -29,7 +29,7 @@ class ReviewSlotClaim extends Mailable
     public function build()
     {
         return $this
-            ->subject("{{ $this->claimingUser->email }} wants to claim slot named '{{ $this->slot->name }}'")
-            ->markdown('mails.review-slot-claim');
+            ->subject("Your claim on {{ $this->slot->name }} has been approved")
+            ->markdown('mails.slot-ownership-claim-approved');
     }
 }

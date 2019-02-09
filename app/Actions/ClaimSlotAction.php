@@ -2,7 +2,7 @@
 
 namespace App\Actions;
 
-use App\Mail\ReviewSlotClaim;
+use App\Mail\ReviewSlotClaimMail;
 use App\Models\PendingOwnership;
 use App\Models\Slot;
 use App\Models\User;
@@ -16,6 +16,6 @@ class ClaimSlotAction
 
         $eventOwnerEmails = $slot->event->owners->pluck('email')->toArray();
 
-        Mail::to($eventOwnerEmails)->queue(new ReviewSlotClaim($claimingUser, $slot));
+        Mail::to($eventOwnerEmails)->queue(new ReviewSlotClaimMail($claimingUser, $slot));
     }
 }

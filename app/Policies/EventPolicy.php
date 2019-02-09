@@ -10,7 +10,7 @@ class EventPolicy
 {
     use HandlesAuthorization;
 
-    public function administer(User $user, Event $event)
+    public function administer(User $user, Event $event): bool
     {
         return $user->owns($event);
     }

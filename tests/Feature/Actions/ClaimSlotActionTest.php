@@ -3,7 +3,7 @@
 namespace Tests\Feature\Actions;
 
 use App\Actions\ClaimSlotAction;
-use App\Mail\ReviewSlotClaim;
+use App\Mail\ReviewSlotClaimMail;
 use App\Models\Slot;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
@@ -30,7 +30,7 @@ class ClaimSlotActionTest extends TestCase
         $this->assertTrue($user->isClaimingSlot($slot));
         $this->assertFalse($user->owns($slot));
 
-        Mail::assertQueued(ReviewSlotClaim::class, function (ReviewSlotClaim $mail) use ($slot) {
+        Mail::assertQueued(ReviewSlotClaimMail::class, function (ReviewSlotClaimMail $mail) use ($slot) {
             foreach ($slot->event->owners as $eventOwner) {
                 if (! $mail->hasTo($eventOwner->email)) {
                     return false;

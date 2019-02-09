@@ -7,6 +7,8 @@ use App\Http\Front\Controllers\Events\PastEventsListController;
 use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
 use App\Http\Front\Controllers\Events\ShowEventController;
 use App\Http\Front\Controllers\ReviewsController;
+use App\Http\Front\Controllers\SlotOwnershipClaims\ApproveSlotOwnershipClaimController;
+use App\Http\Front\Controllers\SlotOwnershipClaims\RejectSlotOwnershipClaimController;
 use App\Http\Front\Controllers\Slots\ClaimSlotController;
 use App\Http\Front\Controllers\Slots\ShowSlotController;
 use App\Http\Front\Controllers\UsersController;
@@ -30,6 +32,11 @@ Route::prefix('/events/{event}')->group(function () {
 
 Route::get('slots/{slot}', ShowSlotController::class)->name('slots.show');
 Route::post('slots/{slot}/claim', ClaimSlotController::class)->name('slots.claim');
+
+Route::prefix('slot-ownership-claims/{slotOwnershipClaim}')->group(function () {
+    Route::post('approve', ApproveSlotOwnershipClaimController::class);
+    Route::post('reject', RejectSlotOwnershipClaimController::class);
+});
 
 Route::post('reviews', [ReviewsController::class, 'store'])->name('reviews.store');
 
