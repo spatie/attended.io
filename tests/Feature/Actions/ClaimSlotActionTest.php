@@ -23,9 +23,11 @@ class ClaimSlotActionTest extends TestCase
             $slot->event->owners()->attach($user);
         });
 
+        $this->assertFalse($user->isClaimingSlot($slot));
+
         (new ClaimSlotAction())->execute($user, $slot);
 
-        $this->assertTrue($user->claimingOwnership($slot));
+        $this->assertTrue($user->isClaimingSlot($slot));
         $this->assertFalse($user->owns($slot));
 
         Mail::assertQueued(ReviewSlotClaim::class, function (ReviewSlotClaim $mail) use ($slot) {

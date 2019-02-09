@@ -10,16 +10,12 @@ use Illuminate\Support\Facades\Mail;
 
 class ClaimSlotAction
 {
-    public function execute(User $user, Slot $slot)
+    public function execute(User $claimingUser, Slot $slot)
     {
-        $pendingOwnership = PendingOwnership::create([
-            'user_id' => $user->id,
-            'ownable_type' => get_class($slot),
-            'ownable_id' => $slot->id,
-        ]);
+        $slot->claimingUsers()->attach($claimingUser);
 
         $eventOwnerEmails = $slot->event->owners->pluck('email')->toArray();
 
-        Mail::to($eventOwnerEmails)->queue(new ReviewSlotClaim($pendingOwnership));
+        Mail::to($eventOwnerEmails)->queue(new ReviewSlotClaim($claimingUser, $slot));
     }
 }

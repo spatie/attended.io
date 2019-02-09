@@ -52,11 +52,12 @@ class User extends Authenticatable implements MustVerifyEmail
         });
     }
 
-    public function claimingOwnership(Ownable $ownable): bool
+    public function isClaimingSlot(Slot $slot): bool
     {
-        return $ownable->pendingOwners->contains(function (User $owner) {
-            return $owner->id === $this->id;
-        });
+        return SlotOwnershipClaim::query()
+            ->where('user_id', $this->id)
+            ->where('slot_id', $slot->id)
+            ->exists();
     }
 
     public function attendedEvents(): HasManyThrough

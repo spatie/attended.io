@@ -3,6 +3,8 @@
 namespace App\Mail;
 
 use App\Models\PendingOwnership;
+use App\Models\Slot;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -11,22 +13,23 @@ class ReviewSlotClaim extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /** @var \App\Models\Ownership */
-    public $pendingOwnership;
+    /** @var \App\Mail\User */
+    protected $claimingUser;
 
-    public function __construct(PendingOwnership $pendingOwnership)
+    /** @var \App\Models\Slot */
+    protected $slot;
+
+    public function __construct(User $claimingUser, Slot $slot)
     {
-        $this->pendingOwnership = $pendingOwnership;
+        $this->claimingUser = $claimingUser;
+
+        $this->slot = $slot;
     }
 
     public function build()
     {
-        $claimingUserEmail = $this->pendingOwnership->user->email;
-
-        $slotName = $this->pendingOwnership->ownable->name;
-
         return $this
-            ->subject("{{ $claimingUserEmail }} wants to claim slot named '{{ $slotName }}'")
+            ->subject("{{ $this->claimingUser->email }} wants to claim slot named '{{ $this->slot->name }}'")
             ->markdown('mails.review-slot-claim');
     }
 }
