@@ -4,7 +4,7 @@ namespace App\Http\Front\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EventRequest extends FormRequest
+class UpdateEventRequest extends FormRequest
 {
     public function rules()
     {

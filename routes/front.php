@@ -28,6 +28,7 @@ Route::prefix('organizing')->middleware('auth')->group(function () {
     Route::get('create', [EventsController::class, 'create'])->name('event-admin.events.create');
     Route::post('create', [EventsController::class, 'store'])->name('event-admin.events.store');
     Route::get('events/{event}', [EventsController::class, 'edit'])->name('event-admin.events.edit');
+    Route::post('events/{event}', [EventsController::class, 'update'])->name('event-admin.events.update');
 
     Route::get('events/{event}/tracks', [TracksController::class, 'index'])->name('event-admin.tracks');
     Route::get('events/{event}/slots', [SlotsController::class, 'index'])->name('event-admin.slots');

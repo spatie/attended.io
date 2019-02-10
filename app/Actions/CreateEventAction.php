@@ -2,12 +2,12 @@
 
 namespace App\Actions;
 
-use App\Http\Front\Request\EventRequest;
+use App\Http\Front\Request\UpdateEventRequest;
 use App\Models\Event;
 
 class CreateEventAction
 {
-    public function execute(EventRequest $request): Event
+    public function execute(UpdateEventRequest $request): Event
     {
         /** @var \App\Models\Event $event */
         $event = Event::create($request->validated());
