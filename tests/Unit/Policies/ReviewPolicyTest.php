@@ -55,5 +55,4 @@ class ReviewPolicyTest extends TestCase
         $slot->event->owners()->attach($user);
         $this->assertTrue($user->can('delete', $review->refresh()));
     }
-
 }
