@@ -5,7 +5,7 @@ use App\Http\Front\Controllers\Events\AttendEventController;
 use App\Http\Front\Controllers\Events\DoNotAttendEventController;
 use App\Http\Front\Controllers\Events\PastEventsListController;
 use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
-use App\Http\Front\Controllers\Events\ShowEventController;
+use App\Http\Front\Controllers\Events\ShowEventScheduleController;
 use App\Http\Front\Controllers\Events\SpeakingAtEventsListController;
 use App\Http\Front\Controllers\ReviewsController;
 use App\Http\Front\Controllers\SlotOwnershipClaims\ApproveSlotOwnershipClaimController;
@@ -27,7 +27,7 @@ Route::prefix('organizing')->middleware('auth')->group(function () {
 });
 
 Route::prefix('/events/{event}')->group(function () {
-    Route::get('/', [ShowEventController::class, 'show'])->name('events.show');
+    Route::get('/', [ShowEventScheduleController::class, 'show'])->name('events.show');
     Route::post('attend', AttendEventController::class);
     Route::post('do-not-attend', DoNotAttendEventController::class);
 });
