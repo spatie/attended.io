@@ -9,6 +9,7 @@ class RecentAndUpcomingEventsListController
     public function __invoke()
     {
         $events = Event::query()
+            ->published()
             ->with('currentUserAttendance')
             ->where('starts_at', '>=', now()->subDay(4))
             ->orderBy('starts_at')

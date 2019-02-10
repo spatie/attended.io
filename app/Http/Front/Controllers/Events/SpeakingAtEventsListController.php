@@ -9,6 +9,7 @@ class SpeakingAtEventsListController
     public function __invoke()
     {
         $events = Event::query()
+            ->published()
             ->hasSlotWithSpeaker(current_user())
             ->orderBy('starts_at', 'desc')
             ->paginate();

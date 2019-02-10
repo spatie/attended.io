@@ -10,6 +10,19 @@ use Tests\TestCase;
 class EventTest extends TestCase
 {
     /** @test */
+    public function it_has_a_scope_to_get_published_events()
+    {
+        $publishedEvent = factory(Event::class)->create();
+
+        factory(Event::class)->state('unpublished')->create();
+
+        $publishedEvents = Event::published()->get();
+
+        $this->assertCount(1, $publishedEvents);
+        $this->assertEquals($publishedEvent->id, $publishedEvents->first()->id);
+    }
+
+    /** @test */
     public function it_has_a_scope_to_get_events_where_a_given_user_is_speaking()
     {
         $slots = factory(Slot::class, 3)->create();

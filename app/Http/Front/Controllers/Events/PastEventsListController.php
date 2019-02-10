@@ -9,6 +9,7 @@ class PastEventsListController
     public function __invoke()
     {
         $events = Event::query()
+            ->published()
             ->with('currentUserAttendance')
             ->where('ends_at', '<', now())
             ->orderBy('ends_at', 'desc')

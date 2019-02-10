@@ -22,6 +22,7 @@ class CreateEventsTable extends Migration
             $table->string('cfp_link')->nullable();
             $table->dateTime('cfp_deadline')->nullable();
 
+            $table->timestamp('published_at')->nullable();
             $table->timestamp('starts_at')->nullable();
             $table->timestamp('ends_at')->nullable();
 

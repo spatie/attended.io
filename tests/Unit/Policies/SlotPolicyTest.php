@@ -9,7 +9,6 @@ use Tests\TestCase;
 
 class SlotPolicyTest extends TestCase
 {
-
     /** @var \App\Models\Event */
     protected $event;
 
@@ -55,7 +54,7 @@ class SlotPolicyTest extends TestCase
     }
 
     /** @test */
-    public function an_slot_cannot_be_reviewed_before_it_starts()
+    public function a_slot_cannot_be_reviewed_before_it_starts()
     {
         $slot = factory(Slot::class)->create([
             'starts_at' => now()->addMinute(),
