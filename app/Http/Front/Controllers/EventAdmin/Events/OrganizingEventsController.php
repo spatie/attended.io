@@ -37,6 +37,6 @@ class OrganizingEventsController
     {
         $event = $createEventAction->execute($request);
 
-        return redirect()->route('events.show', $event);
+        return redirect()->route('events.show-schedule', $event);
     }
 }

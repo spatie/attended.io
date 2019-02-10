@@ -8,7 +8,7 @@
 
     <h1>{{ $slot->name }}</h1>
     {{ $slot->starts_at->format('d M H:i') }} - {{ $slot->trackName() }} - <a
-            href="{{ route('events.show', $slot->event->idSlug()) }}">{{ $slot->event->name }}</a>
+            href="{{ route('events.show-schedule', $slot->event->idSlug()) }}">{{ $slot->event->name }}</a>
 
     Short url: <a href="{{ url($slot->short_slug) }}">{{ url($slot->short_slug) }}</a>
     @include('front.slots.partials.by-speaker')

@@ -5,6 +5,7 @@ use App\Http\Front\Controllers\Events\AttendEventController;
 use App\Http\Front\Controllers\Events\DoNotAttendEventController;
 use App\Http\Front\Controllers\Events\PastEventsListController;
 use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
+use App\Http\Front\Controllers\Events\ShowEventFeedbackController;
 use App\Http\Front\Controllers\Events\ShowEventScheduleController;
 use App\Http\Front\Controllers\Events\SpeakingAtEventsListController;
 use App\Http\Front\Controllers\ReviewsController;
@@ -27,7 +28,8 @@ Route::prefix('organizing')->middleware('auth')->group(function () {
 });
 
 Route::prefix('/events/{event}')->group(function () {
-    Route::get('/', [ShowEventScheduleController::class, 'show'])->name('events.show');
+    Route::get('schedule', [ShowEventScheduleController::class, 'show'])->name('events.show-schedule');
+    Route::get('feedback', [ShowEventFeedbackController::class, 'show'])->name('events.show-feedback');
     Route::post('attend', AttendEventController::class);
     Route::post('do-not-attend', DoNotAttendEventController::class);
 });

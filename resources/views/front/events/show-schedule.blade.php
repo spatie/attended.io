@@ -1,7 +1,7 @@
 @extends('front.layouts.main')
 
 @push('headers')
-<link rel="canonical" href="{{ route('events.show', $event->idSlug()) }}" />
+<link rel="canonical" href="{{ route('events.show-schedule', $event->idSlug()) }}" />
 @endpush
 
 @section('content')
@@ -10,6 +10,8 @@
     {{ $event->location }}
 
     @include('front.events.partials.attending', ['attending' => $event->attendedBy(current_user())])
+
+    {{ Menu::event($event) }}
 
     @include('front.events.partials.schedule')
 @endsection

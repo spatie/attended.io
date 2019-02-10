@@ -5,7 +5,10 @@ namespace App\Providers;
 use App\Http\Front\Controllers\EventAdmin\Events\OrganizingEventsController;
 use App\Http\Front\Controllers\Events\PastEventsListController;
 use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
+use App\Http\Front\Controllers\Events\ShowEventFeedbackController;
+use App\Http\Front\Controllers\Events\ShowEventScheduleController;
 use App\Http\Front\Controllers\Events\SpeakingAtEventsListController;
+use App\Models\Event;
 use Illuminate\Support\ServiceProvider;
 
 use Spatie\Menu\Laravel\Menu;
@@ -33,6 +36,12 @@ class NavigationServiceProvider extends ServiceProvider
                 ->action(RecentAndUpcomingEventsListController::class, 'Recent and upcoming')
                 ->action(PastEventsListController::class, 'Past events')
                 ->action([OrganizingEventsController::class, 'index'], 'My events');
+        });
+
+        Menu::macro('event', function (Event $event) {
+            return Menu::new()
+                ->action([ShowEventScheduleController::class, 'show'], 'Schedule', $event->idSlug())
+                ->action([ShowEventFeedbackController::class, 'show'], 'Feedback', $event->idSlug());
         });
     }
 }

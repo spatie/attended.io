@@ -17,6 +17,6 @@ class ShowEventScheduleController
                 return $slot->starts_at->format('Ymd');
             });
 
-        return view('front.events.show', compact('event', 'slotsGroupedByDay'));
+        return view('front.events.show-schedule', compact('event', 'slotsGroupedByDay'));
     }
 }
