@@ -46,7 +46,10 @@ Route::prefix('slot-ownership-claims/{slotOwnershipClaim}')->group(function () {
     Route::post('reject', RejectSlotOwnershipClaimController::class)->name('slot-ownership-claims.reject');
 });
 
-Route::post('reviews', [ReviewsController::class, 'store'])->name('reviews.store');
+Route::prefix('reviews')->group(function () {
+    Route::post('/', [ReviewsController::class, 'store'])->name('reviews.store');
+    Route::delete('{review}', [ReviewsController::class, 'delete'])->name('reviews.delete');
+});
 
 Route::get('users/{user}', [UsersController::class, 'show'])->name('users.show');
 
