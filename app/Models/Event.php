@@ -67,4 +67,11 @@ class Event extends BaseModel implements Reviewable, Ownable
     {
         $query->whereNotNull('approved_at');
     }
+
+    public function scopeHasSlotWithSpeaker(Builder $query, User $user)
+    {
+        $query->whereHas('slots', function (Builder $query) use ($user) {
+            $query->ownedBy($user);
+        });
+    }
 }

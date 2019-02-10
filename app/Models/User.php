@@ -74,4 +74,14 @@ class User extends Authenticatable implements MustVerifyEmail
             ])
             ->count() > 0;
     }
+
+    public function organisesEvents(): bool
+    {
+        return $this->events()->count() > 0;
+    }
+
+    public function speaksAtEvents(): bool
+    {
+        return $this->slots()->count() > 0;
+    }
 }

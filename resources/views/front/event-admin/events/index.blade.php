@@ -3,7 +3,7 @@
 @section('content')
     {{ Menu::events() }}
 
-    <h1>My events</h1>
+    <h1>Organizing</h1>
 
     <a href="{{ route('event-admin.events.create') }}">Host new event</a>
 

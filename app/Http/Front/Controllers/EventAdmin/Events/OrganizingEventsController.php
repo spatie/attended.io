@@ -7,13 +7,16 @@ use App\Http\Front\Request\EventRequest;
 use App\Models\Event;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-class MyEventsController
+class OrganizingEventsController
 {
     use AuthorizesRequests;
 
     public function index()
     {
-        $events = current_user()->events()->paginate();
+        $events = Event::query()
+            ->ownedBy(current_user())
+            ->orderBy('starts_at', 'desc')
+            ->paginate();
 
         return view('front.event-admin.events.index', compact('events'));
     }

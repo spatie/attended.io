@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Front\Controllers\EventAdmin\Events\MyEventsController;
+use App\Http\Front\Controllers\EventAdmin\Events\OrganizingEventsController;
 use App\Http\Front\Controllers\Events\AttendEventController;
 use App\Http\Front\Controllers\Events\DoNotAttendEventController;
 use App\Http\Front\Controllers\Events\PastEventsListController;
 use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
 use App\Http\Front\Controllers\Events\ShowEventController;
+use App\Http\Front\Controllers\Events\SpeakingAtEventsListController;
 use App\Http\Front\Controllers\ReviewsController;
 use App\Http\Front\Controllers\SlotOwnershipClaims\ApproveSlotOwnershipClaimController;
 use App\Http\Front\Controllers\SlotOwnershipClaims\RejectSlotOwnershipClaimController;
@@ -16,12 +17,13 @@ use App\Models\Slot;
 
 Route::get('/', RecentAndUpcomingEventsListController::class);
 Route::get('past-events', PastEventsListController::class);
+Route::get('speaking', SpeakingAtEventsListController::class)->middleware('auth');
 
-Route::prefix('my-events')->middleware('auth')->group(function () {
-    Route::get('/', [MyEventsController::class, 'index']);
-    Route::get('create', [MyEventsController::class, 'create'])->name('event-admin.events.create');
-    Route::post('create', [MyEventsController::class, 'store'])->name('event-admin.events.store');
-    Route::get('events/{event}', [MyEventsController::class, 'edit'])->name('event-admin.events.edit');
+Route::prefix('organizing')->middleware('auth')->group(function () {
+    Route::get('/', [OrganizingEventsController::class, 'index']);
+    Route::get('create', [OrganizingEventsController::class, 'create'])->name('event-admin.events.create');
+    Route::post('create', [OrganizingEventsController::class, 'store'])->name('event-admin.events.store');
+    Route::get('events/{event}', [OrganizingEventsController::class, 'edit'])->name('event-admin.events.edit');
 });
 
 Route::prefix('/events/{event}')->group(function () {
