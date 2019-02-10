@@ -14,6 +14,7 @@ use App\Http\Front\Controllers\SlotOwnershipClaims\RejectSlotOwnershipClaimContr
 use App\Http\Front\Controllers\Slots\ClaimSlotController;
 use App\Http\Front\Controllers\Slots\ShowSlotController;
 use App\Http\Front\Controllers\UsersController;
+use App\Models\Event;
 use App\Models\Slot;
 
 Route::get('/', RecentAndUpcomingEventsListController::class);
@@ -28,6 +29,9 @@ Route::prefix('organizing')->middleware('auth')->group(function () {
 });
 
 Route::prefix('/events/{event}')->group(function () {
+    Route::get('/', function (Event $event) {
+        return redirect()->route('events.show-schedule', $event->idSlug());
+    });
     Route::get('schedule', ShowEventScheduleController::class)->name('events.show-schedule');
     Route::get('feedback', ShowEventFeedbackController::class)->name('events.show-feedback');
     Route::post('attend', AttendEventController::class);
