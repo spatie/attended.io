@@ -51,6 +51,11 @@ class Slot extends BaseModel implements Reviewable, Ownable
         return $this->belongsToMany(User::class, 'slot_ownership_claims')->withTimestamps();
     }
 
+    public function claims(): HasMany
+    {
+        return $this->hasMany(SlotOwnershipClaim::class);
+    }
+
     public function invitedToBeOwners(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'slot_ownership_invites')->withTimestamps();

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Event;
 use App\Models\Slot;
+use App\Models\SlotOwnershipClaim;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,10 @@ class RouteServiceProvider extends ServiceProvider
             [$id] = explode('-', $idSlug);
 
             return User::find($id);
+        });
+
+        Route::bind('slotOwnershipClaim', function (string $id) {
+            return SlotOwnershipClaim::find($id);
         });
 
         return $this;

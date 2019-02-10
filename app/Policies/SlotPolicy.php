@@ -16,7 +16,7 @@ class SlotPolicy
             return false;
         }
 
-        if ($user->claimingOwnership($slot)) {
+        if ($user->isClaimingSlot($slot)) {
             return false;
         }
 

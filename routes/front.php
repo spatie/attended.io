@@ -34,8 +34,8 @@ Route::get('slots/{slot}', ShowSlotController::class)->name('slots.show');
 Route::post('slots/{slot}/claim', ClaimSlotController::class)->name('slots.claim');
 
 Route::prefix('slot-ownership-claims/{slotOwnershipClaim}')->group(function () {
-    Route::post('approve', ApproveSlotOwnershipClaimController::class);
-    Route::post('reject', RejectSlotOwnershipClaimController::class);
+    Route::post('approve', ApproveSlotOwnershipClaimController::class)->name('slot-ownership-claims.approve');
+    Route::post('reject', RejectSlotOwnershipClaimController::class)->name('slot-ownership-claims.reject');
 });
 
 Route::post('reviews', [ReviewsController::class, 'store'])->name('reviews.store');
