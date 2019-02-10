@@ -10,7 +10,7 @@ class SlotPolicy
 {
     use HandlesAuthorization;
 
-    public function claim(User $user, Slot $slot)
+    public function claim(User $user, Slot $slot): bool
     {
         if ($user->owns($slot)) {
             return false;

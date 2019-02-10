@@ -60,4 +60,14 @@ class Slot extends BaseModel implements Reviewable, Ownable
     {
         return $this->belongsToMany(User::class, 'slot_ownership_invites')->withTimestamps();
     }
+
+    public function isAdministeredBy(User $user): bool
+    {
+        return $user->owns($this->event);
+    }
+
+    public function eventOfReviewable(): Event
+    {
+        return $this->event;
+    }
 }

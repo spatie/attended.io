@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Policies;
+namespace Tests\Unit\Policies\Review;
 
 use App\Models\Event;
 use App\Models\Review;
@@ -8,7 +8,7 @@ use App\Models\Slot;
 use App\Models\User;
 use Tests\TestCase;
 
-class ReviewPolicyTest extends TestCase
+class DeleteReviewPolicyTest extends TestCase
 {
     /** @test */
     public function the_creator_of_the_review_can_delete_it()

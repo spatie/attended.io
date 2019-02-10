@@ -74,4 +74,14 @@ class Event extends BaseModel implements Reviewable, Ownable
             $query->ownedBy($user);
         });
     }
+
+    public function isAdministeredBy(User $user): bool
+    {
+        return $user->owns($this);
+    }
+
+    public function eventOfReviewable(): Event
+    {
+        return $this;
+    }
 }
