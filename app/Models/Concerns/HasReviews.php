@@ -30,6 +30,10 @@ trait HasReviews
 
     public function canBeReviewedBy(User $user): bool
     {
+        if ($this->starts_at->isFuture()) {
+            return false;
+        }
+
         if ($this->isAdministeredBy($user)) {
             return true;
         }

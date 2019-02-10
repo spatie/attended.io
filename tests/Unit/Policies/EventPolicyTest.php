@@ -21,6 +21,7 @@ class EventPolicyTest extends TestCase
         $this->setNow(2019, 1, 1, 13, 0, 0);
 
         $this->event = factory(Event::class)->create([
+            'starts_at' => now()->subDays(3),
             'ends_at' => now(),
         ]);
 
@@ -65,5 +66,19 @@ class EventPolicyTest extends TestCase
         $this->event->refresh();
 
         $this->assertTrue($ownerOfEvent->can('addReview', $this->event));
+    }
+
+    /** @test */
+    public function an_event_cannot_be_reviewed_before_it_starts()
+    {
+        $event = factory(Event::class)->create([
+           'starts_at' => now()->addMinute(),
+        ]);
+
+        $this->assertFalse($this->user->can('addReview', $event));
+
+        $this->progressTime(1);
+
+        $this->assertTrue($this->user->can('addReview', $event));
     }
 }
