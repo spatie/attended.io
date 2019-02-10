@@ -3,6 +3,7 @@
 namespace App\Models\Concerns;
 
 use App\Models\Review;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait HasReviews
@@ -25,5 +26,18 @@ trait HasReviews
         $this->save();
 
         return $this;
+    }
+
+    public function canBeReviewedBy(User $user): bool
+    {
+        if ($this->isAdministeredBy($user)) {
+            return true;
+        }
+
+        if ($this->eventOfReviewable()->ends_at->addDays(30)->isFuture()) {
+            return true;
+        }
+
+        return false;
     }
 }

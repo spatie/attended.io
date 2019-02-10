@@ -14,4 +14,9 @@ class EventPolicy
     {
         return $user->owns($event);
     }
+
+    public function addReview(User $user, Event $event): bool
+    {
+        return $event->canBeReviewedBy($user);
+    }
 }

@@ -4,7 +4,6 @@ namespace Tests\Unit\Policies;
 
 use App\Models\Event;
 use App\Models\User;
-use App\Policies\EventPolicy;
 use Tests\TestCase;
 
 class EventPolicyTest extends TestCase
@@ -15,28 +14,28 @@ class EventPolicyTest extends TestCase
     /** @var \App\Models\User */
     protected $user;
 
-    /** @var \App\Policies\EventPolicy */
-    protected $policy;
-
     public function setUp()
     {
         parent::setUp();
 
-        $this->event = factory(Event::class)->create();
+        $this->setNow(2019, 1, 1, 13, 0, 0);
+
+        $this->event = factory(Event::class)->create([
+            'ends_at' => now(),
+        ]);
 
         $this->user = factory(User::class)->create();
-
-        $this->policy = new EventPolicy();
     }
 
     /** @test */
     public function an_owner_of_event_is_allowed_to_administer_it()
     {
-        $this->assertFalse($this->policyAllows('administer'));
+        $this->assertFalse($this->user->can('administer', $this->event));
 
         $this->event->owners()->attach($this->user);
+        $this->event->refresh();
 
-        $this->assertTrue($this->policyAllows('administer'));
+        $this->assertTrue($this->user->can('administer', $this->event));
     }
 
     /** @test */
@@ -45,12 +44,26 @@ class EventPolicyTest extends TestCase
         $anotherEvent = factory(Event::class)->create();
 
         $anotherEvent->owners()->attach($this->user);
+        $this->event->refresh();
 
-        $this->assertFalse($this->policyAllows('administer'));
+        $this->assertFalse($this->user->can('administer', $this->event));
     }
 
-    protected function policyAllows(string $ability)
+    /** @test */
+    public function an_event_can_be_reviewed_up_until_one_month_after_it_ends()
     {
-        return $this->policy->$ability($this->user->refresh(), $this->event->refresh());
+        $this->assertTrue($this->user->can('addReview', $this->event));
+
+        $this->progressTime(60 * 24 * 29);
+        $this->assertTrue($this->user->can('addReview', $this->event));
+
+        $this->progressTime(60 * 24 * 30);
+        $this->assertFalse($this->user->can('addReview', $this->event));
+
+        $ownerOfEvent = factory(User::class)->create();
+        $this->event->owners()->attach($ownerOfEvent);
+        $this->event->refresh();
+
+        $this->assertTrue($ownerOfEvent->can('addReview', $this->event));
     }
 }
