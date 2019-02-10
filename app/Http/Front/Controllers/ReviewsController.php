@@ -14,6 +14,8 @@ class ReviewsController
 
     public function store(StoreReviewRequest $request, StoreReviewAction $storeReviewAction)
     {
+        $this->authorize('addReview', $request->reviewable());
+
         $storeReviewAction->execute(
             Auth::user(),
             $request->reviewable(),

@@ -1,4 +1,4 @@
-@auth
+@can('addReview', $reviewable)
 <form method="POST" action="{{ route('reviews.store') }}">
     @csrf
     <input type="hidden" name="reviewable_id" value="{{ $reviewable->id }}">
@@ -13,10 +13,9 @@
         <div class="form-control-feedback">{{ $errors->first('remarks') }}</div>
     @endif
 
-
     <button type="submit">Submit</button>
 </form>
-@endauth
+@endcan
 @guest
     You must loging to post a review
 @endguest
