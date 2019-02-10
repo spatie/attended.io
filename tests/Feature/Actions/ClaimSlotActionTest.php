@@ -3,10 +3,10 @@
 namespace Tests\Feature\Actions;
 
 use App\Actions\ClaimSlotAction;
-use App\Mail\ReviewSlotClaimMail;
 use App\Models\Slot;
 use App\Models\User;
-use Illuminate\Support\Facades\Mail;
+use App\Notifications\ReviewSlotClaimNotification;
+use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
 class ClaimSlotActionTest extends TestCase
@@ -14,7 +14,7 @@ class ClaimSlotActionTest extends TestCase
     /** @test */
     public function a_slot_can_be_claimed()
     {
-        Mail::fake();
+        Notification::fake();
 
         $user = factory(User::class)->create();
         $slot = factory(Slot::class)->create();
@@ -29,15 +29,10 @@ class ClaimSlotActionTest extends TestCase
 
         $this->assertTrue($user->isClaimingSlot($slot));
         $this->assertFalse($user->owns($slot));
+        $this->assertCount(3, $slot->event->owners);
 
-        Mail::assertQueued(ReviewSlotClaimMail::class, function (ReviewSlotClaimMail $mail) use ($slot) {
-            foreach ($slot->event->owners as $eventOwner) {
-                if (! $mail->hasTo($eventOwner->email)) {
-                    return false;
-                }
-            }
-
-            return true;
-        });
+        foreach ($slot->event->owners as $owner) {
+            Notification::assertSentTo($owner, ReviewSlotClaimNotification::class);
+        }
     }
 }

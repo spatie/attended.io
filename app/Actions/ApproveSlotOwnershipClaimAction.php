@@ -2,9 +2,8 @@
 
 namespace App\Actions;
 
-use App\Mail\SlotOwnershipClaimApprovedMail;
 use App\Models\SlotOwnershipClaim;
-use Illuminate\Support\Facades\Mail;
+use App\Notifications\SlotOwnershipClaimApprovedNotification;
 
 class ApproveSlotOwnershipClaimAction
 {
@@ -17,6 +16,9 @@ class ApproveSlotOwnershipClaimAction
 
         $claim->delete();
 
-        Mail::to($claimingUser->email)->queue(new SlotOwnershipClaimApprovedMail($claimingUser, $slot));
+        $claimingUser->notify(new SlotOwnershipClaimApprovedNotification(
+            $claimingUser,
+            $slot,
+        ));
     }
 }

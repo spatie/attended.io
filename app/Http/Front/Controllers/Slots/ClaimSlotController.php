@@ -4,7 +4,6 @@ namespace App\Http\Front\Controllers\Slots;
 
 use App\Actions\ClaimSlotAction;
 use App\Models\Slot;
-use App\Policies\SlotPolicy;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class ClaimSlotController

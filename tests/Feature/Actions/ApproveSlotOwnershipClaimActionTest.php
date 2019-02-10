@@ -3,9 +3,9 @@
 namespace Tests\Feature\Actions;
 
 use App\Actions\ApproveSlotOwnershipClaimAction;
-use App\Mail\SlotOwnershipClaimApprovedMail;
 use App\Models\SlotOwnershipClaim;
-use Illuminate\Support\Facades\Mail;
+use App\Notifications\SlotOwnershipClaimApprovedNotification;
+use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
 class ApproveSlotOwnershipClaimActionTest extends TestCase
@@ -13,7 +13,8 @@ class ApproveSlotOwnershipClaimActionTest extends TestCase
     /** @test */
     public function it_can_approve_an_ownership_claim()
     {
-        Mail::fake();
+        Notification::fake();
+
         $claim = factory(SlotOwnershipClaim::class)->create();
         $claimingUser = $claim->user;
         $slot = $claim->slot;
@@ -25,11 +26,6 @@ class ApproveSlotOwnershipClaimActionTest extends TestCase
         $this->assertTrue($claimingUser->owns($slot->refresh()));
         $this->assertFalse($claim->exists());
 
-        Mail::assertQueued(
-            SlotOwnershipClaimApprovedMail::class,
-            function (SlotOwnershipClaimApprovedMail $mail) use ($claimingUser) {
-                return $mail->hasTo($claimingUser->email);
-            }
-        );
+        Notification::assertSentTo($claimingUser, SlotOwnershipClaimApprovedNotification::class);
     }
 }

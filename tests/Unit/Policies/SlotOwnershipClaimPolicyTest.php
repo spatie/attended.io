@@ -2,7 +2,6 @@
 
 namespace Tests\Unit\Policies;
 
-use App\Models\Event;
 use App\Models\SlotOwnershipClaim;
 use App\Models\User;
 use App\Policies\SlotOwnershipClaimPolicy;

@@ -2,9 +2,8 @@
 
 namespace App\Actions;
 
-use App\Mail\SlotOwnershipClaimRejectedMail;
 use App\Models\SlotOwnershipClaim;
-use Illuminate\Support\Facades\Mail;
+use App\Notifications\SlotOwnershipClaimRejectedNotification;
 
 class RejectSlotOwnershipClaimAction
 {
@@ -15,6 +14,9 @@ class RejectSlotOwnershipClaimAction
 
         $claim->delete();
 
-        Mail::to($claimingUser->email)->queue(new SlotOwnershipClaimRejectedMail($claimingUser, $slot));
+        $claimingUser->notify(new SlotOwnershipClaimRejectedNotification(
+            $claimingUser,
+            $slot,
+        ));
     }
 }

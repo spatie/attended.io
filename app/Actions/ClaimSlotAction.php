@@ -2,11 +2,9 @@
 
 namespace App\Actions;
 
-use App\Mail\ReviewSlotClaimMail;
-use App\Models\PendingOwnership;
 use App\Models\Slot;
 use App\Models\User;
-use Illuminate\Support\Facades\Mail;
+use App\Notifications\ReviewSlotClaimNotification;
 
 class ClaimSlotAction
 {
@@ -14,8 +12,6 @@ class ClaimSlotAction
     {
         $slot->claimingUsers()->attach($claimingUser);
 
-        $eventOwnerEmails = $slot->event->owners->pluck('email')->toArray();
-
-        Mail::to($eventOwnerEmails)->queue(new ReviewSlotClaimMail($claimingUser, $slot));
+        $slot->event->owners->each->notify(new ReviewSlotClaimNotification($claimingUser, $slot));
     }
 }
