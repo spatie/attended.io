@@ -12,6 +12,8 @@ class EventRequest extends FormRequest
             'name' => 'required',
             'description' => 'required',
             'location' => 'required',
+            'city' => '',
+            'country' => '',
             'website' => 'required',
             'starts_at' => 'required|date',
             'ends_at' => 'required|after:starts_at',

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Front\Controllers\EventAdmin\Events;
+namespace App\Http\Front\Controllers\EventAdmin;
 
 use App\Actions\CreateEventAction;
 use App\Http\Front\Request\EventRequest;
 use App\Models\Event;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-class OrganizingEventsController
+class EventsController
 {
     use AuthorizesRequests;
 
@@ -37,6 +37,6 @@ class OrganizingEventsController
     {
         $event = $createEventAction->execute($request);
 
-        return redirect()->route('events.show-schedule', $event);
+        return redirect()->route('event-admin.events.edit', $event);
     }
 }
