@@ -40,8 +40,8 @@ class NavigationServiceProvider extends ServiceProvider
 
         Menu::macro('event', function (Event $event) {
             return Menu::new()
-                ->action([ShowEventScheduleController::class, 'show'], 'Schedule', $event->idSlug())
-                ->action([ShowEventFeedbackController::class, 'show'], 'Feedback', $event->idSlug());
+                ->action(ShowEventScheduleController::class, 'Schedule', $event->idSlug())
+                ->action(ShowEventFeedbackController::class, 'Feedback', $event->idSlug());
         });
     }
 }

@@ -7,7 +7,7 @@ use App\Models\Slot;
 
 class ShowEventScheduleController
 {
-    public function show(Event $event)
+    public function __invoke(Event $event)
     {
         $slotsGroupedByDay = $event->slots
             ->sortBy(function (Slot $slot) {

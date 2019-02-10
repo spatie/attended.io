@@ -7,7 +7,7 @@ use App\Models\Slot;
 
 class ShowEventFeedbackController
 {
-    public function show(Event $event)
+    public function __invoke(Event $event)
     {
         $event->load([
             'reviews',

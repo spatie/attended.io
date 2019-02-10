@@ -28,8 +28,8 @@ Route::prefix('organizing')->middleware('auth')->group(function () {
 });
 
 Route::prefix('/events/{event}')->group(function () {
-    Route::get('schedule', [ShowEventScheduleController::class, 'show'])->name('events.show-schedule');
-    Route::get('feedback', [ShowEventFeedbackController::class, 'show'])->name('events.show-feedback');
+    Route::get('schedule', ShowEventScheduleController::class)->name('events.show-schedule');
+    Route::get('feedback', ShowEventFeedbackController::class)->name('events.show-feedback');
     Route::post('attend', AttendEventController::class);
     Route::post('do-not-attend', DoNotAttendEventController::class);
 });
