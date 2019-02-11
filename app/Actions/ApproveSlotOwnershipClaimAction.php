@@ -19,6 +19,6 @@ class ApproveSlotOwnershipClaimAction
         $claimingUser->notify(new SlotOwnershipClaimApprovedNotification(
             $claimingUser,
             $slot,
-        ));
+            ));
     }
 }

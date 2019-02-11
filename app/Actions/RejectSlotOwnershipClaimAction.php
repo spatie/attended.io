@@ -17,6 +17,6 @@ class RejectSlotOwnershipClaimAction
         $claimingUser->notify(new SlotOwnershipClaimRejectedNotification(
             $claimingUser,
             $slot,
-        ));
+            ));
     }
 }

@@ -9,6 +9,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.3.0",
+        "barryvdh/laravel-ide-helper": "^2.5",
+        "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.0",
         "friendsofphp/php-cs-fixer": "^2.14",
         "laracasts/flash": "^3.0",

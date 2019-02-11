@@ -10,6 +10,8 @@ use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
 use App\Http\Front\Controllers\Events\ShowEventFeedbackController;
 use App\Http\Front\Controllers\Events\ShowEventScheduleController;
 use App\Http\Front\Controllers\Events\SpeakingAtEventsListController;
+use App\Http\Front\Controllers\Profile\ChangePasswordController;
+use App\Http\Front\Controllers\Profile\ProfileController;
 use App\Http\Front\Controllers\ReviewsController;
 use App\Http\Front\Controllers\SlotOwnershipClaims\ApproveSlotOwnershipClaimController;
 use App\Http\Front\Controllers\SlotOwnershipClaims\RejectSlotOwnershipClaimController;
@@ -55,6 +57,16 @@ Route::prefix('slot-ownership-claims/{slotOwnershipClaim}')->group(function () {
 Route::prefix('reviews')->group(function () {
     Route::post('/', [ReviewsController::class, 'store'])->name('reviews.store');
     Route::delete('{review}', [ReviewsController::class, 'delete'])->name('reviews.delete');
+});
+
+Route::prefix('profile')->middleware('auth')->group(function () {
+    Route::get('/', [ProfileController::class, 'show'])->name('profile.show');
+    Route::post('update', [ProfileController::class, 'update'])->name('profile.update');
+});
+
+Route::prefix('password')->middleware('auth')->group(function () {
+    Route::get('/', [ChangePasswordController::class, 'show'])->name('password.show');
+    Route::post('update', [ChangePasswordController::class, 'update'])->name('password.update');
 });
 
 Route::get('users/{user}', [UsersController::class, 'show'])->name('users.show');

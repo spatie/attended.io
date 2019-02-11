@@ -30,7 +30,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function reviews(): HasMany
     {
-        $this->hasMany(Review::class);
+        return $this->hasMany(Review::class);
     }
 
     public function events(): MorphToMany
