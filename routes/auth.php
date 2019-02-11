@@ -19,14 +19,16 @@ Route::middleware('guest')->group(function () {
     Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
     Route::post('password/reset', [ResetPasswordController::class, 'reset']);
 
+
+});
+
+Route::middleware('auth')->group(function () {
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
     Route::get('email/verify', [VerificationController::class, 'show'])->name('verification.notice');
 
     Route::middleware('throttle:6,1')->group(function () {
         Route::get('email/verify/{id}', [VerificationController::class, 'verify'])->name('verification.verify')->middleware('signed');
         Route::get('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
     });
-});
-
-Route::middleware('auth')->group(function () {
-    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
