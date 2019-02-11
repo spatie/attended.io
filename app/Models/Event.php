@@ -19,9 +19,18 @@ class Event extends BaseModel implements Reviewable, Ownable
         PresentsEvent,
         HasOwners;
 
+    public $casts = [
+        'cfp' => 'boolean',
+        'cfp_deadline' => 'datetime',
+        'number_of_reviews' => 'integer',
+        'average_review_rating' => 'integer',
+    ];
+
     public $dates = [
+        'published_at',
         'starts_at',
         'ends_at',
+        'approved_at',
     ];
 
     public function tracks(): HasMany
