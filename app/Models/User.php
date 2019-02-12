@@ -84,4 +84,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->slots()->count() > 0;
     }
+
+    public function markEmailAsUnverified()
+    {
+        $this->email_verified_at = null;
+
+        $this->save();
+
+        return $this;
+
+    }
 }
