@@ -29,6 +29,6 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('throttle:6,1')->group(function () {
         Route::get('email/verify/{id}', [VerificationController::class, 'verify'])->name('verification.verify')->middleware('signed');
-        Route::get('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
+        Route::post('email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
     });
 });

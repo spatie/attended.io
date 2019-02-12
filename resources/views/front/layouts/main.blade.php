@@ -76,6 +76,7 @@
         </nav>
 
         <main class="py-4">
+            @include('front.layouts.partials.unverified-email-warning')
             @include('front.layouts.partials.flashMessage')
             @yield('content')
         </main>
