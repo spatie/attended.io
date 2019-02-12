@@ -10,7 +10,7 @@ class UpdatePasswordRequest extends FormRequest
     public function rules()
     {
         return [
-            'current_password' => ['required',new CurrentPasswordRule()],
+            'current_password' => ['required',new CurrentPasswordRule($this->user())],
             'new_password' => 'required|confirmed',
             'new_password_confirmation' => 'required',
         ];

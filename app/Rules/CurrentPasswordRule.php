@@ -2,18 +2,23 @@
 
 namespace App\Rules;
 
+use App\Models\User;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 
 class CurrentPasswordRule implements Rule
 {
+    /** @var \App\Models\User */
+    protected $user;
+
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
+
     public function passes($attribute, $value)
     {
-        if (! current_user()) {
-            return false;
-        }
-
-        return Hash::check($value, current_user()->password);
+        return Hash::check($value, $this->user->password);
     }
 
     public function message()

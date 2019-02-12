@@ -9,21 +9,17 @@ use Tests\TestCase;
 class CurrentPasswordRuleTest extends TestCase
 {
     /** @test */
-    public function it_can_verify_it_the_value_is_the_password_of_the_currently_logged_in_user()
+    public function it_can_verify_that_the_given_value_is_the_password_of_the_user()
     {
-        $this->assertFalse($this->rulePasses('secret'));
-
         $user = factory(User::class)->create();
 
-        $this->actingAs($user);
+        $this->assertTrue($this->rulePasses($user, 'secret'));
 
-        $this->assertTrue($this->rulePasses('secret'));
-
-        $this->assertFalse($this->rulePasses('wrong-password'));
+        $this->assertFalse($this->rulePasses($user, 'wrong-password'));
     }
 
-    public function rulePasses(string $password): bool
+    public function rulePasses(User $user, string $password): bool
     {
-        return (new CurrentPasswordRule())->passes('password', $password);
+        return (new CurrentPasswordRule($user))->passes('password', $password);
     }
 }
