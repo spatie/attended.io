@@ -7,14 +7,14 @@
     <input-field name="city" label="City"/>
     <input-field name="country" label="Country"/>
     <input-field name="website" label="Website"/>
-    <input-field name="starts_at" label="Starts at" type="date"/>
-    <input-field name="ends_at" label="Ends at" type="date"/>
+    <input-field name="starts_at" label="Starts at"/>
+    <input-field name="ends_at" label="Ends at"/>
 
     <h2>Call for papers</h2>
 
     <checkbox-field name="cfp" label="Call for papers"/>
     <input-field name="cfp_link" label="Link"/>
-    <input-field name=cfp_deadline label="Deadline" type="datetime"/>
+    <input-field name=cfp_deadline label="Deadline"/>
 </context>
 
 <button>Save</button>

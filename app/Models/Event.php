@@ -27,13 +27,10 @@ class Event extends BaseModel implements Reviewable, Ownable, Searchable
         'cfp_deadline' => 'datetime',
         'number_of_reviews' => 'integer',
         'average_review_rating' => 'integer',
-    ];
-
-    public $dates = [
-        'published_at',
-        'starts_at',
-        'ends_at',
-        'approved_at',
+        'published_at' => 'datetime',
+        'starts_at' => 'datetime',
+        'ends_at' => 'datetime',
+        'approved_at' => 'datetime',
     ];
 
     public function tracks(): HasMany

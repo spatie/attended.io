@@ -3,6 +3,7 @@
 namespace App\Http\Front\Controllers\EventAdmin;
 
 use App\Actions\CreateEventAction;
+use App\Actions\UpdateEventAction;
 use App\Http\Front\Requests\UpdateEventRequest;
 use App\Models\Event;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -42,9 +43,9 @@ class EventsController
         return view('front.event-admin.events.edit', compact('event'));
     }
 
-    public function update(UpdateEventRequest $request, CreateEventAction $createEventAction)
+    public function update(Event $event, UpdateEventRequest $request, UpdateEventAction $createEventAction)
     {
-        $event = $createEventAction->execute($request);
+        $event = $createEventAction->execute($event, $request);
 
         flash()->message('The event has been saved!');
 
