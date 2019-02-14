@@ -1,9 +1,9 @@
 @extends('front.layouts.main')
 
 @section('content')
-    {{ Menu::events() }}
+    @include('front.events.partials.filter-bar')
 
-    <h1>Past events</h1>
+    <h1>Recent events</h1>
 
     @include('front.events.partials.list')
 @endsection

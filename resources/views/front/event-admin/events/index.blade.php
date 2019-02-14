@@ -1,8 +1,6 @@
 @extends('front.layouts.main')
 
 @section('content')
-    {{ Menu::events() }}
-
     <h1>Organizing</h1>
 
     <a href="{{ route('event-admin.events.create') }}">Host new event</a>

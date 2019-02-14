@@ -1,7 +1,7 @@
 @extends('front.layouts.main')
 
 @section('content')
-    {{ Menu::events() }}
+    @include('front.events.partials.filter-bar')
 
     <h1>Attending</h1>
 

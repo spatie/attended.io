@@ -8,7 +8,7 @@ use App\Http\Front\Controllers\EventAdmin\SlotsController;
 use App\Http\Front\Controllers\EventAdmin\TracksController;
 use App\Http\Front\Controllers\Events\AttendingEventListController;
 use App\Http\Front\Controllers\Events\PastEventsListController;
-use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
+use App\Http\Front\Controllers\Events\AllEventsController;
 use App\Http\Front\Controllers\Events\ShowEventFeedbackController;
 use App\Http\Front\Controllers\Events\ShowEventScheduleController;
 use App\Http\Front\Controllers\Events\SpeakingAtEventsListController;
@@ -40,13 +40,6 @@ class NavigationServiceProvider extends ServiceProvider
                     AttendingEventListController::class,
                     'Attending',
                     );
-        });
-
-        Menu::macro('events', function () {
-            return Menu::new()
-                ->action(RecentAndUpcomingEventsListController::class, 'Recent and upcoming')
-                ->action(PastEventsListController::class, 'Past events')
-                ->action([EventsController::class, 'index'], 'My events');
         });
 
         Menu::macro('event', function (Event $event) {

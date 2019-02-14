@@ -7,13 +7,14 @@ use App\Http\Front\Controllers\Events\AttendEventController;
 use App\Http\Front\Controllers\Events\AttendingEventListController;
 use App\Http\Front\Controllers\Events\DoNotAttendEventController;
 use App\Http\Front\Controllers\Events\PastEventsListController;
-use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
+use App\Http\Front\Controllers\Events\AllEventsController;
 use App\Http\Front\Controllers\Events\ShowEventFeedbackController;
 use App\Http\Front\Controllers\Events\ShowEventScheduleController;
 use App\Http\Front\Controllers\Events\SpeakingAtEventsListController;
 use App\Http\Front\Controllers\Profile\ChangePasswordController;
 use App\Http\Front\Controllers\Profile\ProfileController;
 use App\Http\Front\Controllers\ReviewsController;
+use App\Http\Front\Controllers\SearchController;
 use App\Http\Front\Controllers\SlotOwnershipClaims\ApproveSlotOwnershipClaimController;
 use App\Http\Front\Controllers\SlotOwnershipClaims\RejectSlotOwnershipClaimController;
 use App\Http\Front\Controllers\Slots\ClaimSlotController;
@@ -22,8 +23,7 @@ use App\Http\Front\Controllers\UsersController;
 use App\Models\Event;
 use App\Models\Slot;
 
-Route::get('/', RecentAndUpcomingEventsListController::class)->name('events');
-Route::get('past-events', PastEventsListController::class);
+Route::get('/', AllEventsController::class)->name('events');
 Route::get('speaking', SpeakingAtEventsListController::class)->middleware('auth')->name('speaking');
 Route::get('attending', AttendingEventListController::class)->middleware('auth')->name('attending');
 
@@ -76,6 +76,7 @@ Route::get('users/{user}', [UsersController::class, 'show'])->name('users.show')
 Route::view('about', 'front.about')->name('about');
 Route::view('assets', 'front.assets')->name('assets');
 
+Route::get('search', SearchController::class)->name('search');
 
 Route::get('{slotShortSlug}', function (Slot $slot) {
     return redirect()->route('slots.show', $slot->idSlug());

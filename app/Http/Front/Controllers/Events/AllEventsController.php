@@ -4,7 +4,7 @@ namespace App\Http\Front\Controllers\Events;
 
 use App\Models\Event;
 
-class RecentAndUpcomingEventsListController
+class AllEventsController
 {
     public function __invoke()
     {
@@ -15,6 +15,6 @@ class RecentAndUpcomingEventsListController
             ->orderBy('starts_at')
             ->paginate();
 
-        return view('front.events.recent-and-upcoming-index', compact('events'));
+        return view('front.events.all-index', compact('events'));
     }
 }
