@@ -1,6 +1,6 @@
 @csrf
 
-<scope :model="$event">
+<context :model="$event">
     <input-field name="name" label="Name"/>
     <input-field name="description" label="Description"/>
     <input-field name="location" label="Location"/>
@@ -15,6 +15,6 @@
     <checkbox-field name="cfp" label="Call for papers"/>
     <input-field name="cfp_link" label="Link"/>
     <input-field name=cfp_deadline label="Deadline" type="datetime"/>
-</scope>
+</context>
 
 <button>Save</button>

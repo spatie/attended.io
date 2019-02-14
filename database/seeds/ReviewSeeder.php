@@ -2,6 +2,7 @@
 
 use App\Actions\RecalculateReviewStatisticsAction;
 use App\Models\Event;
+use App\Models\Interfaces\Reviewable;
 use App\Models\Review;
 use App\Models\Slot;
 use App\Models\User;
@@ -23,16 +24,14 @@ class ReviewSeeder extends Seeder
 
     protected function seedReviews(string $reviewableClass)
     {
-        $reviewableClass::get()->each(function (Model $model) use ($reviewableClass) {
-            Collection::times(rand(0, 10))->each(function () use ($model, $reviewableClass) {
-                factory(Review::class)->create([
-                    'reviewable_type' => $reviewableClass,
-                    'reviewable_id' => $model->id,
-                    'user_id' => User::inRandomOrder()->first(),
-                ]);
-            });
+        $reviewableClass::get()->each(function (Reviewable $reviewable) use ($reviewableClass) {
+            factory(Review::class, rand(0, 10))->create([
+                'reviewable_type' => $reviewableClass,
+                'reviewable_id' => $reviewable->id,
+                'user_id' => User::inRandomOrder()->first()->id,
+            ]);
 
-            (new RecalculateReviewStatisticsAction())->execute($model);
+            (new RecalculateReviewStatisticsAction())->execute($reviewable);
         });
     }
 }
