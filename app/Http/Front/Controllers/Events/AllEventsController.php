@@ -9,9 +9,9 @@ class AllEventsController
     public function __invoke()
     {
         $events = Event::query()
+            ->upcomingOrPast(request())
             ->published()
             ->with('currentUserAttendance')
-            ->where('starts_at', '>=', now()->subDay(4))
             ->orderBy('starts_at')
             ->paginate();
 

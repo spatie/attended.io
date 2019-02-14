@@ -11,6 +11,7 @@ use App\Models\Presenters\PresentsEvent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Http\Request;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
 
@@ -101,6 +102,21 @@ class Event extends BaseModel implements Reviewable, Ownable, Searchable
         $query->whereHas('attendances', function (Builder $query) use ($user) {
             $query->where('user_id', $user->id);
         });
+    }
+
+    public function scopeUpcomingOrPast(Builder $query, Request $request)
+    {
+        if ($request->has('past')) {
+            $query
+                ->where('ends_at', '<=', now())
+                ->orderByDesc('starts_at');
+
+            return;
+        }
+
+        $query
+            ->where('starts_at', '>=', now())
+            ->orderBy('starts_at');
     }
 
     public function isAdministeredBy(User $user): bool
