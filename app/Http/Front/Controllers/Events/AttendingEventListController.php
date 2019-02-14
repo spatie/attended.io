@@ -12,7 +12,8 @@ class AttendingEventListController
             ->published()
             ->hasAttendee(current_user())
             ->orderBy('starts_at', 'desc')
-            ->paginate();
+            ->paginate()
+            ->appends(request()->all());
 
         return view('front.events.attending-index', compact('events'));
     }

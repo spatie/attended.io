@@ -12,7 +12,8 @@ class SpeakingAtEventsListController
             ->published()
             ->hasSlotWithSpeaker(current_user())
             ->orderBy('starts_at', 'desc')
-            ->paginate();
+            ->paginate()
+            ->appends(request()->all());
 
         return view('front.events.speaking-at-events-index', compact('events'));
     }

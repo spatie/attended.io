@@ -13,7 +13,8 @@ class AllEventsController
             ->published()
             ->with('currentUserAttendance')
             ->orderBy('starts_at')
-            ->paginate();
+            ->paginate()
+            ->appends(request()->all());
 
         return view('front.events.all-index', compact('events'));
     }
