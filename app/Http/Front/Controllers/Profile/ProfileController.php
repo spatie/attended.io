@@ -3,7 +3,7 @@
 namespace App\Http\Front\Controllers\Profile;
 
 use App\Actions\UpdateUserAction;
-use App\Http\Requests\UpdateUserRequest;
+use App\Http\Front\Requests\UpdateUserRequest;
 
 class ProfileController
 {
