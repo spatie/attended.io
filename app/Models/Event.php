@@ -11,8 +11,10 @@ use App\Models\Presenters\PresentsEvent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class Event extends BaseModel implements Reviewable, Ownable
+class Event extends BaseModel implements Reviewable, Ownable, Searchable
 {
     use HasReviews,
         HasSlug,
@@ -72,9 +74,9 @@ class Event extends BaseModel implements Reviewable, Ownable
         }
 
         return Attendance::query()
-            ->where('event_id', $this->id)
-            ->where('user_id', $user->id)
-            ->count() > 0;
+                ->where('event_id', $this->id)
+                ->where('user_id', $user->id)
+                ->count() > 0;
     }
 
     public function scopeApproved(Builder $query)
@@ -109,5 +111,14 @@ class Event extends BaseModel implements Reviewable, Ownable
     public function eventOfReviewable(): Event
     {
         return $this;
+    }
+
+    public function getSearchResult(): SearchResult
+    {
+        return new SearchResult(
+            $this,
+            $this->name,
+            route('events.show-schedule', $this->idSlug()),
+            );
     }
 }

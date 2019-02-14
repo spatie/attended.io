@@ -21,6 +21,7 @@
         "spatie/eloquent-sortable": "^3.4",
         "spatie/laravel-blade-x": "^2.0.0",
         "spatie/laravel-menu": "^3.2",
+        "spatie/laravel-searchable": "^1.2",
         "spatie/laravel-tail": "^3.2",
         "spatie/laravel-web-tinker": "^1.0"
     },
