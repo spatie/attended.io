@@ -16,6 +16,6 @@ $factory->define(User::class, function (Faker $faker) {
     ];
 });
 
-$factory->state(Event::class, 'unverified-email', [
+$factory->state(User::class, 'unverified-email', [
     'email_verified_at' => null,
 ]);

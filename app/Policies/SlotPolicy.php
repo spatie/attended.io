@@ -20,6 +20,10 @@ class SlotPolicy
             return false;
         }
 
+        if (! $user->hasVerifiedEmail()) {
+            return false;
+        }
+
         return true;
     }
 

@@ -12,6 +12,10 @@ class ReviewPolicy
 
     public function create(User $user, Review $review): bool
     {
+        if (! $user->hasVerifiedEmail()) {
+            return false;
+        }
+
         if ($review->reviewable->isAdministeredBy($user)) {
             return true;
         }
