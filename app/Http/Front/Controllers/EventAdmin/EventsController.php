@@ -3,7 +3,7 @@
 namespace App\Http\Front\Controllers\EventAdmin;
 
 use App\Actions\CreateEventAction;
-use App\Http\Front\Request\UpdateEventRequest;
+use App\Http\Front\Requests\UpdateEventRequest;
 use App\Models\Event;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 

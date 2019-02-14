@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Front\Request;
+namespace App\Http\Front\Requests;
 
 use App\Models\Interfaces\Reviewable;
 use App\Rules\ReviewableType;
