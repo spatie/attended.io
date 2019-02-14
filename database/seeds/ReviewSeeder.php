@@ -25,13 +25,11 @@ class ReviewSeeder extends Seeder
     protected function seedReviews(string $reviewableClass)
     {
         $reviewableClass::get()->each(function (Reviewable $reviewable) use ($reviewableClass) {
-            Collection::times(rand(0, 10))->each(function () use ($reviewable, $reviewableClass) {
-                factory(Review::class)->create([
-                    'reviewable_type' => $reviewableClass,
-                    'reviewable_id' => $reviewable->id,
-                    'user_id' => User::inRandomOrder()->first(),
-                ]);
-            });
+            factory(Review::class, rand(0, 10))->create([
+                'reviewable_type' => $reviewableClass,
+                'reviewable_id' => $reviewable->id,
+                'user_id' => User::inRandomOrder()->first()->id,
+            ]);
 
             (new RecalculateReviewStatisticsAction())->execute($reviewable);
         });
