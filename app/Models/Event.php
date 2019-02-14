@@ -50,6 +50,11 @@ class Event extends BaseModel implements Reviewable, Ownable
         return $this->hasManyThrough(User::class, Attendance::class);
     }
 
+    public function attendances(): HasMany
+    {
+        return $this->hasMany(Attendance::class);
+    }
+
     public function currentUserAttendance(): HasMany
     {
         return $this->hasMany(Attendance::class)->where('user_id', optional(current_user())->id);
@@ -86,6 +91,13 @@ class Event extends BaseModel implements Reviewable, Ownable
     {
         $query->whereHas('slots', function (Builder $query) use ($user) {
             $query->ownedBy($user);
+        });
+    }
+
+    public function scopeHasAttendee(Builder $query, User $user)
+    {
+        $query->whereHas('attendances', function (Builder $query) use ($user) {
+            $query->where('user_id', $user->id);
         });
     }
 

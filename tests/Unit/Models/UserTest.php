@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\Models;
 
+use App\Models\Attendance;
 use App\Models\Event;
 use App\Models\Slot;
 use App\Models\User;
@@ -41,5 +42,20 @@ class UserTest extends TestCase
         $event->owners()->attach($this->user);
 
         $this->assertTrue($this->user->organisesEvents());
+    }
+
+    /** @test */
+    public function it_can_determine_if_a_user_attends_events()
+    {
+        $this->assertFalse($this->user->attendsEvents());
+
+        $event = factory(Event::class)->create();
+
+        Attendance::create([
+            'event_id' => $event->id,
+            'user_id' => $this->user->id,
+        ]);
+
+        $this->assertTrue($this->user->attendsEvents());
     }
 }

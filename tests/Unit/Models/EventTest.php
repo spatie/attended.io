@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\Models;
 
+use App\Models\Attendance;
 use App\Models\Event;
 use App\Models\Slot;
 use App\Models\User;
@@ -46,5 +47,33 @@ class EventTest extends TestCase
         $this->assertEquals([
             $slots[2]->event->id,
         ], $eventsWhereAnotherUserSpeaksAt->pluck('id')->toArray());
+    }
+
+    /** @test */
+    public function it_has_a_scope_to_get_events_that_the_user_is_attending()
+    {
+        $events = factory(Event::class, 3)->create();
+
+        $user = factory(User::class)->create();
+        $anotherUser = factory(User::class)->create();
+
+        Attendance::create(['event_id' => $events[0]->id, 'user_id' => $user->id]);
+        Attendance::create(['event_id' => $events[1]->id, 'user_id' => $anotherUser->id]);
+        Attendance::create(['event_id' => $events[2]->id, 'user_id' => $user->id]);
+        Attendance::create(['event_id' => $events[2]->id, 'user_id' => $anotherUser->id]);
+
+        $eventsWhereUserSpeaksAt = Event::hasAttendee($user)->get();
+        $this->assertCount(2, $eventsWhereUserSpeaksAt);
+        $this->assertEquals([
+            $events[0]->id,
+            $events[2]->id,
+        ], $eventsWhereUserSpeaksAt->pluck('id')->toArray());
+
+        $eventsWhereUserSpeaksAt = Event::hasAttendee($anotherUser)->get();
+        $this->assertCount(2, $eventsWhereUserSpeaksAt);
+        $this->assertEquals([
+            $events[1]->id,
+            $events[2]->id,
+        ], $eventsWhereUserSpeaksAt->pluck('id')->toArray());
     }
 }

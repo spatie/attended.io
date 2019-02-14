@@ -6,6 +6,7 @@ use App\Http\Front\Controllers\EventAdmin\EventsController;
 use App\Http\Front\Controllers\EventAdmin\EventsController as EventAdminEventsController;
 use App\Http\Front\Controllers\EventAdmin\SlotsController;
 use App\Http\Front\Controllers\EventAdmin\TracksController;
+use App\Http\Front\Controllers\Events\AttendingEventListController;
 use App\Http\Front\Controllers\Events\PastEventsListController;
 use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
 use App\Http\Front\Controllers\Events\ShowEventFeedbackController;
@@ -33,6 +34,11 @@ class NavigationServiceProvider extends ServiceProvider
                     optional(current_user())->speaksAtEvents(),
                     SpeakingAtEventsListController::class,
                     'Speaking',
+                    )
+                ->actionIf(
+                    optional(current_user())->attendsEvents(),
+                    AttendingEventListController::class,
+                    'Attending',
                     );
         });
 

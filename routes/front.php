@@ -4,6 +4,7 @@ use App\Http\Front\Controllers\EventAdmin\EventsController;
 use App\Http\Front\Controllers\EventAdmin\SlotsController;
 use App\Http\Front\Controllers\EventAdmin\TracksController;
 use App\Http\Front\Controllers\Events\AttendEventController;
+use App\Http\Front\Controllers\Events\AttendingEventListController;
 use App\Http\Front\Controllers\Events\DoNotAttendEventController;
 use App\Http\Front\Controllers\Events\PastEventsListController;
 use App\Http\Front\Controllers\Events\RecentAndUpcomingEventsListController;
@@ -21,12 +22,13 @@ use App\Http\Front\Controllers\UsersController;
 use App\Models\Event;
 use App\Models\Slot;
 
-Route::get('/', RecentAndUpcomingEventsListController::class);
+Route::get('/', RecentAndUpcomingEventsListController::class)->name('events');
 Route::get('past-events', PastEventsListController::class);
-Route::get('speaking', SpeakingAtEventsListController::class)->middleware('auth');
+Route::get('speaking', SpeakingAtEventsListController::class)->middleware('auth')->name('speaking');
+Route::get('attending', AttendingEventListController::class)->middleware('auth')->name('attending');
 
 Route::prefix('organizing')->middleware('auth')->group(function () {
-    Route::get('/', [EventsController::class, 'index']);
+    Route::get('/', [EventsController::class, 'index'])->name('event-admin.events.index');
     Route::get('create', [EventsController::class, 'create'])->name('event-admin.events.create');
     Route::post('create', [EventsController::class, 'store'])->name('event-admin.events.store');
     Route::get('events/{event}', [EventsController::class, 'edit'])->name('event-admin.events.edit');
@@ -70,6 +72,10 @@ Route::prefix('password')->middleware('auth')->group(function () {
 });
 
 Route::get('users/{user}', [UsersController::class, 'show'])->name('users.show');
+
+Route::view('about', 'front.about')->name('about');
+Route::view('assets', 'front.assets')->name('assets');
+
 
 Route::get('{slotShortSlug}', function (Slot $slot) {
     return redirect()->route('slots.show', $slot->idSlug());

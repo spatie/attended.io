@@ -65,6 +65,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasManyThrough(Event::class, Attendance::class);
     }
 
+    public function attendances(): HasMany
+    {
+        return $this->hasMany(Attendance::class);
+    }
+
     public function attended(Event $event): bool
     {
         return Attendance::query()
@@ -83,6 +88,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function speaksAtEvents(): bool
     {
         return $this->slots()->count() > 0;
+    }
+
+    public function attendsEvents(): bool
+    {
+        return $this->attendances()->count() > 0;
     }
 
     public function markEmailAsUnverified()
