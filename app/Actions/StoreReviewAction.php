@@ -21,6 +21,13 @@ class StoreReviewAction
         (new RecalculateReviewStatisticsAction())->execute($reviewable);
 
         (new AttendEventAction())->execute($user, $this->getEvent($reviewable));
+
+        $type = class_basename($reviewable);
+
+        activity()
+            ->by($user)
+            ->performedOn($reviewable)
+            ->log("{$user->email} reviewed {$type} {$reviewable->name}");
     }
 
     protected function getEvent(Reviewable $reviewable): Event

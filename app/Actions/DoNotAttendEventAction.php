@@ -14,5 +14,9 @@ class DoNotAttendEventAction
             ->where('user_id', $user->id)
             ->where('event_id', $event->id)
             ->delete();
+
+        activity()
+            ->performedOn($event)
+            ->log("{$user->email} will not attend {$event->name}");
     }
 }

@@ -12,6 +12,10 @@ class ClaimSlotAction
     {
         $slot->claimingUsers()->attach($claimingUser);
 
+        activity()
+            ->performedOn($slot)
+            ->log("{$claimingUser->email} is claming slot `{$slot->name}`");
+
         $slot->event->owners->each->notify(new ReviewSlotClaimNotification($claimingUser, $slot));
     }
 }

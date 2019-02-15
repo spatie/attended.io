@@ -12,6 +12,8 @@ class UpdatePasswordAction
 
         $user->save();
 
+        activity()->log('Password updated');
+
         return $user;
     }
 }

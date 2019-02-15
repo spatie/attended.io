@@ -3,6 +3,7 @@
 namespace App\Actions;
 
 use App\Models\SlotOwnershipClaim;
+use App\Models\User;
 use App\Notifications\SlotOwnershipClaimApprovedNotification;
 
 class ApproveSlotOwnershipClaimAction
@@ -20,5 +21,9 @@ class ApproveSlotOwnershipClaimAction
             $claimingUser,
             $slot,
             ));
+
+        activity()
+            ->performedOn($slot)
+            ->log("claim on `{$slot->name}` by `{$claimingUser->email}` has been approved");
     }
 }

@@ -13,6 +13,8 @@ class CreateEventAction
 
         $event->owners()->attach($request->user());
 
+        activity()->log("Event `{$event->name}` was created by {$request->user()}");
+
         return $event;
     }
 }

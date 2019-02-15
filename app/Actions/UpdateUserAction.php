@@ -13,6 +13,8 @@ class UpdateUserAction
         $user->name = $attributes['name'];
         $user->email = $attributes['email'];
 
+        activity()->log('User updated');
+
         $user->save();
 
         if ($user->email !== $oldEmail) {

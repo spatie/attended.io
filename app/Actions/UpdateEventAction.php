@@ -11,6 +11,10 @@ class UpdateEventAction
     {
         $event->update($request->validated());
 
+        activity()
+            ->performedOn($event)
+            ->log("Event `{$event->name}` was updated");
+
         return $event;
     }
 }

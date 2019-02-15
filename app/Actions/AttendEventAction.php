@@ -10,9 +10,15 @@ class AttendEventAction
 {
     public function execute(User $user, Event $event): Attendance
     {
-        return Attendance::firstOrCreate([
+        $attendance =  Attendance::firstOrCreate([
             'user_id' => $user->id,
             'event_id' => $event->id
         ]);
+
+        activity()
+            ->performedOn($attendance->event)
+            ->log("{$attendance->user->email} will attend {$attendance->event->name}");
+
+        return $attendance;
     }
 }
