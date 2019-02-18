@@ -3,7 +3,7 @@
 namespace Tests\Unit\Policies;
 
 use App\Models\Event;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Tests\TestCase;
 
 class EventPolicyTest extends TestCase
@@ -11,7 +11,7 @@ class EventPolicyTest extends TestCase
     /** @var \App\Models\Event */
     protected $event;
 
-    /** @var \App\Models\User */
+    /** @var \App\Domain\User\Models\User */
     protected $user;
 
     public function setUp()

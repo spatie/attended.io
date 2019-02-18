@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Controllers;
 
-use App\Models\User;
+use App\Domain\User\Models\User;
 
 class UsersController
 {

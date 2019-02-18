@@ -3,7 +3,7 @@
 use App\Models\Event;
 use App\Models\Slot;
 use App\Models\Track;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
 

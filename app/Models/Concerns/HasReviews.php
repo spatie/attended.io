@@ -4,7 +4,7 @@ namespace App\Models\Concerns;
 
 use App\BusinessRules\CanBeReviewed;
 use App\Models\Review;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait HasReviews

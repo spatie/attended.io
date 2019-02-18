@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Rules;
+namespace App\Domain\User\Rules;
 
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 
 class CurrentPasswordRule implements Rule
 {
-    /** @var \App\Models\User */
+    /** @var \App\Domain\User\Models\User */
     protected $user;
 
     public function __construct(User $user)

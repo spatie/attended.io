@@ -5,7 +5,7 @@ namespace Tests\Feature\Actions;
 use App\Actions\AttendEventAction;
 use App\Actions\DoNotAttendEventAction;
 use App\Models\Event;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Tests\TestCase;
 
 class DoNotAttendEventActionTest extends TestCase

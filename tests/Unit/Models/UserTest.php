@@ -5,12 +5,12 @@ namespace Tests\Unit\Models;
 use App\Models\Attendance;
 use App\Models\Event;
 use App\Models\Slot;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Tests\TestCase;
 
 class UserTest extends TestCase
 {
-    /** @var \App\Models\User */
+    /** @var \App\Domain\User\Models\User */
     protected $user;
 
     public function setUp()

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SlotOwnershipInvite extends BaseModel

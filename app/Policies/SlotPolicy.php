@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Slot;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class SlotPolicy

@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Event;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Illuminate\Database\Seeder;
 
 class EventSeeder extends Seeder

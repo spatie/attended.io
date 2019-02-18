@@ -3,7 +3,7 @@
 namespace Tests\Unit\Policies;
 
 use App\Models\SlotOwnershipClaim;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Tests\TestCase;
 
 class SlotOwnershipClaimPolicyTest extends TestCase
@@ -11,7 +11,7 @@ class SlotOwnershipClaimPolicyTest extends TestCase
     /** @var \App\Models\Event */
     protected $slotOwnershipClaim;
 
-    /** @var \App\Models\User */
+    /** @var \App\Domain\User\Models\User */
     protected $user;
 
     public function setUp()

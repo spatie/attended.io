@@ -3,7 +3,7 @@
 namespace App\Models\Interfaces;
 
 use App\Models\Event;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 interface Reviewable

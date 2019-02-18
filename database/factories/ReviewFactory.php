@@ -3,7 +3,7 @@
 use App\Models\Event;
 use App\Models\Review;
 use App\Models\Slot;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Faker\Generator as Faker;
 
 $factory->define(Review::class, function (Faker $faker) {

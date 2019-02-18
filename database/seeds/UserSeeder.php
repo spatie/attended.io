@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder

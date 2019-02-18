@@ -6,12 +6,12 @@ use App\BusinessRules\Exceptions\ReviewableEndedTooLongAgo;
 use App\BusinessRules\Exceptions\ReviewablehasNotStartedYet;
 use App\BusinessRules\Exceptions\ReviewableWasAlreadyReviewed;
 use App\Models\Interfaces\Reviewable;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use App\Services\BusinessRules\BusinessRule;
 
 class CanBeReviewed extends BusinessRule
 {
-    /** @var \App\Models\User */
+    /** @var \App\Domain\User\Models\User */
     protected $user;
 
     /** @var \App\Models\Interfaces\Reviewable */

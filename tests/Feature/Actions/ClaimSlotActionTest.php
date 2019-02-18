@@ -4,7 +4,7 @@ namespace Tests\Feature\Actions;
 
 use App\Actions\ClaimSlotAction;
 use App\Models\Slot;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use App\Notifications\ReviewSlotClaimNotification;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;

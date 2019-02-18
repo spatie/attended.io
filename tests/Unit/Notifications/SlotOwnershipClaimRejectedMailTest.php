@@ -3,7 +3,7 @@
 namespace Tests\Unit\Notifications;
 
 use App\Models\Slot;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use App\Notifications\SlotOwnershipClaimRejectedNotification;
 use Tests\TestCase;
 

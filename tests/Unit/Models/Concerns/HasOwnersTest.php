@@ -3,7 +3,7 @@
 namespace Tests\Unit\Models\Concerns;
 
 use App\Models\Event;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Tests\TestCase;
 
 class HasOwnersTest extends TestCase

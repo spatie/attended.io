@@ -3,7 +3,7 @@
 namespace Tests\Feature\Actions;
 
 use App\Domain\User\Actions\UpdatePasswordAction;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 

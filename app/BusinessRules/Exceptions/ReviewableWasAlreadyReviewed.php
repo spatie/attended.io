@@ -3,7 +3,7 @@
 namespace App\BusinessRules\Exceptions;
 
 use App\Models\Interfaces\Reviewable;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use App\Services\BusinessRules\BusinessRuleException;
 
 class ReviewableWasAlreadyReviewed extends BusinessRuleException

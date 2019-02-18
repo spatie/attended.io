@@ -3,7 +3,7 @@
 namespace Tests\Feature\Actions;
 
 use App\Domain\User\Actions\UpdateUserAction;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;

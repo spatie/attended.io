@@ -6,7 +6,7 @@ use App\Models\Event;
 use App\Models\Review;
 use App\Models\Slot;
 use App\Models\SlotOwnershipClaim;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use App\Policies\EventPolicy;
 use App\Policies\ReviewPolicy;
 use App\Policies\SlotOwnershipClaimPolicy;

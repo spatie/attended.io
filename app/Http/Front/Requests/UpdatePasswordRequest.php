@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Requests;
 
-use App\Rules\CurrentPasswordRule;
+use App\Domain\User\Rules\CurrentPasswordRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdatePasswordRequest extends FormRequest

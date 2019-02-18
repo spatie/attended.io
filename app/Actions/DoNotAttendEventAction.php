@@ -4,7 +4,7 @@ namespace App\Actions;
 
 use App\Models\Attendance;
 use App\Models\Event;
-use App\Models\User;
+use App\Domain\User\Models\User;
 
 class DoNotAttendEventAction
 {

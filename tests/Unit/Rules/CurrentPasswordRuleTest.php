@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Rules;
 
-use App\Models\User;
-use App\Rules\CurrentPasswordRule;
+use App\Domain\User\Models\User;
+use App\Domain\User\Rules\CurrentPasswordRule;
 use Tests\TestCase;
 
 class CurrentPasswordRuleTest extends TestCase

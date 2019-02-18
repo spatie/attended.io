@@ -9,7 +9,7 @@ use App\BusinessRules\Exceptions\ReviewablehasNotStartedYet;
 use App\BusinessRules\Exceptions\ReviewableWasAlreadyReviewed;
 use App\Models\Event;
 use App\Models\Interfaces\Reviewable;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Tests\TestCase;
 
 class CanBeReviewedTest extends TestCase
@@ -17,7 +17,7 @@ class CanBeReviewedTest extends TestCase
     /** @var \App\Models\Interfaces\Reviewable */
     protected $reviewable;
 
-    /** @var \App\Models\User */
+    /** @var \App\Domain\User\Models\User */
     protected $user;
 
     public function setUp()

@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Controllers\Auth;
 
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Hash;
@@ -28,7 +28,7 @@ class RegisterController
      *
      * @param  array  $data
      *
-     * @return \App\Models\User
+     * @return \App\Domain\User\Models\User
      */
     protected function create(array $data)
     {

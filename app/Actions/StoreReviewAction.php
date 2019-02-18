@@ -5,7 +5,7 @@ namespace App\Actions;
 use App\Models\Event;
 use App\Models\Interfaces\Reviewable;
 use App\Models\Slot;
-use App\Models\User;
+use App\Domain\User\Models\User;
 use Exception;
 
 class StoreReviewAction
