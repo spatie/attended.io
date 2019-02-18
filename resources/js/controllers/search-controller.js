@@ -4,12 +4,30 @@ import Turbolinks from "turbolinks";
 import { Controller } from 'stimulus';
 
 export default class QueryController extends Controller {
-    static targets = ['input'];
+    static targets = ['input', 'clear'];
+
+    initialize() {
+        this.debouncedSearch = debounce(this.search, 300);
+    }
+
+    connect() {
+        window.addEventListener('turbolinks:render', () => {
+            if (this.data.has('needsFocus')) {
+                this.inputTarget.focus();
+            }
+        });
+
+        window.addEventListener('turbolinks:load', () => {
+            this.data.delete('needsFocus');
+        });
+    }
 
     submit(e) {
         e.preventDefault();
 
-        this.search(this.inputTarget.value);
+        this.debouncedSearch(this.inputTarget.value || undefined);
+
+        this.data.set('needsFocus');
     }
 
     reset(e) {
@@ -19,13 +37,12 @@ export default class QueryController extends Controller {
     }
 
     search(query) {
-        const currentQuery = qs.parse(window.location.search.substr(1));
+        if (query === undefined) {
+            this.inputTarget.value = '';
+        }
 
-        const newQueryString = qs.stringify({
-            ...currentQuery,
-            query,
-        });
+        this.clearTarget.classList.toggle('hidden', query === undefined);
 
-        Turbolinks.visit(`?${newQueryString}`);
+        Turbolinks.visit(`?${qs.stringify({ query })}`, { action: 'replace' });
     }
 }

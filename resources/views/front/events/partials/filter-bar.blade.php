@@ -1,6 +1,6 @@
 <nav class="flex">
     <ul class="flex">
-        <li {!! request()->has('past') ? '' : 'class="font-bold"' !!}>
+        <li {!! (! request()->has('past') && ! request()->has('query')) ? 'class="font-bold"' : '' !!}>
             <a href="?">Upcoming</a>
         </li>
         <li {!! request()->has('past') ? 'class="font-bold"' : '' !!}>
@@ -8,8 +8,9 @@
         </li>
     </ul>
     <form
+        id="search-form"
         data-controller="search"
-        data-action="search#submit"
+        data-turbolinks-permanent
     >
         <input
             type="text"
@@ -17,12 +18,14 @@
             placeholder="Search..."
             value="{{ request()->query('query') }}"
             data-target="search.input"
+            data-action="keyup->search#submit"
         >
-        <button type="submit">
-            Search
-        </button>
-        <button data-action="search#reset">
-            Reset
+        <button
+            data-target="search.clear"
+            data-action="search#reset"
+            class="{{ request()->query('query') ? null : 'hidden' }}"
+        >
+            Clear
         </button>
     </form>
 </nav>
