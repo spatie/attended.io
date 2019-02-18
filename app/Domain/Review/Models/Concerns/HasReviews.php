@@ -31,7 +31,7 @@ trait HasReviews
 
     public function canBeReviewedBy(User $user): bool
     {
-        if ($user->can('review')) {
+        if (! $user->can('review')) {
             return false;
         }
 
