@@ -8,13 +8,13 @@ use App\Domain\Review\Exceptions\ReviewableEndedTooLongAgo;
 use App\Domain\Review\Exceptions\ReviewablehasNotStartedYet;
 use App\Domain\Review\Exceptions\ReviewableWasAlreadyReviewed;
 use App\Domain\Event\Models\Event;
-use App\Models\Interfaces\Reviewable;
+use App\Domain\Review\Interfaces\Reviewable;
 use App\Domain\User\Models\User;
 use Tests\TestCase;
 
 class CanBeReviewedTest extends TestCase
 {
-    /** @var \App\Models\Interfaces\Reviewable */
+    /** @var \App\Domain\Review\Interfaces\Reviewable */
     protected $reviewable;
 
     /** @var \App\Domain\User\Models\User */

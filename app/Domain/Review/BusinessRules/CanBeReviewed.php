@@ -5,7 +5,7 @@ namespace App\Domain\Review\BusinessRules;
 use App\Domain\Review\Exceptions\ReviewableEndedTooLongAgo;
 use App\Domain\Review\Exceptions\ReviewablehasNotStartedYet;
 use App\Domain\Review\Exceptions\ReviewableWasAlreadyReviewed;
-use App\Models\Interfaces\Reviewable;
+use App\Domain\Review\Interfaces\Reviewable;
 use App\Domain\User\Models\User;
 use App\Services\BusinessRules\BusinessRule;
 
@@ -14,7 +14,7 @@ class CanBeReviewed extends BusinessRule
     /** @var \App\Domain\User\Models\User */
     protected $user;
 
-    /** @var \App\Models\Interfaces\Reviewable */
+    /** @var \App\Domain\Review\Interfaces\Reviewable */
     protected $reviewable;
 
     public function __construct(User $user, Reviewable $reviewable)

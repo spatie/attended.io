@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Interfaces;
+namespace App\Domain\Review\Interfaces;
 
 use App\Domain\Event\Models\Event;
 use App\Domain\User\Models\User;

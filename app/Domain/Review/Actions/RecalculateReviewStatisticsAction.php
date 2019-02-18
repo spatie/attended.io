@@ -2,7 +2,7 @@
 
 namespace App\Domain\Review\Actions;
 
-use App\Models\Interfaces\Reviewable;
+use App\Domain\Review\Interfaces\Reviewable;
 
 class RecalculateReviewStatisticsAction
 {

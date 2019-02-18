@@ -2,7 +2,7 @@
 
 namespace App\Domain\Review\Exceptions;
 
-use App\Models\Interfaces\Reviewable;
+use App\Domain\Review\Interfaces\Reviewable;
 use App\Domain\User\Models\User;
 use App\Services\BusinessRules\BusinessRuleException;
 

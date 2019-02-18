@@ -5,7 +5,7 @@ namespace App\Domain\Review\Actions;
 use App\Domain\Event\Actions\AttendEventAction;
 use App\Domain\Review\Actions\RecalculateReviewStatisticsAction;
 use App\Domain\Event\Models\Event;
-use App\Models\Interfaces\Reviewable;
+use App\Domain\Review\Interfaces\Reviewable;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;
 use Exception;

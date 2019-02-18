@@ -2,7 +2,7 @@
 
 use App\Domain\Review\Actions\RecalculateReviewStatisticsAction;
 use App\Domain\Event\Models\Event;
-use App\Models\Interfaces\Reviewable;
+use App\Domain\Review\Interfaces\Reviewable;
 use App\Domain\Review\Models\Review;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;

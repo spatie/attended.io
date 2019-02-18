@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Concerns;
+namespace App\Domain\Review\Models\Concerns;
 
 use App\BusinessRules\CanBeReviewed;
 use App\Domain\Review\Models\Review;
