@@ -2,7 +2,6 @@
 
 namespace App\Exceptions;
 
-use App\Services\BusinessRuleException;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;

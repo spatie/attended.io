@@ -2,8 +2,8 @@
 
 namespace App\Domain\Event\Actions;
 
-use App\Http\Front\Requests\UpdateEventRequest;
 use App\Domain\Event\Models\Event;
+use App\Http\Front\Requests\UpdateEventRequest;
 
 class CreateEventAction
 {

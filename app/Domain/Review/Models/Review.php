@@ -2,8 +2,8 @@
 
 namespace App\Domain\Review\Models;
 
-use App\Domain\User\Models\User;
 use App\Domain\Shared\Models\BaseModel;
+use App\Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 

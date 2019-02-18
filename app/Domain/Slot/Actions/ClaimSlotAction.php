@@ -3,8 +3,8 @@
 namespace App\Domain\Slot\Actions;
 
 use App\Domain\Slot\Models\Slot;
-use App\Domain\User\Models\User;
 use App\Domain\Slot\Notifications\SlotClaimedNotification;
+use App\Domain\User\Models\User;
 
 class ClaimSlotAction
 {

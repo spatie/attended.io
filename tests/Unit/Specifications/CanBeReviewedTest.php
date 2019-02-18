@@ -2,13 +2,13 @@
 
 namespace Tests\Unit\Specifications;
 
+use App\Domain\Event\Models\Event;
 use App\Domain\Review\Actions\StoreReviewAction;
-use App\Domain\Review\Specifications\CanBeReviewed;
 use App\Domain\Review\Exceptions\ReviewableEndedTooLongAgo;
 use App\Domain\Review\Exceptions\ReviewablehasNotStartedYet;
 use App\Domain\Review\Exceptions\ReviewableWasAlreadyReviewed;
-use App\Domain\Event\Models\Event;
 use App\Domain\Review\Interfaces\Reviewable;
+use App\Domain\Review\Specifications\CanBeReviewed;
 use App\Domain\User\Models\User;
 use Tests\TestCase;
 

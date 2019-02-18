@@ -4,8 +4,8 @@ namespace App\Http\Front\Controllers\EventAdmin;
 
 use App\Domain\Event\Actions\CreateEventAction;
 use App\Domain\Event\Actions\UpdateEventAction;
-use App\Http\Front\Requests\UpdateEventRequest;
 use App\Domain\Event\Models\Event;
+use App\Http\Front\Requests\UpdateEventRequest;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class EventsController

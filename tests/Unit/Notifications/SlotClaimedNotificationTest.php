@@ -3,8 +3,8 @@
 namespace Tests\Unit\Notifications;
 
 use App\Domain\Slot\Models\Slot;
-use App\Domain\User\Models\User;
 use App\Domain\Slot\Notifications\SlotClaimedNotification;
+use App\Domain\User\Models\User;
 use Tests\TestCase;
 
 class SlotClaimedNotificationTest extends TestCase

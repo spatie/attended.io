@@ -3,19 +3,16 @@
 namespace App\Domain\User\Models;
 
 use App\Domain\Event\Models\Attendance;
-use App\Domain\Shared\Models\Concerns\HasSlug;
 use App\Domain\Event\Models\Event;
-use App\Domain\Slot\Models\Speaker;
-use App\Models\Interfaces\Ownable;
 use App\Domain\Review\Interfaces\Reviewable;
 use App\Domain\Review\Models\Review;
+use App\Domain\Shared\Models\Concerns\HasSlug;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Models\SlotOwnershipClaim;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 

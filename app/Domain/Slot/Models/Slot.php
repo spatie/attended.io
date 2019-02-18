@@ -3,22 +3,18 @@
 namespace App\Domain\Slot\Models;
 
 use App\Domain\Event\Models\Event;
-use App\Domain\User\Models\User;
-use App\Domain\Shared\Models\BaseModel;
-use App\Models\Concerns\HasOwners;
+use App\Domain\Event\Models\Track;
+use App\Domain\Review\Interfaces\Reviewable;
 use App\Domain\Review\Models\Concerns\HasReviews;
+use App\Domain\Shared\Models\BaseModel;
 use App\Domain\Shared\Models\Concerns\HasShortSlug;
 use App\Domain\Shared\Models\Concerns\HasSlug;
-use App\Models\Interfaces\Ownable;
-use App\Domain\Review\Interfaces\Reviewable;
 use App\Domain\Slot\Models\Presenters\PresentsSlot;
-use App\Domain\Slot\Models\SlotOwnershipClaim;
-use App\Domain\Event\Models\Track;
+use App\Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Slot extends BaseModel implements Reviewable
 {

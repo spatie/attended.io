@@ -2,17 +2,13 @@
 
 namespace App\Domain\Event\Models;
 
-use App\Domain\Event\Models\Attendance;
-use App\Domain\User\Models\User;
-use App\Domain\Shared\Models\BaseModel;
-use App\Models\Concerns\HasOwners;
-use App\Domain\Review\Models\Concerns\HasReviews;
-use App\Domain\Shared\Models\Concerns\HasSlug;
-use App\Models\Interfaces\Ownable;
-use App\Domain\Review\Interfaces\Reviewable;
 use App\Domain\Event\Models\Presenters\PresentsEvent;
+use App\Domain\Review\Interfaces\Reviewable;
+use App\Domain\Review\Models\Concerns\HasReviews;
+use App\Domain\Shared\Models\BaseModel;
+use App\Domain\Shared\Models\Concerns\HasSlug;
 use App\Domain\Slot\Models\Slot;
-use App\Domain\Event\Models\Track;
+use App\Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;

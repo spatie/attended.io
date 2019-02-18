@@ -3,8 +3,8 @@
 namespace App\Http\Front\Controllers;
 
 use App\Domain\Review\Actions\StoreReviewAction;
-use App\Http\Front\Requests\StoreReviewRequest;
 use App\Domain\Review\Models\Review;
+use App\Http\Front\Requests\StoreReviewRequest;
 use Illuminate\Support\Facades\Auth;
 
 class ReviewsController

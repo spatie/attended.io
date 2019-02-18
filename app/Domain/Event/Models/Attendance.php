@@ -2,9 +2,8 @@
 
 namespace App\Domain\Event\Models;
 
-use App\Domain\User\Models\User;
 use App\Domain\Shared\Models\BaseModel;
-use App\Domain\Event\Models\Event;
+use App\Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Attendance extends BaseModel
