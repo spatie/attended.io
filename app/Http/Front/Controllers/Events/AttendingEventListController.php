@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Controllers\Events;
 
-use App\Models\Event;
+use App\Domain\Event\Models\Event;
 
 class AttendingEventListController
 {

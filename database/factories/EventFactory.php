@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Event;
+use App\Domain\Event\Models\Event;
 use Faker\Generator as Faker;
 
 $factory->define(Event::class, function (Faker $faker) {

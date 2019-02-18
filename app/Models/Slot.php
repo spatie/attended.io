@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Domain\Event\Models\Event;
 use App\Domain\User\Models\User;
 use App\Models\Concerns\HasOwners;
 use App\Models\Concerns\HasReviews;

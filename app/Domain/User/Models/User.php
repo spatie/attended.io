@@ -2,12 +2,12 @@
 
 namespace App\Domain\User\Models;
 
-use App\Models\Attendance;
+use App\Domain\Event\Models\Attendance;
 use App\Models\Concerns\HasSlug;
-use App\Models\Event;
+use App\Domain\Event\Models\Event;
 use App\Models\Interfaces\Ownable;
 use App\Models\Interfaces\Reviewable;
-use App\Models\Review;
+use App\Domain\Review\Models\Review;
 use App\Models\Slot;
 use App\Models\SlotOwnershipClaim;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

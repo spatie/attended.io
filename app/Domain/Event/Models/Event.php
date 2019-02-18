@@ -1,14 +1,18 @@
 <?php
 
-namespace App\Models;
+namespace App\Domain\Event\Models;
 
+use App\Domain\Event\Models\Attendance;
 use App\Domain\User\Models\User;
+use App\Models\BaseModel;
 use App\Models\Concerns\HasOwners;
 use App\Models\Concerns\HasReviews;
 use App\Models\Concerns\HasSlug;
 use App\Models\Interfaces\Ownable;
 use App\Models\Interfaces\Reviewable;
 use App\Models\Presenters\PresentsEvent;
+use App\Models\Slot;
+use App\Models\Track;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;

@@ -7,7 +7,7 @@ use App\Domain\Review\BusinessRules\CanBeReviewed;
 use App\Domain\Review\Exceptions\ReviewableEndedTooLongAgo;
 use App\Domain\Review\Exceptions\ReviewablehasNotStartedYet;
 use App\Domain\Review\Exceptions\ReviewableWasAlreadyReviewed;
-use App\Models\Event;
+use App\Domain\Event\Models\Event;
 use App\Models\Interfaces\Reviewable;
 use App\Domain\User\Models\User;
 use Tests\TestCase;

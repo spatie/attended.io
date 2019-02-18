@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Models\Presenters;
 
-use App\Models\Event;
+use App\Domain\Event\Models\Event;
 use Carbon\Carbon;
 use Tests\TestCase;
 

@@ -12,7 +12,7 @@ use App\Http\Front\Controllers\Events\ShowEventScheduleController;
 use App\Http\Front\Controllers\Events\SpeakingAtEventsListController;
 use App\Http\Front\Controllers\Profile\ChangePasswordController;
 use App\Http\Front\Controllers\Profile\ProfileController;
-use App\Models\Event;
+use App\Domain\Event\Models\Event;
 use Illuminate\Support\ServiceProvider;
 
 use Spatie\Menu\Laravel\Menu;

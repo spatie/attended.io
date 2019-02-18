@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Controllers;
 
-use App\Models\Event;
+use App\Domain\Event\Models\Event;
 use Illuminate\Http\Request;
 use Spatie\Searchable\Search;
 

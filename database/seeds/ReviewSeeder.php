@@ -1,9 +1,9 @@
 <?php
 
 use App\Domain\Review\Actions\RecalculateReviewStatisticsAction;
-use App\Models\Event;
+use App\Domain\Event\Models\Event;
 use App\Models\Interfaces\Reviewable;
-use App\Models\Review;
+use App\Domain\Review\Models\Review;
 use App\Models\Slot;
 use App\Domain\User\Models\User;
 use Illuminate\Database\Seeder;

@@ -2,8 +2,8 @@
 
 namespace App\Domain\Event\Actions;
 
-use App\Models\Attendance;
-use App\Models\Event;
+use App\Domain\Event\Models\Attendance;
+use App\Domain\Event\Models\Event;
 use App\Domain\User\Models\User;
 
 class DoNotAttendEventAction

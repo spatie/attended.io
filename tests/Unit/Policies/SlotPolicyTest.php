@@ -2,14 +2,14 @@
 
 namespace Tests\Unit\Policies;
 
-use App\Models\Event;
+use App\Domain\Event\Models\Event;
 use App\Models\Slot;
 use App\Domain\User\Models\User;
 use Tests\TestCase;
 
 class SlotPolicyTest extends TestCase
 {
-    /** @var \App\Models\Event */
+    /** @var \App\Domain\Event\Models\Event */
     protected $event;
 
     /** @var \App\Domain\User\Models\User */

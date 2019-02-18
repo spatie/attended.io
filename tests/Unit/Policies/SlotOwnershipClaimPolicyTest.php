@@ -8,7 +8,7 @@ use Tests\TestCase;
 
 class SlotOwnershipClaimPolicyTest extends TestCase
 {
-    /** @var \App\Models\Event */
+    /** @var \App\Domain\Event\Models\Event */
     protected $slotOwnershipClaim;
 
     /** @var \App\Domain\User\Models\User */

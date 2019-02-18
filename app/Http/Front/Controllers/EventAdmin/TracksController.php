@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Controllers\EventAdmin;
 
-use App\Models\Event;
+use App\Domain\Event\Models\Event;
 
 class TracksController
 {

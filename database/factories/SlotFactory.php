@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Enums\SlotType;
-use App\Models\Event;
+use App\Domain\Event\Models\Event;
 use App\Models\Slot;
 use Faker\Generator as Faker;
 

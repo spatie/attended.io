@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Models\Concerns;
 
-use App\Models\Event;
+use App\Domain\Event\Models\Event;
 use App\Domain\User\Models\User;
 use Tests\TestCase;
 

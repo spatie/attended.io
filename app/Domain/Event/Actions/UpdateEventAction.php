@@ -3,7 +3,7 @@
 namespace App\Domain\Event\Actions;
 
 use App\Http\Front\Requests\UpdateEventRequest;
-use App\Models\Event;
+use App\Domain\Event\Models\Event;
 
 class UpdateEventAction
 {

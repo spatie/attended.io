@@ -2,7 +2,7 @@
 
 namespace App\Domain\Review\Rules;
 
-use App\Models\Event;
+use App\Domain\Event\Models\Event;
 use App\Models\Slot;
 use Illuminate\Contracts\Validation\Rule;
 

@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Models;
 
-use App\Models\Attendance;
-use App\Models\Event;
+use App\Domain\Event\Models\Attendance;
+use App\Domain\Event\Models\Event;
 use App\Models\Slot;
 use App\Domain\User\Models\User;
 use Tests\TestCase;

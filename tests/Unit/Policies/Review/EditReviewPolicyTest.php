@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Policies\Review;
 
-use App\Models\Review;
+use App\Domain\Review\Models\Review;
 use App\Models\Slot;
 use App\Domain\User\Models\User;
 use Tests\TestCase;

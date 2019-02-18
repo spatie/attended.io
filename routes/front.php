@@ -19,7 +19,7 @@ use App\Http\Front\Controllers\SlotOwnershipClaims\RejectSlotOwnershipClaimContr
 use App\Http\Front\Controllers\Slots\ClaimSlotController;
 use App\Http\Front\Controllers\Slots\ShowSlotController;
 use App\Http\Front\Controllers\UsersController;
-use App\Models\Event;
+use App\Domain\Event\Models\Event;
 use App\Models\Slot;
 
 Route::get('/', AllEventsController::class)->name('events');
