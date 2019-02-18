@@ -4,7 +4,7 @@ namespace App\Domain\Slot\Actions;
 
 use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;
-use App\Notifications\ReviewSlotClaimNotification;
+use App\Domain\Slot\Notifications\SlotClaimedNotification;
 
 class ClaimSlotAction
 {
@@ -16,6 +16,6 @@ class ClaimSlotAction
             ->performedOn($slot)
             ->log("{$claimingUser->email} is claming slot `{$slot->name}`");
 
-        $slot->event->owners->each->notify(new ReviewSlotClaimNotification($claimingUser, $slot));
+        $slot->event->owners->each->notify(new SlotClaimedNotification($claimingUser, $slot));
     }
 }

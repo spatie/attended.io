@@ -4,7 +4,7 @@ namespace Tests\Unit\Notifications;
 
 use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;
-use App\Notifications\ReviewSlotClaimNotification;
+use App\Domain\Slot\Notifications\SlotClaimedNotification;
 use Tests\TestCase;
 
 class ReviewSlotClaimMailTest extends TestCase
@@ -16,7 +16,7 @@ class ReviewSlotClaimMailTest extends TestCase
 
         $slot = factory(Slot::class)->create();
 
-        $notification = (new ReviewSlotClaimNotification($user, $slot));
+        $notification = (new SlotClaimedNotification($user, $slot));
 
         $this->assertNotNull($this->getHtmlForNotificationMail($notification, $user));
     }

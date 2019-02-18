@@ -10,7 +10,7 @@ use App\Domain\Review\Models\Concerns\HasReviews;
 use App\Models\Concerns\HasSlug;
 use App\Models\Interfaces\Ownable;
 use App\Domain\Review\Interfaces\Reviewable;
-use App\Models\Presenters\PresentsEvent;
+use App\Domain\Event\Models\Presenters\PresentsEvent;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Event\Models\Track;
 use Illuminate\Database\Eloquent\Builder;

@@ -11,7 +11,7 @@ use App\Models\Concerns\HasShortSlug;
 use App\Models\Concerns\HasSlug;
 use App\Models\Interfaces\Ownable;
 use App\Domain\Review\Interfaces\Reviewable;
-use App\Models\Presenters\PresentsSlot;
+use App\Domain\Slot\Models\Presenters\PresentsSlot;
 use App\Domain\Slot\Models\SlotOwnershipClaim;
 use App\Domain\Event\Models\Track;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

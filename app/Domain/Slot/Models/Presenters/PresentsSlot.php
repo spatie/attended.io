@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Presenters;
+namespace App\Domain\Slot\Models\Presenters;
 
 trait PresentsSlot
 {

@@ -4,7 +4,7 @@ namespace Tests\Unit\Notifications;
 
 use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;
-use App\Notifications\SlotOwnershipClaimApprovedNotification;
+use App\Domain\Slot\Notifications\SlotOwnershipClaimApprovedNotification;
 use Tests\TestCase;
 
 class SlotOwnershipClaimApprovedMailTest extends TestCase

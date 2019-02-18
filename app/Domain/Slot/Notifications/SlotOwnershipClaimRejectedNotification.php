@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Notifications;
+namespace App\Domain\Slot\Notifications;
 
 use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;
+use App\Notifications\BaseNotification;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class ReviewSlotClaimNotification extends BaseNotification
+class SlotOwnershipClaimRejectedNotification extends BaseNotification
 {
     /** @var \App\Mail\User */
-    protected $claimingUser;
+    public $claimingUser;
 
     /** @var \App\Domain\Slot\Models\Slot */
-    protected $slot;
+    public $slot;
 
     public function __construct(User $claimingUser, Slot $slot)
     {
@@ -24,8 +25,8 @@ class ReviewSlotClaimNotification extends BaseNotification
     public function toMail(User $notifiable)
     {
         return (new MailMessage)
-            ->subject("{$this->claimingUser->email} wants to claim the '{$this->slot->name}' slot")
-            ->markdown('notification-mails.review-slot-claim', [
+            ->subject("Your claim on {{ $this->slot->name }} has been rejected")
+            ->markdown('notification-mails.slot-ownership-claim-rejected', [
                 'claimingUser' => $this->claimingUser,
                 'slot' => $this->slot,
             ]);

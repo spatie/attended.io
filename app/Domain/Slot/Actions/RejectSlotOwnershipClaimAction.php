@@ -3,7 +3,7 @@
 namespace App\Domain\Slot\Actions;
 
 use App\Domain\Slot\Models\SlotOwnershipClaim;
-use App\Notifications\SlotOwnershipClaimRejectedNotification;
+use App\Domain\Slot\Notifications\SlotOwnershipClaimRejectedNotification;
 
 class RejectSlotOwnershipClaimAction
 {

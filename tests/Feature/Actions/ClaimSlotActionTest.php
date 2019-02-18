@@ -5,7 +5,7 @@ namespace Tests\Feature\Actions;
 use App\Domain\Slot\Actions\ClaimSlotAction;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;
-use App\Notifications\ReviewSlotClaimNotification;
+use App\Domain\Slot\Notifications\SlotClaimedNotification;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
@@ -32,7 +32,7 @@ class ClaimSlotActionTest extends TestCase
         $this->assertCount(3, $slot->event->owners);
 
         foreach ($slot->event->owners as $owner) {
-            Notification::assertSentTo($owner, ReviewSlotClaimNotification::class);
+            Notification::assertSentTo($owner, SlotClaimedNotification::class);
         }
     }
 }

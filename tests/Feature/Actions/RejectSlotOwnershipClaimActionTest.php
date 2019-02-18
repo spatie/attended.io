@@ -4,7 +4,7 @@ namespace Tests\Feature\Actions;
 
 use App\Domain\Slot\Actions\RejectSlotOwnershipClaimAction;
 use App\Domain\Slot\Models\SlotOwnershipClaim;
-use App\Notifications\SlotOwnershipClaimRejectedNotification;
+use App\Domain\Slot\Notifications\SlotOwnershipClaimRejectedNotification;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 

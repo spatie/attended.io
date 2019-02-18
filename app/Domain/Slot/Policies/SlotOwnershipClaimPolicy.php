@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Policies;
+namespace App\Domain\Slot\Policies;
 
 use App\Domain\Slot\Models\SlotOwnershipClaim;
 use App\Domain\User\Models\User;

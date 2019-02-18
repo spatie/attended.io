@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Policies;
+namespace App\Domain\Review\Policies;
 
 use App\Domain\Review\Models\Review;
 use App\Domain\User\Models\User;
