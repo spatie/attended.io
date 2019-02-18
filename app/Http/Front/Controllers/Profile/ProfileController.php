@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Controllers\Profile;
 
-use App\Actions\UpdateUserAction;
+use App\Domain\User\Actions\UpdateUserAction;
 use App\Http\Front\Requests\UpdateUserRequest;
 
 class ProfileController

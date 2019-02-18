@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Controllers\Profile;
 
-use App\Actions\UpdatePasswordAction;
+use App\Domain\User\Actions\UpdatePasswordAction;
 use App\Http\Front\Requests\UpdatePasswordRequest;
 
 class ChangePasswordController
