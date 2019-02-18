@@ -7,8 +7,6 @@ use App\Http\Front\Controllers\EventAdmin\EventsController as EventAdminEventsCo
 use App\Http\Front\Controllers\EventAdmin\SlotsController;
 use App\Http\Front\Controllers\EventAdmin\TracksController;
 use App\Http\Front\Controllers\Events\AttendingEventListController;
-use App\Http\Front\Controllers\Events\PastEventsListController;
-use App\Http\Front\Controllers\Events\AllEventsController;
 use App\Http\Front\Controllers\Events\ShowEventFeedbackController;
 use App\Http\Front\Controllers\Events\ShowEventScheduleController;
 use App\Http\Front\Controllers\Events\SpeakingAtEventsListController;

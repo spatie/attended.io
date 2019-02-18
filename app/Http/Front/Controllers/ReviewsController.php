@@ -5,7 +5,6 @@ namespace App\Http\Front\Controllers;
 use App\Actions\StoreReviewAction;
 use App\Http\Front\Requests\StoreReviewRequest;
 use App\Models\Review;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Auth;
 
 class ReviewsController

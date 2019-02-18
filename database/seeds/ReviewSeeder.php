@@ -6,8 +6,6 @@ use App\Models\Interfaces\Reviewable;
 use App\Models\Review;
 use App\Models\Slot;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
 class ReviewSeeder extends Seeder

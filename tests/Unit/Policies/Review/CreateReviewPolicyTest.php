@@ -2,8 +2,6 @@
 
 namespace Tests\Unit\Policies\Review;
 
-use App\Models\Review;
-
 class CreateReviewPolicyTest
 {
     /** @test */
@@ -13,6 +11,4 @@ class CreateReviewPolicyTest
 
         $this->assertFalse($unverifiedUser->can('create', ));
     }
-
-
 }

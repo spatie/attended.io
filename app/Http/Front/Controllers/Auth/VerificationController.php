@@ -3,8 +3,6 @@
 namespace App\Http\Front\Controllers\Auth;
 
 use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Auth\Events\Verified;
-use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 

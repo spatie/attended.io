@@ -3,7 +3,6 @@
 namespace App\Actions;
 
 use App\Models\SlotOwnershipClaim;
-use App\Models\User;
 use App\Notifications\SlotOwnershipClaimApprovedNotification;
 
 class ApproveSlotOwnershipClaimAction

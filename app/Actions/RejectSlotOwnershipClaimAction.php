@@ -22,7 +22,5 @@ class RejectSlotOwnershipClaimAction
         activity()
             ->performedOn($slot)
             ->log("claim on `{$slot->name}` by `{$claimingUser->email}` has been rejected");
-
-
     }
 }

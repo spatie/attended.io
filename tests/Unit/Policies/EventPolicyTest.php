@@ -50,6 +50,4 @@ class EventPolicyTest extends TestCase
 
         $this->assertFalse($this->user->can('administer', $this->event));
     }
-
-
 }
