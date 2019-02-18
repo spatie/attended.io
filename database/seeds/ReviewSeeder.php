@@ -1,6 +1,6 @@
 <?php
 
-use App\Actions\RecalculateReviewStatisticsAction;
+use App\Domain\Review\Actions\RecalculateReviewStatisticsAction;
 use App\Models\Event;
 use App\Models\Interfaces\Reviewable;
 use App\Models\Review;

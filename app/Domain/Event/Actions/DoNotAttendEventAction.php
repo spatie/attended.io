@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions;
+namespace App\Domain\Event\Actions;
 
 use App\Models\Attendance;
 use App\Models\Event;

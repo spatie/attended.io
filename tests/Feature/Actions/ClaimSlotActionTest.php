@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Actions;
 
-use App\Actions\ClaimSlotAction;
+use App\Domain\Slot\Actions\ClaimSlotAction;
 use App\Models\Slot;
 use App\Domain\User\Models\User;
 use App\Notifications\ReviewSlotClaimNotification;

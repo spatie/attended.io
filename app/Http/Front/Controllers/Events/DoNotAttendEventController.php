@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Controllers\Events;
 
-use App\Actions\DoNotAttendEventAction;
+use App\Domain\Event\Actions\DoNotAttendEventAction;
 
 class DoNotAttendEventController
 {

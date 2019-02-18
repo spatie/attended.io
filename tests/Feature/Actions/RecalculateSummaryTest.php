@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Actions;
 
-use App\Actions\RecalculateReviewStatisticsAction;
+use App\Domain\Review\Actions\RecalculateReviewStatisticsAction;
 use App\Models\Review;
 use App\Models\Slot;
 use Tests\TestCase;

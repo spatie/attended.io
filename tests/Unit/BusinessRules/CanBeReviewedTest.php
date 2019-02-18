@@ -2,11 +2,11 @@
 
 namespace Tests\Unit\BusinessRules;
 
-use App\Actions\StoreReviewAction;
-use App\BusinessRules\CanBeReviewed;
-use App\BusinessRules\Exceptions\ReviewableEndedTooLongAgo;
-use App\BusinessRules\Exceptions\ReviewablehasNotStartedYet;
-use App\BusinessRules\Exceptions\ReviewableWasAlreadyReviewed;
+use App\Domain\Review\Actions\StoreReviewAction;
+use App\Domain\Review\BusinessRules\CanBeReviewed;
+use App\Domain\Review\Exceptions\ReviewableEndedTooLongAgo;
+use App\Domain\Review\Exceptions\ReviewablehasNotStartedYet;
+use App\Domain\Review\Exceptions\ReviewableWasAlreadyReviewed;
 use App\Models\Event;
 use App\Models\Interfaces\Reviewable;
 use App\Domain\User\Models\User;

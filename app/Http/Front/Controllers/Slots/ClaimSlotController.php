@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Controllers\Slots;
 
-use App\Actions\ClaimSlotAction;
+use App\Domain\Slot\Actions\ClaimSlotAction;
 use App\Models\Slot;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 

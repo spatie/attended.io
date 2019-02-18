@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions;
+namespace App\Domain\Review\Actions;
 
 use App\Models\Interfaces\Reviewable;
 

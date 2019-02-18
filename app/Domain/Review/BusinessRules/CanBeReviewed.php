@@ -1,10 +1,10 @@
 <?php
 
-namespace App\BusinessRules;
+namespace App\Domain\Review\BusinessRules;
 
-use App\BusinessRules\Exceptions\ReviewableEndedTooLongAgo;
-use App\BusinessRules\Exceptions\ReviewablehasNotStartedYet;
-use App\BusinessRules\Exceptions\ReviewableWasAlreadyReviewed;
+use App\Domain\Review\Exceptions\ReviewableEndedTooLongAgo;
+use App\Domain\Review\Exceptions\ReviewablehasNotStartedYet;
+use App\Domain\Review\Exceptions\ReviewableWasAlreadyReviewed;
 use App\Models\Interfaces\Reviewable;
 use App\Domain\User\Models\User;
 use App\Services\BusinessRules\BusinessRule;

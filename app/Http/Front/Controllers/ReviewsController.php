@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Controllers;
 
-use App\Actions\StoreReviewAction;
+use App\Domain\Review\Actions\StoreReviewAction;
 use App\Http\Front\Requests\StoreReviewRequest;
 use App\Models\Review;
 use Illuminate\Support\Facades\Auth;

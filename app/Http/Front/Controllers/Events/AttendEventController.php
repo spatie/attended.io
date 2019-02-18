@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Controllers\Events;
 
-use App\Actions\AttendEventAction;
+use App\Domain\Event\Actions\AttendEventAction;
 
 class AttendEventController
 {

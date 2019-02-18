@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Actions;
 
-use App\Actions\ApproveSlotOwnershipClaimAction;
+use App\Domain\Slot\Actions\ApproveSlotOwnershipClaimAction;
 use App\Models\SlotOwnershipClaim;
 use App\Notifications\SlotOwnershipClaimApprovedNotification;
 use Illuminate\Support\Facades\Notification;

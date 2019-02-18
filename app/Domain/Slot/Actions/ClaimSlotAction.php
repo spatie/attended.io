@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions;
+namespace App\Domain\Slot\Actions;
 
 use App\Models\Slot;
 use App\Domain\User\Models\User;

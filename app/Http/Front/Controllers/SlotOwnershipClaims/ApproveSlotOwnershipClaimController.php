@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Controllers\SlotOwnershipClaims;
 
-use App\Actions\ApproveSlotOwnershipClaimAction;
+use App\Domain\Slot\Actions\ApproveSlotOwnershipClaimAction;
 use App\Models\SlotOwnershipClaim;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 

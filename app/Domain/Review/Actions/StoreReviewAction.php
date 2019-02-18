@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Actions;
+namespace App\Domain\Review\Actions;
 
+use App\Domain\Event\Actions\AttendEventAction;
+use App\Domain\Review\Actions\RecalculateReviewStatisticsAction;
 use App\Models\Event;
 use App\Models\Interfaces\Reviewable;
 use App\Models\Slot;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Requests;
 
-use App\BusinessRules\CanBeReviewed;
+use App\Domain\Review\BusinessRules\CanBeReviewed;
 use App\Models\Interfaces\Reviewable;
 use App\Rules\ReviewableType;
 use Illuminate\Foundation\Http\FormRequest;
