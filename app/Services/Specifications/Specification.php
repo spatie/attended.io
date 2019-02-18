@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\BusinessRules;
+namespace App\Services\Specifications;
 
-abstract class BusinessRule
+abstract class Specification
 {
     abstract public function ensure();
 
@@ -12,7 +12,7 @@ abstract class BusinessRule
             $this->ensure();
 
             return true;
-        } catch (BusinessRuleException $exception) {
+        } catch (SpecificationException $exception) {
             return false;
         }
     }

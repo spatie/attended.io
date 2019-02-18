@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Domain\Review\BusinessRules;
+namespace App\Domain\Review\Specifications;
 
 use App\Domain\Review\Exceptions\ReviewableEndedTooLongAgo;
 use App\Domain\Review\Exceptions\ReviewablehasNotStartedYet;
 use App\Domain\Review\Exceptions\ReviewableWasAlreadyReviewed;
 use App\Domain\Review\Interfaces\Reviewable;
 use App\Domain\User\Models\User;
-use App\Services\BusinessRules\BusinessRule;
+use App\Services\Specifications\Specification;
 
-class CanBeReviewed extends BusinessRule
+class CanBeReviewed extends Specification
 {
     /** @var \App\Domain\User\Models\User */
     protected $user;

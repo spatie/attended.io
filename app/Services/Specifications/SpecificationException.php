@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services\BusinessRules;
+namespace App\Services\Specifications;
 
 use Exception;
 use Illuminate\Contracts\Support\Responsable;
 
-abstract class BusinessRuleException extends Exception implements Responsable
+abstract class SpecificationException extends Exception implements Responsable
 {
     public function toResponse($request)
     {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Unit\BusinessRules;
+namespace Tests\Unit\Specifications;
 
 use App\Domain\Review\Actions\StoreReviewAction;
-use App\Domain\Review\BusinessRules\CanBeReviewed;
+use App\Domain\Review\Specifications\CanBeReviewed;
 use App\Domain\Review\Exceptions\ReviewableEndedTooLongAgo;
 use App\Domain\Review\Exceptions\ReviewablehasNotStartedYet;
 use App\Domain\Review\Exceptions\ReviewableWasAlreadyReviewed;
