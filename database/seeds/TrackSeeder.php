@@ -1,7 +1,7 @@
 <?php
 
 use App\Domain\Event\Models\Event;
-use App\Models\Track;
+use App\Domain\Event\Models\Track;
 use Illuminate\Database\Seeder;
 
 class TrackSeeder extends Seeder

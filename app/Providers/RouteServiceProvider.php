@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use App\Domain\Event\Models\Event;
 use App\Domain\Slot\Models\Slot;
-use App\Models\SlotOwnershipClaim;
+use App\Domain\Slot\Models\SlotOwnershipClaim;
 use App\Domain\User\Models\User;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;

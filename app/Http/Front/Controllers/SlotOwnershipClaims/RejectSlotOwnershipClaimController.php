@@ -3,7 +3,7 @@
 namespace App\Http\Front\Controllers\SlotOwnershipClaims;
 
 use App\Domain\Slot\Actions\ApproveSlotOwnershipClaimAction;
-use App\Models\SlotOwnershipClaim;
+use App\Domain\Slot\Models\SlotOwnershipClaim;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class RejectSlotOwnershipClaimController

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Domain\Event\Models;
 
 use App\Domain\Event\Models\Event;
 use App\Domain\Slot\Models\Slot;

@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Policies;
 
-use App\Models\SlotOwnershipClaim;
+use App\Domain\Slot\Models\SlotOwnershipClaim;
 use App\Domain\User\Models\User;
 use Tests\TestCase;
 

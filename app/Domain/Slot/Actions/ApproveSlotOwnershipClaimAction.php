@@ -2,7 +2,7 @@
 
 namespace App\Domain\Slot\Actions;
 
-use App\Models\SlotOwnershipClaim;
+use App\Domain\Slot\Models\SlotOwnershipClaim;
 use App\Notifications\SlotOwnershipClaimApprovedNotification;
 
 class ApproveSlotOwnershipClaimAction

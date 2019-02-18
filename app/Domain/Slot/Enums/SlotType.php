@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Enums;
+namespace App\Domain\Slot\Enums;
 
 use MyCLabs\Enum\Enum;
 
