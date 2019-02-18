@@ -10,23 +10,6 @@ class ReviewPolicy
 {
     use HandlesAuthorization;
 
-    public function create(User $user, Review $review): bool
-    {
-        if (! $user->hasVerifiedEmail()) {
-            return false;
-        }
-
-        if ($review->reviewable->isAdministeredBy($user)) {
-            return true;
-        }
-
-        if ($review->reviewable()->eventOfReviewable()->ends_at->addDays(30)->isFuture()) {
-            return true;
-        }
-
-        return false;
-    }
-
     public function edit(User $user, Review $review): bool
     {
         if ($review->user->id === $user->id) {

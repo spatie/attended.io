@@ -6,11 +6,13 @@ use App\Models\Event;
 use App\Models\Review;
 use App\Models\Slot;
 use App\Models\SlotOwnershipClaim;
+use App\Models\User;
 use App\Policies\EventPolicy;
 use App\Policies\ReviewPolicy;
 use App\Policies\SlotOwnershipClaimPolicy;
 use App\Policies\SlotPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -24,5 +26,11 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+
+        Gate::before(function (User $user) {
+            if ($user->admin) {
+                return true;
+            }
+        });
     }
 }

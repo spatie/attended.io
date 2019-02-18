@@ -10,7 +10,7 @@ class AttendingEventListController
     {
         $events = Event::query()
             ->published()
-            ->hasAttendee(current_user())
+            ->hasAttendee(auth()->user())
             ->orderBy('starts_at', 'desc')
             ->paginate()
             ->appends(request()->all());

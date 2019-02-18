@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Services\BusinessRuleException;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
@@ -49,6 +50,12 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof ValidationException) {
             flash()->error('Please correct the errors in the form');
+        }
+
+        if ($exception instanceof BusinessRuleException) {
+            flash()->error($exception->getMessage());
+
+            return back();
         }
 
         return parent::render($request, $exception);

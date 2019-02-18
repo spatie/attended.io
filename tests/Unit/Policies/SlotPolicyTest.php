@@ -36,43 +36,11 @@ class SlotPolicyTest extends TestCase
     }
 
     /** @test */
-    public function an_event_can_be_reviewed_up_until_one_month_after_it_ends()
-    {
-        $this->assertTrue($this->user->can('addReview', $this->slot));
-
-        $this->progressTime(60 * 24 * 29);
-        $this->assertTrue($this->user->can('addReview', $this->slot));
-
-        $this->progressTime(60 * 24 * 30);
-        $this->assertFalse($this->user->can('addReview', $this->slot));
-
-        $ownerOfEvent = factory(User::class)->create();
-        $this->event->owners()->attach($ownerOfEvent);
-        $this->slot->refresh();
-
-        $this->assertTrue($ownerOfEvent->can('addReview', $this->slot));
-    }
-
-    /** @test */
-    public function a_slot_cannot_be_reviewed_before_it_starts()
-    {
-        $slot = factory(Slot::class)->create([
-            'starts_at' => now()->addMinute(),
-        ]);
-
-        $this->assertFalse($this->user->can('addReview', $slot));
-
-        $this->progressTime(1);
-
-        $this->assertTrue($this->user->can('addReview', $slot));
-    }
-
-    /** @test */
     public function a_user_without_a_verified_email_cannot_post_reviews()
     {
         $unverifiedUser = factory(User::class)->state('unverified-email')->create();
 
-        $this->assertTrue($unverifiedUser->can('addReview', $this->slot));
+        $this->assertTrue($unverifiedUser->can('review', $this->slot));
     }
 
     /** @test */

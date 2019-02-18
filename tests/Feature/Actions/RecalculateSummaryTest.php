@@ -15,8 +15,8 @@ class RecalculateSummaryTest extends TestCase
         $slot = factory(Slot::class)->create();
 
         $this
-            ->addReview($slot, 4)
-            ->addReview($slot, 6);
+            ->review($slot, 4)
+            ->review($slot, 6);
 
         (new RecalculateReviewStatisticsAction())->execute($slot);
 
@@ -24,7 +24,7 @@ class RecalculateSummaryTest extends TestCase
         $this->assertEquals(5, $slot->average_review_rating);
     }
 
-    public function addReview(Slot $slot, int $rating)
+    public function review(Slot $slot, int $rating)
     {
         factory(Review::class)->create([
             'reviewable_type' => get_class($slot),

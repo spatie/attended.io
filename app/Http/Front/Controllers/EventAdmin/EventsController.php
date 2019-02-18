@@ -15,7 +15,7 @@ class EventsController
     public function index()
     {
         $events = Event::query()
-            ->ownedBy(current_user())
+            ->ownedBy(auth()->user())
             ->orderBy('starts_at', 'desc')
             ->paginate();
 

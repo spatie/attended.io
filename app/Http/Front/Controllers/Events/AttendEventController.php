@@ -8,7 +8,7 @@ class AttendEventController
 {
     public function __invoke(Event $event, AttendEventAction $attendEventAction)
     {
-        $attendEventAction->execute(current_user(), $event);
+        $attendEventAction->execute(auth()->user(), $event);
 
         return ok();
     }

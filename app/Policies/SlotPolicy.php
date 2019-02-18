@@ -27,8 +27,8 @@ class SlotPolicy
         return true;
     }
 
-    public function addReview(User $user, Slot $slot): bool
+    public function review(): bool
     {
-        return $slot->canBeReviewedBy($user);
+        return true;
     }
 }

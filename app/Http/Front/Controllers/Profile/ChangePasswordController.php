@@ -14,7 +14,7 @@ class ChangePasswordController
 
     public function update(UpdatePasswordRequest $request, UpdatePasswordAction $updatePasswordAction)
     {
-        $user = current_user();
+        $user = auth()->user();
 
         $updatePasswordAction->execute($user, $request->new_password);
 

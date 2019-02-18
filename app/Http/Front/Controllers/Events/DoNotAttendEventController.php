@@ -8,7 +8,7 @@ class DoNotAttendEventController
 {
     public function __invoke(Event $event, DoNotAttendEventAction $doNotAttendEventAction)
     {
-        $doNotAttendEventAction->execute(current_user(), $event);
+        $doNotAttendEventAction->execute(auth()->user(), $event);
 
         return ok();
     }

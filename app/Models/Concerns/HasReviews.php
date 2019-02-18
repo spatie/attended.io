@@ -2,9 +2,11 @@
 
 namespace App\Models\Concerns;
 
+use App\BusinessRules\CanBeReviewed;
 use App\Models\Review;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Support\Facades\Auth;
 
 trait HasReviews
 {
@@ -30,18 +32,10 @@ trait HasReviews
 
     public function canBeReviewedBy(User $user): bool
     {
-        if ($this->starts_at->isFuture()) {
+        if ($user->can('review')) {
             return false;
         }
 
-        if ($this->isAdministeredBy($user)) {
-            return true;
-        }
-
-        if ($this->eventOfReviewable()->ends_at->addDays(30)->isFuture()) {
-            return true;
-        }
-
-        return false;
+        return (new CanBeReviewed($this, $user))->passes();
     }
 }

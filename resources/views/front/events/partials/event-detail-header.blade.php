@@ -3,6 +3,6 @@
 {{ $event->location }}
 {{ $event->description }}
 
-@include('front.events.partials.attending', ['attending' => $event->attendedBy(current_user())])
+@include('front.events.partials.attending', ['attending' => $event->attendedBy(auth()->user())])
 
 {{ Menu::event($event) }}

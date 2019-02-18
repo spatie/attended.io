@@ -57,7 +57,7 @@ class Event extends BaseModel implements Reviewable, Ownable, Searchable
 
     public function currentUserAttendance(): HasMany
     {
-        return $this->hasMany(Attendance::class)->where('user_id', optional(current_user())->id);
+        return $this->hasMany(Attendance::class)->where('user_id', optional(auth()->user())->id);
     }
 
     public function attendedByCurrentUser(): bool

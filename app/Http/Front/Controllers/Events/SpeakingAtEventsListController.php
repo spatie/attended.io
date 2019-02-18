@@ -10,7 +10,7 @@ class SpeakingAtEventsListController
     {
         $events = Event::query()
             ->published()
-            ->hasSlotWithSpeaker(current_user())
+            ->hasSlotWithSpeaker(auth()->user())
             ->orderBy('starts_at', 'desc')
             ->paginate()
             ->appends(request()->all());

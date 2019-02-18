@@ -35,6 +35,7 @@ class EventPolicyTest extends TestCase
 
         $this->event->owners()->attach($this->user);
         $this->event->refresh();
+        $this->user->refresh();
 
         $this->assertTrue($this->user->can('administer', $this->event));
     }
@@ -50,35 +51,5 @@ class EventPolicyTest extends TestCase
         $this->assertFalse($this->user->can('administer', $this->event));
     }
 
-    /** @test */
-    public function an_event_can_be_reviewed_up_until_one_month_after_it_ends()
-    {
-        $this->assertTrue($this->user->can('addReview', $this->event));
 
-        $this->progressTime(60 * 24 * 29);
-        $this->assertTrue($this->user->can('addReview', $this->event));
-
-        $this->progressTime(60 * 24 * 30);
-        $this->assertFalse($this->user->can('addReview', $this->event));
-
-        $ownerOfEvent = factory(User::class)->create();
-        $this->event->owners()->attach($ownerOfEvent);
-        $this->event->refresh();
-
-        $this->assertTrue($ownerOfEvent->can('addReview', $this->event));
-    }
-
-    /** @test */
-    public function an_event_cannot_be_reviewed_before_it_starts()
-    {
-        $event = factory(Event::class)->create([
-           'starts_at' => now()->addMinute(),
-        ]);
-
-        $this->assertFalse($this->user->can('addReview', $event));
-
-        $this->progressTime(1);
-
-        $this->assertTrue($this->user->can('addReview', $event));
-    }
 }

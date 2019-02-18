@@ -12,11 +12,6 @@ function faker(): Generator
     return Factory::create();
 }
 
-function current_user(): ?User
-{
-    return Auth::user();
-}
-
 function ok(): Response
 {
     return response('', SymfonyResponse::HTTP_NO_CONTENT);

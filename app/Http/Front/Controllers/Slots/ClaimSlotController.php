@@ -14,7 +14,7 @@ class ClaimSlotController
     {
         $this->authorize('claim', $slot);
 
-        $claimSlotAction->execute(current_user(), $slot);
+        $claimSlotAction->execute(auth()->user(), $slot);
 
         flash()->success('An admin of event will soon review your claim.');
 

@@ -58,4 +58,22 @@ class UserTest extends TestCase
 
         $this->assertTrue($this->user->attendsEvents());
     }
+
+    /** @test */
+    public function it_can_determine_if_a_user_has_reviewed_a_reviewable()
+    {
+        $event = factory(Event::class)->create();
+
+        $user = factory(User::class)->create();
+
+        $this->assertFalse($user->hasReviewed($event));
+
+        $event->reviews()->create([
+            'user_id' => $user->id,
+            'rating' => $reviewAttributes['rating'] ?? null,
+            'remarks' => $reviewAttributes['remarks'] ?? null,
+        ]);
+
+        $this->assertTrue($user->hasReviewed($event));
+    }
 }

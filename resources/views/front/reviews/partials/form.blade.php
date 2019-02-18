@@ -1,4 +1,4 @@
-@can('addReview', $reviewable)
+@if($reviewable->canBeReviewedByCurrentUser())
 <form method="POST" action="{{ route('reviews.store') }}">
     @csrf
     <input type="hidden" name="reviewable_id" value="{{ $reviewable->id }}">
@@ -15,7 +15,7 @@
 
     <button type="submit">Submit</button>
 </form>
-@endcan
+@endif
 @guest
-    You must loging to post a review
+    You must be logged in to post a review
 @endguest

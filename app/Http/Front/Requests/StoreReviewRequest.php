@@ -2,12 +2,23 @@
 
 namespace App\Http\Front\Requests;
 
+use App\BusinessRules\CanBeReviewed;
 use App\Models\Interfaces\Reviewable;
 use App\Rules\ReviewableType;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreReviewRequest extends FormRequest
 {
+    public function authorized()
+    {
+        return $this->user()->can('review', $this->reviewable());
+    }
+
+    public function prepareForValidation()
+    {
+        return (new CanBeReviewed($this, auth()->user()))->ensure();
+    }
+
     public function rules()
     {
         return [

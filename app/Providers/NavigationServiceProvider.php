@@ -26,17 +26,17 @@ class NavigationServiceProvider extends ServiceProvider
         Menu::macro('main', function () {
             return Menu::new()
                 ->actionIf(
-                    optional(current_user())->organisesEvents(),
+                    optional(auth()->user())->organisesEvents(),
                     [EventsController::class, 'index'],
                     'Organizing',
                     )
                 ->actionIf(
-                    optional(current_user())->speaksAtEvents(),
+                    optional(auth()->user())->speaksAtEvents(),
                     SpeakingAtEventsListController::class,
                     'Speaking',
                     )
                 ->actionIf(
-                    optional(current_user())->attendsEvents(),
+                    optional(auth()->user())->attendsEvents(),
                     AttendingEventListController::class,
                     'Attending',
                     );
