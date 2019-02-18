@@ -16,7 +16,7 @@ class StoreReviewRequest extends FormRequest
 
     public function prepareForValidation()
     {
-        return (new CanBeReviewed($this, auth()->user()))->ensure();
+        (new CanBeReviewed($this, auth()->user()))->ensure();
     }
 
     public function rules()
