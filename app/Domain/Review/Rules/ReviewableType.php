@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Rules;
+namespace App\Domain\Review\Rules;
 
 use App\Models\Event;
 use App\Models\Slot;

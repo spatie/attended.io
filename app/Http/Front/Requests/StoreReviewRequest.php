@@ -4,7 +4,7 @@ namespace App\Http\Front\Requests;
 
 use App\Domain\Review\BusinessRules\CanBeReviewed;
 use App\Models\Interfaces\Reviewable;
-use App\Rules\ReviewableType;
+use App\Domain\Review\Rules\ReviewableType;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreReviewRequest extends FormRequest
