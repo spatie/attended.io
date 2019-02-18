@@ -3,7 +3,7 @@
 namespace App\Domain\User\Models;
 
 use App\Domain\Event\Models\Attendance;
-use App\Models\Concerns\HasSlug;
+use App\Domain\Shared\Models\Concerns\HasSlug;
 use App\Domain\Event\Models\Event;
 use App\Models\Interfaces\Ownable;
 use App\Domain\Review\Interfaces\Reviewable;
