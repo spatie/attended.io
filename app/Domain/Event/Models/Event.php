@@ -14,18 +14,18 @@ use App\Domain\Event\Models\Presenters\PresentsEvent;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Event\Models\Track;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Http\Request;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
 
-class Event extends BaseModel implements Reviewable, Ownable, Searchable
+class Event extends BaseModel implements Reviewable, Searchable
 {
     use HasReviews,
         HasSlug,
-        PresentsEvent,
-        HasOwners;
+        PresentsEvent;
 
     public $casts = [
         'cfp' => 'boolean',
@@ -41,6 +41,23 @@ class Event extends BaseModel implements Reviewable, Ownable, Searchable
     public function tracks(): HasMany
     {
         return $this->hasMany(Track::class)->orderBy('order_column');
+    }
+
+    public function organizingUsers(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'organizers')->withTimestamps();
+    }
+
+    public function organizers(): HasMany
+    {
+        return $this->hasMany(Organizer::class);
+    }
+
+    public function scopeOrganizedBy(Builder $query, User $user)
+    {
+        $query->whereHas('organizers', function (Builder $query) use ($user) {
+            $query->where('user_id', $user->id);
+        });
     }
 
     public function slots(): HasMany
@@ -95,7 +112,7 @@ class Event extends BaseModel implements Reviewable, Ownable, Searchable
     public function scopeHasSlotWithSpeaker(Builder $query, User $user)
     {
         $query->whereHas('slots', function (Builder $query) use ($user) {
-            $query->ownedBy($user);
+            $query->hasSpeaker($user);
         });
     }
 
@@ -123,7 +140,7 @@ class Event extends BaseModel implements Reviewable, Ownable, Searchable
 
     public function isAdministeredBy(User $user): bool
     {
-        return $user->owns($this);
+        return $user->organizes($this);
     }
 
     public function eventOfReviewable(): Event

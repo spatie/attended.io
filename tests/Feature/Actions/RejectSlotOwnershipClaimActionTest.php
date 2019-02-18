@@ -19,11 +19,11 @@ class RejectSlotOwnershipClaimActionTest extends TestCase
         $claimingUser = $claim->user;
         $slot = $claim->slot;
 
-        $this->assertFalse($claimingUser->owns($slot));
+        $this->assertFalse($claimingUser->isSpeaker($slot));
 
         (new RejectSlotOwnershipClaimAction())->execute($claim);
 
-        $this->assertFalse($claimingUser->owns($slot->refresh()));
+        $this->assertFalse($claimingUser->isSpeaker($slot->refresh()));
         $this->assertFalse($claim->exists());
 
         Notification::assertSentTo($claimingUser, SlotOwnershipClaimRejectedNotification::class);

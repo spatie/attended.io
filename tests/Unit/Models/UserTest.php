@@ -27,7 +27,7 @@ class UserTest extends TestCase
 
         $slot = factory(Slot::class)->create();
 
-        $slot->owners()->attach($this->user);
+        $slot->speakingUsers()->attach($this->user);
 
         $this->assertTrue($this->user->speaksAtEvents());
     }
@@ -39,7 +39,7 @@ class UserTest extends TestCase
 
         $event = factory(Event::class)->create();
 
-        $event->owners()->attach($this->user);
+        $event->organizingUsers()->attach($this->user);
 
         $this->assertTrue($this->user->organisesEvents());
     }

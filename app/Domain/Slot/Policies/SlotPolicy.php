@@ -12,7 +12,7 @@ class SlotPolicy
 
     public function claim(User $user, Slot $slot): bool
     {
-        if ($user->owns($slot)) {
+        if ($user->isSpeaker($slot)) {
             return false;
         }
 

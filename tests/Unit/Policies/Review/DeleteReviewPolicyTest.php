@@ -34,7 +34,7 @@ class DeleteReviewPolicyTest extends TestCase
 
         $this->assertFalse($user->can('delete', $review));
 
-        $event->owners()->attach($user);
+        $event->organizingUsers()->attach($user);
         $this->assertTrue($user->can('delete', $review->refresh()));
     }
 
@@ -52,7 +52,7 @@ class DeleteReviewPolicyTest extends TestCase
 
         $this->assertFalse($user->can('delete', $review));
 
-        $slot->event->owners()->attach($user);
+        $slot->event->organizingUsers()->attach($user);
         $this->assertTrue($user->can('delete', $review->refresh()));
     }
 }

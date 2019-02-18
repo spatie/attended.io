@@ -16,6 +16,6 @@ class ClaimSlotAction
             ->performedOn($slot)
             ->log("{$claimingUser->email} is claming slot `{$slot->name}`");
 
-        $slot->event->owners->each->notify(new SlotClaimedNotification($claimingUser, $slot));
+        $slot->event->organizingUsers->each->notify(new SlotClaimedNotification($claimingUser, $slot));
     }
 }

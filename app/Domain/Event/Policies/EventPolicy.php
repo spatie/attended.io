@@ -12,7 +12,7 @@ class EventPolicy
 
     public function administer(User $user, Event $event): bool
     {
-        return $user->owns($event);
+        return $user->organizes($event);
     }
 
     public function review(User $user, Event $event): bool

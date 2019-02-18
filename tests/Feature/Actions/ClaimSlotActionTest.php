@@ -20,7 +20,7 @@ class ClaimSlotActionTest extends TestCase
         $slot = factory(Slot::class)->create();
 
         factory(User::class, 3)->create()->each(function (User $user) use ($slot) {
-            $slot->event->owners()->attach($user);
+            $slot->event->organizingUsers()->attach($user);
         });
 
         $this->assertFalse($user->isClaimingSlot($slot));
@@ -28,11 +28,11 @@ class ClaimSlotActionTest extends TestCase
         (new ClaimSlotAction())->execute($user, $slot);
 
         $this->assertTrue($user->isClaimingSlot($slot));
-        $this->assertFalse($user->owns($slot));
-        $this->assertCount(3, $slot->event->owners);
+        $this->assertFalse($user->isSpeaker($slot));
+        $this->assertCount(3, $slot->event->organizingUsers);
 
-        foreach ($slot->event->owners as $owner) {
-            Notification::assertSentTo($owner, SlotClaimedNotification::class);
+        foreach ($slot->event->organizingUsers as $organizingUser) {
+            Notification::assertSentTo($organizingUser, SlotClaimedNotification::class);
         }
     }
 }

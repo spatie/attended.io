@@ -33,7 +33,7 @@ class EventPolicyTest extends TestCase
     {
         $this->assertFalse($this->user->can('administer', $this->event));
 
-        $this->event->owners()->attach($this->user);
+        $this->event->organizingUsers()->attach($this->user);
         $this->event->refresh();
         $this->user->refresh();
 
@@ -45,7 +45,7 @@ class EventPolicyTest extends TestCase
     {
         $anotherEvent = factory(Event::class)->create();
 
-        $anotherEvent->owners()->attach($this->user);
+        $anotherEvent->organizingUsers()->attach($this->user);
         $this->event->refresh();
 
         $this->assertFalse($this->user->can('administer', $this->event));

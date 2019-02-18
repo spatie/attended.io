@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Models;
+namespace App\Domain\Event\Models;
 
 use App\Domain\Shared\Models\BaseModel;
 use App\Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-class Ownership extends BaseModel
+class Organizer extends BaseModel
 {
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function ownable(): MorphTo
+    public function event(): BelongsTo
     {
-        return $this->morphTo();
+        return $this->belongsTo(Event::class);
     }
 }

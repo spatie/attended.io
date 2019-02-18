@@ -28,7 +28,7 @@ class SlotOwnershipClaimPolicyTest extends TestCase
     {
         $this->assertFalse($this->user->can('administer', $this->slotOwnershipClaim));
 
-        $this->slotOwnershipClaim->slot->event->owners()->attach($this->user);
+        $this->slotOwnershipClaim->slot->event->organizingUsers()->attach($this->user);
         $this->slotOwnershipClaim->refresh();
 
         $this->assertTrue($this->user->can('administer', $this->slotOwnershipClaim));

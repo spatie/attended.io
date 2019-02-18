@@ -5,12 +5,14 @@ namespace App\Domain\User\Models;
 use App\Domain\Event\Models\Attendance;
 use App\Domain\Shared\Models\Concerns\HasSlug;
 use App\Domain\Event\Models\Event;
+use App\Domain\Slot\Models\Speaker;
 use App\Models\Interfaces\Ownable;
 use App\Domain\Review\Interfaces\Reviewable;
 use App\Domain\Review\Models\Review;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Models\SlotOwnershipClaim;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
@@ -39,22 +41,27 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Review::class);
     }
 
-    public function events(): MorphToMany
+    public function events(): BelongsToMany
     {
-        return $this
-            ->morphedByMany(Event::class, 'ownable', 'ownerships')
-            ->orderBy('starts_at', 'desc');
+        return $this->belongsToMany(Event::class, 'organizers');
     }
 
-    public function slots(): MorphToMany
+    public function slots(): BelongsToMany
     {
-        return $this->morphedByMany(Slot::class, 'ownable', 'ownerships');
+        return $this->belongsToMany(Slot::class, 'speakers');
     }
 
-    public function owns(Ownable $ownable): bool
+    public function organizes(Event $event): bool
     {
-        return $ownable->owners->contains(function (User $owner) {
-            return $owner->id === $this->id;
+        return $event->organizingUsers->contains(function (User $organizingUser) {
+            return $organizingUser->id === $this->id;
+        });
+    }
+
+    public function isSpeaker(Slot $slot): bool
+    {
+        return $slot->speakingUsers->contains(function (User $speakingUser) {
+            return $speakingUser->id === $this->id;
         });
     }
 

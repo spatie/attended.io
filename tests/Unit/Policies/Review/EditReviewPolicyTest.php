@@ -53,7 +53,7 @@ class EditReviewPolicyTest extends TestCase
 
         $this->assertFalse($user->can('edit', $review));
 
-        $event->owners()->attach($user);
+        $event->organizingUsers()->attach($user);
         $this->assertTrue($user->can('edit', $review->refresh()));
 
         $this->progressTime(30);
@@ -74,7 +74,7 @@ class EditReviewPolicyTest extends TestCase
 
         $this->assertFalse($user->can('edit', $review));
 
-        $slot->event->owners()->attach($user);
+        $slot->event->organizingUsers()->attach($user);
         $this->assertTrue($user->can('edit', $review->refresh()));
 
         $this->progressTime(30);

@@ -60,7 +60,7 @@ class SlotPolicyTest extends TestCase
     /** @test */
     public function an_owner_of_a_slot_cannot_claim_it_again()
     {
-        $this->slot->owners()->attach($this->user);
+        $this->slot->speakingUsers()->attach($this->user);
 
         $this->assertFalse($this->user->can('claim', $this->slot));
     }

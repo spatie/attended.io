@@ -19,11 +19,11 @@ class ApproveSlotOwnershipClaimActionTest extends TestCase
         $claimingUser = $claim->user;
         $slot = $claim->slot;
 
-        $this->assertFalse($claimingUser->owns($slot));
+        $this->assertFalse($claimingUser->isSpeaker($slot));
 
         (new ApproveSlotOwnershipClaimAction())->execute($claim);
 
-        $this->assertTrue($claimingUser->owns($slot->refresh()));
+        $this->assertTrue($claimingUser->isSpeaker($slot->refresh()));
         $this->assertFalse($claim->exists());
 
         Notification::assertSentTo($claimingUser, SlotOwnershipClaimApprovedNotification::class);

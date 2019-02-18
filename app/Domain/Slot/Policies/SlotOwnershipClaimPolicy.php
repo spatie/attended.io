@@ -12,6 +12,6 @@ class SlotOwnershipClaimPolicy
 
     public function administer(User $user, SlotOwnershipClaim $claim): bool
     {
-        return $user->owns($claim->slot->event);
+        return $user->organizes($claim->slot->event);
     }
 }

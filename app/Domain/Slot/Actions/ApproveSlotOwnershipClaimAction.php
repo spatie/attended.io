@@ -12,7 +12,7 @@ class ApproveSlotOwnershipClaimAction
         $claimingUser = $claim->user;
         $slot = $claim->slot;
 
-        $slot->owners()->attach($claimingUser);
+        $slot->speakingUsers()->attach($claimingUser);
 
         $claim->delete();
 

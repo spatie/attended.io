@@ -32,10 +32,6 @@ class SlotSeeder extends Seeder
             if (faker()->boolean(90)) {
                 $users->each(function (User $user) use ($slot) {
                     $this->addRelation($user, $slot);
-
-                    faker()->boolean(90)
-                        ? $slot->owners()->attach($user)
-                        : $slot->claimingUsers()->attach($user);
                 });
             }
         });
@@ -44,7 +40,7 @@ class SlotSeeder extends Seeder
     protected function addRelation(User $user, Slot $slot)
     {
         if (faker()->boolean(90)) {
-            $slot->owners()->attach($user);
+            $slot->speakingUsers()->attach($user);
 
             return;
         }
@@ -65,7 +61,7 @@ class SlotSeeder extends Seeder
         $startsAt = $event->starts_at;
 
         while (true) {
-            $endsAt = $startsAt->copy()->addMinutes(faker()->randomElement([15, 30, 60, 90, 120, 360]));
+            $endsAt = $startsAt->copy()->addMinutes(faker()->randomElement([15, 30, 60, 90]));
 
             if ($endsAt->greaterThan($event->ends_at)) {
                 return $slotTimes;
