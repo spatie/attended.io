@@ -3,7 +3,7 @@
 namespace App\Domain\Event\Models;
 
 use App\Domain\User\Models\User;
-use App\Models\BaseModel;
+use App\Domain\Shared\Models\BaseModel;
 use App\Domain\Event\Models\Event;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 

@@ -4,7 +4,7 @@ namespace App\Domain\Slot\Notifications;
 
 use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;
-use App\Notifications\BaseNotification;
+use App\Domain\Shared\Notifications\BaseNotification;
 use Illuminate\Notifications\Messages\MailMessage;
 
 class SlotOwnershipClaimRejectedNotification extends BaseNotification

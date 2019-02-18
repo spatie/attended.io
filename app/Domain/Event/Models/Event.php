@@ -4,7 +4,7 @@ namespace App\Domain\Event\Models;
 
 use App\Domain\Event\Models\Attendance;
 use App\Domain\User\Models\User;
-use App\Models\BaseModel;
+use App\Domain\Shared\Models\BaseModel;
 use App\Models\Concerns\HasOwners;
 use App\Domain\Review\Models\Concerns\HasReviews;
 use App\Models\Concerns\HasSlug;
