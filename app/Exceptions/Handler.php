@@ -52,12 +52,6 @@ class Handler extends ExceptionHandler
             flash()->error('Please correct the errors in the form');
         }
 
-        if ($exception instanceof BusinessRuleException) {
-            flash()->error($exception->getMessage());
-
-            return back();
-        }
-
         return parent::render($request, $exception);
     }
 }

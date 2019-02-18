@@ -77,12 +77,12 @@ class CanBeReviewedTest extends TestCase
         $this->expectRuleFails($this->user, $this->reviewable, ReviewableWasAlreadyReviewed::class);
     }
 
-    public function assertRulePasses(User $user, Reviewable $reviewable)
+    protected function assertRulePasses(User $user, Reviewable $reviewable)
     {
         $this->assertTrue((new CanBeReviewed($user, $reviewable))->passes());
     }
 
-    public function expectRuleFails(User $user, Reviewable $reviewable, string $exceptionClass)
+    protected function expectRuleFails(User $user, Reviewable $reviewable, string $exceptionClass)
     {
         $this->expectException($exceptionClass);
 
