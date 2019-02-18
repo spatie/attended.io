@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Domain\Slot\Models;
 
 use App\Domain\Event\Models\Event;
 use App\Domain\User\Models\User;
+use App\Models\BaseModel;
 use App\Models\Concerns\HasOwners;
 use App\Models\Concerns\HasReviews;
 use App\Models\Concerns\HasShortSlug;
@@ -11,6 +12,8 @@ use App\Models\Concerns\HasSlug;
 use App\Models\Interfaces\Ownable;
 use App\Models\Interfaces\Reviewable;
 use App\Models\Presenters\PresentsSlot;
+use App\Models\SlotOwnershipClaim;
+use App\Models\Track;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;

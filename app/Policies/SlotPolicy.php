@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Slot;
+use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 

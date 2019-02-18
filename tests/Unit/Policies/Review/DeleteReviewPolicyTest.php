@@ -4,7 +4,7 @@ namespace Tests\Unit\Policies\Review;
 
 use App\Domain\Event\Models\Event;
 use App\Domain\Review\Models\Review;
-use App\Models\Slot;
+use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;
 use Tests\TestCase;
 

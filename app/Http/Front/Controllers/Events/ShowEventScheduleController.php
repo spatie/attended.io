@@ -3,7 +3,7 @@
 namespace App\Http\Front\Controllers\Events;
 
 use App\Domain\Event\Models\Event;
-use App\Models\Slot;
+use App\Domain\Slot\Models\Slot;
 
 class ShowEventScheduleController
 {

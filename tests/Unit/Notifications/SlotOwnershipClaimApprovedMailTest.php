@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Notifications;
 
-use App\Models\Slot;
+use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;
 use App\Notifications\SlotOwnershipClaimApprovedNotification;
 use Tests\TestCase;

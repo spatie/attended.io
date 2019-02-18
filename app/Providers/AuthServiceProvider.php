@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use App\Domain\Event\Models\Event;
 use App\Domain\Review\Models\Review;
-use App\Models\Slot;
+use App\Domain\Slot\Models\Slot;
 use App\Models\SlotOwnershipClaim;
 use App\Domain\User\Models\User;
 use App\Policies\EventPolicy;

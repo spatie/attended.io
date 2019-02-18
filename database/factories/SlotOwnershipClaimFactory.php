@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Slot;
+use App\Domain\Slot\Models\Slot;
 use App\Models\SlotOwnershipClaim;
 use App\Domain\User\Models\User;
 use Faker\Generator as Faker;

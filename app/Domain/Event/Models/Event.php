@@ -11,7 +11,7 @@ use App\Models\Concerns\HasSlug;
 use App\Models\Interfaces\Ownable;
 use App\Models\Interfaces\Reviewable;
 use App\Models\Presenters\PresentsEvent;
-use App\Models\Slot;
+use App\Domain\Slot\Models\Slot;
 use App\Models\Track;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\HasMany;

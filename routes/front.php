@@ -20,7 +20,7 @@ use App\Http\Front\Controllers\Slots\ClaimSlotController;
 use App\Http\Front\Controllers\Slots\ShowSlotController;
 use App\Http\Front\Controllers\UsersController;
 use App\Domain\Event\Models\Event;
-use App\Models\Slot;
+use App\Domain\Slot\Models\Slot;
 
 Route::get('/', AllEventsController::class)->name('events');
 Route::get('speaking', SpeakingAtEventsListController::class)->middleware('auth')->name('speaking');

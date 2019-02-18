@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Domain\Event\Models\Event;
+use App\Domain\Slot\Models\Slot;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;

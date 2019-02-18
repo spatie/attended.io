@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Controllers\Slots;
 
-use App\Models\Slot;
+use App\Domain\Slot\Models\Slot;
 
 class ShowSlotController
 {

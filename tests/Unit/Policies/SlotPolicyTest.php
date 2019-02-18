@@ -3,7 +3,7 @@
 namespace Tests\Unit\Policies;
 
 use App\Domain\Event\Models\Event;
-use App\Models\Slot;
+use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;
 use Tests\TestCase;
 
@@ -15,7 +15,7 @@ class SlotPolicyTest extends TestCase
     /** @var \App\Domain\User\Models\User */
     protected $user;
 
-    /** @var \App\Models\Slot */
+    /** @var \App\Domain\Slot\Models\Slot */
     protected $slot;
 
     public function setUp()

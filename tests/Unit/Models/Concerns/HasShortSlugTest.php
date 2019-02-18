@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Models\Concerns;
 
-use App\Models\Slot;
+use App\Domain\Slot\Models\Slot;
 use Tests\TestCase;
 
 class HasShortSlugTest extends TestCase

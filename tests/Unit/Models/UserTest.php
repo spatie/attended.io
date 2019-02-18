@@ -4,7 +4,7 @@ namespace Tests\Unit\Models;
 
 use App\Domain\Event\Models\Attendance;
 use App\Domain\Event\Models\Event;
-use App\Models\Slot;
+use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;
 use Tests\TestCase;
 

@@ -8,7 +8,7 @@ use App\Domain\Event\Models\Event;
 use App\Models\Interfaces\Ownable;
 use App\Models\Interfaces\Reviewable;
 use App\Domain\Review\Models\Review;
-use App\Models\Slot;
+use App\Domain\Slot\Models\Slot;
 use App\Models\SlotOwnershipClaim;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;

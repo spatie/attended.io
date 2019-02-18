@@ -4,7 +4,7 @@ namespace Tests\Feature\Actions;
 
 use App\Domain\Review\Actions\RecalculateReviewStatisticsAction;
 use App\Domain\Review\Models\Review;
-use App\Models\Slot;
+use App\Domain\Slot\Models\Slot;
 use Tests\TestCase;
 
 class RecalculateSummaryTest extends TestCase

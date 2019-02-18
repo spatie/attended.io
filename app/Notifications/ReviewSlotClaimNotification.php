@@ -2,7 +2,7 @@
 
 namespace App\Notifications;
 
-use App\Models\Slot;
+use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;
 use Illuminate\Notifications\Messages\MailMessage;
 
@@ -11,7 +11,7 @@ class ReviewSlotClaimNotification extends BaseNotification
     /** @var \App\Mail\User */
     protected $claimingUser;
 
-    /** @var \App\Models\Slot */
+    /** @var \App\Domain\Slot\Models\Slot */
     protected $slot;
 
     public function __construct(User $claimingUser, Slot $slot)
