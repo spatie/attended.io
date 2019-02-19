@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Http\ViewModels\Components\CheckboxFieldViewModel;
+use App\Http\ViewModels\Components\CountrySelectViewModel;
 use App\Http\ViewModels\Components\FieldLabelViewModel;
 use App\Http\ViewModels\Components\FormErrorViewModel;
 use Illuminate\Support\ServiceProvider;
@@ -16,5 +17,7 @@ class BladeXServiceProvider extends ServiceProvider
         BladeX::component('front.components.fieldLabel')->viewModel(FieldLabelViewModel::class);
         BladeX::component('front.components.formError')->viewModel(FormErrorViewModel::class);
         BladeX::component('front.components.checkboxField')->viewModel(CheckboxFieldViewModel::class);
+        BladeX::component('front.components.countrySelect')->viewModel(CountrySelectViewModel::class);
+
     }
 }

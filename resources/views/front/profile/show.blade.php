@@ -13,7 +13,7 @@
         <input-field name="name" :model="$user" label="Name"/>
         <input-field name="bio" :model="$user" label="Bio"/>
         <input-field name="city" :model="$user" label="City"/>
-        <input-field name="country" :model="$user" label="Country"/>
+        <country-select name="country" :model="$user" label="Country"/>
         <input-field name="joindin_username" :model="$user" label="Joindin username"/>
 
         <button>Save</button>
