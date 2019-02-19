@@ -12,6 +12,10 @@ class UpdateUserAction
 
         $user->name = $attributes['name'];
         $user->email = $attributes['email'];
+        $user->bio = $attributes['bio'] ?? null;
+        $user->city = $attributes['city'] ?? null;
+        $user->country = $attributes['country'] ?? null;
+        $user->joindin_username = $attributes['joindin_username'] ?? null;
 
         activity()->log('User updated');
 

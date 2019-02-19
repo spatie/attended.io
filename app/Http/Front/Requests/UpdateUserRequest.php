@@ -2,6 +2,7 @@
 
 namespace App\Http\Front\Requests;
 
+use App\Domain\User\Rules\CountryCode;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -12,6 +13,10 @@ class UpdateUserRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => Rule::unique('users')->ignore(auth()->user()->id),
+            'bio' => '',
+            'city' => '',
+            'country' => [new CountryCode()],
+            'joindin_username' => '',
         ];
     }
 }

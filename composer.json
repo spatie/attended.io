@@ -17,6 +17,7 @@
         "laravel/framework": "5.7.*",
         "laravel/telescope": "^1.0",
         "laravel/tinker": "^1.0",
+        "league/iso3166": "^2.1",
         "myclabs/php-enum": "^1.6",
         "spatie/eloquent-sortable": "^3.4",
         "spatie/laravel-activitylog": "^3.2",

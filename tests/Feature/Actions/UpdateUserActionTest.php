@@ -25,10 +25,18 @@ class UpdateUserActionTest extends TestCase
         (new UpdateUserAction())->execute($user, [
             'name' => 'updated-name',
             'email' => 'new-user@example.com',
+            'bio' => 'my bio',
+            'city' => 'Brussels',
+            'country' => 'be',
+            'joindin_username' => 'my-joindin-username'
         ]);
 
         $this->assertEquals('updated-name', $user->name);
         $this->assertEquals('new-user@example.com', $user->email);
+        $this->assertEquals('my bio', $user->bio);
+        $this->assertEquals('Brussels', $user->city);
+        $this->assertEquals('be', $user->country);
+        $this->assertEquals('my-joindin-username', $user->joindin_username);
     }
 
     /** @test */
