@@ -13,7 +13,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('bio')->nullable();
             $table->string('city')->nullable();
-            $table->string('country')->nullable();
+            $table->string('country_code')->nullable();
+            $table->string('country_name')->nullable();
+            $table->string('country_emoji')->nullable();
             $table->string('joindin_username')->nullable();
             $table->string('slug');
             $table->string('email')->unique();

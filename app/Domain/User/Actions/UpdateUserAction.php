@@ -14,12 +14,13 @@ class UpdateUserAction
         $user->email = $attributes['email'];
         $user->bio = $attributes['bio'] ?? null;
         $user->city = $attributes['city'] ?? null;
-        $user->country = $attributes['country'] ?? null;
+        $user->country_code = $attributes['country_code'] ?? null;
         $user->joindin_username = $attributes['joindin_username'] ?? null;
+        $user->save();
+
+        (new UpdateCountryAttributesAction())->execute($user);
 
         activity()->log('User updated');
-
-        $user->save();
 
         if ($user->email !== $oldEmail) {
             $user

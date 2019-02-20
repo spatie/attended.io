@@ -13,7 +13,7 @@ class UpdateUserRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => Rule::unique('users')->ignore(auth()->user()->id),
-            'bio' => '',
+            'bio' => 'max:255',
             'city' => '',
             'country' => [new CountryCode()],
             'joindin_username' => '',
