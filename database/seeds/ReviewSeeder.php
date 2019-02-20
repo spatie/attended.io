@@ -14,7 +14,7 @@ class ReviewSeeder extends Seeder
     {
         collect([
             Event::class,
-            //Slot::class,
+            Slot::class,
         ])->each(function (string $reviewableClass) {
             $this->seedReviews($reviewableClass);
         });
