@@ -12,8 +12,8 @@ use App\Http\Front\Controllers\Events\DoNotAttendEventController;
 use App\Http\Front\Controllers\Events\ShowEventFeedbackController;
 use App\Http\Front\Controllers\Events\ShowEventScheduleController;
 use App\Http\Front\Controllers\Events\SpeakingAtEventsListController;
-use App\Http\Front\Controllers\Profile\ChangePasswordController;
-use App\Http\Front\Controllers\Profile\ProfileController;
+use App\Http\Front\Controllers\Settings\ChangePasswordController;
+use App\Http\Front\Controllers\Settings\ProfileController;
 use App\Http\Front\Controllers\ReviewsController;
 use App\Http\Front\Controllers\SearchController;
 use App\Http\Front\Controllers\SlotOwnershipClaims\ApproveSlotOwnershipClaimController;
@@ -60,8 +60,8 @@ Route::prefix('reviews')->group(function () {
     Route::delete('{review}', [ReviewsController::class, 'delete'])->name('reviews.delete');
 });
 
-Route::prefix('profile')->middleware('auth')->group(function () {
-    Route::get('/', [ProfileController::class, 'show'])->name('profile.show');
+Route::prefix('settings')->middleware('auth')->group(function () {
+    Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('update', [ProfileController::class, 'update'])->name('profile.update');
 });
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Front\Controllers\Profile;
+namespace App\Http\Front\Controllers\Settings;
 
 use App\Domain\User\Actions\UpdatePasswordAction;
 use App\Http\Front\Requests\UpdatePasswordRequest;
