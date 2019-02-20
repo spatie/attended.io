@@ -14,7 +14,7 @@ class ReviewSeeder extends Seeder
     {
         collect([
             Event::class,
-            Slot::class,
+            //Slot::class,
         ])->each(function (string $reviewableClass) {
             $this->seedReviews($reviewableClass);
         });
@@ -23,7 +23,7 @@ class ReviewSeeder extends Seeder
     protected function seedReviews(string $reviewableClass)
     {
         $reviewableClass::get()->each(function (Reviewable $reviewable) use ($reviewableClass) {
-            factory(Review::class, rand(0, 10))->create([
+            factory(Review::class, rand(0, 2))->create([
                 'reviewable_type' => $reviewableClass,
                 'reviewable_id' => $reviewable->id,
                 'user_id' => User::inRandomOrder()->first()->id,
