@@ -2,11 +2,15 @@
 
 namespace App\Http\Front\Controllers\Profile;
 
+use App\Domain\User\Models\User;
+
 class ReviewsController
 {
-    public function __invoke()
+    public function __invoke(User $user)
     {
-        return 'reviews';
+        $reviews = [];
+
+        return view('front.profile.reviews', compact('user', 'reviews'));
     }
 
 }

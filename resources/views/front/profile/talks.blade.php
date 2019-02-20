@@ -1,7 +1,11 @@
 @extends('front.layouts.main')
 
+@push('headers')
+    <link rel="canonical" href="{{ route('profile.events.show', $user->idSlug()) }}" />
+@endpush
+
 @section('content')
-    <h1>Profile</h1>
+    {{ Menu::profile($user) }}
 
     @include('front.profile.partials.profile')
 

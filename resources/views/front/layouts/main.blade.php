@@ -56,7 +56,7 @@
 
                                 @auth
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('profile.talks.show', auth()->user()) }}">
+                                    <a class="dropdown-item" href="{{ route('profile.talks.show', auth()->user()->idSlug()) }}">
                                         Profile
                                     </a>
                                     <a class="dropdown-item" href="{{ route('account.settings.edit') }}">
