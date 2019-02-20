@@ -11,7 +11,9 @@
 
     @foreach($events as $event)
         <div>
-            {{ $event->name }}
+            <a href="{{ route('events.show-schedule', $event->idSlug()) }}">{{ $event->name }}</a>
+            {{ $event->timeSpan() }}
+            {{ $event->location }}, {{ $event->city }} {{ $event->country_emoji }}
         </div>
 
     @endforeach

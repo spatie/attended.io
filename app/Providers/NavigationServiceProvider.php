@@ -59,7 +59,12 @@ class NavigationServiceProvider extends ServiceProvider
 
         Menu::macro('profile', function (User $user) {
             return Menu::new()
-                ->action(TalksController::class, 'Talks', $user->idSlug())
+                ->actionIf(
+                    optional(auth()->user())->speaksAtEvents(),
+                    TalksController::class,
+                    'Talks',
+                    [$user->idSlug()],
+                    )
                 ->action(ProfileEventsController::class, 'Events', $user->idSlug())
                 ->action(ReviewsController::class, 'Reviews', $user->idSlug());
         });
