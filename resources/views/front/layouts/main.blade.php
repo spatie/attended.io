@@ -54,9 +54,13 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
+                                @auth
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('profile.edit', auth()->user()) }}">
-                                       Profile
+                                    <a class="dropdown-item" href="{{ route('profile.talks.show', auth()->user()) }}">
+                                        Profile
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('account.settings.edit') }}">
+                                       Account
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -68,6 +72,7 @@
                                         @csrf
                                     </form>
                                 </div>
+                                @endauth
                             </li>
                         @endguest
                     </ul>

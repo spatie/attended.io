@@ -10,6 +10,7 @@ use App\Domain\Shared\Models\Concerns\HasCountry;
 use App\Domain\Shared\Models\Concerns\HasSlug;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Models\SlotOwnershipClaim;
+use App\Domain\User\Models\Concerns\PresentsUser;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -19,7 +20,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, HasSlug, HasCountry;
+    use Notifiable, HasSlug, HasCountry, PresentsUser;
 
     protected $fillable = [
         'name', 'email', 'password',

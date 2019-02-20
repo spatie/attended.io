@@ -2,11 +2,11 @@
 
 @section('content')
 
-    {{ Menu::profile() }}
+    {{ Menu::account() }}
 
     <h1>My profile</h1>
 
-    <form action="{{ route('profile.update', $user) }}" method="POST">
+    <form action="{{ route('account.settings.update', $user) }}" method="POST">
         @csrf
 
         <input-field type="email" name="email" :model="$user" label="Email"/>

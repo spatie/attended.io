@@ -2,6 +2,8 @@
 
 use App\Domain\Event\Models\Event;
 use App\Domain\Slot\Models\Slot;
+use App\Http\Front\Controllers\Account\ChangePasswordController;
+use App\Http\Front\Controllers\Account\SettingsController;
 use App\Http\Front\Controllers\EventAdmin\EventsController;
 use App\Http\Front\Controllers\EventAdmin\SlotsController;
 use App\Http\Front\Controllers\EventAdmin\TracksController;
@@ -12,8 +14,9 @@ use App\Http\Front\Controllers\Events\DoNotAttendEventController;
 use App\Http\Front\Controllers\Events\ShowEventFeedbackController;
 use App\Http\Front\Controllers\Events\ShowEventScheduleController;
 use App\Http\Front\Controllers\Events\SpeakingAtEventsListController;
-use App\Http\Front\Controllers\Settings\ChangePasswordController;
-use App\Http\Front\Controllers\Settings\ProfileController;
+use App\Http\Front\Controllers\Profile\EventsController as ProfileEventsController;
+use App\Http\Front\Controllers\Profile\ReviewsController as ProfileReviewsController;
+use App\Http\Front\Controllers\Profile\TalksController;
 use App\Http\Front\Controllers\ReviewsController;
 use App\Http\Front\Controllers\SearchController;
 use App\Http\Front\Controllers\SlotOwnershipClaims\ApproveSlotOwnershipClaimController;
@@ -60,14 +63,18 @@ Route::prefix('reviews')->group(function () {
     Route::delete('{review}', [ReviewsController::class, 'delete'])->name('reviews.delete');
 });
 
-Route::prefix('settings')->middleware('auth')->group(function () {
-    Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::post('update', [ProfileController::class, 'update'])->name('profile.update');
+Route::prefix('profile/{user}')->group(function () {
+    Route::get('talks', TalksController::class)->name('profile.talks.show');
+    Route::get('events', ProfileEventsController::class)->name('profile.events.show');
+    Route::get('reviews', ProfileReviewsController::class)->name('profile.reviews.show');
 });
 
-Route::prefix('password')->middleware('auth')->group(function () {
-    Route::get('/', [ChangePasswordController::class, 'show'])->name('password.show');
-    Route::post('update', [ChangePasswordController::class, 'update'])->name('password.update');
+Route::prefix('account')->middleware('auth')->group(function () {
+    Route::get('settings', [SettingsController::class, 'edit'])->name('account.settings.edit');
+    Route::post('settings', [SettingsController::class, 'update'])->name('account.settings.update');
+
+    Route::get('password', [ChangePasswordController::class, 'edit'])->name('account.password.edit');
+    Route::post('password', [ChangePasswordController::class, 'update'])->name('account.password.update');
 });
 
 Route::get('users/{user}', [UsersController::class, 'show'])->name('users.show');

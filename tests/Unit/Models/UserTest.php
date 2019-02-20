@@ -76,4 +76,31 @@ class UserTest extends TestCase
 
         $this->assertTrue($user->hasReviewed($event));
     }
+
+    /** @test */
+    public function it_can_generate_the_link_to_joined_in()
+    {
+        $user = factory(User::class)->create(['joindin_username' => null]);
+
+        $this->assertEquals('', $user->joindInProfileUrl());
+
+        $user->joindin_username = 'johndoe';
+        $user->save();
+
+        $this->assertEquals('https://joind.in/user/johndoe', $user->joindInProfileUrl());
+    }
+
+    /** @test */
+    public function it_can_generate_a_gravatar_url()
+    {
+        $user = factory(User::class)->create([
+            'email' => 'johndoe@example.com',
+            'name' => 'John Doe',
+        ]);
+
+        $this->assertEquals(
+            'https://gravatar.com/avatar/fd876f8cd6a58277fc664d47ea10ad19?d=https%3A%2F%2Fui-avatars.com%2Fapi%2FJohn+Doe%2F512%2Ff2f3f8%2F2c2e3e',
+            $user->gravatarUrl()
+        );
+    }
 }

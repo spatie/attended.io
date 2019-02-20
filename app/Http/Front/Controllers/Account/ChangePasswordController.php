@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Front\Controllers\Settings;
+namespace App\Http\Front\Controllers\Account;
 
 use App\Domain\User\Actions\UpdatePasswordAction;
 use App\Http\Front\Requests\UpdatePasswordRequest;
 
 class ChangePasswordController
 {
-    public function show()
+    public function edit()
     {
-        return view('front.profile.password');
+        return view('front.account.password');
     }
 
     public function update(UpdatePasswordRequest $request, UpdatePasswordAction $updatePasswordAction)

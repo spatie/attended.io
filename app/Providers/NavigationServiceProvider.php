@@ -11,8 +11,8 @@ use App\Http\Front\Controllers\Events\AttendingEventListController;
 use App\Http\Front\Controllers\Events\ShowEventFeedbackController;
 use App\Http\Front\Controllers\Events\ShowEventScheduleController;
 use App\Http\Front\Controllers\Events\SpeakingAtEventsListController;
-use App\Http\Front\Controllers\Settings\ChangePasswordController;
-use App\Http\Front\Controllers\Settings\ProfileController;
+use App\Http\Front\Controllers\Account\ChangePasswordController;
+use App\Http\Front\Controllers\Account\SettingsController;
 use Illuminate\Support\ServiceProvider;
 
 use Spatie\Menu\Laravel\Menu;
@@ -53,10 +53,10 @@ class NavigationServiceProvider extends ServiceProvider
                 ->action([SlotsController::class, 'index'], 'Slots', $event->idSlug());
         });
 
-        Menu::macro('profile', function () {
+        Menu::macro('account', function () {
             return Menu::new()
-                ->action([ProfileController::class, 'edit'], 'Profile')
-                ->action([ChangePasswordController::class, 'show'], 'Change password');
+                ->action([SettingsController::class, 'edit'], 'Profile')
+                ->action([ChangePasswordController::class, 'edit'], 'Change password');
         });
     }
 }

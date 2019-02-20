@@ -13,6 +13,8 @@ class CreateSpeakersTable extends Migration
             $table->unsignedInteger('slot_id');
             $table->unsignedInteger('user_id');
             $table->timestamps();
+
+            $table->index('slot_id');
         });
     }
 }

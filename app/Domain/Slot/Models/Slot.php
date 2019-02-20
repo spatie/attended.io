@@ -53,6 +53,13 @@ class Slot extends BaseModel implements Reviewable
         return $this->belongsToMany(User::class, 'slot_ownership_claims')->withTimestamps();
     }
 
+    public function scopePublished(Builder $query)
+    {
+        $query->whereHas('event', function (Builder $query) {
+            $query->whereNotNull('published_at');
+        });
+    }
+
     public function scopeHasSpeaker(Builder $query, User $user)
     {
         $query->whereHas('speakingUsers', function (Builder $query) use ($user) {
