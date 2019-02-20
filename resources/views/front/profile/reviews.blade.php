@@ -11,8 +11,13 @@
 
     @foreach($reviews as $review)
         <div>
-            Here is a review
+            @include("front.profile.partials.{$review->reviewableType()}-review")
         </div>
-
     @endforeach
+
+    <pagination
+        :paginator="$reviews"
+        next-label="Older reviews"
+        previous-label="Newer reviews"
+    />
 @endsection

@@ -1,7 +1,7 @@
 @extends('front.layouts.main')
 
 @push('headers')
-    <link rel="canonical" href="{{ route('profile.events.show', $user->idSlug()) }}" />
+    <link rel="canonical" href="{{ route('profile.events.show', $user->idSlug()) }}"/>
 @endpush
 
 @section('content')
@@ -21,15 +21,9 @@
 
     @endforeach
 
-    @if($slots->nextPageUrl())
-        <a href="{{ $slots->nextPageUrl() }}">
-            Older talks
-        </a>
-    @endif
-
-    @if($slots->previousPageUrl())
-        <a href="{{ $slots->previousPageUrl() }}">
-           Newer talks
-        </a>
-    @endif
+    <pagination
+        :paginator="$slots"
+        next-label="Older talks"
+        previous-label="Newer talks"
+    />
 @endsection

@@ -8,9 +8,11 @@ class ReviewsController
 {
     public function __invoke(User $user)
     {
-        $reviews = [];
+        $reviews = $user
+            ->reviews()
+            ->orderBy('created_at')
+            ->paginate();
 
         return view('front.profile.reviews', compact('user', 'reviews'));
     }
-
 }

@@ -18,4 +18,9 @@ class Review extends BaseModel
     {
         return $this->belongsTo(User::class);
     }
+
+    public function reviewableType(): string
+    {
+        return lcfirst(class_basename($this->reviewable_type));
+    }
 }

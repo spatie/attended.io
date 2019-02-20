@@ -15,4 +15,10 @@
         </div>
 
     @endforeach
+
+    <pagination
+        :paginator="$events"
+        next-label="Older events"
+        previous-label="Newer events"
+    />
 @endsection
