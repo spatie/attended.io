@@ -26,17 +26,17 @@ class NavigationServiceProvider extends ServiceProvider
                 ->actionIf(
                     optional(auth()->user())->organisesEvents(),
                     [EventsController::class, 'index'],
-                    'Organizing',
+                    'Organizing'
                     )
                 ->actionIf(
                     optional(auth()->user())->speaksAtEvents(),
                     SpeakingAtEventsListController::class,
-                    'Speaking',
+                    'Speaking'
                     )
                 ->actionIf(
                     optional(auth()->user())->attendsEvents(),
                     AttendingEventListController::class,
-                    'Attending',
+                    'Attending'
                     );
         });
 
