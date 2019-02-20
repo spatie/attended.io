@@ -16,12 +16,14 @@
     </ul>
 </div>
 
+@auth
 <div>
     <ul>
-        <li><a href="">Profile</a></li>
-        <li><a href="">Settings</a></li>
-        <li><a href="">Log out</a></li>
+        <li><a href="{{ route('profile.talks.show', auth()->user()) }}">Profile</a></li>
+        <li><a href="{{ route('account.settings.edit') }}">Account</a></li>
+        <li><a onclick="event.preventDefault();document.getElementById('logout-form').submit();" href="{{ route('logout') }}">Log out</a></li>
     </ul>
 </div>
+@endauth
 
 An open source project by <a href="https://spatie.be">spatie.be</a>
