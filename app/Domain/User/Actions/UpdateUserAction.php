@@ -18,8 +18,6 @@ class UpdateUserAction
         $user->joindin_username = $attributes['joindin_username'] ?? null;
         $user->save();
 
-        (new UpdateCountryAttributesAction())->execute($user);
-
         activity()->log('User updated');
 
         if ($user->email !== $oldEmail) {

@@ -6,6 +6,7 @@ use App\Domain\Event\Models\Presenters\PresentsEvent;
 use App\Domain\Review\Interfaces\Reviewable;
 use App\Domain\Review\Models\Concerns\HasReviews;
 use App\Domain\Shared\Models\BaseModel;
+use App\Domain\Shared\Models\Concerns\HasCountry;
 use App\Domain\Shared\Models\Concerns\HasSlug;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;
@@ -21,7 +22,8 @@ class Event extends BaseModel implements Reviewable, Searchable
 {
     use HasReviews,
         HasSlug,
-        PresentsEvent;
+        PresentsEvent,
+        HasCountry;
 
     public $casts = [
         'cfp' => 'boolean',

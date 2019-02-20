@@ -15,7 +15,10 @@ class CreateEventsTable extends Migration
             $table->text('description');
             $table->text('location');
             $table->string('city');
-            $table->string('country');
+            $table->string('country_code')->nullable();
+            $table->string('country_name')->nullable();
+            $table->string('country_emoji')->nullable();
+
             $table->string('website');
 
             $table->boolean('cfp')->default(false);

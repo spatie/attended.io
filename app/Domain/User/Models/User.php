@@ -6,6 +6,7 @@ use App\Domain\Event\Models\Attendance;
 use App\Domain\Event\Models\Event;
 use App\Domain\Review\Interfaces\Reviewable;
 use App\Domain\Review\Models\Review;
+use App\Domain\Shared\Models\Concerns\HasCountry;
 use App\Domain\Shared\Models\Concerns\HasSlug;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Models\SlotOwnershipClaim;
@@ -18,7 +19,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, HasSlug;
+    use Notifiable, HasSlug, HasCountry;
 
     protected $fillable = [
         'name', 'email', 'password',

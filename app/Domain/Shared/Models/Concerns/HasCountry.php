@@ -1,20 +1,18 @@
 <?php
 
-namespace App\Domain\User\Actions;
+namespace App\Domain\Shared\Models\Concerns;
 
-use App\Domain\User\Models\User;
+use Illuminate\Database\Eloquent\Model;
 use League\ISO3166\ISO3166;
 
-class UpdateCountryAttributesAction
+trait HasCountry
 {
-    public function execute(User $user): User
+    public static function bootHasCountry()
     {
-        $user->country_name = $this->countryName($user->country_code);
-        $user->country_emoji = $this->countryEmoji($user->country_code);
-
-        $user->save();
-
-        return $user;
+        static::saving(function (Model $model) {
+            $model->country_name = $model->countryName($model->country_code);
+            $model->country_emoji = $model->countryEmoji($model->country_code);
+        });
     }
 
     protected function countryName(?string $countryCode): ?string

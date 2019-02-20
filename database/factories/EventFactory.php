@@ -17,7 +17,7 @@ $factory->define(Event::class, function (Faker $faker) {
         'description' => $faker->paragraphs(3, true),
         'location'=> $faker->word,
         'city' => $faker->city,
-        'country' => $faker->country,
+        'country_code' => $faker->countryCode,
         'website' => $faker->url,
         'published_at' => $publishedAt,
         'starts_at' => $startsAt,
