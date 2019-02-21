@@ -17,16 +17,40 @@ class UpdateTracksAction
             ->updateExistingTracks($event, $trackProperties);
     }
 
+    public function deleteAllTracksNotPresent(Event $event, array $trackProperties)
+    {
+        $remainingTrackIds = collect($trackProperties)->pluck('id')->filter()->toArray();
+
+        $event->tracks
+            ->reject(function (Track $track) use ($remainingTrackIds) {
+                return in_array($track->id, $remainingTrackIds);
+            })
+            ->each(function (Track $track) use ($event) {
+                if ($track->slots()->count()) {
+                    throw CouldNotDeleteTrack::trackHasSlots($track);
+                }
+
+                $track->delete();
+
+                activity()
+                    ->performedOn($event)
+                    ->log("Track `{$track->name}` deleted.");
+            });
+
+        return $this;
+    }
+
     protected function createNewTracks(Event $event, array $trackProperties)
     {
         collect($trackProperties)
             ->filter(function (array $trackProperties) {
                 return empty($trackProperties['id']);
             })
-            ->each(function (array $newTrackProperties) use ($event) {
+            ->each(function (array $newTrackProperties, int $index) use ($event) {
                 Track::create([
                     'name' => $newTrackProperties['name'],
                     'event_id' => $event->id,
+                    'order_column' => $index,
                 ]);
 
                 activity()
@@ -43,7 +67,7 @@ class UpdateTracksAction
             ->filter(function (array $trackProperties) {
                 return !empty($trackProperties['id']);
             })
-            ->each(function (array $newTrackProperties) use ($event) {
+            ->each(function (array $newTrackProperties, int $index) use ($event) {
                 $track = Track::find($newTrackProperties['id']);
 
                 if (!$track) {
@@ -60,6 +84,7 @@ class UpdateTracksAction
                 $oldName = $track->name;
 
                 $track->name = $newTrackProperties['name'];
+                $track->order_column = $index;
                 $track->save();
 
                 activity()
@@ -70,28 +95,5 @@ class UpdateTracksAction
         return $this;
     }
 
-    public function deleteAllTracksNotPresent(Event $event, array $trackProperties)
-    {
-        $remainingTrackIds = collect($trackProperties)->pluck('id')->filter()->toArray();
 
-        $event->tracks
-            ->reject(function (Track $track) use ($remainingTrackIds) {
-                return in_array($track->id, $remainingTrackIds);
-            })
-            ->each(function (Track $track) use ($event) {
-                if ($track->slots()->count()) {
-                    throw CouldNotDeleteTrack::trackHasSlots($track);
-                }
-
-                $track->delete();
-
-
-
-                activity()
-                    ->performedOn($event)
-                    ->log("Track `{$track->name}` deleted.");
-            });
-
-        return $this;
-    }
 }
