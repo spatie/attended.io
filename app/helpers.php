@@ -32,7 +32,8 @@ function formValue(
     return old($property, $object->{$objectProperty} ?? $defaultValue);
 }
 
-function present_url(string $url): string {
+function present_url(string $url): string
+{
     if (! str_contains($url, '://')) {
         return $url;
     }

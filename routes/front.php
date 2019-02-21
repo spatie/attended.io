@@ -36,7 +36,9 @@ Route::prefix('organizing')->middleware('auth')->group(function () {
     Route::get('events/{event}', [EventsController::class, 'edit'])->name('event-admin.events.edit');
     Route::post('events/{event}', [EventsController::class, 'update'])->name('event-admin.events.update');
 
-    Route::get('events/{event}/tracks', [TracksController::class, 'index'])->name('event-admin.tracks');
+    Route::get('events/{event}/tracks', [TracksController::class, 'edit'])->name('event-admin.tracks');
+    Route::post('events/{event}/tracks', [TracksController::class, 'update'])->name('event-admin.tracks.update');
+
     Route::get('events/{event}/slots', [SlotsController::class, 'index'])->name('event-admin.slots');
 });
 

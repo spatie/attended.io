@@ -14,5 +14,4 @@ class ReviewTest extends TestCase
 
         $this->assertTrue(in_array($review->reviewableType(), ['slot', 'event']));
     }
-
 }

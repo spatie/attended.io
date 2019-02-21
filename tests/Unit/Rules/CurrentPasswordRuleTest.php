@@ -18,7 +18,7 @@ class CurrentPasswordRuleTest extends TestCase
         $this->assertFalse($this->rulePasses($user, 'wrong-password'));
     }
 
-    public function rulePasses(User $user, string $password): bool
+    protected function rulePasses(User $user, string $password): bool
     {
         return (new CurrentPasswordRule($user))->passes('password', $password);
     }

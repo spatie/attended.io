@@ -53,7 +53,7 @@ class NavigationServiceProvider extends ServiceProvider
         Menu::macro('eventAdmin', function (Event $event) {
             return Menu::new()
                 ->action([EventAdminEventsController::class, 'edit'], 'Details', $event->idSlug())
-                ->action([TracksController::class, 'index'], 'Tracks', $event->idSlug())
+                ->action([TracksController::class, 'edit'], 'Tracks', $event->idSlug())
                 ->action([SlotsController::class, 'index'], 'Slots', $event->idSlug());
         });
 

@@ -24,7 +24,9 @@ class EventsController
 
     public function create()
     {
-        return view('front.event-admin.events.create');
+        $event = new Event();
+
+        return view('front.event-admin.events.create', compact('event'));
     }
 
     public function store(UpdateEventRequest $request, CreateEventAction $createEventAction)

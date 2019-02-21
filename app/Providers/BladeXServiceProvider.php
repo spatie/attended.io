@@ -18,6 +18,5 @@ class BladeXServiceProvider extends ServiceProvider
         BladeX::component('front.components.formError')->viewModel(FormErrorViewModel::class);
         BladeX::component('front.components.checkboxField')->viewModel(CheckboxFieldViewModel::class);
         BladeX::component('front.components.countrySelect')->viewModel(CountrySelectViewModel::class);
-
     }
 }
