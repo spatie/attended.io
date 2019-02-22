@@ -7,10 +7,11 @@
 
     <form action="{{ route('event-admin.tracks.update', $event) }}" method="POST">
         @csrf
-        <div data-props='@json([
+
+        {{ refract('TracksForm', [
             'initialTracks' => $tracks,
             'validationErrors' => $errors->getMessages(),
-        ])' id="tracksForm"></div>
+        ]) }}
 
         <button>Save</button>
     </form>

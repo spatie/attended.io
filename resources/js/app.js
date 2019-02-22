@@ -1,8 +1,17 @@
-import React from 'react';
-import ReactDOM from "react-dom";
-import TracksForm from "./components/TracksForm";
+import Refraction from '../../vendor/spatie/laravel-refraction/runtime/react';
 
-const tracksFormContainer = document.getElementById('tracksForm');
-if (tracksFormContainer) {
-    ReactDOM.render(<TracksForm {...JSON.parse(tracksFormContainer.dataset.props)} />, tracksFormContainer);
-}
+const refraction = new Refraction();
+
+refraction.context(() => {
+    const context = require.context('./components', true, /\.js$/i);
+
+    if (module.hot) {
+        module.hot.accept(context.id, () => {
+            refraction.reload();
+        });
+    }
+
+    return context;
+});
+
+refraction.mount();

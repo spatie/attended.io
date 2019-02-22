@@ -8,10 +8,9 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "$npm_execpath run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "format": "prettier --write 'resources/**/*.{css,js}'"
+        "format": "prettier --write '**/*.{css,js}'"
     },
     "devDependencies": {
-        "@babel/plugin-proposal-class-properties": "^7.3.3",
         "@babel/plugin-syntax-dynamic-import": "^7.2.0",
         "@babel/preset-react": "^7.0.0",
         "cross-env": "^5.1",
@@ -22,12 +21,10 @@
         "react": "^16.2.0",
         "react-dom": "^16.2.0",
         "resolve-url-loader": "2.3.1",
-        "sass": "^1.17.1",
-        "sass-loader": "7.*",
         "tailwindcss": "^0.7.4",
         "vue-template-compiler": "^2.6.6"
     },
     "dependencies": {
-        "qs": "^6.6.0"
+        "extra-watch-webpack-plugin": "^1.0.3"
     }
 }
