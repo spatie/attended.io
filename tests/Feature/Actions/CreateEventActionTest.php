@@ -22,7 +22,7 @@ class CreateEventActionTest extends TestCase
             'website' => faker()->url,
             'cfp' => true,
             'cfp_link' => faker()->url,
-            'cfp_deadline' => now()
+            'cfp_deadline' => now(),
         ];
 
         $organizingUser = factory(User::class)->create();
