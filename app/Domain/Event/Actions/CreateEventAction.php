@@ -3,17 +3,18 @@
 namespace App\Domain\Event\Actions;
 
 use App\Domain\Event\Models\Event;
+use App\Domain\User\Models\User;
 use App\Http\Front\Requests\UpdateEventRequest;
 
 class CreateEventAction
 {
-    public function execute(UpdateEventRequest $request): Event
+    public function execute(User $organizingUser, array $attributes): Event
     {
-        $event = Event::create($request->validated());
+        $event = Event::create($attributes);
 
-        $event->organizingUsers()->attach($request->user());
+        $event->organizingUsers()->attach($organizingUser);
 
-        activity()->log("Event `{$event->name}` was created by {$request->user()}");
+        activity()->log("Event `{$event->name}` was created by {$organizingUser}");
 
         return $event;
     }

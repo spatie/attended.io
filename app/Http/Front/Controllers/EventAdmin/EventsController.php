@@ -29,9 +29,9 @@ class EventsController
         return view('front.event-admin.events.create', compact('event'));
     }
 
-    public function store(UpdateEventRequest $request, UpdateEventAction $createEventAction)
+    public function store(UpdateEventRequest $request, CreateEventAction $createEventAction)
     {
-        $event = $createEventAction->execute($request);
+        $event = $createEventAction->execute(auth()->user(), $request->validated());
 
         flash()->message('The event has been created!');
 

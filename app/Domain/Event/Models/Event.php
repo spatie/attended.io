@@ -26,13 +26,13 @@ class Event extends BaseModel implements Reviewable, Searchable
         HasCountry;
 
     public $casts = [
+        'starts_at' => 'datetime',
+        'ends_at' => 'datetime',
         'cfp' => 'boolean',
         'cfp_deadline' => 'datetime',
         'number_of_reviews' => 'integer',
         'average_review_rating' => 'integer',
         'published_at' => 'datetime',
-        'starts_at' => 'datetime',
-        'ends_at' => 'datetime',
         'approved_at' => 'datetime',
     ];
 
