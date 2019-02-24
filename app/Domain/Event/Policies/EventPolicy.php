@@ -20,6 +20,11 @@ class EventPolicy
         return $user->admin;
     }
 
+    public function publish(User $user, Event $event): bool
+    {
+        return $user->organizes($event);
+    }
+
     public function review(User $user, Event $event): bool
     {
         return true;

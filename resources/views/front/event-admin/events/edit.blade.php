@@ -11,6 +11,14 @@
         @endcan
     @endif
 
+    @if(! $event->isPublished())
+        @can('publish', $event)
+            <action-button :action="route('event-admin.events.publish', $event)">
+                <button>Publish event</button>
+            </action-button>
+        @endcan
+    @endif
+
     <h1>{{ $event->name }}</h1>
 
     <form action="{{ route('event-admin.events.update', $event) }}" method="POST">

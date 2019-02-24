@@ -177,4 +177,9 @@ class Event extends BaseModel implements Reviewable, Searchable
 
         return $this;
     }
+
+    public function isPublished(): bool
+    {
+        return ! is_null($this->published_at);
+    }
 }
