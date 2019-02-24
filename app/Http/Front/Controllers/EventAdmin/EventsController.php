@@ -14,8 +14,11 @@ class EventsController
 
     public function index()
     {
-        $events = Event::query()
-            ->organizedBy(auth()->user())
+        $query = auth()->user()->admin
+            ? Event::all()
+            : Event::organizedBy(auth()->user());
+
+        $events = $query
             ->orderBy('starts_at', 'desc')
             ->paginate();
 

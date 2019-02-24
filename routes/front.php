@@ -4,6 +4,7 @@ use App\Domain\Event\Models\Event;
 use App\Domain\Slot\Models\Slot;
 use App\Http\Front\Controllers\Account\ChangePasswordController;
 use App\Http\Front\Controllers\Account\SettingsController;
+use App\Http\Front\Controllers\EventAdmin\ApproveEventController;
 use App\Http\Front\Controllers\EventAdmin\EventsController;
 use App\Http\Front\Controllers\EventAdmin\SlotsController;
 use App\Http\Front\Controllers\EventAdmin\TracksController;
@@ -35,6 +36,7 @@ Route::prefix('organizing')->middleware('auth')->group(function () {
     Route::post('create', [EventsController::class, 'store'])->name('event-admin.events.store');
     Route::get('events/{event}', [EventsController::class, 'edit'])->name('event-admin.events.edit');
     Route::post('events/{event}', [EventsController::class, 'update'])->name('event-admin.events.update');
+    Route::post('events/{event}/approve', [ApproveEventController::class, 'update'])->name('event-admin.events.approve');
 
     Route::get('events/{event}/tracks', [TracksController::class, 'edit'])->name('event-admin.tracks');
     Route::post('events/{event}/tracks', [TracksController::class, 'update'])->name('event-admin.tracks.update');

@@ -168,4 +168,13 @@ class Event extends BaseModel implements Reviewable, Searchable
     {
         return ! is_null($this->approved_at);
     }
+
+    public function markAsPublished()
+    {
+        $this->published_at = now();
+
+        $this->save();
+
+        return $this;
+    }
 }

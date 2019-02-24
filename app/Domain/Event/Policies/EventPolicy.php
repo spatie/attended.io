@@ -15,6 +15,11 @@ class EventPolicy
         return $user->organizes($event);
     }
 
+    public function approve(User $user, Event $event): bool
+    {
+        return $user->admin;
+    }
+
     public function review(User $user, Event $event): bool
     {
         return true;

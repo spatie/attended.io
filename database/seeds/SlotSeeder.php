@@ -51,7 +51,7 @@ class SlotSeeder extends Seeder
             return;
         }
 
-        $slot->invitedToBeOwners()->attach($user);
+        $slot->invitedToBeSpeakers()->attach($user);
     }
 
     protected function generateRandomSlotTimes(Event $event): Collection

@@ -76,7 +76,7 @@ class CreateEventActionTest extends TestCase
 
         $this->assertTrue($event->isApproved());
 
-        Notification::assertNothingSent();
+        Notification::assertTimesSent(0, EventCreatedNotification::class);
     }
 
     /**
