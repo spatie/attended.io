@@ -16,7 +16,7 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
         'admin' => false,
         'email_verified_at' => $faker->dateTime(),
-        'can_create_events_immediately' => $faker->boolean(20),
+        'can_publish_events_immediately' => false,
     ];
 });
 

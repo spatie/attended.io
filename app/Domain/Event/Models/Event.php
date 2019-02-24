@@ -154,4 +154,18 @@ class Event extends BaseModel implements Reviewable, Searchable
             route('events.show-schedule', $this->idSlug()),
             );
     }
+
+    public function markAsApproved()
+    {
+        $this->approved_at = now();
+
+        $this->save();
+
+        return $this;
+    }
+
+    public function isApproved(): bool
+    {
+        return ! is_null($this->approved_at);
+    }
 }

@@ -103,4 +103,21 @@ class UserTest extends TestCase
             $user->gravatarUrl()
         );
     }
+
+    /** @test */
+    public function it_has_a_scope_to_get_all_admins()
+    {
+        factory(User::class, 5)->create();
+
+        $admins = factory(User::class, 5)->state('admin')->create();
+
+        $retrievedAdmins = User::admin()->get();
+
+        $this->assertEquals(count($admins), count($retrievedAdmins));
+
+        $this->assertEquals(
+            $admins->pluck('id')->toArray(),
+            $retrievedAdmins->pluck('id')->toArray(),
+        );
+    }
 }

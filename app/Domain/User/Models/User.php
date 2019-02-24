@@ -12,6 +12,7 @@ use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Models\SlotOwnershipClaim;
 use App\Domain\User\Models\Concerns\PresentsUser;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
@@ -32,7 +33,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $casts = [
         'admin' => 'bool',
-        'can_create_events_immediately' => 'bool',
+        'can_publish_events_immediately' => 'bool',
     ];
 
     public function reviews(): HasMany
@@ -119,5 +120,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function hasReviewed(Reviewable $reviewable)
     {
         return $reviewable->reviews()->where('user_id', $this->id)->exists();
+    }
+
+    public function scopeAdmin(Builder $query)
+    {
+        $query->where('admin', 1);
     }
 }
