@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba3a5b0684654c8da58a78919514022c",
+    "content-hash": "6b9c0cb0ce70cc7bc36ce02eea608992",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -3713,7 +3713,7 @@
         },
         {
             "name": "spatie/laravel-refraction",
-            "version": "dev-master",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-refraction.git",
@@ -7285,9 +7285,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "spatie/laravel-refraction": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

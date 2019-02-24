@@ -5,7 +5,7 @@
     <input-field name="description" label="Description"/>
     <input-field name="location" label="Location"/>
     <input-field name="city" label="City"/>
-    <input-field name="country" label="Country"/>
+    <country-select name="country_code" :model="$event" label="Country"/>
     <input-field name="website" label="Website"/>
     <input-field name="starts_at" label="Starts at"/>
     <input-field name="ends_at" label="Ends at"/>

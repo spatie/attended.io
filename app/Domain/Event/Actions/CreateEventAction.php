@@ -11,7 +11,7 @@ class CreateEventAction
     {
         $event = Event::create($request->validated());
 
-        $event->owners()->attach($request->user());
+        $event->organizingUsers()->attach($request->user());
 
         activity()->log("Event `{$event->name}` was created by {$request->user()}");
 

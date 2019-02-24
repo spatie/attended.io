@@ -13,6 +13,6 @@
             'validationErrors' => $errors->getMessages(),
         ]) }}
 
-        <button>Save</button>
+        <button>Save event</button>
     </form>
 @endsection
