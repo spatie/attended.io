@@ -10,7 +10,7 @@ class TalksController
     public function __invoke(User $user)
     {
         $slots = Slot::query()
-            ->with(['event', 'speakingUsers'])
+            ->with(['event', 'speakers'])
             ->published()
             ->hasSpeaker($user)
             ->orderByDesc('starts_at')

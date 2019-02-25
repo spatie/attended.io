@@ -27,7 +27,7 @@ class UserTest extends TestCase
 
         $slot = factory(Slot::class)->create();
 
-        $slot->speakingUsers()->attach($this->user);
+        $slot->speakers()->attach($this->user);
 
         $this->assertTrue($this->user->speaksAtEvents());
     }

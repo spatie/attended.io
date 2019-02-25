@@ -1,7 +1,7 @@
-@if(count($slot->speakingUsers) > 0)
+@if(count($slot->speakers) > 0)
     by
-    @foreach($slot->speakingUsers as $speakingUser)
-        <a href="{{ route('users.show', $speakingUser->idSlug()) }}">{{ $speakingUser->name }}</a>
+    @foreach($slot->speakers as $speaker)
+        <a href="{{ route('users.show', $speaker->idSlug()) }}">{{ $speaker->name }}</a>
     @endforeach
 @elseif($slot->speaker_name)
     by {{ $slot->speaker_name }}

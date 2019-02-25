@@ -38,7 +38,7 @@ class Slot extends BaseModel implements Reviewable
         return $this->belongsTo(Event::class);
     }
 
-    public function speakingUsers(): BelongsToMany
+    public function speakers(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'speakers')->withTimestamps();
     }
@@ -62,7 +62,7 @@ class Slot extends BaseModel implements Reviewable
 
     public function scopeHasSpeaker(Builder $query, User $user)
     {
-        $query->whereHas('speakingUsers', function (Builder $query) use ($user) {
+        $query->whereHas('speakers', function (Builder $query) use ($user) {
             $query->where('user_id', $user->id);
         });
     }

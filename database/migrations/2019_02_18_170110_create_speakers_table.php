@@ -11,7 +11,9 @@ class CreateSpeakersTable extends Migration
         Schema::create('speakers', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('slot_id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable();
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
 
             $table->index('slot_id');

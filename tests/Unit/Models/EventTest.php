@@ -31,9 +31,9 @@ class EventTest extends TestCase
         $user = factory(User::class)->create();
         $anotherUser = factory(User::class)->create();
 
-        $slots[0]->speakingUsers()->attach($user);
-        $slots[1]->speakingUsers()->attach($user);
-        $slots[2]->speakingUsers()->attach($anotherUser);
+        $slots[0]->speakers()->attach($user);
+        $slots[1]->speakers()->attach($user);
+        $slots[2]->speakers()->attach($anotherUser);
 
         $eventsWhereUserSpeaksAt = Event::hasSlotWithSpeaker($user)->get();
         $this->assertCount(2, $eventsWhereUserSpeaksAt);

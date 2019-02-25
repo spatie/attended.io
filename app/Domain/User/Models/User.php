@@ -60,8 +60,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isSpeaker(Slot $slot): bool
     {
-        return $slot->speakingUsers->contains(function (User $speakingUser) {
-            return $speakingUser->id === $this->id;
+        return $slot->speakers->contains(function (User $speaker) {
+            return $speaker->id === $this->id;
         });
     }
 
