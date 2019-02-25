@@ -1,5 +1,5 @@
 @auth
-    @if($reviewable->canBeReviewedBy(auth()->user()))
+    @can('review', $reviewable)
         <form method="POST" action="{{ route('reviews.store') }}">
             @csrf
             <input type="hidden" name="reviewable_id" value="{{ $reviewable->id }}">
@@ -16,7 +16,7 @@
 
             <button type="submit">Submit</button>
         </form>
-    @endif
+    @endcan
 @endauth
 @guest
     You must be logged in to post a review

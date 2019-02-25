@@ -3,21 +3,17 @@
 @section('content')
     {{ Menu::eventAdmin($event) }}
 
-    @if(! $event->isApproved())
-        @can('approve', $event)
-            <action-button :action="route('event-admin.events.approve', $event)">
-                <button>Approve event</button>
-            </action-button>
-        @endcan
-    @endif
+    @can('approve', $event)
+        <action-button :action="route('event-admin.events.approve', $event)">
+            <button>Approve event</button>
+        </action-button>
+    @endcan
 
-    @if(! $event->isPublished())
-        @can('publish', $event)
-            <action-button :action="route('event-admin.events.publish', $event)">
-                <button>Publish event</button>
-            </action-button>
-        @endcan
-    @endif
+    @can('publish', $event)
+        <action-button :action="route('event-admin.events.publish', $event)">
+            <button>Publish event</button>
+        </action-button>
+    @endcan
 
     <h1>{{ $event->name }}</h1>
 

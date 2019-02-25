@@ -14,11 +14,6 @@ class StoreReviewRequest extends FormRequest
         return $this->user()->can('review', $this->reviewable());
     }
 
-    public function prepareForValidation()
-    {
-        (new CanBeReviewed($this, auth()->user()))->ensure();
-    }
-
     public function rules()
     {
         return [

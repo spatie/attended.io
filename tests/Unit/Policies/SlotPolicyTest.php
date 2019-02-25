@@ -25,10 +25,13 @@ class SlotPolicyTest extends TestCase
         $this->setNow(2019, 1, 1, 13, 0, 0);
 
         $this->event = factory(Event::class)->create([
+            'starts_at' => now()->subDays(2),
             'ends_at' => now(),
         ]);
 
         $this->slot = factory(Slot::class)->create([
+            'starts_at' => now()->subDays(2),
+            'ends_at' => now(),
             'event_id' => $this->event->id,
         ]);
 

@@ -15,7 +15,7 @@ $factory->define(Event::class, function (Faker $faker) {
     return [
         'name' => $faker->word . 'Conf',
         'description' => $faker->paragraphs(3, true),
-        'location'=> $faker->word,
+        'location' => $faker->word,
         'city' => $faker->city,
         'country_code' => $faker->countryCode,
         'website' => $faker->url,
@@ -28,3 +28,15 @@ $factory->define(Event::class, function (Faker $faker) {
 $factory->state(Event::class, 'unpublished', [
     'published_at' => null,
 ]);
+
+$factory->state(Event::class, 'unapproved', [
+    'approved_at' => null,
+    'published_at' => null,
+]);
+
+$factory->state(Event::class, 'approved', function (Faker $faker) {
+    return [
+        'approved_at' => $faker->dateTimeBetween('-2 years', '+1 year'),
+        'published_at' => null,
+    ];
+});

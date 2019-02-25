@@ -10,21 +10,25 @@ class ReviewPolicy
 {
     use HandlesAuthorization;
 
-    public function edit(User $user, Review $review): bool
+    public function edit(User $user, Review $review)
     {
         if ($review->user->id === $user->id) {
             return $review->created_at->addMinutes(30)->isFuture();
         }
 
-        return $review->reviewable->isAdministeredBy($user);
+        if ($review->reviewable->isAdministeredBy($user)) {
+            return true;
+        };
     }
 
-    public function delete(User $user, Review $review): bool
+    public function delete(User $user, Review $review)
     {
         if ($review->user->id === $user->id) {
             return true;
         }
 
-        return $review->reviewable->isAdministeredBy($user);
+        if ($review->reviewable->isAdministeredBy($user)) {
+            return true;
+        };
     }
 }

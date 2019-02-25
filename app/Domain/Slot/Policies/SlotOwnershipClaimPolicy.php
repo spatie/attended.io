@@ -10,8 +10,10 @@ class SlotOwnershipClaimPolicy
 {
     use HandlesAuthorization;
 
-    public function administer(User $user, SlotOwnershipClaim $claim): bool
+    public function administer(User $user, SlotOwnershipClaim $claim)
     {
-        return $user->organizes($claim->slot->event);
+        if ($user->organizes($claim->slot->event)) {
+            return true;
+        }
     }
 }

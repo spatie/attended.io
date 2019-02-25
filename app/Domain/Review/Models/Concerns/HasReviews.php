@@ -28,13 +28,4 @@ trait HasReviews
 
         return $this;
     }
-
-    public function canBeReviewedBy(User $user): bool
-    {
-        if (! $user->can('review')) {
-            return false;
-        }
-
-        return (new CanBeReviewed($this, $user))->passes();
-    }
 }

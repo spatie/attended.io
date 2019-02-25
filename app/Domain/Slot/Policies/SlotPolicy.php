@@ -27,8 +27,21 @@ class SlotPolicy
         return true;
     }
 
-    public function review(): bool
+    public function review(User $user, Slot $slot)
     {
+        if ($user->hasReviewed($slot)) {
+            return false;
+        }
+
+        if ($slot->starts_at->isFuture()) {
+            return false;
+        }
+
+        if (now()->subDays(60)->greaterThan($slot->ends_at)) {
+            return false;
+        }
+
         return true;
     }
 }
+
