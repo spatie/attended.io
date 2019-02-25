@@ -15,7 +15,7 @@ export default function Draggable({ children }) {
 
     return (
         <DraggableContext.Provider value={{ dragging, startDragging, stopDragging }}>
-            {children}
+            {children({ dragging })}
         </DraggableContext.Provider>
     );
 }
@@ -31,7 +31,7 @@ Draggable.Item = function DraggableItem({ data, children }) {
         ? { draggable: true, onDragStart, onDragEnd: stopDragging }
         : null;
 
-    return children({ dragging, draggableItemProps });
+    return children({ draggableItemProps });
 };
 
 Draggable.Handle = function DraggableHandle({ children }) {
@@ -55,5 +55,5 @@ Draggable.DropTarget = function DraggableDropTarget({ onDrop, children }) {
 
     const dropTargetProps = dragging ? { onDrop: handleDrop, onDragOver: handleDragOver } : null;
 
-    return children({ dragging, dropTargetProps });
+    return children({ dropTargetProps });
 };
