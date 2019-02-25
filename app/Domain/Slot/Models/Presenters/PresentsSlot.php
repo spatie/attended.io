@@ -19,7 +19,7 @@ trait PresentsSlot
                 if ($speaker->user) {
                     $showRoute = route('users.show', $speaker->user);
 
-                    return "<a href=\"{$showRoute}\">{$speaker->user->name}}</a>";
+                    return "<a href=\"{$showRoute}\">{$speaker->user->name}</a>";
                 }
 
                 return $speaker->name;
