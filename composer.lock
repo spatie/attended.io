@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "6b9c0cb0ce70cc7bc36ce02eea608992",
@@ -3713,16 +3713,16 @@
         },
         {
             "name": "spatie/laravel-refraction",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-refraction.git",
-                "reference": "6b3cd87b51524f12d3ddf65326f8f78a445623fe"
+                "reference": "7f570ae3d7368f61f4785140b47158f707d2cacd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-refraction/zipball/6b3cd87b51524f12d3ddf65326f8f78a445623fe",
-                "reference": "6b3cd87b51524f12d3ddf65326f8f78a445623fe",
+                "url": "https://api.github.com/repos/spatie/laravel-refraction/zipball/7f570ae3d7368f61f4785140b47158f707d2cacd",
+                "reference": "7f570ae3d7368f61f4785140b47158f707d2cacd",
                 "shasum": ""
             },
             "require": {
@@ -3765,7 +3765,7 @@
                 "laravel-refraction",
                 "spatie"
             ],
-            "time": "2019-02-22T20:48:04+00:00"
+            "time": "2019-02-25T10:49:55+00:00"
         },
         {
             "name": "spatie/laravel-searchable",
