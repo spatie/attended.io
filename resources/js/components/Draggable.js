@@ -31,7 +31,7 @@ Draggable.Item = function DraggableItem({ data, children }) {
         ? { draggable: true, onDragStart, onDragEnd: stopDragging }
         : null;
 
-    return children({ draggableItemProps });
+    return children({ dragging, draggableItemProps });
 };
 
 Draggable.Handle = function DraggableHandle({ children }) {

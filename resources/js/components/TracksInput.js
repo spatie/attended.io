@@ -6,43 +6,39 @@ export default function TracksInput({ initialTracks, errors }) {
     const [tracks, { add, update, remove, moveBefore, moveAfter }] = useCollection(initialTracks);
 
     return (
-        <>
+        <Draggable>
             <button type="button" onClick={() => add({ id: null, name: '', slotCount: 0 })}>
                 Add new track
             </button>
-            <Draggable>
-                <Draggable.DropTarget onDrop={draggingIndex => moveBefore(draggingIndex, 0)}>
-                    {({ dropTargetProps }) => <div {...dropTargetProps}>Drop</div>}
-                </Draggable.DropTarget>
-                <ul>
-                    {tracks.map((track, index) => (
+            <Draggable.DropTarget onDrop={draggingIndex => moveBefore(draggingIndex, 0)}>
+                {({ dropTargetProps }) => <div {...dropTargetProps}>Drop</div>}
+            </Draggable.DropTarget>
+            <ul>
+                {tracks.map((track, index) => (
+                    <li>
                         <Draggable.Item key={index} data={index}>
                             {({ draggableItemProps }) => (
-                                <li>
-                                    <div {...draggableItemProps}>
-                                        <Draggable.Handle>DRAG ME</Draggable.Handle>
-                                        <Track
-                                            track={track}
-                                            index={index}
-                                            onUpdate={update}
-                                            onRemove={remove}
-                                            errors={errors[`tracks.${index}.name`] || []}
-                                        />
-                                    </div>
-                                    <Draggable.DropTarget
-                                        onDrop={draggingIndex => moveAfter(draggingIndex, index)}
-                                    >
-                                        {({ dropTargetProps }) => (
-                                            <div {...dropTargetProps}>Drop</div>
-                                        )}
-                                    </Draggable.DropTarget>
-                                </li>
+                                <div {...draggableItemProps}>
+                                    <Draggable.Handle>DRAG ME</Draggable.Handle>
+                                    <Track
+                                        track={track}
+                                        index={index}
+                                        onUpdate={update}
+                                        onRemove={remove}
+                                        errors={errors[`tracks.${index}.name`] || []}
+                                    />
+                                </div>
                             )}
                         </Draggable.Item>
-                    ))}
-                </ul>
-            </Draggable>
-        </>
+                        <Draggable.DropTarget
+                            onDrop={draggingIndex => moveAfter(draggingIndex, index)}
+                        >
+                            {({ dropTargetProps }) => <div {...dropTargetProps}>Drop</div>}
+                        </Draggable.DropTarget>
+                    </li>
+                ))}
+            </ul>
+        </Draggable>
     );
 }
 
