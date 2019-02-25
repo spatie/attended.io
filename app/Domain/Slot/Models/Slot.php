@@ -72,11 +72,6 @@ class Slot extends BaseModel implements Reviewable
         return $this->hasMany(SlotOwnershipClaim::class);
     }
 
-    public function invitedToBeSpeakers(): BelongsToMany
-    {
-        return $this->belongsToMany(User::class, 'slot_ownership_invites')->withTimestamps();
-    }
-
     public function isAdministeredBy(User $user): bool
     {
         return $user->organizes($this->event);
