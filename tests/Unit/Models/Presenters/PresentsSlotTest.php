@@ -40,6 +40,5 @@ class PresentsSlotTest extends TestCase
             'user_id' => null,
         ]);
         $this->assertEquals('John Doe, <a href="http://attended.io/users/' . $anotherUser->id .'">username Jane</a> and Janis Doe', $slot->refresh()->speakersAsString());
-
     }
 }

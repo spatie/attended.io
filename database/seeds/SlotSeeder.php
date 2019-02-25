@@ -40,8 +40,6 @@ class SlotSeeder extends Seeder
 
     protected function addRelation(User $user, Slot $slot)
     {
-
-
         if (faker()->boolean(90)) {
             $useUser = faker()->boolean(50);
 
