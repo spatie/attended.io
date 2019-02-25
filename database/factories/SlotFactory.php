@@ -19,6 +19,5 @@ $factory->define(Slot::class, function (Faker $faker) {
         'track_id' => factory(Track::class),
         'starts_at' => $startsAt,
         'ends_at' => $endsAt,
-        'speaker_name' => $faker->name,
     ];
 });

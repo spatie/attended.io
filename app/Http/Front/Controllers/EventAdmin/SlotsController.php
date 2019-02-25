@@ -3,6 +3,7 @@
 namespace App\Http\Front\Controllers\EventAdmin;
 
 use App\Domain\Event\Models\Event;
+use App\Domain\Slot\Models\Slot;
 
 class SlotsController
 {
@@ -15,6 +16,8 @@ class SlotsController
     {
         $tracks = $event->tracks()->orderBy('order_column')->get();
 
-        return view('front.event-admin.slots.create', compact('event', 'tracks'));
+        $slot = new Slot();
+
+        return view('front.event-admin.slots.create', compact('event', 'tracks', 'slot'));
     }
 }
