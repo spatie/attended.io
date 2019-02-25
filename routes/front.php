@@ -44,6 +44,8 @@ Route::prefix('organizing')->middleware('auth')->group(function () {
     Route::post('events/{event}/tracks', [TracksController::class, 'update'])->name('event-admin.tracks.update');
 
     Route::get('events/{event}/slots', [SlotsController::class, 'index'])->name('event-admin.slots');
+    Route::get('events/{event}/slots/create', [SlotsController::class, 'create'])->name('event-admin.slots.create');
+    Route::post('events/{event}/slots', [SlotsController::class, 'store'])->name('event-admin.slots.store');
 });
 
 Route::prefix('/events/{event}')->group(function () {
