@@ -3,6 +3,7 @@
 namespace App\Domain\Slot\Actions;
 
 use App\Domain\Slot\Models\SlotOwnershipClaim;
+use App\Domain\Slot\Models\Speaker;
 use App\Domain\Slot\Notifications\SlotOwnershipClaimApprovedNotification;
 
 class ApproveSlotOwnershipClaimAction
@@ -12,7 +13,10 @@ class ApproveSlotOwnershipClaimAction
         $claimingUser = $claim->user;
         $slot = $claim->slot;
 
-        $slot->speakers()->attach($claimingUser);
+        Speaker::firstOrCreate([
+            'user_id' => $claimingUser->id,
+            'slot_id' => $slot->id,
+        ]);
 
         $claim->delete();
 

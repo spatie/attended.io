@@ -10,6 +10,7 @@ use App\Domain\Shared\Models\Concerns\HasCountry;
 use App\Domain\Shared\Models\Concerns\HasSlug;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Models\SlotOwnershipClaim;
+use App\Domain\Slot\Models\Speaker;
 use App\Domain\User\Models\Concerns\PresentsUser;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
@@ -60,8 +61,8 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isSpeaker(Slot $slot): bool
     {
-        return $slot->speakers->contains(function (User $speaker) {
-            return $speaker->id === $this->id;
+        return $slot->speakers->contains(function (Speaker $speaker) {
+            return $speaker->user->id === $this->id;
         });
     }
 

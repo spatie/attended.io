@@ -4,6 +4,7 @@ namespace Tests\Unit\Policies;
 
 use App\Domain\Event\Models\Event;
 use App\Domain\Slot\Models\Slot;
+use App\Domain\Slot\Models\Speaker;
 use App\Domain\User\Models\User;
 use Tests\TestCase;
 
@@ -63,7 +64,10 @@ class SlotPolicyTest extends TestCase
     /** @test */
     public function an_owner_of_a_slot_cannot_claim_it_again()
     {
-        $this->slot->speakers()->attach($this->user);
+        factory(Speaker::class)->create([
+           'slot_id' => $this->slot->id,
+           'user_id' => $this->user->id,
+        ]);
 
         $this->assertFalse($this->user->can('claim', $this->slot));
     }

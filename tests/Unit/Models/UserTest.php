@@ -5,6 +5,7 @@ namespace Tests\Unit\Models;
 use App\Domain\Event\Models\Attendance;
 use App\Domain\Event\Models\Event;
 use App\Domain\Slot\Models\Slot;
+use App\Domain\Slot\Models\Speaker;
 use App\Domain\User\Models\User;
 use Tests\TestCase;
 
@@ -27,7 +28,10 @@ class UserTest extends TestCase
 
         $slot = factory(Slot::class)->create();
 
-        $slot->speakers()->attach($this->user);
+        factory(Speaker::class)->create([
+           'slot_id' => $slot,
+           'user_id' => $this->user->id,
+        ]);
 
         $this->assertTrue($this->user->speaksAtEvents());
     }
