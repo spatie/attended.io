@@ -1,6 +1,6 @@
 import React from 'react';
-import Draggable from './Draggable';
-import useCollection from '../hooks/useCollection';
+import Draggable from '../lib/components/Draggable';
+import useCollection from '../lib/hooks/useCollection';
 
 export default function TracksInput({ initialTracks, errors }) {
     const [tracks, { add, update, remove, moveBefore, moveAfter }] = useCollection(initialTracks);
