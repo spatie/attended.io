@@ -39,6 +39,4 @@ class ApproveEventActionTest extends TestCase
             Notification::assertSentTo($organizingUser, EventApprovedNotification::class);
         }
     }
-
-
 }

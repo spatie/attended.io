@@ -2,9 +2,7 @@
 
 namespace App\Domain\Review\Models\Concerns;
 
-use App\BusinessRules\CanBeReviewed;
 use App\Domain\Review\Models\Review;
-use App\Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait HasReviews

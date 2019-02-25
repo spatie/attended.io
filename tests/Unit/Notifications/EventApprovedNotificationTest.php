@@ -4,7 +4,6 @@ namespace Tests\Unit\Notifications;
 
 use App\Domain\Event\Models\Event;
 use App\Domain\Event\Notifications\EventApprovedNotification;
-use App\Domain\Event\Notifications\EventCreatedNotification;
 use App\Domain\User\Models\User;
 use Tests\TestCase;
 

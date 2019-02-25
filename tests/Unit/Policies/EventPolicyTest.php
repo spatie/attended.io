@@ -84,7 +84,5 @@ class EventPolicyTest extends TestCase
 
         $anotherUser = factory(User::class)->create();
         $this->assertFalse($anotherUser->can('publish', $event));
-
-
     }
 }

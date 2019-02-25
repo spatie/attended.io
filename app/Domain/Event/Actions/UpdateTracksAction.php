@@ -94,6 +94,4 @@ class UpdateTracksAction
 
         return $this;
     }
-
-
 }
