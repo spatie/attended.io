@@ -9,16 +9,19 @@ export default function TracksInput({ initialTracks, errors }) {
             <button type="button" onClick={() => add({ id: null, name: '', slotCount: 0 })}>
                 Add new track
             </button>
-            {tracks.map((track, index) => (
-                <Track
-                    key={index}
-                    track={track}
-                    index={index}
-                    onUpdate={update}
-                    onRemove={remove}
-                    errors={errors[`tracks.${index}.name`] || []}
-                />
-            ))}
+            <ul>
+                {tracks.map((track, index) => (
+                    <li key={index}>
+                        <Track
+                            track={track}
+                            index={index}
+                            onUpdate={update}
+                            onRemove={remove}
+                            errors={errors[`tracks.${index}.name`] || []}
+                        />
+                    </li>
+                ))}
+            </ul>
         </>
     );
 }
@@ -45,7 +48,7 @@ function Track({ track, index, errors, onUpdate, onRemove }) {
                     Remove
                 </button>
             )}
-            {errors.length && <p>{errors[0]}</p>}
+            {errors.length ? <p>{errors[0]}</p> : null}
         </>
     );
 }
