@@ -38,9 +38,9 @@ class Slot extends BaseModel implements Reviewable
         return $this->belongsTo(Event::class);
     }
 
-    public function speakers(): BelongsToMany
+    public function speakers(): HasMany
     {
-        return $this->belongsToMany(User::class, 'speakers')->withTimestamps();
+        return $this->hasMany(Speaker::class);
     }
 
     public function trackName(): string

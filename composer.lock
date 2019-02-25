@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b9c0cb0ce70cc7bc36ce02eea608992",
+    "content-hash": "affb55991556f638058fc1d951fb5667",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -3650,6 +3650,74 @@
             "time": "2019-02-01T22:43:58+00:00"
         },
         {
+            "name": "spatie/laravel-collection-macros",
+            "version": "4.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-collection-macros.git",
+                "reference": "decb04c983a8b0dfcb60095ad161a1bf4e87ed92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-collection-macros/zipball/decb04c983a8b0dfcb60095ad161a1bf4e87ed92",
+                "reference": "decb04c983a8b0dfcb60095ad161a1bf4e87ed92",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.6.0|~5.7.0",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "amphp/parallel": "^0.2.0",
+                "amphp/parallel-functions": "^0.1.2",
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "~3.6.0|~3.7.0",
+                "phpunit/phpunit": "^7.3",
+                "symfony/stopwatch": "^4.0"
+            },
+            "suggest": {
+                "amphp/parallel-functions": "Required when using the parallel*-macros."
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\CollectionMacros\\CollectionMacroServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\CollectionMacros\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://github.com/freekmurze",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://github.com/sebastiandedeyne",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A set of useful Laravel collection macros",
+            "homepage": "https://github.com/spatie/laravel-collection-macros",
+            "keywords": [
+                "laravel-collection-macros",
+                "spatie"
+            ],
+            "time": "2019-02-25T18:54:24+00:00"
+        },
+        {
             "name": "spatie/laravel-menu",
             "version": "3.2.1",
             "source": {
@@ -3713,16 +3781,16 @@
         },
         {
             "name": "spatie/laravel-refraction",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-refraction.git",
-                "reference": "6b3cd87b51524f12d3ddf65326f8f78a445623fe"
+                "reference": "7f570ae3d7368f61f4785140b47158f707d2cacd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-refraction/zipball/6b3cd87b51524f12d3ddf65326f8f78a445623fe",
-                "reference": "6b3cd87b51524f12d3ddf65326f8f78a445623fe",
+                "url": "https://api.github.com/repos/spatie/laravel-refraction/zipball/7f570ae3d7368f61f4785140b47158f707d2cacd",
+                "reference": "7f570ae3d7368f61f4785140b47158f707d2cacd",
                 "shasum": ""
             },
             "require": {
@@ -3765,7 +3833,7 @@
                 "laravel-refraction",
                 "spatie"
             ],
-            "time": "2019-02-22T20:48:04+00:00"
+            "time": "2019-02-25T10:49:55+00:00"
         },
         {
             "name": "spatie/laravel-searchable",

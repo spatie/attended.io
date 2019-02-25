@@ -23,6 +23,7 @@
         "spatie/emoji": "^2.1",
         "spatie/laravel-activitylog": "^3.2",
         "spatie/laravel-blade-x": "^2.0.0",
+        "spatie/laravel-collection-macros": "^4.3",
         "spatie/laravel-menu": "^3.2",
         "spatie/laravel-refraction": "^0.1",
         "spatie/laravel-searchable": "^1.2",
