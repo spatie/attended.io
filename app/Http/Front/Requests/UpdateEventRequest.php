@@ -19,7 +19,7 @@ class UpdateEventRequest extends FormRequest
             'starts_at' => 'required|date',
             'ends_at' => 'required|after:starts_at',
             'cfp' => 'boolean',
-            'cfp_link' => 'required_with:cfp|url',
+            'cfp_link' => 'nullable|url',
             'cfp_deadline' => 'nullable|date',
         ];
     }
