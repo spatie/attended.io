@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 
-function repeaterReducer(collection, action) {
+function collectionReducer(collection, action) {
     switch (action.type) {
         case 'ADD_ITEM': {
             return [...collection, action.item];
@@ -12,7 +12,7 @@ function repeaterReducer(collection, action) {
         }
         case 'REMOVE_ITEM': {
             if (collection.length === 1) {
-                return repeaterReducer([], { type: 'ADD_ITEM' });
+                return collectionReducer([], { type: 'ADD_ITEM' });
             }
 
             return collection.filter((item, index) => {
@@ -23,7 +23,7 @@ function repeaterReducer(collection, action) {
 }
 
 export default function useRepeater(initialCollection = []) {
-    const [collection, dispatch] = useReducer(repeaterReducer, initialCollection);
+    const [collection, dispatch] = useReducer(collectionReducer, initialCollection);
 
     function add(item) {
         dispatch({ type: 'ADD_ITEM', item });

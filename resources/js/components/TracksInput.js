@@ -1,8 +1,8 @@
 import React from 'react';
-import useRepeater from '../hooks/useRepeater';
+import useCollection from '../hooks/useCollection';
 
 export default function TracksInput({ initialTracks, errors }) {
-    const [tracks, { add, update, remove }] = useRepeater(initialTracks);
+    const [tracks, { add, update, remove }] = useCollection(initialTracks);
 
     return (
         <>
