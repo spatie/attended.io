@@ -19,6 +19,40 @@ function collectionReducer(collection, action) {
                 return index !== action.index;
             });
         }
+        case 'MOVE_BEFORE': {
+            return collection.reduce((newCollection, item, index) => {
+                if (index === action.subjectIndex) {
+                    return newCollection;
+                }
+
+                if (index === action.targetIndex) {
+                    return [
+                        ...newCollection,
+                        collection[action.subjectIndex],
+                        collection[action.targetIndex],
+                    ];
+                }
+
+                return [...newCollection, item];
+            }, []);
+        }
+        case 'MOVE_AFTER': {
+            return collection.reduce((newCollection, item, index) => {
+                if (index === action.subjectIndex) {
+                    return newCollection;
+                }
+
+                if (index === action.targetIndex) {
+                    return [
+                        ...newCollection,
+                        collection[action.targetIndex],
+                        collection[action.subjectIndex],
+                    ];
+                }
+
+                return [...newCollection, item];
+            }, []);
+        }
     }
 }
 
@@ -37,5 +71,13 @@ export default function useRepeater(initialCollection = []) {
         dispatch({ type: 'REMOVE_ITEM', index });
     }
 
-    return [collection, { add, update, remove }];
+    function moveBefore(subjectIndex, targetIndex) {
+        dispatch({ type: 'MOVE_BEFORE', subjectIndex, targetIndex });
+    }
+
+    function moveAfter(subjectIndex, targetIndex) {
+        dispatch({ type: 'MOVE_AFTER', subjectIndex, targetIndex });
+    }
+
+    return [collection, { add, update, remove, moveBefore, moveAfter }];
 }
