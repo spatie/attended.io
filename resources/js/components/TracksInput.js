@@ -6,7 +6,9 @@ export default function TracksInput({ initialTracks, errors }) {
 
     return (
         <>
-            <span onClick={() => add({ id: null, name: '', slotCount: 0 })}>Add new track</span>
+            <button type="button" onClick={() => add({ id: null, name: '', slotCount: 0 })}>
+                Add new track
+            </button>
             {tracks.map((track, index) => (
                 <Track
                     key={index}
@@ -29,7 +31,7 @@ function Track({ track, index, errors, onUpdate, onRemove }) {
     }
 
     return (
-        <div>
+        <>
             <input type="hidden" name={`tracks[${index}][id]`} value={track.id || ''} />
             <input
                 type="text"
@@ -43,7 +45,7 @@ function Track({ track, index, errors, onUpdate, onRemove }) {
                     Remove
                 </button>
             )}
-            {errors.length ? <div>{errors[0]}</div> : <div />}
-        </div>
+            {errors.length && <p>{errors[0]}</p>}
+        </>
     );
 }
