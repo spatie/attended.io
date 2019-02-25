@@ -8,9 +8,9 @@
     <form action="{{ route('event-admin.tracks.update', $event) }}" method="POST">
         @csrf
 
-        {{ refract('TracksForm', [
+        {{ refract('TracksInput', [
             'initialTracks' => $tracks,
-            'validationErrors' => $errors->getMessages(),
+            'errors' => $errors->getMessages(),
         ]) }}
 
         <button>Save event</button>
