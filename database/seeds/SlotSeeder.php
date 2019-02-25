@@ -3,6 +3,7 @@
 use App\Domain\Event\Models\Event;
 use App\Domain\Event\Models\Track;
 use App\Domain\Slot\Models\Slot;
+use App\Domain\Slot\Models\Speaker;
 use App\Domain\User\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
@@ -39,10 +40,17 @@ class SlotSeeder extends Seeder
 
     protected function addRelation(User $user, Slot $slot)
     {
-        if (faker()->boolean(90)) {
-            $slot->speakers()->attach($user);
 
-            return;
+
+        if (faker()->boolean(90)) {
+            $useUser = faker()->boolean(50);
+
+            Speaker::create([
+                'slot_id' => $slot->id,
+                'user_id' => $useUser ? $user->id : null,
+                'name' => $useUser ? null : faker()->name,
+                'email' => $useUser ? null : faker()->email,
+            ]);
         }
 
         if (faker()->boolean(50)) {
