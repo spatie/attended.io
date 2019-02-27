@@ -13,3 +13,8 @@ h2 {
     font-size: large;
     margin: 0.5rem 0;
 }
+
+button {
+    background-color: lightslategray;
+    color: white;
+}
