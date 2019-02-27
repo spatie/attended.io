@@ -5,15 +5,17 @@
 
     <a href="{{ route('event-admin.events.create') }}">Host new event</a>
 
-    <ul>
-        {{ $events->links() }}
-
+    {{ $events->links() }}
+    <div class="flex -m-4">
         @foreach($events as $event)
-            <h2><a href="{{ route('event-admin.events.edit', $event->idSlug()) }}">{{ $event->name }}</a></h2>
-            {{ $event->timespan() }}
-            {{ $event->location }}
+            <a href="{{ route('event-admin.events.edit', $event->idSlug()) }}" class="block bg-blue-lightest m-4">
+                <div class="p-3">
+                    <h2 class="font-bold">{{ $event->name }}</h2>
+                    {{ $event->timespan() }}<br>
+                    {{ $event->location }}
+                </div>
+            </>
         @endforeach
-
-        {{ $events->links() }}
-    </ul>
+    </div>
+    {{ $events->links() }}
 @endsection
