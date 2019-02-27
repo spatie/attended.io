@@ -27,6 +27,8 @@ class NavigationServiceProvider extends ServiceProvider
     {
         Menu::macro('main', function () {
             return Menu::new()
+                ->addClass('flex flex-row mb-2')
+                ->addItemClass('mr-4 p-3 bg-grey-light flex justify-center')
                 ->actionIf(
                     optional(auth()->user())->organisesEvents(),
                     [EventsController::class, 'index'],
@@ -46,12 +48,16 @@ class NavigationServiceProvider extends ServiceProvider
 
         Menu::macro('event', function (Event $event) {
             return Menu::new()
+                ->addClass('flex flex-row mb-8')
+                ->addItemClass('mr-4 underline')
                 ->action(ShowEventScheduleController::class, 'Schedule', $event->idSlug())
                 ->action(ShowEventFeedbackController::class, 'Feedback', $event->idSlug());
         });
 
         Menu::macro('eventAdmin', function (Event $event) {
             return Menu::new()
+                ->addClass('flex flex-row mb-8')
+                ->addItemClass('mr-4 underline')
                 ->action([EventAdminEventsController::class, 'edit'], 'Details', $event->idSlug())
                 ->action([TracksController::class, 'edit'], 'Tracks', $event->idSlug())
                 ->action([SlotsController::class, 'index'], 'Slots', $event->idSlug());
@@ -59,6 +65,8 @@ class NavigationServiceProvider extends ServiceProvider
 
         Menu::macro('profile', function (User $user) {
             return Menu::new()
+                ->addClass('flex flex-row mb-8')
+                ->addItemClass('mr-4 underline')
                 ->actionIf(
                     optional(auth()->user())->speaksAtEvents(),
                     TalksController::class,
@@ -71,6 +79,8 @@ class NavigationServiceProvider extends ServiceProvider
 
         Menu::macro('account', function () {
             return Menu::new()
+                ->addClass('flex flex-row mb-8')
+                ->addItemClass('mr-4 underline')
                 ->action([SettingsController::class, 'edit'], 'Profile')
                 ->action([ChangePasswordController::class, 'edit'], 'Change password');
         });

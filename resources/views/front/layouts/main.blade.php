@@ -22,70 +22,62 @@
     @stack('headers')
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<div id="app" class="m-4">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    {{ Menu::main() }}
+    <nav class="md:flex justify-between">
+        {{ Menu::main() }}
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+        <ul class="flex flex-row">
+            @guest
+                <li>
+                    <a class="mr-3 p-3 bg-grey-light flex justify-center"
+                       href="{{ route('login') }}">{{ __('Login') }}</a>
+                </li>
+                @if (Route::has('register'))
+                    <li>
+                        <a class="mr-3 p-3 bg-grey-light flex justify-center"
+                           href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                @endif
+            @endguest
 
-                                @auth
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('profile.talks.show', auth()->user()->idSlug()) }}">
-                                        Profile
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('account.settings.edit') }}">
-                                       Account
-                                    </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+            @auth
+                <li>
+                    <a class="mr-3 p-3 bg-grey-light flex justify-center"
+                       href="{{ route('profile.talks.show', auth()->user()->idSlug()) }}">
+                        Profile
+                    </a>
+                </li>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                                @endauth
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                <li>
+                    <a class="mr-3 p-3 bg-grey-light flex justify-center" href="{{ route('account.settings.edit') }}">
+                        Account
+                    </a>
+                </li>
 
-        <main class="py-4">
-            @include('front.layouts.partials.unverified-email-warning')
-            @include('front.layouts.partials.flashMessage')
-            @yield('content')
-        </main>
-        @include('front.layouts.partials.footer')
-    </div>
+                <li>
+                    <a class="mr-3 p-3 bg-grey-light flex justify-center" href="{{ route('logout') }}"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                    >
+                        {{ __('Logout') }}
+                    </a>
+                </li>
+
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            @endauth
+        </ul>
+    </nav>
+
+    <main class="py-4">
+        @include('front.layouts.partials.unverified-email-warning')
+        @include('front.layouts.partials.flashMessage')
+        @yield('content')
+    </main>
+
+    @include('front.layouts.partials.footer')
+</div>
 </body>
 </html>
