@@ -15,7 +15,7 @@ class EventPolicyTest extends TestCase
     /** @var \App\Domain\User\Models\User */
     protected $user;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

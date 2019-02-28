@@ -12,7 +12,7 @@ class TrackIdBelongToEventTest extends TestCase
     /** @var \App\Domain\Event\Models\Event */
     protected $event;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

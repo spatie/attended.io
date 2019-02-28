@@ -13,7 +13,7 @@ class CreateEventActionTest extends TestCase
     /** @var \Illuminate\Support\Collection */
     protected $admins;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

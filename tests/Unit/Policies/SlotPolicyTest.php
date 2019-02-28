@@ -19,7 +19,7 @@ class SlotPolicyTest extends TestCase
     /** @var \App\Domain\Slot\Models\Slot */
     protected $slot;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
