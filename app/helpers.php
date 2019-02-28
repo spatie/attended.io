@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Str;
 use Faker\Factory;
 use Faker\Generator;
 use Illuminate\Http\Response;
@@ -34,7 +35,7 @@ function formValue(
 
 function present_url(string $url): string
 {
-    if (! str_contains($url, '://')) {
+    if (! Str::contains($url, '://')) {
         return $url;
     }
 

@@ -14,7 +14,7 @@ trait HasShortSlug
                 $shortSlug = Str::lower(Str::random(6));
             } while (! is_null(static::findByShortSlug($shortSlug)));
 
-            $model->short_slug = str_slug($shortSlug);
+            $model->short_slug = Str::slug($shortSlug);
         });
     }
 
