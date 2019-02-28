@@ -23,7 +23,7 @@ class ApproveSlotOwnershipClaimAction
         $claimingUser->notify(new SlotOwnershipClaimApprovedNotification(
             $claimingUser,
             $slot,
-            ));
+        ));
 
         activity()
             ->performedOn($slot)

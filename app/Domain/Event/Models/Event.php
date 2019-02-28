@@ -152,7 +152,7 @@ class Event extends BaseModel implements Reviewable, Searchable
             $this,
             $this->name,
             route('events.show-schedule', $this->idSlug()),
-            );
+        );
     }
 
     public function markAsApproved()
