@@ -21,7 +21,7 @@ export default function Draggable({ children }) {
 }
 
 Draggable.Item = function DraggableItem({ data, children }) {
-    const { dragging, stopDragging } = useContext(DraggableContext);
+    const { dragging, startDragging, stopDragging } = useContext(DraggableContext);
 
     function onDragStart(event) {
         event.dataTransfer.setData('data', JSON.stringify(data));
@@ -31,13 +31,9 @@ Draggable.Item = function DraggableItem({ data, children }) {
         ? { draggable: true, onDragStart, onDragEnd: stopDragging }
         : null;
 
-    return children({ draggableItemProps });
-};
+    const draggableHandleProps = { onMouseDown: startDragging };
 
-Draggable.Handle = function DraggableHandle({ children }) {
-    const { startDragging } = useContext(DraggableContext);
-
-    return <span onMouseDown={startDragging}>{children}</span>;
+    return children({ draggableItemProps, draggableHandleProps });
 };
 
 Draggable.DropTarget = function DraggableDropTarget({ onDrop, children }) {

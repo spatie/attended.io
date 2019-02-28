@@ -19,9 +19,9 @@ export default function TracksInput({ initialTracks, errors }) {
                         {tracks.map((track, index) => (
                             <li key={index}>
                                 <Draggable.Item data={index}>
-                                    {({ draggableItemProps }) => (
+                                    {({ draggableItemProps, draggableHandleProps }) => (
                                         <div {...draggableItemProps}>
-                                            <Draggable.Handle>DRAG ME</Draggable.Handle>
+                                            <span {...draggableHandleProps}>DRAG ME</span>
                                             <Track
                                                 track={track}
                                                 index={index}
