@@ -78,7 +78,7 @@ class UpdateTracksAction
                     throw CouldNotUpdateTrack::trackDoesNotBelongToEvent(
                         $newTrackProperties['id'],
                         $event,
-                        );
+                    );
                 }
 
                 $oldName = $track->name;

@@ -2,6 +2,7 @@
 
 namespace App\Domain\Shared\Models\Concerns;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 
 trait HasSlug
@@ -9,7 +10,7 @@ trait HasSlug
     public static function bootHasSlug()
     {
         static::saving(function (Model $model) {
-            $model->slug = str_slug($model->name);
+            $model->slug = Str::slug($model->name);
         });
     }
 

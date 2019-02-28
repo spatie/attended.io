@@ -23,7 +23,7 @@ class PublishEventController
         (new PublishEventAction())->execute(
             auth()->user(),
             $event,
-            );
+        );
 
         flash()->success('The event has published. Everybody can now view it.');
 

@@ -122,6 +122,6 @@ class UserTest extends TestCase
         $this->assertEquals(
             $admins->pluck('id')->toArray(),
             $retrievedAdmins->pluck('id')->toArray(),
-            );
+        );
     }
 }
