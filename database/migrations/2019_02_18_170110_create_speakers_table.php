@@ -14,6 +14,8 @@ class CreateSpeakersTable extends Migration
             $table->unsignedInteger('user_id')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
+            $table->string('speaker_invitation_sent_at')->nullable();
+
             $table->timestamps();
 
             $table->index('slot_id');

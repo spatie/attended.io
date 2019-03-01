@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Speaker extends BaseModel
 {
+    public $dates = [
+        'speaker_invitation_sent_at',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
