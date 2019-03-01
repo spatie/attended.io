@@ -4,9 +4,11 @@ namespace App\Http\Front\Requests;
 
 use App\Domain\Event\Models\Event;
 use App\Domain\Event\Rules\TrackIdBelongsToEvent;
+use App\Domain\Slot\Enums\SlotType;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Rules\DateBetweenRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Spatie\ValidationRules\Rules\Enum;
 
 class UpdateSlotRequest extends FormRequest
 {
@@ -26,10 +28,11 @@ class UpdateSlotRequest extends FormRequest
             'name' => 'required',
             'description' => '',
             'starts_at' => ['required', $dateBetweenRule],
+            'type' => ['required', new Enum(SlotType::class)],
             'ends_at' => ['required', 'after:starts_at', $dateBetweenRule],
             'speakers.*.name' => ['required'],
             'speakers.*.email' => ['email'],
-            'tracks_id' => [new TrackIdBelongsToEvent($this->event)],
+            'track_id' => ['required', new TrackIdBelongsToEvent($this->event)],
         ];
     }
 

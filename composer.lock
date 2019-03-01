@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd5987ac1096cfccf058de5b1d0fd3fd",
+    "content-hash": "8ca6fdfe28e73f6e32db14ebad3c5ace",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -3391,6 +3391,64 @@
                 "tail"
             ],
             "time": "2019-02-26T17:09:23+00:00"
+        },
+        {
+            "name": "spatie/laravel-validation-rules",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-validation-rules.git",
+                "reference": "9bb6c55d7002a6d4f741cb7ae360c70190de1f20"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-validation-rules/zipball/9bb6c55d7002a6d4f741cb7ae360c70190de1f20",
+                "reference": "9bb6c55d7002a6d4f741cb7ae360c70190de1f20",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.7",
+                "league/iso3166": "^2.1",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "myclabs/php-enum": "^1.6",
+                "orchestra/testbench": "^3.7",
+                "phpunit/phpunit": "^7.4",
+                "scrutinizer/ocular": "^1.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\ValidationRules\\ValidationRulesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\ValidationRules\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A set of useful Laravel validation rules",
+            "homepage": "https://github.com/spatie/laravel-validation-rules",
+            "keywords": [
+                "laravel-validation-rules",
+                "spatie"
+            ],
+            "time": "2019-01-02T13:19:43+00:00"
         },
         {
             "name": "spatie/laravel-view-models",

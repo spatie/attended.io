@@ -60,7 +60,7 @@ class NavigationServiceProvider extends ServiceProvider
                 ->addItemClass('mr-4 underline')
                 ->action([EventAdminEventsController::class, 'edit'], 'Details', $event->idSlug())
                 ->action([TracksController::class, 'edit'], 'Tracks', $event->idSlug())
-                ->action([SlotsController::class, 'index'], 'Slots', $event->idSlug());
+                ->actionIf(count($event->tracks), [SlotsController::class, 'index'], 'Slots', [$event->idSlug()]);
         });
 
         Menu::macro('profile', function (User $user) {

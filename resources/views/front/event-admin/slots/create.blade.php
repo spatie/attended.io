@@ -1,7 +1,9 @@
 @extends('front.layouts.main')
 
 @section('content')
-    <h1>Add new slot to {{ $event->name }}</h1>
+    {{ Menu::eventAdmin($event) }}
+
+    <h1>New slot</h1>
 
     <form action="{{ route('event-admin.slots.store', $event) }}" method="POST">
 

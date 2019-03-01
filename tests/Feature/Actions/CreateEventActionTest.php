@@ -51,6 +51,9 @@ class CreateEventActionTest extends TestCase
             $this->assertEquals($eventAttributes[$attributeName]->format('Y-m-d H:i:s'), $event->$attributeName->format('Y-m-d H:i:s'));
         }
 
+        $this->assertCount(1, $event->tracks);
+        $this->assertEquals('Main', $event->tracks->first()->name);
+
         $this->assertEquals(
             [$organizingUser->id],
             $event->organizingUsers->pluck('id')->toArray()

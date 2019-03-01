@@ -3,8 +3,9 @@
 namespace App\Domain\Slot\Rules;
 
 use Carbon\Carbon;
+use Illuminate\Contracts\Validation\Rule;
 
-class DateBetweenRule
+class DateBetweenRule implements Rule
 {
     /** @var \Carbon\Carbon */
     protected $startDate;

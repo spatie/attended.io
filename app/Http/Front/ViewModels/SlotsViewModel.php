@@ -3,6 +3,8 @@
 namespace App\Http\Front\ViewModels;
 
 use App\Domain\Event\Models\Event;
+use App\Domain\Event\Models\Track;
+use App\Domain\Slot\Enums\SlotType;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Models\Speaker;
 use Spatie\ViewModels\ViewModel;
@@ -28,11 +30,8 @@ class SlotsViewModel extends ViewModel
             ->tracks()
             ->orderBy('order_column')
             ->get()
-            ->map(function (Track $track) {
-                return [
-                    'id' => $track->id,
-                    'name' => $track->name
-                ];
+            ->mapWithKeys(function (Track $track) {
+                return [$track->id => $track->name];
             })
             ->toArray();
     }
@@ -50,5 +49,10 @@ class SlotsViewModel extends ViewModel
                  ];
             })
             ->toArray();
+    }
+
+    public function slotTypes(): array
+    {
+        return SlotType::toArray();
     }
 }
