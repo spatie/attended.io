@@ -17,7 +17,7 @@ class RejectSlotOwnershipClaimAction
         $claimingUser->notify(new SlotOwnershipClaimRejectedNotification(
             $claimingUser,
             $slot,
-        ));
+            ));
 
         activity()
             ->performedOn($slot)

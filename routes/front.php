@@ -37,6 +37,7 @@ Route::prefix('organizing')->middleware('auth')->group(function () {
     Route::post('create', [EventsController::class, 'store'])->name('event-admin.events.store');
     Route::get('events/{event}', [EventsController::class, 'edit'])->name('event-admin.events.edit');
     Route::post('events/{event}', [EventsController::class, 'update'])->name('event-admin.events.update');
+    Route::delete('events/{event}/delete', [EventsController::class, 'destroy'])->name('event-admin.events.delete');
     Route::post('events/{event}/approve', ApproveEventController::class)->name('event-admin.events.approve');
     Route::post('events/{event}/publish', PublishEventController::class)->name('event-admin.events.publish');
 
@@ -46,6 +47,9 @@ Route::prefix('organizing')->middleware('auth')->group(function () {
     Route::get('events/{event}/slots', [SlotsController::class, 'index'])->name('event-admin.slots');
     Route::get('events/{event}/slots/create', [SlotsController::class, 'create'])->name('event-admin.slots.create');
     Route::post('events/{event}/slots', [SlotsController::class, 'store'])->name('event-admin.slots.store');
+    Route::get('events/{event}/slots/{slot}', [SlotsController::class, 'edit'])->name('event-admin.slots.edit');
+    Route::post('events/{event}/slots/{slot}', [SlotsController::class, 'update'])->name('event-admin.slots.update');
+    Route::delete('events/{event}/slots/{slot}', [SlotsController::class, 'destroy'])->name('event-admin.slots.delete');
 });
 
 Route::prefix('/events/{event}')->group(function () {

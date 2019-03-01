@@ -10,6 +10,11 @@ class SlotPolicy
 {
     use HandlesAuthorization;
 
+    public function administer(User $user, Slot $slot): bool
+    {
+        return $user->can('administer', $slot->event);
+    }
+
     public function claim(User $user, Slot $slot): bool
     {
         if ($user->isSpeaker($slot)) {

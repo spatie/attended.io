@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27ad2a0ef479d7376a0181b08b26ece4",
+    "content-hash": "bd5987ac1096cfccf058de5b1d0fd3fd",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2022,16 +2022,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.14.1",
+            "version": "2.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "e68f869575bd703276be8d4264799cd3cce28107"
+                "reference": "a1f4f9abcde8241ce33bf5090896e9c16d0b4232"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/e68f869575bd703276be8d4264799cd3cce28107",
-                "reference": "e68f869575bd703276be8d4264799cd3cce28107",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/a1f4f9abcde8241ce33bf5090896e9c16d0b4232",
+                "reference": "a1f4f9abcde8241ce33bf5090896e9c16d0b4232",
                 "shasum": ""
             },
             "require": {
@@ -2078,7 +2078,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-02-27T13:59:59+00:00"
+            "time": "2019-02-28T09:07:12+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -3391,6 +3391,61 @@
                 "tail"
             ],
             "time": "2019-02-26T17:09:23+00:00"
+        },
+        {
+            "name": "spatie/laravel-view-models",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-view-models.git",
+                "reference": "1e7cadf0a00f0674a2760592e9f54cf93aca7490"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-view-models/zipball/1e7cadf0a00f0674a2760592e9f54cf93aca7490",
+                "reference": "1e7cadf0a00f0674a2760592e9f54cf93aca7490",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.5|~5.6|~5.7",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.5|~3.6|~3.7",
+                "phpunit/phpunit": "^7.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\ViewModels\\Providers\\ViewModelsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\ViewModels\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brent Roose",
+                    "email": "brent@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "View models in Laravel",
+            "homepage": "https://github.com/spatie/laravel-view-models",
+            "keywords": [
+                "laravel-view-models",
+                "spatie"
+            ],
+            "time": "2018-09-26T06:33:35+00:00"
         },
         {
             "name": "spatie/laravel-web-tinker",

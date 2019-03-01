@@ -4,10 +4,10 @@ namespace Tests\Unit\Rules;
 
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Models\Speaker;
-use App\Domain\Slot\Rules\SpeakerIdBelongsToSlot;
+use App\Domain\Slot\Rules\SpeakerIdBelongsToSlotRule;
 use Tests\TestCase;
 
-class SpeakerIdBelongsToSlotTest extends TestCase
+class SpeakerIdBelongsToSlotRuleTest extends TestCase
 {
     /** @var \App\Domain\Slot\Models\Slot */
     protected $slot;
@@ -35,6 +35,6 @@ class SpeakerIdBelongsToSlotTest extends TestCase
 
     public function rulePasses($speakerId): bool
     {
-        return (new SpeakerIdBelongsToSlot($this->slot))->passes('speakerId', $speakerId);
+        return (new SpeakerIdBelongsToSlotRule($this->slot))->passes('speakerId', $speakerId);
     }
 }

@@ -33,17 +33,17 @@ class NavigationServiceProvider extends ServiceProvider
                     optional(auth()->user())->organisesEvents(),
                     [EventsController::class, 'index'],
                     'Organizing',
-                )
+                    )
                 ->actionIf(
                     optional(auth()->user())->speaksAtEvents(),
                     SpeakingAtEventsListController::class,
                     'Speaking',
-                )
+                    )
                 ->actionIf(
                     optional(auth()->user())->attendsEvents(),
                     AttendingEventListController::class,
                     'Attending',
-                );
+                    );
         });
 
         Menu::macro('event', function (Event $event) {
@@ -72,7 +72,7 @@ class NavigationServiceProvider extends ServiceProvider
                     TalksController::class,
                     'Talks',
                     [$user->idSlug()],
-                )
+                    )
                 ->action(ProfileEventsController::class, 'Events', $user->idSlug())
                 ->action(ReviewsController::class, 'Reviews', $user->idSlug());
         });

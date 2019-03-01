@@ -38,7 +38,7 @@ class UpdateTracksActionTest extends TestCase
         $this->assertEquals(
             ['track 1 updated', 'track 2 updated', 'track 4 created'],
             $this->event->refresh()->tracks->pluck('name')->toArray(),
-        );
+            );
     }
 
     /** @test */

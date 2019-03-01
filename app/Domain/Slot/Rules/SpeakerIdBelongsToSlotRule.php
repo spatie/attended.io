@@ -4,10 +4,9 @@ namespace App\Domain\Slot\Rules;
 
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Models\Speaker;
-use App\Domain\Slot\Models\Track;
 use Illuminate\Contracts\Validation\Rule;
 
-class SpeakerIdBelongsToSlot implements Rule
+class SpeakerIdBelongsToSlotRule implements Rule
 {
     /** @var \App\Domain\Slot\Rules\Slot */
     protected $slot;

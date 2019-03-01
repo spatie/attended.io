@@ -17,4 +17,18 @@ class Speaker extends BaseModel
     {
         return $this->belongsTo(Slot::class);
     }
+
+    public function name(): string
+    {
+        return $this->user
+            ? $this->user->name
+            : $this->name;
+    }
+
+    public function email(): string
+    {
+        return $this->user
+            ? $this->user->email
+            : $this->email;
+    }
 }

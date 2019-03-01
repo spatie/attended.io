@@ -3,6 +3,7 @@
 namespace App\Http\Front\Controllers\EventAdmin;
 
 use App\Domain\Event\Actions\CreateEventAction;
+use App\Domain\Event\Actions\DeleteEventAction;
 use App\Domain\Event\Actions\UpdateEventAction;
 use App\Domain\Event\Models\Event;
 use App\Http\Front\Requests\UpdateEventRequest;
@@ -55,5 +56,16 @@ class EventsController
         flash()->message('The event has been saved!');
 
         return redirect()->route('event-admin.events.edit', $event);
+    }
+
+    public function destroy(Event $event)
+    {
+        $this->authorize('administer', $event);
+
+        (new DeleteEventAction())->execute($event);
+
+        flash()->success('The event has been deleted.');
+
+        return back();
     }
 }

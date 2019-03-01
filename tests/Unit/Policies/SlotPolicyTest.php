@@ -79,4 +79,14 @@ class SlotPolicyTest extends TestCase
 
         $this->assertFalse($this->user->can('claim', $this->slot));
     }
+
+    /** @test */
+    public function the_organiser_of_the_event_can_administer_the_slots()
+    {
+        $this->assertFalse($this->user->can('administer', $this->slot));
+
+        $this->event->organizingUsers()->attach($this->user);
+
+        $this->assertTrue($this->user->can('administer', $this->slot->refresh()));
+    }
 }

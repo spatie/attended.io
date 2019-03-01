@@ -7,7 +7,7 @@ use App\Domain\Event\Models\Track;
 use App\Domain\Event\Rules\TrackIdBelongsToEvent;
 use Tests\TestCase;
 
-class TrackIdBelongsToEventTest extends TestCase
+class TrackIdBelongsToEventRuleTest extends TestCase
 {
     /** @var \App\Domain\Event\Models\Event */
     protected $event;

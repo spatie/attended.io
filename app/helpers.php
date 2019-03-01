@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Support\Str;
 use Faker\Factory;
 use Faker\Generator;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 function faker(): Generator
