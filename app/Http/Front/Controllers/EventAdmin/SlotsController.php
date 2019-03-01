@@ -15,7 +15,15 @@ class SlotsController
 {
     public function index(Event $event)
     {
-        return view('front.event-admin.slots.index', compact('event'));
+        $slotsGroupedByDay = $event->slots
+            ->sortBy(function (Slot $slot) {
+                return $slot->starts_at->format('YmdHis') . '-' . optional($slot->track)->id;
+            })
+            ->groupBy(function (Slot $slot) {
+                return $slot->starts_at->format('Ymd');
+            });
+
+        return view('front.event-admin.slots.index', compact('event', 'slotsGroupedByDay'));
     }
 
     public function create(Event $event)

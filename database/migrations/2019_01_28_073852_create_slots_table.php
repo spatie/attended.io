@@ -15,7 +15,7 @@ class CreateSlotsTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('short_slug');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('type');
             $table->timestamp('starts_at')->nullable();
             $table->timestamp('ends_at')->nullable();

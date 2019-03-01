@@ -3,6 +3,7 @@
 namespace App\Domain\Slot\Actions;
 
 use App\Domain\Slot\Models\Slot;
+use Carbon\Carbon;
 
 class UpdateSlotAction
 {
@@ -12,8 +13,8 @@ class UpdateSlotAction
 
         $slot->name = $attributes['name'];
         $slot->track_id = $attributes['track_id'];
-        $slot->starts_at = $attributes['starts_at'];
-        $slot->ends_at = $attributes['ends_at'];
+        $slot->starts_at = Carbon::createFromFormat('Y-m-d H:i', $attributes['starts_at']);
+        $slot->ends_at = Carbon::createFromFormat('Y-m-d H:i', $attributes['ends_at']);
         $slot->description = $attributes['description'];
         $slot->type = $attributes['type'];
 

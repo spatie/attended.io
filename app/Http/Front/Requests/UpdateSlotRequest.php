@@ -30,6 +30,7 @@ class UpdateSlotRequest extends FormRequest
             'starts_at' => ['required', $dateBetweenRule],
             'type' => ['required', new Enum(SlotType::class)],
             'ends_at' => ['required', 'after:starts_at', $dateBetweenRule],
+            'speakers' => 'required|array',
             'speakers.*.name' => ['required'],
             'speakers.*.email' => ['email'],
             'track_id' => ['required', new TrackIdBelongsToEvent($this->event)],
