@@ -6,7 +6,12 @@
     <select-field name="type" :options="['talk', 'workshop']" label="Type"/>
     <input-field name="starts_at" label="Starts at"/>
     <input-field name="ends_at" label="Ends at"/>
-    <input-field name="speaker_name" label="Speaker name"/>
+
+    {{ refract('SpeakersInput', [
+        'initialSpeakers' => $speakers,
+        'errors' => $errors->getMessages(),
+]   ) }}
+
 </context>
 
 <button>Save</button>

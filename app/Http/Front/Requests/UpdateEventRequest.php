@@ -13,7 +13,7 @@ class UpdateEventRequest extends FormRequest
             'name' => 'required',
             'description' => 'required',
             'location' => 'required',
-            'city' => '',
+            'city' => 'required',
             'country_code' => [new CountryCode()],
             'website' => 'required',
             'starts_at' => 'required|date',

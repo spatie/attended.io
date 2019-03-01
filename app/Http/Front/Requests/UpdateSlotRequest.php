@@ -4,8 +4,10 @@ namespace App\Http\Front\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SlotRequest extends FormRequest
+class UpdateSlotRequest extends FormRequest
 {
+
+
     public function rules()
     {
         return [];
