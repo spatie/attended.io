@@ -32,8 +32,14 @@ class UpdateSlotActionTest extends TestCase
 
         $this->assertEquals($updateAttributes['name'], $updatedSlot->name);
         $this->assertEquals($updateAttributes['track_id'], $updatedSlot->track_id);
-        $this->assertEquals($updateAttributes['starts_at']->timestamp, $updatedSlot->starts_at->timestamp);
-        $this->assertEquals($updateAttributes['ends_at']->timestamp, $updatedSlot->ends_at->timestamp);
+        $this->assertEquals(
+            $updateAttributes['starts_at'],
+            $updatedSlot->starts_at->format('Y-m-d H:i'),
+            );
+        $this->assertEquals(
+            $updateAttributes['ends_at'],
+            $updatedSlot->ends_at->format('Y-m-d H:i')
+        );
         $this->assertEquals($updateAttributes['description'], $updatedSlot->description);
         $this->assertEquals($updateAttributes['type'], $updatedSlot->type);
 
@@ -67,8 +73,8 @@ class UpdateSlotActionTest extends TestCase
             'track_id' => factory(Track::class)->create([
                 'event_id' => $this->slot->event->id,
             ])->id,
-            'starts_at' => now()->addDays(3)->startOfDay(),
-            'ends_at' => now()->addDays(5)->endOfDay(),
+            'starts_at' => now()->addDays(3)->startOfDay()->format('Y-m-d H:i'),
+            'ends_at' => now()->addDays(5)->endOfDay()->format('Y-m-d H:i'),
             'description' => 'updated description',
             'type' => SlotType::TALK,
             'speakers' => [
