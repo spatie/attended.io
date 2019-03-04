@@ -21,6 +21,7 @@ class UpdateSlotAction
         $slot->save();
 
         (new UpdateSpeakersAction)->execute($slot, $attributes['speakers']);
+        (new SendInvitationToClaimSlotAction())->execute($slot);
 
         if (! $newSlot) {
             activity()
