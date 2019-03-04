@@ -11,7 +11,7 @@ class AllEventsController
         $events = Event::query()
             ->upcomingOrPast(request())
             ->published()
-            ->with('currentUserAttendance')
+            ->with('currentUserAttendee')
             ->orderBy('starts_at')
             ->paginate()
             ->appends(request()->all());

@@ -6,7 +6,7 @@ use App\Domain\Shared\Models\BaseModel;
 use App\Domain\User\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Attendance extends BaseModel
+class Attendee extends BaseModel
 {
     public function user(): BelongsTo
     {

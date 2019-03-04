@@ -66,24 +66,24 @@ class Event extends BaseModel implements Reviewable, Searchable
             ->orderBy('starts_at');
     }
 
-    public function attendees(): HasManyThrough
+    public function attendingUsers(): HasManyThrough
     {
-        return $this->hasManyThrough(User::class, Attendance::class);
+        return $this->hasManyThrough(User::class, Attendee::class);
     }
 
-    public function attendances(): HasMany
+    public function attendees(): HasMany
     {
-        return $this->hasMany(Attendance::class);
+        return $this->hasMany(Attendee::class);
     }
 
-    public function currentUserAttendance(): HasMany
+    public function currentUserAttendee(): HasMany
     {
-        return $this->hasMany(Attendance::class)->where('user_id', optional(auth()->user())->id);
+        return $this->hasMany(Attendee::class)->where('user_id', optional(auth()->user())->id);
     }
 
     public function attendedByCurrentUser(): bool
     {
-        return count($this->currentUserAttendance) > 0;
+        return count($this->currentUserAttendee) > 0;
     }
 
     public function attendedBy(?User $user): bool
@@ -92,7 +92,7 @@ class Event extends BaseModel implements Reviewable, Searchable
             return false;
         }
 
-        return Attendance::query()
+        return Attendee::query()
                 ->where('event_id', $this->id)
                 ->where('user_id', $user->id)
                 ->count() > 0;
@@ -117,7 +117,7 @@ class Event extends BaseModel implements Reviewable, Searchable
 
     public function scopeHasAttendee(Builder $query, User $user)
     {
-        $query->whereHas('attendances', function (Builder $query) use ($user) {
+        $query->whereHas('attendees', function (Builder $query) use ($user) {
             $query->where('user_id', $user->id);
         });
     }

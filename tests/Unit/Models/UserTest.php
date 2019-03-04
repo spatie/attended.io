@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Models;
 
-use App\Domain\Event\Models\Attendance;
+use App\Domain\Event\Models\Attendee;
 use App\Domain\Event\Models\Event;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Models\Speaker;
@@ -55,7 +55,7 @@ class UserTest extends TestCase
 
         $event = factory(Event::class)->create();
 
-        Attendance::create([
+        Attendee::create([
             'event_id' => $event->id,
             'user_id' => $this->user->id,
         ]);

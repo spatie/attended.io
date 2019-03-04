@@ -2,7 +2,7 @@
 
 namespace App\Domain\User\Models;
 
-use App\Domain\Event\Models\Attendance;
+use App\Domain\Event\Models\Attendee;
 use App\Domain\Event\Models\Event;
 use App\Domain\Review\Interfaces\Reviewable;
 use App\Domain\Review\Models\Review;
@@ -76,17 +76,17 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function attendedEvents(): HasManyThrough
     {
-        return $this->hasManyThrough(Event::class, Attendance::class);
+        return $this->hasManyThrough(Event::class, Attendee::class);
     }
 
-    public function attendances(): HasMany
+    public function attendees(): HasMany
     {
-        return $this->hasMany(Attendance::class);
+        return $this->hasMany(Attendee::class);
     }
 
     public function attended(Event $event): bool
     {
-        return Attendance::query()
+        return Attendee::query()
             ->where([
                 'user_id' => $this->id,
                 'event_id' => $event->id,
@@ -106,7 +106,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function attendsEvents(): bool
     {
-        return $this->attendances()->count() > 0;
+        return $this->attendees()->count() > 0;
     }
 
     public function markEmailAsUnverified()

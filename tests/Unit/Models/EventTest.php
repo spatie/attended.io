@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Models;
 
-use App\Domain\Event\Models\Attendance;
+use App\Domain\Event\Models\Attendee;
 use App\Domain\Event\Models\Event;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Models\Speaker;
@@ -69,10 +69,10 @@ class EventTest extends TestCase
         $user = factory(User::class)->create();
         $anotherUser = factory(User::class)->create();
 
-        Attendance::create(['event_id' => $events[0]->id, 'user_id' => $user->id]);
-        Attendance::create(['event_id' => $events[1]->id, 'user_id' => $anotherUser->id]);
-        Attendance::create(['event_id' => $events[2]->id, 'user_id' => $user->id]);
-        Attendance::create(['event_id' => $events[2]->id, 'user_id' => $anotherUser->id]);
+        Attendee::create(['event_id' => $events[0]->id, 'user_id' => $user->id]);
+        Attendee::create(['event_id' => $events[1]->id, 'user_id' => $anotherUser->id]);
+        Attendee::create(['event_id' => $events[2]->id, 'user_id' => $user->id]);
+        Attendee::create(['event_id' => $events[2]->id, 'user_id' => $anotherUser->id]);
 
         $eventsWhereUserSpeaksAt = Event::hasAttendee($user)->get();
         $this->assertCount(2, $eventsWhereUserSpeaksAt);

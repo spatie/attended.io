@@ -2,6 +2,7 @@
 
 namespace App\Domain\Event\Commands;
 
+use App\Domain\Event\Models\Attendee;
 use App\Domain\Event\Models\Event;
 use App\Domain\Event\Notifications\EventEndedNotification;
 use App\Domain\User\Models\User;
@@ -24,9 +25,9 @@ class SendEventEndedNotificationsCommand extends Command
                     ->attendees()
                     ->whereNull('event_ended_notification_sent_at')
                     ->get()
-                    ->each(function (User $attendee) use ($event) {
+                    ->each(function (Attendee $attendee) use ($event) {
                         /** TODO: make sure that this notification gets queued */
-                        $attendee->notify(new EventEndedNotification($event));
+                        $attendee->user->notify(new EventEndedNotification($event));
 
                         $this->markAsEventNotificationEndedSentToUser($attendee);
                     });
@@ -42,10 +43,10 @@ class SendEventEndedNotificationsCommand extends Command
         $event->save();
     }
 
-    protected function markAsEventNotificationEndedSentToUser(User $user)
+    protected function markAsEventNotificationEndedSentToUser(Attendee $attendee)
     {
-        $user->event_ended_notification_sent_at = now();
+        $attendee->event_ended_notification_sent_at = now();
 
-        $user->save();
+        $attendee->save();
     }
 }
