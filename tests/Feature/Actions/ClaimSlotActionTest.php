@@ -60,6 +60,5 @@ class ClaimSlotActionTest extends TestCase
         $this->assertTrue($this->claimingUser->isSpeaker($this->slot));
 
         Notification::assertNothingSent();
-
     }
 }
