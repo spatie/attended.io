@@ -31,9 +31,11 @@
                     @endif
                     <td>{{ $slot->starts_at->format('H:i') }}</td>
                     <td>{{ $slot->ends_at->format('H:i') }}</td>
-                    <td>{{ $slot->name }}</td>
+                        <td><a href="{{ route('event-admin.slots.edit', [$event, $slot]) }}">{{ $slot->name }}</a></td>
                     <td>{{ $slot->speakersAsString() }}</td>
-                    <td>actions</td>
+                    <td>
+                        <delete-button :action="route('event-admin.slots.delete', [$event, $slot])" />
+                    </td>
                 </tr>
             @endforeach
 

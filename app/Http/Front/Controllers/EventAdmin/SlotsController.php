@@ -39,7 +39,7 @@ class SlotsController
 
         flash()->success('The slot has been created');
 
-        return back();
+        return route('event-admin.slots', $event);
     }
 
     public function edit(Event $event, Slot $slot)

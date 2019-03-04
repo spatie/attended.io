@@ -5,7 +5,7 @@
 
     <h1>Update slot {{ $slot->name }}</h1>
 
-    <form action="{{ route('event-admin.slots.update', $event) }}" method="POST">
+    <form action="{{ route('event-admin.slots.update', [$event, $slot]) }}" method="POST">
 
         @include('front.event-admin.slots.partials.form')
 
