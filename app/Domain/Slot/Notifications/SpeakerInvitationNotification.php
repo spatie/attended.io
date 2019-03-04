@@ -5,7 +5,6 @@ namespace App\Domain\Slot\Notifications;
 use App\Domain\Shared\Notifications\BaseNotification;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Models\Speaker;
-use App\Domain\User\Models\User;
 use Illuminate\Notifications\Messages\MailMessage;
 
 class SpeakerInvitationNotification extends BaseNotification

@@ -4,7 +4,6 @@ namespace App\Domain\Review\Exceptions;
 
 use App\Domain\Review\Interfaces\Reviewable;
 use App\Domain\User\Models\User;
-use App\Services\Specifications\SpecificationException;
 use Exception;
 
 class ReviewablehasNotStartedYet extends Exception

@@ -6,7 +6,6 @@ use App\Domain\Slot\Actions\UpdateSpeakersAction;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Models\Speaker;
 use App\Domain\User\Models\User;
-use Illuminate\Database\Eloquent\Builder;
 use Tests\TestCase;
 
 class UpdateSpeakersActionTest extends TestCase

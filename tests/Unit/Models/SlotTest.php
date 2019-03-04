@@ -28,6 +28,5 @@ class SlotTest extends TestCase
 
         $anotherUser = factory(User::class)->create();
         $this->assertFalse($slot->claimWillBeApprovedImmediatelyFor($anotherUser));
-
     }
 }

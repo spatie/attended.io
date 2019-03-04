@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-use App\Domain\User\Models\User;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
@@ -14,7 +13,7 @@ abstract class TestCase extends BaseTestCase
     use CreatesApplication,
         RefreshDatabase;
 
-    protected function getHtmlForNotificationMail(Notification $notification,  $notifiable): string
+    protected function getHtmlForNotificationMail(Notification $notification, $notifiable): string
     {
         $mailMessage = ($notification)->toMail($notifiable);
 

@@ -28,7 +28,6 @@ class ClaimSlotAction
 
         $speaker->user_id = $claimingUser->id;
         $speaker->save();
-
     }
 
     protected function createNewClaim(User $claimingUser, Slot $slot)
@@ -41,6 +40,4 @@ class ClaimSlotAction
 
         $slot->event->organizingUsers->each->notify(new SlotClaimedNotification($claimingUser, $slot));
     }
-
-
 }
