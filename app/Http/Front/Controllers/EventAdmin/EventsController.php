@@ -51,7 +51,7 @@ class EventsController
 
     public function update(Event $event, UpdateEventRequest $request, UpdateEventAction $createEventAction)
     {
-        $event = $createEventAction->execute($event, $request);
+        $event = $createEventAction->execute($event, $request->validated();
 
         flash()->message('The event has been saved!');
 
