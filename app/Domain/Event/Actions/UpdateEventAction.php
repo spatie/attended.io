@@ -3,13 +3,12 @@
 namespace App\Domain\Event\Actions;
 
 use App\Domain\Event\Models\Event;
-use App\Http\Front\Requests\UpdateEventRequest;
 
 class UpdateEventAction
 {
-    public function execute(Event $event, UpdateEventRequest $request): Event
+    public function execute(Event $event, array $attributes): Event
     {
-        $event->update($request->validated());
+        $event->update($attributes);
 
         activity()
             ->performedOn($event)
