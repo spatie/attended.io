@@ -5,6 +5,7 @@ namespace App\Domain\Slot\Actions;
 use App\Domain\Event\Exceptions\CouldNotUpdateSpeaker;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Models\Speaker;
+use Illuminate\Database\Eloquent\Builder;
 
 class UpdateSpeakersAction
 {
@@ -40,6 +41,13 @@ class UpdateSpeakersAction
         collect($speakerProperties)
             ->filter(function (array $speakerProperties) {
                 return empty($speakerProperties['id']);
+            })
+            ->reject(function (array $speakerProperties) use ($slot) {
+                return $slot->speakers()
+                    ->whereHas('user', function (Builder $query) use ($speakerProperties) {
+                        $query->where('email', $speakerProperties['email']);
+                    })
+                    ->exists();
             })
             ->each(function (array $newSpeakerProperties, int $index) use ($slot) {
                 Speaker::create([
