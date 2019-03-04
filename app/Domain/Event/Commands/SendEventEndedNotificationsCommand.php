@@ -16,9 +16,10 @@ class SendEventEndedNotificationsCommand extends Command
 
     public function handle()
     {
+
         Event::query()
-            ->whereNull('event_ended_notification_sent_at')
-            ->where('ends_at', '<=', now())
+           // ->whereNull('event_ended_notification_sent_at')
+            ->where('ends_at', '>=', now())
             ->get()
             ->each(function (Event $event) {
                 $event

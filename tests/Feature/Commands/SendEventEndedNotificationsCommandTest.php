@@ -45,7 +45,7 @@ class SendEventEndedNotificationsCommandTest extends TestCase
     /** @test */
     public function it_will_not_send_the_event_ended_notification_if_the_event_hasnt_ended_yet()
     {
-        $this->event->update(['ends_at' => now()->subMinute(1)]);
+        $this->event->update(['ends_at' => now()->subMinute()]);
 
         $this->artisan('attended:send-event-ended-notifications')->assertExitCode(0);
 
