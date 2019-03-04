@@ -14,7 +14,7 @@ abstract class TestCase extends BaseTestCase
     use CreatesApplication,
         RefreshDatabase;
 
-    protected function getHtmlForNotificationMail(Notification $notification, User $notifiable): string
+    protected function getHtmlForNotificationMail(Notification $notification,  $notifiable): string
     {
         $mailMessage = ($notification)->toMail($notifiable);
 

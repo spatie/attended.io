@@ -13,3 +13,13 @@ $factory->define(Speaker::class, function (Faker $faker) {
         'email' => $faker->email,
     ];
 });
+
+$factory->state(Speaker::class, 'withoutUserAccount', [
+    'user_id' => null,
+]);
+
+$factory->state(Speaker::class, 'withUserAccount', [
+    'user_id' => function () {
+        return factory(User::class)->create()->id;
+    },
+]);

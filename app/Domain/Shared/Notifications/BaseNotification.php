@@ -12,7 +12,12 @@ abstract class BaseNotification extends Notification implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    public function via(User $notifiable)
+    /**
+     * @param User|\App\Domain\Slot\Models\Speaker $notifiable
+     *
+     * @return array
+     */
+    public function via($notifiable)
     {
         return ['mail'];
     }

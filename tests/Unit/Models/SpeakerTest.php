@@ -30,4 +30,27 @@ class SpeakerTest extends TestCase
         $this->assertEquals('Jane Doe', $speaker->name());
         $this->assertEquals('jane@example.com', $speaker->email());
     }
+
+    public function it_can_determine_if_the_invitation_has_already_been_sent()
+    {
+        /** @var Speaker $speaker */
+        $speaker = factory(Speaker::class)->create();
+
+        $this->assertFalse($speaker->hasBeenSentInvitation());
+
+        $speaker->markAsInvitationSent();
+
+        $this->assertTrue($speaker->hasBeenSentInvitation());
+    }
+
+    /** @test */
+    public function it_can_determine_if_it_has_a_user_account()
+    {
+        /** @var Speaker $speaker */
+        $speaker = factory(Speaker::class)->create(['user_id' => null]);
+        $this->assertFalse($speaker->hasUserAccount());
+
+        $speaker->update(['user_id' => factory(User::class)->create()->id]);
+        $this->assertTrue($speaker->refresh()->hasUserAccount());
+    }
 }
