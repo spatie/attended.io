@@ -16,7 +16,9 @@ class ClaimSlotController
 
         $claimSlotAction->execute(auth()->user(), $slot);
 
-        flash()->success('An admin of event will soon review your claim.');
+        auth()->user()->refresh()->isSpeaker($slot)
+            ?  flash()->success('You have successfully claimed the slot.')
+            :  flash()->success('An admin of event will soon review your claim.');
 
         return back();
     }

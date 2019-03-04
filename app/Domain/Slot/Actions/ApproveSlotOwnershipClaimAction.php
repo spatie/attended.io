@@ -16,6 +16,8 @@ class ApproveSlotOwnershipClaimAction
         Speaker::firstOrCreate([
             'user_id' => $claimingUser->id,
             'slot_id' => $slot->id,
+            'email' => $claimingUser->email,
+            'name' => $claimingUser->name,
         ]);
 
         $claim->delete();

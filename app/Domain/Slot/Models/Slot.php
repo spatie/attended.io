@@ -81,4 +81,13 @@ class Slot extends BaseModel implements Reviewable
     {
         return $this->event;
     }
+
+    public function claimWillBeApprovedImmediatelyFor(User $user): bool
+    {
+        return $this
+            ->whereHas('speakers', function (Builder $query) use ($user) {
+                $query->where('email', $user->email);
+            })
+            ->exists();
+    }
 }
