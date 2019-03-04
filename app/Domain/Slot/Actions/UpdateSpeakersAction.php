@@ -20,10 +20,18 @@ class UpdateSpeakersAction
     protected function deleteAllSpeakersNotPresent(Slot $slot, array $speakerProperties)
     {
         $remainingSpeakerIds = collect($speakerProperties)->pluck('id')->filter()->toArray();
+        $remainingSpeakerEmails = collect($speakerProperties)->pluck('email')->filter()->toArray();
 
         $slot->speakers
             ->reject(function (Speaker $speaker) use ($remainingSpeakerIds) {
                 return in_array($speaker->id, $remainingSpeakerIds);
+            })
+            ->reject(function (Speaker $speaker) use ($remainingSpeakerEmails) {
+                if (! $speaker->user) {
+                    return false;
+                }
+
+                return in_array($speaker->user->email, $remainingSpeakerEmails);
             })
             ->each(function (Speaker $speaker) use ($slot, $speakerProperties) {
                 $speaker->delete();
@@ -43,11 +51,13 @@ class UpdateSpeakersAction
                 return empty($speakerProperties['id']);
             })
             ->reject(function (array $speakerProperties) use ($slot) {
-                return $slot->speakers()
+                $exists = $slot->speakers()
                     ->whereHas('user', function (Builder $query) use ($speakerProperties) {
-                        $query->where('email', $speakerProperties['email']);
+                        return $query->where('email', $speakerProperties['email']);
                     })
                     ->exists();
+
+                return $exists;
             })
             ->each(function (array $newSpeakerProperties, int $index) use ($slot) {
                 Speaker::create([

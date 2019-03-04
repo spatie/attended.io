@@ -5,6 +5,8 @@ namespace Tests\Feature\Actions;
 use App\Domain\Slot\Actions\UpdateSpeakersAction;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Models\Speaker;
+use App\Domain\User\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Tests\TestCase;
 
 class UpdateSpeakersActionTest extends TestCase
@@ -16,7 +18,8 @@ class UpdateSpeakersActionTest extends TestCase
 
         [$firstSpeaker, $secondSpeaker, $thirdSpeaker] = factory(Speaker::class, 3)
             ->create([
-                'slot_id' => $slot->id
+                'slot_id' => $slot->id,
+                'user_id' => null,
             ])
             ->values();
 
@@ -43,5 +46,28 @@ class UpdateSpeakersActionTest extends TestCase
 
         $this->assertEquals('new speaker', $slot->speakers[2]->name);
         $this->assertEquals('new@example.com', $slot->speakers[2]->email);
+    }
+
+    /** @test */
+    public function it_will_not_add_a_speaker_that_has_the_same_email_address_of_a_user_of_an_existing_speaker()
+    {
+        $slot = factory(Slot::class)->create();
+
+        $speaker = factory(Speaker::class)->create([
+            'slot_id' => $slot->id,
+            'email' => 'speaker@example.com',
+            'user_id' => factory(User::class)->create(['email' => 'speaker-user@example.com'])->id,
+        ]);
+
+        (new UpdateSpeakersAction())->execute($slot, [
+            ['id' => null, 'name' => 'speaking user already exist', 'email' => $speaker->user->email],
+            ['id' => null, 'name' => 'new speaker', 'email' => 'new@example.com'],
+        ]);
+
+        $this->assertCount(2, $slot->refresh()->speakers);
+        $this->assertEquals([
+            $speaker->email,
+            'new@example.com',
+        ], $slot->refresh()->speakers->pluck('email')->toArray());
     }
 }
