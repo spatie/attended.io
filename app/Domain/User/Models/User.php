@@ -87,11 +87,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function attended(Event $event): bool
     {
         return Attendee::query()
-            ->where([
-                'user_id' => $this->id,
-                'event_id' => $event->id,
-            ])
-            ->count() > 0;
+                ->where([
+                    'user_id' => $this->id,
+                    'event_id' => $event->id,
+                ])
+                ->count() > 0;
     }
 
     public function organisesEvents(): bool
@@ -126,5 +126,15 @@ class User extends Authenticatable implements MustVerifyEmail
     public function scopeAdmin(Builder $query)
     {
         $query->where('admin', 1);
+    }
+
+    public function dummy(GdprDownload $download)
+    {
+        $download
+            ->addContent('users-info.txt', $this->toArray())
+            ->addFile($path)
+            ->addFile($path, $disk)
+            ->addFile([$path], $disk)
+            ->createZip();
     }
 }
