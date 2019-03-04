@@ -127,14 +127,4 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $query->where('admin', 1);
     }
-
-    public function dummy(GdprDownload $download)
-    {
-        $download
-            ->addContent('users-info.txt', $this->toArray())
-            ->addFile($path)
-            ->addFile($path, $disk)
-            ->addFile([$path], $disk)
-            ->createZip();
-    }
 }
