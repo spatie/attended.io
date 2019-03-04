@@ -11,12 +11,19 @@ class PublishEventAction
 {
     public function execute(User $user, Event $event): Event
     {
-        $event->markAsPublished();
+        $this->markAsPublished($event);
 
         $event->slots->each(function (Slot $slot) {
             (new SendInvitationToClaimSlotAction())->execute($slot);
         });
 
         return $event;
+    }
+
+    public function markAsPublished(Event $event)
+    {
+        $event->published_at = now();
+
+        $event->save();
     }
 }

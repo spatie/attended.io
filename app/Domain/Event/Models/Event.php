@@ -34,6 +34,7 @@ class Event extends BaseModel implements Reviewable, Searchable
         'average_review_rating' => 'integer',
         'published_at' => 'datetime',
         'approved_at' => 'datetime',
+        'event_ended_notification_sent_at' => 'datetime'
     ];
 
     public function tracks(): HasMany
@@ -155,27 +156,9 @@ class Event extends BaseModel implements Reviewable, Searchable
             );
     }
 
-    public function markAsApproved()
-    {
-        $this->approved_at = now();
-
-        $this->save();
-
-        return $this;
-    }
-
     public function isApproved(): bool
     {
         return ! is_null($this->approved_at);
-    }
-
-    public function markAsPublished()
-    {
-        $this->published_at = now();
-
-        $this->save();
-
-        return $this;
     }
 
     public function isPublished(): bool

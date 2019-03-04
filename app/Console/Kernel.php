@@ -13,12 +13,11 @@ class Kernel extends ConsoleKernel
 
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command('attend:send-event-ended-notifications')->everyThirtyMinutes();
     }
 
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__.'/../Domain/Event/Commands');
     }
 }

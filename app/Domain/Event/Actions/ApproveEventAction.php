@@ -10,7 +10,7 @@ class ApproveEventAction
 {
     public function execute(Event $event)
     {
-        $event->markAsApproved();
+        $this->markAsApproved($event);
 
         $event->organizingUsers->each(function (User $user) use ($event) {
             $user->notify(new EventApprovedNotification($event));
@@ -19,5 +19,12 @@ class ApproveEventAction
         activity()
             ->performedOn($event)
             ->log("Event `{$event->name}` was approved");
+    }
+
+    protected function markAsApproved(Event $event)
+    {
+        $event->approved_at = now();
+
+        $event->save();
     }
 }
