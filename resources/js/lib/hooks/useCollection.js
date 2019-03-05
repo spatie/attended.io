@@ -26,7 +26,11 @@ function collectionReducer(collection, action) {
                 }
 
                 if (index === action.targetIndex) {
-                    return [...newCollection, collection[action.subjectIndex], collection[action.targetIndex]];
+                    return [
+                        ...newCollection,
+                        collection[action.subjectIndex],
+                        collection[action.targetIndex],
+                    ];
                 }
 
                 return [...newCollection, item];
@@ -43,7 +47,11 @@ function collectionReducer(collection, action) {
                 }
 
                 if (index === action.targetIndex) {
-                    return [...newCollection, collection[action.targetIndex], collection[action.subjectIndex]];
+                    return [
+                        ...newCollection,
+                        collection[action.targetIndex],
+                        collection[action.subjectIndex],
+                    ];
                 }
 
                 return [...newCollection, item];
