@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d7b5401d92817dc0db1ffefd4ca2dd9c",
+    "content-hash": "b4cb19ce6fea83a737bf0bd1ae14db32",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "barryvdh/laravel-ide-helper",
-            "version": "v2.6.0",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-ide-helper.git",
-                "reference": "754bb4d075d7fb2b23b1a416802c0e45884df495"
+                "reference": "725711022be71c6fa2e7bc8f9648bf125986f027"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/754bb4d075d7fb2b23b1a416802c0e45884df495",
-                "reference": "754bb4d075d7fb2b23b1a416802c0e45884df495",
+                "url": "https://api.github.com/repos/barryvdh/laravel-ide-helper/zipball/725711022be71c6fa2e7bc8f9648bf125986f027",
+                "reference": "725711022be71c6fa2e7bc8f9648bf125986f027",
                 "shasum": ""
             },
             "require": {
@@ -128,7 +128,7 @@
                 "phpstorm",
                 "sublime"
             ],
-            "time": "2019-02-18T19:54:27+00:00"
+            "time": "2019-03-05T09:24:51+00:00"
         },
         {
             "name": "barryvdh/reflection-docblock",
@@ -1496,16 +1496,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.8.2",
+            "version": "v5.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "c3b7cbe700efb0f4c9a5359feaedb0a1f0a741ca"
+                "reference": "d36d74acd3added5abbe7e7a84342b54bb0b0521"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/c3b7cbe700efb0f4c9a5359feaedb0a1f0a741ca",
-                "reference": "c3b7cbe700efb0f4c9a5359feaedb0a1f0a741ca",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d36d74acd3added5abbe7e7a84342b54bb0b0521",
+                "reference": "d36d74acd3added5abbe7e7a84342b54bb0b0521",
                 "shasum": ""
             },
             "require": {
@@ -1639,20 +1639,20 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2019-02-27T14:02:36+00:00"
+            "time": "2019-03-05T13:51:19+00:00"
         },
         {
             "name": "laravel/horizon",
-            "version": "v3.0.1",
+            "version": "v3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "25b3dfeb01a4c6dd06f65689340c5b174a5b04cc"
+                "reference": "dd7698ee6b5901a02b276ffa7eff78aeda9033c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/25b3dfeb01a4c6dd06f65689340c5b174a5b04cc",
-                "reference": "25b3dfeb01a4c6dd06f65689340c5b174a5b04cc",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/dd7698ee6b5901a02b276ffa7eff78aeda9033c2",
+                "reference": "dd7698ee6b5901a02b276ffa7eff78aeda9033c2",
                 "shasum": ""
             },
             "require": {
@@ -1708,20 +1708,20 @@
                 "laravel",
                 "queue"
             ],
-            "time": "2019-03-04T14:22:12+00:00"
+            "time": "2019-03-05T10:31:56+00:00"
         },
         {
             "name": "laravel/telescope",
-            "version": "v2.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/telescope.git",
-                "reference": "8194db54d1a5982750c3a8f59551355c393c927a"
+                "reference": "d7a3ca4338b1a1527b8d19a5d62015a468f8ca56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/telescope/zipball/8194db54d1a5982750c3a8f59551355c393c927a",
-                "reference": "8194db54d1a5982750c3a8f59551355c393c927a",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/d7a3ca4338b1a1527b8d19a5d62015a468f8ca56",
+                "reference": "d7a3ca4338b1a1527b8d19a5d62015a468f8ca56",
                 "shasum": ""
             },
             "require": {
@@ -1771,7 +1771,7 @@
                 "laravel",
                 "monitoring"
             ],
-            "time": "2019-02-26T20:43:16+00:00"
+            "time": "2019-03-05T13:47:35+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3340,6 +3340,68 @@
             "time": "2019-02-27T16:03:43+00:00"
         },
         {
+            "name": "spatie/laravel-javascript-views",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-javascript-views.git",
+                "reference": "fc49cfdb56d47a8d7081678e3bf6574ef791d1ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-javascript-views/zipball/fc49cfdb56d47a8d7081678e3bf6574ef791d1ed",
+                "reference": "fc49cfdb56d47a8d7081678e3bf6574ef791d1ed",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "~5.8.0",
+                "illuminate/support": "~5.8.0",
+                "illuminate/view": "~5.8.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "larapack/dd": "^1.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\JavaScriptViews\\JavaScriptViewsServiceProvider"
+                    ]
+                },
+                "aliases": {
+                    "JavaScriptViews": "Spatie\\JavaScriptViews\\Facades\\JavaScriptViews"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\JavaScriptViews\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "homepage": "https://github.com/spatie/laravel-javascript-views",
+            "keywords": [
+                "laravel-javascript-views",
+                "spatie"
+            ],
+            "time": "2019-03-04T13:55:38+00:00"
+        },
+        {
             "name": "spatie/laravel-menu",
             "version": "3.3.1",
             "source": {
@@ -3400,62 +3462,6 @@
                 "spatie"
             ],
             "time": "2019-02-27T12:08:18+00:00"
-        },
-        {
-            "name": "spatie/laravel-refraction",
-            "version": "0.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-refraction.git",
-                "reference": "7f570ae3d7368f61f4785140b47158f707d2cacd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-refraction/zipball/7f570ae3d7368f61f4785140b47158f707d2cacd",
-                "reference": "7f570ae3d7368f61f4785140b47158f707d2cacd",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.2"
-            },
-            "require-dev": {
-                "larapack/dd": "^1.0",
-                "phpunit/phpunit": "^7.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\Refraction\\RefractionServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Refraction\\": "src"
-                },
-                "files": [
-                    "src/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sebastian De Deyne",
-                    "email": "sebastian@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "homepage": "https://github.com/spatie/laravel-refraction",
-            "keywords": [
-                "laravel-refraction",
-                "spatie"
-            ],
-            "time": "2019-02-25T10:49:55+00:00"
         },
         {
             "name": "spatie/laravel-searchable",

@@ -9,7 +9,7 @@
     <input-field name="starts_at" label="Starts at"/>
     <input-field name="ends_at" label="Ends at"/>
 
-    {{ refract('SpeakersInput', [
+    {{ mount('SpeakersInput', [
         'initialSpeakers' => $speakers,
         'errors' => $errors->getMessages(),
 ]   ) }}

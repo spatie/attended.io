@@ -1,17 +1,17 @@
-import Refraction from '../../vendor/spatie/laravel-refraction/runtime/react';
+import Views from 'laravel-javascript-views/react';
 
-const refraction = new Refraction();
+const views = new Views();
 
-refraction.context(() => {
+views.context(() => {
     const context = require.context('./components', true, /\.js$/i);
 
     if (module.hot) {
         module.hot.accept(context.id, () => {
-            refraction.reload();
+            views.reload();
         });
     }
 
     return context;
 });
 
-refraction.mount();
+views.mount();
