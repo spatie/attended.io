@@ -1,9 +1,8 @@
-import React from 'react';
 import Draggable from '../lib/components/Draggable';
 import useCollection from '../lib/hooks/useCollection';
 
 export default function TracksInput({ initialTracks, errors }) {
-    const [tracks, { add, update, remove, moveBefore, moveAfter }] = useCollection(initialTracks);
+    const [tracks, { add, remove, update, moveBefore, moveAfter }] = useCollection(initialTracks);
 
     return (
         <Draggable>
@@ -32,9 +31,7 @@ export default function TracksInput({ initialTracks, errors }) {
                                         </div>
                                     )}
                                 </Draggable.Item>
-                                <Draggable.DropTarget
-                                    onDrop={draggingIndex => moveAfter(draggingIndex, index)}
-                                >
+                                <Draggable.DropTarget onDrop={draggingIndex => moveAfter(draggingIndex, index)}>
                                     {({ dropTargetProps }) => <div {...dropTargetProps}>Drop</div>}
                                 </Draggable.DropTarget>
                             </li>

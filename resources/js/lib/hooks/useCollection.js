@@ -11,43 +11,39 @@ function collectionReducer(collection, action) {
             });
         }
         case 'REMOVE_ITEM': {
-            if (collection.length === 1) {
-                return collectionReducer([], { type: 'ADD_ITEM' });
-            }
-
             return collection.filter((item, index) => {
                 return index !== action.index;
             });
         }
         case 'MOVE_BEFORE': {
+            if (action.subjectIndex === action.targetIndex) {
+                return collection;
+            }
+
             return collection.reduce((newCollection, item, index) => {
                 if (index === action.subjectIndex) {
                     return newCollection;
                 }
 
                 if (index === action.targetIndex) {
-                    return [
-                        ...newCollection,
-                        collection[action.subjectIndex],
-                        collection[action.targetIndex],
-                    ];
+                    return [...newCollection, collection[action.subjectIndex], collection[action.targetIndex]];
                 }
 
                 return [...newCollection, item];
             }, []);
         }
         case 'MOVE_AFTER': {
+            if (action.subjectIndex === action.targetIndex) {
+                return collection;
+            }
+
             return collection.reduce((newCollection, item, index) => {
                 if (index === action.subjectIndex) {
                     return newCollection;
                 }
 
                 if (index === action.targetIndex) {
-                    return [
-                        ...newCollection,
-                        collection[action.targetIndex],
-                        collection[action.subjectIndex],
-                    ];
+                    return [...newCollection, collection[action.targetIndex], collection[action.subjectIndex]];
                 }
 
                 return [...newCollection, item];
@@ -56,8 +52,8 @@ function collectionReducer(collection, action) {
     }
 }
 
-export default function useRepeater(initialCollection = []) {
-    const [collection, dispatch] = useReducer(collectionReducer, initialCollection);
+export default function useRepeater(initialCollection) {
+    const [state, dispatch] = useReducer(collectionReducer, initialCollection);
 
     function add(item) {
         dispatch({ type: 'ADD_ITEM', item });
@@ -79,5 +75,5 @@ export default function useRepeater(initialCollection = []) {
         dispatch({ type: 'MOVE_AFTER', subjectIndex, targetIndex });
     }
 
-    return [collection, { add, update, remove, moveBefore, moveAfter }];
+    return [state, { add, update, remove, moveBefore, moveAfter }];
 }

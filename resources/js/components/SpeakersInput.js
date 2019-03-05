@@ -3,13 +3,13 @@ import Draggable from '../lib/components/Draggable';
 import useCollection from '../lib/hooks/useCollection';
 
 export default function SpeakersInput({ initialSpeakers, errors }) {
-    const [speakers, { add, update, remove, moveBefore, moveAfter }] = useCollection(initialSpeakers);
+    const [speakers, { add, remove, update, moveBefore, moveAfter }] = useCollection(initialSpeakers);
 
     return (
         <Draggable>
             {({ dragging }) => (
                 <>
-                    <button type="button" onClick={() => add({ id: null, name: '', slotCount: 0 })}>
+                    <button type="button" onClick={() => add({ id: null, name: '', email: '', slotCount: 0 })}>
                         Add new speaker
                     </button>
                     <Draggable.DropTarget onDrop={draggingIndex => moveBefore(draggingIndex, 0)}>
@@ -32,9 +32,7 @@ export default function SpeakersInput({ initialSpeakers, errors }) {
                                         </div>
                                     )}
                                 </Draggable.Item>
-                                <Draggable.DropTarget
-                                    onDrop={draggingIndex => moveAfter(draggingIndex, index)}
-                                >
+                                <Draggable.DropTarget onDrop={draggingIndex => moveAfter(draggingIndex, index)}>
                                     {({ dropTargetProps }) => <div {...dropTargetProps}>Drop</div>}
                                 </Draggable.DropTarget>
                             </li>

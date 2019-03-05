@@ -6,6 +6,10 @@ require('laravel-mix-purgecss');
 mix.react('resources/js/app.js', 'public/js');
 mix.postCss('resources/css/app.css', 'public/css/app.css');
 
+mix.autoload({
+    react: ['React'],
+});
+
 mix.options({
     postCss: [require('postcss-easy-import')(), require('tailwindcss')('./tailwind.js')],
 
@@ -20,6 +24,9 @@ mix.babelConfig({
 });
 
 mix.webpackConfig({
+    resolve: {
+        extensions: ['.ts', '.tsx'],
+    },
     devServer: {
         disableHostCheck: true,
     },

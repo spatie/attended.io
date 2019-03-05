@@ -11,7 +11,7 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[{package.json,tailwind.js}]
+[{package.json,tailwind.js,tsconfig.json}]
 indent_size = 2
 
 [*.md]
