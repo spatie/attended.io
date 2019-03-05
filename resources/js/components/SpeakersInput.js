@@ -1,83 +1,35 @@
-import React from 'react';
-import Draggable from '../lib/components/Draggable';
-import useCollection from '../lib/hooks/useCollection';
+import Repeater from '../lib/components/Repeater';
 
 export default function SpeakersInput({ initialSpeakers, errors }) {
-    const [speakers, { add, remove, update, moveBefore, moveAfter }] = useCollection(initialSpeakers);
-
     return (
-        <Draggable>
-            {({ dragging }) => (
+        <Repeater
+            initial={initialSpeakers}
+            blueprint={{ id: null, name: '', email: '' }}
+            addNewLabel="Add new speaker"
+        >
+            {({ item, index, update, remove }) => (
                 <>
-                    <button type="button" onClick={() => add({ id: null, name: '', email: '', slotCount: 0 })}>
-                        Add new speaker
+                    <input type="hidden" name={`speakers[${index}][id]`} value={item.id || ''} />
+                    <label>Name</label>
+                    <input
+                        type="text"
+                        name={`speakers[${index}][name]`}
+                        value={item.name}
+                        onChange={event => update({ ...item, name: event.target.value })}
+                    />
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        name={`speakers[${index}][email]`}
+                        value={item.email}
+                        onChange={event => update({ ...item, email: event.target.value })}
+                    />
+                    <button type="button" onClick={remove}>
+                        Remove
                     </button>
-                    <Draggable.DropTarget onDrop={draggingIndex => moveBefore(draggingIndex, 0)}>
-                        {({ dropTargetProps }) => <div {...dropTargetProps}>Drop</div>}
-                    </Draggable.DropTarget>
-                    <ul>
-                        {speakers.map((speaker, index) => (
-                            <li key={index}>
-                                <Draggable.Item data={index}>
-                                    {({ draggableItemProps, draggableHandleProps }) => (
-                                        <div {...draggableItemProps}>
-                                            <span {...draggableHandleProps}>DRAG ME</span>
-                                            <Speaker
-                                                speaker={speaker}
-                                                index={index}
-                                                onUpdate={update}
-                                                onRemove={remove}
-                                                errors={errors[`speakers.${index}.name`] || []}
-                                            />
-                                        </div>
-                                    )}
-                                </Draggable.Item>
-                                <Draggable.DropTarget onDrop={draggingIndex => moveAfter(draggingIndex, index)}>
-                                    {({ dropTargetProps }) => <div {...dropTargetProps}>Drop</div>}
-                                </Draggable.DropTarget>
-                            </li>
-                        ))}
-                    </ul>
+                    {errors.length ? <p>{errors[0]}</p> : null}
                 </>
             )}
-        </Draggable>
-    );
-}
-
-function Speaker({ speaker, index, errors, onUpdate, onRemove }) {
-    const canBeRemoved = speaker.slotCount === 0;
-
-    function updateSpeakerName(name, index) {
-        onUpdate({ ...speaker, name }, index);
-    }
-
-    function updateSpeakerEmail(email, index) {
-        onUpdate({ ...speaker, email }, index);
-    }
-
-    return (
-        <>
-            <input type="hidden" name={`speakers[${index}][id]`} value={speaker.id || ''} />
-            <label>Name</label>
-            <input
-                type="text"
-                name={`speakers[${index}][name]`}
-                value={speaker.name}
-                onChange={event => updateSpeakerName(event.target.value, index)}
-            />
-            <label>Email</label>
-            <input
-                type="email"
-                name={`speakers[${index}][email]`}
-                value={speaker.email}
-                onChange={event => updateSpeakerEmail(event.target.value, index)}
-            />
-            {canBeRemoved && (
-                <button type="button" onClick={() => onRemove(index)}>
-                    Remove
-                </button>
-            )}
-            {errors.length ? <p>{errors[0]}</p> : null}
-        </>
+        </Repeater>
     );
 }

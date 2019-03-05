@@ -1,71 +1,30 @@
-import Draggable from '../lib/components/Draggable';
-import useCollection from '../lib/hooks/useCollection';
+import Repeater from '../lib/components/Repeater';
 
 export default function TracksInput({ initialTracks, errors }) {
-    const [tracks, { add, remove, update, moveBefore, moveAfter }] = useCollection(initialTracks);
-
     return (
-        <Draggable>
-            {({ dragging }) => (
+        <Repeater
+            initial={initialTracks}
+            blueprint={{ id: null, name: '', slotCount: 0 }}
+            addNewLabel="Add new track"
+        >
+            {({ item, index, update, remove }) => (
                 <>
-                    <button type="button" onClick={() => add({ id: null, name: '', slotCount: 0 })}>
-                        Add new track
-                    </button>
-                    <Draggable.DropTarget onDrop={draggingIndex => moveBefore(draggingIndex, 0)}>
-                        {({ dropTargetProps }) => <div {...dropTargetProps}>Drop</div>}
-                    </Draggable.DropTarget>
-                    <ul>
-                        {tracks.map((track, index) => (
-                            <li key={index}>
-                                <Draggable.Item data={index}>
-                                    {({ draggableItemProps, draggableHandleProps }) => (
-                                        <div {...draggableItemProps}>
-                                            <span {...draggableHandleProps}>DRAG ME</span>
-                                            <Track
-                                                track={track}
-                                                index={index}
-                                                onUpdate={update}
-                                                onRemove={remove}
-                                                errors={errors[`tracks.${index}.name`] || []}
-                                            />
-                                        </div>
-                                    )}
-                                </Draggable.Item>
-                                <Draggable.DropTarget onDrop={draggingIndex => moveAfter(draggingIndex, index)}>
-                                    {({ dropTargetProps }) => <div {...dropTargetProps}>Drop</div>}
-                                </Draggable.DropTarget>
-                            </li>
-                        ))}
-                    </ul>
+                    <input type="hidden" name={`tracks[${index}][id]`} value={item.id || ''} />
+                    <input
+                        type="text"
+                        name={`tracks[${index}][name]`}
+                        value={item.name}
+                        onChange={event => update({ ...item, name: event.target.value })}
+                    />
+                    <em>{item.slotCount} slots</em>
+                    {item.slotCount === 0 && (
+                        <button type="button" onClick={remove}>
+                            Remove
+                        </button>
+                    )}
+                    {errors.length ? <p>{errors[0]}</p> : null}
                 </>
             )}
-        </Draggable>
-    );
-}
-
-function Track({ track, index, errors, onUpdate, onRemove }) {
-    const canBeRemoved = track.slotCount === 0;
-
-    function updateTrackName(name, index) {
-        onUpdate({ ...track, name }, index);
-    }
-
-    return (
-        <>
-            <input type="hidden" name={`tracks[${index}][id]`} value={track.id || ''} />
-            <input
-                type="text"
-                name={`tracks[${index}][name]`}
-                value={track.name}
-                onChange={event => updateTrackName(event.target.value, index)}
-            />
-            <em>{track.slotCount} slots</em>
-            {canBeRemoved && (
-                <button type="button" onClick={() => onRemove(index)}>
-                    Remove
-                </button>
-            )}
-            {errors.length ? <p>{errors[0]}</p> : null}
-        </>
+        </Repeater>
     );
 }
