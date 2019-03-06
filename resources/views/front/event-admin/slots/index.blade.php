@@ -13,31 +13,32 @@
         <h2>{{ $day }}</h2>
 
         <table>
-            <th>
+            <thead>
+            <tr>
             @if($event->tracks->count() > 1)
-                <td>Track</td>
+                <th>Track</th>
             @endif
-            <td>Start</td>
-            <td>End</td>
-            <td>Name</td>
-            <td>Speakers</td>
-            <td></td>
-            </th>
-
+            <th>Start</th>
+            <th>End</th>
+            <th>Name</th>
+            <th>Speakers</th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
             @foreach($slots as $slot)
                 <tr>
-                    @if($event->tracks->count() > 1)
-                        <td>{{ $slot->track->name }}</td>
-                    @endif
+                    <td>{{ optional($slot->track)->name }}</td>
                     <td>{{ $slot->starts_at->format('H:i') }}</td>
                     <td>{{ $slot->ends_at->format('H:i') }}</td>
-                        <td><a href="{{ route('event-admin.slots.edit', [$event, $slot]) }}">{{ $slot->name }}</a></td>
+                    <td><a href="{{ route('event-admin.slots.edit', [$event, $slot]) }}">{{ $slot->name }}</a></td>
                     <td>{{ $slot->speakersAsString() }}</td>
                     <td>
-                        <delete-button :action="route('event-admin.slots.delete', [$event, $slot])" />
+                        <delete-button :action="route('event-admin.slots.delete', [$event, $slot])"/>
                     </td>
                 </tr>
             @endforeach
+            </tbody>
 
         </table>
     @endforeach
