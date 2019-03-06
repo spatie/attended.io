@@ -25,7 +25,7 @@ class DateBetweenRule implements Rule
 
     public function passes($attribute, $value)
     {
-        $date = Carbon::createFromFormat('Y-m-d H:i', $value);
+        $date = Carbon::parse($value);
 
         return $date->between($this->startDate, $this->endDate);
     }
