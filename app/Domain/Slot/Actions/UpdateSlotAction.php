@@ -13,8 +13,8 @@ class UpdateSlotAction
 
         $slot->name = $attributes['name'];
         $slot->track_id = $attributes['track_id'];
-        $slot->starts_at = Carbon::createFromFormat('Y-m-d H:i', $attributes['starts_at']);
-        $slot->ends_at = Carbon::createFromFormat('Y-m-d H:i', $attributes['ends_at']);
+        $slot->starts_at = Carbon::parse($attributes['starts_at'])->startOfMinute();
+        $slot->ends_at = Carbon::parse($attributes['ends_at'])->startOfMinute();
         $slot->description = $attributes['description'];
         $slot->type = $attributes['type'];
 
