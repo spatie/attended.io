@@ -1,0 +1,30 @@
+.layout {
+    @screen md {
+        display: grid;
+        min-height: 100vh;
+        grid-template-columns: minmax(auto, 25rem) 1fr;
+        grid-template-areas: 'nav content';
+        grid-template-columns: minmax(auto, 25rem) 1fr;
+    }
+}
+
+.layout-nav {
+    position: fixed;
+    height: 100vh;
+    width: auto;
+    max-width: 100vw;
+    z-index: 2;
+    transform: translateX(calc(-100% + 4px));
+    transition: transform 0.3s ease;
+
+    @screen md {
+        position: relative;
+        grid-area: nav;
+        height: auto;
+        transform: translateX(0);
+    }
+}
+
+.layout-content {
+    grid-area: content;
+}

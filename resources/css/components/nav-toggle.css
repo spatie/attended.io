@@ -1,0 +1,70 @@
+.nav-toggle {
+    @apply bg-grey;
+    @apply text-white;
+    @apply shadow;
+    position: absolute;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    top: 2rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0 500px 500px 500px;
+    transition: border-radius 0.5s ease, transform 0.5s ease, background-color 0.5s ease;
+    transform: translateX(3.15rem) rotate(-45deg);
+
+    @screen md {
+        display: none;
+    }
+}
+
+.nav-toggle-icon {
+    width: 1rem;
+    display: block;
+    transform: rotate(45deg);
+
+    &:before,
+    &:after {
+        @apply bg-white;
+        display: block;
+        content: '';
+        height: 2px;
+        width: 100%;
+        opacity: 0.5;
+        transition: transform 0.5s ease;
+    }
+
+    &:before {
+        transform: translateY(-3px);
+    }
+
+    &:after {
+        position: absolute;
+        top: 0;
+        transform: translateY(3px);
+    }
+}
+
+html.nav-is-toggled {
+    & .layout-nav {
+        transform: translateX(0);
+        @apply shadow-lg;
+    }
+
+    & .nav-toggle {
+        transform: translateX(0);
+        border-radius: 500px;
+        @apply shadow-none;
+    }
+
+    & .nav-toggle-icon {
+        &:before {
+            transform: translateY(0);
+        }
+
+        &:after {
+            transform: translateY(0) rotate(90deg);
+        }
+    }
+}

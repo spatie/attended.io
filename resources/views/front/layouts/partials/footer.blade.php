@@ -1,4 +1,4 @@
-<div class="bg-grey-lightest -mx-5 p-5">
+<div class="bg-grey-lightest p-16">
     <h3><a href="/">attended.io</a></h3>
 
     <ul class="flex flex-row">
