@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4cb19ce6fea83a737bf0bd1ae14db32",
+    "content-hash": "3839bbe327b038822191b3211ff7c2a0",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1643,16 +1643,16 @@
         },
         {
             "name": "laravel/horizon",
-            "version": "v3.0.2",
+            "version": "v3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "dd7698ee6b5901a02b276ffa7eff78aeda9033c2"
+                "reference": "e4d4b7869a25976a910a76e0503c21d290be6a80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/dd7698ee6b5901a02b276ffa7eff78aeda9033c2",
-                "reference": "dd7698ee6b5901a02b276ffa7eff78aeda9033c2",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/e4d4b7869a25976a910a76e0503c21d290be6a80",
+                "reference": "e4d4b7869a25976a910a76e0503c21d290be6a80",
                 "shasum": ""
             },
             "require": {
@@ -1708,20 +1708,20 @@
                 "laravel",
                 "queue"
             ],
-            "time": "2019-03-05T10:31:56+00:00"
+            "time": "2019-03-08T14:10:27+00:00"
         },
         {
             "name": "laravel/telescope",
-            "version": "v2.0.1",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/telescope.git",
-                "reference": "d7a3ca4338b1a1527b8d19a5d62015a468f8ca56"
+                "reference": "2b976e5d6f5273d8ac86e2db9487386dd27a19ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/telescope/zipball/d7a3ca4338b1a1527b8d19a5d62015a468f8ca56",
-                "reference": "d7a3ca4338b1a1527b8d19a5d62015a468f8ca56",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/2b976e5d6f5273d8ac86e2db9487386dd27a19ef",
+                "reference": "2b976e5d6f5273d8ac86e2db9487386dd27a19ef",
                 "shasum": ""
             },
             "require": {
@@ -1771,7 +1771,7 @@
                 "laravel",
                 "monitoring"
             ],
-            "time": "2019-03-05T13:47:35+00:00"
+            "time": "2019-03-05T14:07:56+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3273,16 +3273,16 @@
         },
         {
             "name": "spatie/laravel-collection-macros",
-            "version": "5.0.0",
+            "version": "5.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-collection-macros.git",
-                "reference": "9088575c16761318e44eb19eb55a63969e8995ea"
+                "reference": "e2b114e751ceb20384d75829cd2718063f391dda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-collection-macros/zipball/9088575c16761318e44eb19eb55a63969e8995ea",
-                "reference": "9088575c16761318e44eb19eb55a63969e8995ea",
+                "url": "https://api.github.com/repos/spatie/laravel-collection-macros/zipball/e2b114e751ceb20384d75829cd2718063f391dda",
+                "reference": "e2b114e751ceb20384d75829cd2718063f391dda",
                 "shasum": ""
             },
             "require": {
@@ -3337,7 +3337,7 @@
                 "laravel-collection-macros",
                 "spatie"
             ],
-            "time": "2019-02-27T16:03:43+00:00"
+            "time": "2019-03-07T13:48:40+00:00"
         },
         {
             "name": "spatie/laravel-javascript-views",
@@ -3462,6 +3462,68 @@
                 "spatie"
             ],
             "time": "2019-02-27T12:08:18+00:00"
+        },
+        {
+            "name": "spatie/laravel-personal-data-download",
+            "version": "0.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-personal-data-download.git",
+                "reference": "e37523a84cf23e8d93cd74ae4728bd50147c88a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-personal-data-download/zipball/e37523a84cf23e8d93cd74ae4728bd50147c88a4",
+                "reference": "e37523a84cf23e8d93cd74ae4728bd50147c88a4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "^5.8.3",
+                "illuminate/queue": "^5.8.3",
+                "illuminate/support": "^5.8.3",
+                "nesbot/carbon": "^2.14",
+                "php": "^7.2",
+                "spatie/temporary-directory": "^1.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.8",
+                "scrutinizer/ocular": "^1.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\PersonalDataDownload\\PersonalDataDownloadServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\PersonalDataDownload\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Create personal data downloads in a Laravel app",
+            "homepage": "https://github.com/spatie/personal-data-download",
+            "keywords": [
+                "gdpr",
+                "personal",
+                "personal-data-download",
+                "spatie",
+                "zip"
+            ],
+            "time": "2019-03-09T18:53:10+00:00"
         },
         {
             "name": "spatie/laravel-searchable",
@@ -3892,6 +3954,52 @@
                 "string"
             ],
             "time": "2017-11-08T14:28:57+00:00"
+        },
+        {
+            "name": "spatie/temporary-directory",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/temporary-directory.git",
+                "reference": "5e1799fa2297363ebfb4df296fea90afbd4ef9b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/temporary-directory/zipball/5e1799fa2297363ebfb4df296fea90afbd4ef9b7",
+                "reference": "5e1799fa2297363ebfb4df296fea90afbd4ef9b7",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\TemporaryDirectory\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Vanderbist",
+                    "email": "alex@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easily create, use and destroy temporary directories",
+            "homepage": "https://github.com/spatie/temporary-directory",
+            "keywords": [
+                "spatie",
+                "temporary-directory"
+            ],
+            "time": "2018-04-12T09:34:43+00:00"
         },
         {
             "name": "spatie/url",
@@ -5214,16 +5322,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v3.3.2",
+            "version": "v3.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "1ee9369cfbf26cfcf1f2515d98f15fab54e9647a"
+                "reference": "dbcc609971dd9b55f48b8008b553d79fd372ddde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1ee9369cfbf26cfcf1f2515d98f15fab54e9647a",
-                "reference": "1ee9369cfbf26cfcf1f2515d98f15fab54e9647a",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/dbcc609971dd9b55f48b8008b553d79fd372ddde",
+                "reference": "dbcc609971dd9b55f48b8008b553d79fd372ddde",
                 "shasum": ""
             },
             "require": {
@@ -5262,7 +5370,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2019-01-30T10:43:17+00:00"
+            "time": "2019-03-06T09:39:45+00:00"
         }
     ],
     "packages-dev": [

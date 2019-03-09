@@ -15,5 +15,6 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('attend:send-event-ended-notifications')->everyThirtyMinutes();
+        $schedule->command('personal-data-download:clean')->daily();
     }
 }

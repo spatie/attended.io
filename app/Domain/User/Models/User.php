@@ -19,6 +19,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
+use Spatie\PersonalDataDownload\PersonalData;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -126,5 +128,17 @@ class User extends Authenticatable implements MustVerifyEmail
     public function scopeAdmin(Builder $query)
     {
         $query->where('admin', 1);
+    }
+
+    public function selectPersonalData(PersonalData $personalData)
+    {
+        $personalData->add('user.json', $this->attributesToArray());
+    }
+
+    public function getPersonalDataDownloadName(): string
+    {
+        $userName = Str::slug($this->name);
+
+        return "personal-data-{$userName}.zip";
     }
 }

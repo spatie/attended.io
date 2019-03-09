@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Domain\Event\Models\Event;
 use App\Domain\User\Models\User;
 use App\Http\Front\Controllers\Account\ChangePasswordController;
+use App\Http\Front\Controllers\Account\PersonalDataDownloadController;
 use App\Http\Front\Controllers\Account\SettingsController;
 use App\Http\Front\Controllers\EventAdmin\EventsController;
 use App\Http\Front\Controllers\EventAdmin\EventsController as EventAdminEventsController;
@@ -82,7 +83,9 @@ class NavigationServiceProvider extends ServiceProvider
                 ->addClass('flex flex-row mb-8')
                 ->addItemClass('mr-4 underline')
                 ->action([SettingsController::class, 'edit'], 'Profile')
-                ->action([ChangePasswordController::class, 'edit'], 'Change password');
+                ->action([ChangePasswordController::class, 'edit'], 'Change password')
+            ->action([PersonalDataDownloadController::class, 'index'], 'Download personal data');
+
         });
     }
 }

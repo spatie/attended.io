@@ -3,6 +3,7 @@
 use App\Domain\Event\Models\Event;
 use App\Domain\Slot\Models\Slot;
 use App\Http\Front\Controllers\Account\ChangePasswordController;
+use App\Http\Front\Controllers\Account\PersonalDataDownloadController;
 use App\Http\Front\Controllers\Account\SettingsController;
 use App\Http\Front\Controllers\EventAdmin\ApproveEventController;
 use App\Http\Front\Controllers\EventAdmin\EventsController;
@@ -87,6 +88,9 @@ Route::prefix('account')->middleware('auth')->group(function () {
 
     Route::get('password', [ChangePasswordController::class, 'edit'])->name('account.password.edit');
     Route::post('password', [ChangePasswordController::class, 'update'])->name('account.password.update');
+
+    Route::get('personal-data-download', [PersonalDataDownloadController::class, 'index']);
+    Route::post('personal-data-download', [PersonalDataDownloadController::class, 'create'])->name('account.personal-data-download.create');
 });
 
 Route::get('users/{user}', [UsersController::class, 'show'])->name('users.show');
@@ -99,3 +103,5 @@ Route::get('search', SearchController::class)->name('search');
 Route::get('{slotShortSlug}', function (Slot $slot) {
     return redirect()->route('slots.show', $slot->idSlug());
 })->where(['slotShortSlug' => '[a-zA-Z0-9]{6}']);
+
+Route::personalDataDownloads('personal-data-downloads');
