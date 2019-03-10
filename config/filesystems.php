@@ -48,9 +48,9 @@ return [
             'root' => storage_path('app'),
         ],
 
-        'personal-data-downloads' => [
+        'personal-data-exports' => [
             'driver' => 'local',
-            'root' => storage_path('app/personal-data-downloads'),
+            'root' => storage_path('app/personal-data-exports'),
         ],
 
         'public' => [

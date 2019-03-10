@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Controllers\Account;
 
-use Spatie\PersonalDataDownload\Jobs\CreatePersonalDataDownloadJob;
+use Spatie\PersonalDataExport\Jobs\CreatePersonalDataExportJob;
 
 class PersonalDataDownloadController
 {
@@ -13,12 +13,10 @@ class PersonalDataDownloadController
 
     public function create()
     {
-        dispatch(new CreatePersonalDataDownloadJob(auth()->user()));
+        dispatch(new CreatePersonalDataExportJob(auth()->user()));
 
         flash()->message("We are preparing your download. We'll send send you a link as soon as the download is ready.");
 
         return back();
     }
-
-
 }
