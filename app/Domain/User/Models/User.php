@@ -21,8 +21,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Spatie\PersonalDataDownload\PersonalData;
+use Spatie\PersonalDataExport\ExportsPersonalData;
+use Spatie\PersonalDataExport\PersonalDataSelection;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail, ExportsPersonalData
 {
     use Notifiable, HasSlug, HasCountry, PresentsUser;
 
@@ -130,12 +132,12 @@ class User extends Authenticatable implements MustVerifyEmail
         $query->where('admin', 1);
     }
 
-    public function selectPersonalData(PersonalData $personalData)
+    public function selectPersonalData(PersonalDataSelection $personalDataSelection): void
     {
-        $personalData->add('user.json', $this->attributesToArray());
+        $personalDataSelection->add('user.json', $this->attributesToArray());
     }
 
-    public function getPersonalDataDownloadName(): string
+    public function personalDataExportName(): string
     {
         $userName = Str::slug($this->name);
 

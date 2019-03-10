@@ -104,4 +104,4 @@ Route::get('{slotShortSlug}', function (Slot $slot) {
     return redirect()->route('slots.show', $slot->idSlug());
 })->where(['slotShortSlug' => '[a-zA-Z0-9]{6}']);
 
-Route::personalDataDownloads('personal-data-downloads');
+Route::personalDataExports('personal-data-exports');
