@@ -26,7 +26,7 @@
         "spatie/laravel-collection-macros": "^5.0",
         "spatie/laravel-javascript-views": "^0.2",
         "spatie/laravel-menu": "^3.2",
-        "spatie/laravel-personal-data-export": "^0.1.3",
+        "spatie/laravel-personal-data-export": "^1.0",
         "spatie/laravel-searchable": "^1.2",
         "spatie/laravel-tail": "^3.2",
         "spatie/laravel-validation-rules": "^2.1",
