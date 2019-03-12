@@ -1,8 +1,8 @@
 import Draggable from './Draggable';
-import useCollection from '../hooks/useCollection';
+import useList from '../hooks/useList';
 
 export default function Repeater({ initial, blueprint, addNewLabel, children }) {
-    const [items, { add, remove, update, moveBefore, moveAfter }] = useCollection(initial);
+    const [items, { add, remove, update, moveBefore, moveAfter }] = useList(initial);
 
     return (
         <Draggable>
