@@ -1,0 +1,59 @@
+version: 2
+jobs:
+    build:
+        docker:
+            - image: circleci/php:7.3-node-browsers
+              environment:
+                  MYSQL_HOST: 127.0.0.1
+                  MYSQL_DB: mate
+                  MYSQL_USER: root
+                  MYSQL_ALLOW_EMPTY_PASSWORD: true
+                  MYSQL_PASSWORD:
+            - image: circleci/mysql:5.7-ram
+              command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin --innodb-large-prefix=true --innodb-file-format=Barracuda
+              environment:
+                  MYSQL_USER: root
+                  MYSQL_ALLOW_EMPTY_PASSWORD: true
+        #            - image: redis:2.8.19
+
+        steps:
+            - checkout
+
+            - run: sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev
+            - run: sudo docker-php-ext-install zip
+            - run: sudo composer self-update
+
+            # Download and cache dependencies
+
+            # composer cache
+            - restore_cache:
+                  keys:
+                      # "composer.lock" can be used if it is committed to the repo
+                      - v1-dependencies-{{ checksum "composer.lock" }}
+                      # fallback to using the latest cache if no exact match is found
+                      - v1-dependencies-
+
+            - run: composer install -n --prefer-dist
+
+            - save_cache:
+                  key: composer-v1-{{ checksum "composer.lock" }}
+                  paths:
+                      - vendor
+
+            # yarn cache
+            - restore_cache:
+                  keys:
+                      - node-v3-{{ checksum "yarn.lock" }}
+                      - node-v3-
+            - run: yarn install
+            - save_cache:
+                  key: node-v3-{{ checksum "yarn.lock" }}
+                  paths:
+                      - node_modules
+                      - ~/.yarn
+            - run:
+            name: Create Mysql database
+            command: mysql  -h 127.0.0.1 -u root -e "create database attended_testing;"
+
+            # run tests with phpunit
+            - run: ./vendor/bin/phpunit
