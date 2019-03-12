@@ -1,6 +1,8 @@
-<ul>
+<ul class="cards">
     @foreach($events as $event)
-        <li>@include('front.events.partials.listItem')</li>
+        <li class="bg-white shadow p-4 rounded">
+            @include('front.events.partials.listItem')
+        </li>
     @endforeach
 
     <pagination

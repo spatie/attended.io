@@ -18,6 +18,11 @@ html {
     box-sizing: border-box;
 }
 
+body {
+    @apply font-sans;
+    @apply leading-normal;
+}
+
 h1 {
     font-size: inherit; /* Reset normalize 2em */
 }
