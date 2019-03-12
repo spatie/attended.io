@@ -19,8 +19,8 @@ jobs:
         steps:
             - checkout
 
-            - run: sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev libsodium-dev
-            - run: sudo docker-php-ext-install zip pdo_mysql intl sodium pcntl bcmath
+            - run: sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev
+            - run: sudo docker-php-ext-install zip pdo_mysql pcntl bcmath
             - run: sudo composer self-update
 
             # Download and cache dependencies
