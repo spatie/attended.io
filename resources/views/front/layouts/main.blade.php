@@ -36,101 +36,85 @@
     </head>
     <body class="bg-paper">
         <div id="app" class="layout">
-
-            <nav id="nav" class="layout-nav bg-grey-dark">
-
-                <div class="hidden text-white mx-8 mt-16 | md:block" style="width: 12rem">
-                    @include('front/layouts/partials/logo')
+            <nav id="nav" class="layout-nav">
+                <div class="hidden | md:flex items-center text-white mx-8 mt-8 h-16">
+                    <div style="width: 12rem">
+                        @include('front/layouts/partials/logo')
+                    </div>
                 </div> 
 
-                <div class="sticky min-h-screen pin-t text-grey-lighter px-8 py-8">
-                    <h2 class="font-condensed text-grey-light uppercase text-sm tracking-wide">Events</h2>
-                    <ul class="">
-                        <li class="my-1 font-bold">
-                            Attending
-                            <span class="absolute pin-l -ml-8 h-full border-l-4 border-red"></span>
-                        </li>
-                        <li class="my-1">
-                            Speaking
-                        </li>
-                    </ul>
+                <div class="sticky pin-t min-h-screen flex flex-col justify-between px-8 py-8">
+                    <div class="mt-8 | md:mt-0">
+                        <h3 class="menu-title">Events</h3>
+                        <nav class="menu text-lg">
+                            @guest
+                                <ul>
+                                    <li><a href="{{ route('events') }}">Search events</a></li>
+                                </ul>
+                            @endguest
+                            {{ Menu::main() }}
+                        </nav>
 
-                    <h2 class="mt-8 font-condensed text-grey-light uppercase text-sm tracking-wide">Account</h2>
-                    <ul class="">
-                        <li class="my-1">
-                            Activity <span></span>
-                        </li>
-                        <li class="my-1">
-                            Profile
-                        </li>
-                        <li class="my-1">
-                            Settings
-                        </li>
-                    </ul>
+                        <h3 class="mt-10 menu-title">Account</h3>
+                        <nav class="menu text-lg">
+                            <ul>
+                                @guest
+                                    <li>
+                                        <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    </li>
+                                    @if (Route::has('register'))
+                                        <li>
+                                            <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        </li>
+                                    @endif
+                                @endguest
 
-                    <ul class="mt-8 pt-8 border-t-2 border-grey text-sm text-grey-light">
-                            <li class="py-1">
-                                About
-                            </li>
-                            <li class="py-1">
-                                Assets
-                            </li>
-                            <li class="my-1">
-                                Organize an event
-                            </li>
-                    </ul>
+                                @auth
+                                    <li>
+                                        <a href="{{ route('profile.talks.show', auth()->user()->idSlug()) }}">
+                                            Profile
+                                        </a>
+                                    </li>
 
-                    <small class="block absolute pin-l pin-b w-full px-8 py-4 text-grey-light text-xs">
-                        An open source project by <a href="https://spatie.be">spatie.be</a>
+                                    <li>
+                                        <a href="{{ route('account.settings.edit') }}">
+                                            Account
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                        >
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                @endauth
+                            </ul>
+                        </nav>
+                    </div>    
+
+                    <div class="mt-auto w-auto pt-8">
+                        <hr class="border-t-2 border-grey w-1/2 opacity-50">
+                        <nav class="menu text-sm pt-6">
+                            <ul class="text-sm">
+                                <li><a href="{{ route('event-admin.events.index') }}">Organizing</a></li>
+                                <li><a href="{{ route('about') }}">About</a></li>
+                                <li><a href="{{ route('assets') }}">Assets</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <small class="flex items-end text-grey-light text-xs opacity-50" style="height: 6rem">
+                            <div>An open source project by <a class="hover:text-white" href="https://spatie.be">spatie.be</a></div>
                     </small>
                 </div>
 
-                {{-- {{ Menu::main() }}
-
-                <ul class="flex flex-row">
-                    @guest
-                        <li>
-                            <a class="mr-3 p-3 bg-grey-light flex justify-center"
-                            href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                            <li>
-                                <a class="mr-3 p-3 bg-grey-light flex justify-center"
-                                href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
-                    @endguest
-
-                    @auth
-                        <li>
-                            <a class="mr-3 p-3 bg-grey-light flex justify-center"
-                            href="{{ route('profile.talks.show', auth()->user()->idSlug()) }}">
-                                Profile
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="mr-3 p-3 bg-grey-light flex justify-center" href="{{ route('account.settings.edit') }}">
-                                Account
-                            </a>
-                        </li>
-
-                        <li>
-                            <a class="mr-3 p-3 bg-grey-light flex justify-center" href="{{ route('logout') }}"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                            >
-                                {{ __('Logout') }}
-                            </a>
-                        </li>
-
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    @endauth
-                </ul> --}}
-
-                <a href="javascript:document.documentElement.classList.toggle('nav-is-toggled');" class="nav-toggle">
+                <a class="nav-toggle" href="javascript:document.documentElement.classList.toggle('nav-is-toggled');">
                     <span class="nav-toggle-icon"></span>
                 </a>
             </nav>
@@ -147,8 +131,6 @@
                     @yield('content')
                 </div>  
             </main>
-
-            {{-- @include('front.layouts.partials.footer') --}}
         </div>
     </body>
 </html>

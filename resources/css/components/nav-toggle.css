@@ -53,7 +53,7 @@ html.nav-is-toggled {
     }
 
     & .nav-toggle {
-        transform: translateX(0);
+        transform: translateX(-1rem);
         border-radius: 500px;
         @apply shadow-none;
     }
