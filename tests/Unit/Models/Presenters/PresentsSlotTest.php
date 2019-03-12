@@ -31,7 +31,7 @@ class PresentsSlotTest extends TestCase
             'email' => 'jane@example.com',
             'user_id' => $anotherUser->id,
         ]);
-        $this->assertEquals('John Doe and <a href="http://attended.io/users/' . $anotherUser->id .'">username Jane</a>', $slot->refresh()->speakersAsString());
+        $this->assertEquals('John Doe and <a href="'.url('/').'/users/' . $anotherUser->id .'">username Jane</a>', $slot->refresh()->speakersAsString());
 
         factory(Speaker::class)->create([
             'slot_id' => $slot->id,
@@ -39,6 +39,6 @@ class PresentsSlotTest extends TestCase
             'email' => 'jane@example.com',
             'user_id' => null,
         ]);
-        $this->assertEquals('John Doe, <a href="http://attended.io/users/' . $anotherUser->id .'">username Jane</a> and Janis Doe', $slot->refresh()->speakersAsString());
+        $this->assertEquals('John Doe, <a href="'.url('/').'/users/' . $anotherUser->id .'">username Jane</a> and Janis Doe', $slot->refresh()->speakersAsString());
     }
 }
