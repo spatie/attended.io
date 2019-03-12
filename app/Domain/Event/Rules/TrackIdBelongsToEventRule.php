@@ -6,7 +6,7 @@ use App\Domain\Event\Models\Event;
 use App\Domain\Event\Models\Track;
 use Illuminate\Contracts\Validation\Rule;
 
-class TrackIdBelongsToEvent implements Rule
+class TrackIdBelongsToEventRule implements Rule
 {
     /** @var \App\Domain\Event\Rules\Event */
     protected $event;

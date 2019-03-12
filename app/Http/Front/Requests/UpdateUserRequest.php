@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Requests;
 
-use App\Domain\User\Rules\CountryCode;
+use App\Domain\User\Rules\CountryCodeRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -15,7 +15,7 @@ class UpdateUserRequest extends FormRequest
             'email' => Rule::unique('users')->ignore(auth()->user()->id),
             'bio' => 'max:255',
             'city' => '',
-            'country' => [new CountryCode()],
+            'country' => [new CountryCodeRule()],
             'joindin_username' => '',
         ];
     }

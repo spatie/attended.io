@@ -4,7 +4,7 @@ namespace Tests\Unit\Rules;
 
 use App\Domain\Event\Models\Event;
 use App\Domain\Event\Models\Track;
-use App\Domain\Event\Rules\TrackIdBelongsToEvent;
+use App\Domain\Event\Rules\TrackIdBelongsToEventRule;
 use Tests\TestCase;
 
 class TrackIdBelongsToEventRuleTest extends TestCase
@@ -36,6 +36,6 @@ class TrackIdBelongsToEventRuleTest extends TestCase
 
     public function rulePasses($trackId): bool
     {
-        return (new TrackIdBelongsToEvent($this->event))->passes('trackId', $trackId);
+        return (new TrackIdBelongsToEventRule($this->event))->passes('trackId', $trackId);
     }
 }

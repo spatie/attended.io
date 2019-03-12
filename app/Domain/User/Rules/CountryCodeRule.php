@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Arr;
 use League\ISO3166\ISO3166;
 
-class CountryCode implements Rule
+class CountryCodeRule implements Rule
 {
     public function passes($attribute, $value)
     {

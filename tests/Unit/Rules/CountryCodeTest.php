@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Rules;
 
-use App\Domain\User\Rules\CountryCode;
+use App\Domain\User\Rules\CountryCodeRule;
 use Tests\TestCase;
 
 class CountryCodeTest extends TestCase
@@ -10,7 +10,7 @@ class CountryCodeTest extends TestCase
     /** @test */
     public function it_will_return_true_for_a_valid_iso_3166_country_code()
     {
-        $rule = new CountryCode();
+        $rule = new CountryCodeRule();
 
         $this->assertTrue($rule->passes('attribute', 'BE'));
         $this->assertTrue($rule->passes('attribute', null));

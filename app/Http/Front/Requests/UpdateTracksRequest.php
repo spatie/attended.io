@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Requests;
 
-use App\Domain\Event\Rules\TrackIdBelongsToEvent;
+use App\Domain\Event\Rules\TrackIdBelongsToEventRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateTracksRequest extends FormRequest
@@ -16,7 +16,7 @@ class UpdateTracksRequest extends FormRequest
     {
         return [
             'tracks.*.name' => ['required'],
-            'tracks.*.id' => [new TrackIdBelongsToEvent($this->event)],
+            'tracks.*.id' => [new TrackIdBelongsToEventRule($this->event)],
         ];
     }
 }

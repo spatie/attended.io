@@ -3,7 +3,7 @@
 namespace App\Http\Front\Requests;
 
 use App\Domain\Event\Models\Event;
-use App\Domain\Event\Rules\TrackIdBelongsToEvent;
+use App\Domain\Event\Rules\TrackIdBelongsToEventRule;
 use App\Domain\Slot\Enums\SlotType;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\Slot\Rules\DateBetweenRule;
@@ -33,7 +33,7 @@ class UpdateSlotRequest extends FormRequest
             'speakers' => 'required|array',
             'speakers.*.name' => ['required'],
             'speakers.*.email' => ['email'],
-            'track_id' => ['required', new TrackIdBelongsToEvent($this->event)],
+            'track_id' => ['required', new TrackIdBelongsToEventRule($this->event)],
         ];
     }
 

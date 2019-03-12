@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Requests;
 
-use App\Domain\User\Rules\CountryCode;
+use App\Domain\User\Rules\CountryCodeRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateEventRequest extends FormRequest
@@ -14,7 +14,7 @@ class UpdateEventRequest extends FormRequest
             'description' => 'required',
             'location' => 'required',
             'city' => 'required',
-            'country_code' => [new CountryCode()],
+            'country_code' => [new CountryCodeRule()],
             'website' => 'required',
             'starts_at' => 'required|date',
             'ends_at' => 'required|after:starts_at',
