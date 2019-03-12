@@ -19,7 +19,7 @@ jobs:
         steps:
             - checkout
 
-            - run: sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev
+            - run: sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev mysql-client
             - run: sudo docker-php-ext-install zip pdo_mysql pcntl bcmath
             - run: sudo composer self-update
 
