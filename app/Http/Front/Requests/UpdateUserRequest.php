@@ -15,7 +15,7 @@ class UpdateUserRequest extends FormRequest
             'email' => Rule::unique('users')->ignore(auth()->user()->id),
             'bio' => 'max:255',
             'city' => '',
-            'country' => [new CountryCodeRule()],
+            'country_code' => [new CountryCodeRule()],
             'joindin_username' => '',
         ];
     }
