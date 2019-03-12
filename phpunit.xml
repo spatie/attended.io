@@ -25,6 +25,7 @@
     <php>
         <env name="DB_CONNECTION" value="testing"/>
         <env name="APP_ENV" value="testing"/>
+        <env name="APP_KEY" value="base64:LyIwd7r7X49fgaoaA3QDY2yqTKPWEPgK8U7Tuufd9TI="/>
         <env name="BCRYPT_ROUNDS" value="4"/>
         <env name="CACHE_DRIVER" value="array"/>
         <env name="MAIL_DRIVER" value="array"/>
