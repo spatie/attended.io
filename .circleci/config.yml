@@ -52,8 +52,8 @@ jobs:
                       - node_modules
                       - ~/.yarn
             - run:
-            name: Create Mysql database
-            command: mysql  -h 127.0.0.1 -u root -e "create database attended_testing;"
+                name: Create Mysql database
+                command: mysql  -h 127.0.0.1 -u root -e "create database attended_testing;"
 
             # run tests with phpunit
             - run: ./vendor/bin/phpunit
