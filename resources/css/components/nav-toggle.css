@@ -31,8 +31,8 @@
         content: '';
         height: 2px;
         width: 100%;
-        opacity: 0.5;
         transition: transform 0.5s ease;
+        opacity: 1;
     }
 
     &:before {

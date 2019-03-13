@@ -1,0 +1,29 @@
+.link {
+    @apply text-blue;
+    cursor: pointer;
+    transition: color 0.1s ease, text-decoration-color 0.1s ease;
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+    text-decoration-color: config('colors.blue-lightest');
+
+    &:focus {
+        outline: 0;
+    }
+
+    &:hover {
+        text-decoration-color: config('colors.blue');
+    }
+
+    &:active {
+        top: 1px;
+    }
+}
+
+.link.text-grey {
+    @apply text-grey;
+    text-decoration-color: config('colors.grey-lighter');
+
+    &:hover {
+        text-decoration-color: config('colors.grey');
+    }
+}

@@ -1,0 +1,59 @@
+.form {
+    perspective: 800px;
+
+    & [type='text'],
+    & [type='email'],
+    & [type='password'] {
+        @apply bg-paper;
+        @apply border border-transparent;
+        @apply rounded;
+        @apply px-2;
+        min-height: 2.5rem;
+
+        &:focus {
+            outline: none;
+            @apply border-grey-lightest;
+            @apply bg-white;
+            @apply shadow;
+            @apply text-blue-dark;
+        }
+    }
+}
+
+.form-grid {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    grid-gap: 2rem 1rem;
+
+    & .form-field {
+        display: contents;
+    }
+
+    & .alert {
+        @apply -mt-6;
+        @apply text-sm;
+        grid-column-start: 2;
+    }
+}
+
+.form-buttons {
+    @apply flex justify-center;
+    @apply mt-12 pt-6;
+    @apply border-t-2 border-paper;
+}
+
+label {
+    @apply text-grey-light;
+    @apply text-sm;
+    @apply uppercase;
+    @apply tracking-wide;
+}
+
+.label-radio,
+.label-checkbox {
+    @apply text-black;
+    @apply normal-case;
+    @apply text-base;
+    @apply tracking-normal;
+}

@@ -28,8 +28,6 @@ class NavigationServiceProvider extends ServiceProvider
     {
         Menu::macro('main', function () {
             return Menu::new()
-                ->addClass('flex flex-row mb-2')
-                ->addItemClass('mr-4 p-3 bg-grey-light flex justify-center')
                 ->actionIf(
                     optional(auth()->user())->organisesEvents(),
                     [EventsController::class, 'index'],

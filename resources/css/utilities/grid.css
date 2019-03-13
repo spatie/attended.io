@@ -1,15 +1,31 @@
-.grid {
-    display: grid;
-}
+@responsive {
+    .grid {
+        display: grid;
+    }
 
-.justify-self-start {
-    justify-self: start;
-}
+    .place-content-center {
+        align-content: center;
+        justify-content: center;
+    }
 
-.justify-self-center {
-    justify-self: center;
-}
+    .place-items-center {
+        align-items: center;
+        justify-items: center;
+    }
 
-.justify-self-end {
-    justify-self: end;
+    .justify-self-start {
+        justify-self: start;
+    }
+
+    .justify-self-center {
+        justify-self: center;
+    }
+
+    .justify-self-end {
+        justify-self: end;
+    }
+
+    .startx-2 {
+        grid-column-start: 2;
+    }
 }

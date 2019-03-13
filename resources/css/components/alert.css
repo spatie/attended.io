@@ -1,0 +1,15 @@
+.alert {
+    @apply rounded-sm;
+    @apply p-2;
+    @apply block;
+
+    &.is-error {
+        @apply bg-red-lightest;
+        @apply text-red-dark;
+    }
+
+    &.is-success {
+        @apply bg-green-lightest;
+        @apply text-green-dark;
+    }
+}

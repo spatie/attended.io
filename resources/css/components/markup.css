@@ -1,2 +1,8 @@
 .markup {
+    & h1 {
+        @apply font-condensed;
+        @apply text-5xl;
+        @apply text-grey-dark;
+        @apply mt-0 mb-12;
+    }
 }

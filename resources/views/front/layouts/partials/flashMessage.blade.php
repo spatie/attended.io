@@ -7,7 +7,7 @@
         ])
     @else
         <div class="alert
-                    alert-{{ $message['level'] }}
+                    is-{{ $message['level'] }}
         {{ $message['important'] ? 'alert-important' : '' }}"
              role="alert"
         >

@@ -7,3 +7,17 @@
         grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     }
 }
+
+.card {
+    @apply bg-white;
+    @apply shadow;
+    @apply rounded;
+}
+
+.card-form {
+    @apply bg-white;
+    @apply shadow-lg;
+    @apply rounded;
+    @apply p-12;
+    @apply border-t-8 border-green-light;
+}

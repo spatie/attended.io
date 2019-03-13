@@ -1,6 +1,6 @@
 <ul class="cards">
     @foreach($events as $event)
-        <li class="bg-white shadow p-4 rounded">
+        <li class="card">
             @include('front.events.partials.listItem')
         </li>
     @endforeach
