@@ -1,7 +1,6 @@
 .nav-toggle {
-    @apply bg-grey;
+    @apply bg-white;
     @apply text-white;
-    @apply shadow;
     position: absolute;
     display: grid;
     align-items: center;
@@ -12,7 +11,7 @@
     height: 2rem;
     border-radius: 0 500px 500px 500px;
     transition: border-radius 0.5s ease, transform 0.5s ease, background-color 0.5s ease;
-    transform: translateX(3.15rem) rotate(-45deg);
+    transform: translateX(3.5rem) rotate(-45deg);
 
     @screen md {
         display: none;
@@ -20,13 +19,13 @@
 }
 
 .nav-toggle-icon {
-    width: 1rem;
+    width: 0.8rem;
     display: block;
     transform: rotate(45deg);
 
     &:before,
     &:after {
-        @apply bg-white;
+        @apply bg-red;
         display: block;
         content: '';
         height: 2px;
@@ -53,6 +52,7 @@ html.nav-is-toggled {
     }
 
     & .nav-toggle {
+        @apply bg-grey-lightest;
         transform: translateX(-1rem);
         border-radius: 500px;
         @apply shadow-none;
