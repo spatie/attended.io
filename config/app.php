@@ -177,6 +177,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         \App\Providers\NavigationServiceProvider::class,
         \App\Providers\BladeXServiceProvider::class,
+        \App\Providers\FlashServiceProvider::class,
 
     ],
 
