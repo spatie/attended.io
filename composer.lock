@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "34f3c31a2babbbbc2f60d181030405d0",
+    "content-hash": "05caaae6ba984f2c65573c8389848acc",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -3080,16 +3080,16 @@
         },
         {
             "name": "spatie/laravel-flash",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-flash.git",
-                "reference": "5a82a0fec29f12cba8c57844257b384c32f993ad"
+                "reference": "c765445e5545ec76b7cc13e0dc8eb7cc272be664"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-flash/zipball/5a82a0fec29f12cba8c57844257b384c32f993ad",
-                "reference": "5a82a0fec29f12cba8c57844257b384c32f993ad",
+                "url": "https://api.github.com/repos/spatie/laravel-flash/zipball/c765445e5545ec76b7cc13e0dc8eb7cc272be664",
+                "reference": "c765445e5545ec76b7cc13e0dc8eb7cc272be664",
                 "shasum": ""
             },
             "require": {
@@ -3126,7 +3126,7 @@
                 "laravel-flash",
                 "spatie"
             ],
-            "time": "2019-03-14T11:59:30+00:00"
+            "time": "2019-03-14T17:59:56+00:00"
         },
         {
             "name": "spatie/laravel-javascript-views",
