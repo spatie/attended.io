@@ -16,7 +16,6 @@ input[type='radio'] {
 
         &:after {
             @apply border-grey-lightest;
-            @apply bg-white;
             @apply shadow;
         }
     }
@@ -37,7 +36,7 @@ input[type='radio'] {
         width: 1.5rem;
         height: 1.5rem;
         content: '';
-        transition: border-color 0.1s linear;
+        transition: border-color 0.3s linear;
     }
 
     &:before {
@@ -54,7 +53,7 @@ input[type='checkbox'] {
     }
 
     &:before {
-        @apply text-blue;
+        @apply text-green;
         @apply font-icons;
         width: 100%;
         content: '';
@@ -72,7 +71,7 @@ input[type='radio'] {
     }
 
     &:before {
-        @apply bg-blue;
+        @apply bg-green;
         top: 3px;
         right: 3px;
         bottom: 3px;

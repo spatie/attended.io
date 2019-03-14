@@ -17,7 +17,7 @@
             <div class="form-grid">
                 <div class="form-field  {{ $errors->has('email') ? 'has-errors' : '' }}" >
                     <label class="text-right" for="email">{{ __('Email') }}</label>
-                    <input class="md:min-w-64" id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
 
                     @if ($errors->has('email'))
                         <div class="alert is-error" role="alert">
@@ -29,10 +29,10 @@
 
             <div class="form-buttons">     
                 <button type="submit" class="button">
-                    {{ __('Email reset link') }}
+                    {{ __('Sent reset link') }}
                 </button>                   
             </div>        
         </form>
     </div>
-    
+
 @endsection

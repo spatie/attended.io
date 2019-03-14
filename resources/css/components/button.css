@@ -8,6 +8,7 @@
     @apply shadow-md;
     @apply flex items-center;
     min-height: 2.5rem;
+    transition: background-color 0.3s ease;
 
     &:hover {
         @apply bg-blue;
@@ -15,5 +16,10 @@
 
     &:active {
         transform: translateY(1px);
+    }
+
+    &:focus {
+        outline: none;
+        @apply border border-blue-light;
     }
 }

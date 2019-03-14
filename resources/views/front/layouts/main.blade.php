@@ -8,7 +8,7 @@
         </div> 
     </div>
     <div> 
-        <div class="sticky pin-t grid p-8 | md:p-16 md:min-h-screen md:place-content-center">
+        <div class="sticky grid pin-t p-8 | md:p-16 md:min-h-screen md:place-content-center">
             @include('front.layouts.partials.unverified-email-warning')
             @include('front.layouts.partials.flashMessage')
             

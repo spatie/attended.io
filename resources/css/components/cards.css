@@ -19,5 +19,20 @@
     @apply shadow-lg;
     @apply rounded;
     @apply p-12;
-    @apply border-t-8 border-green-light;
+
+    &:before {
+        @apply rounded-l;
+        @apply border-r border-grey-lightest;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 16px;
+        height: 100%;
+        background-image: url('/svg/logo.svg');
+        background-repeat: no-repeat;
+        background-size: auto 1000px;
+        background-position: 30% 55%;
+        opacity: 0.95;
+    }
 }
