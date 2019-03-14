@@ -2,13 +2,13 @@
     @screen md {
         display: grid;
         min-height: 100vh;
-        grid-template-columns: minmax(auto, 25rem) 1fr;
+        grid-template-columns: auto 1fr;
         grid-template-areas: 'nav content';
-        grid-template-columns: minmax(auto, 25rem) 1fr;
     }
 }
 
 .layout-nav {
+    @apply pr-16;
     position: fixed;
     height: 100vh;
     width: auto;

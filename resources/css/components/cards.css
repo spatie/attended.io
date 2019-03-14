@@ -18,21 +18,29 @@
     @apply bg-white;
     @apply shadow-lg;
     @apply rounded;
-    @apply p-12;
+    @apply py-12 px-6;
+
+    @screen md {
+        @apply p-12;
+    }
+
+    @screen lg {
+        @apply p-16;
+    }
 
     &:before {
-        @apply rounded-l;
+        @apply rounded-t;
         @apply border-r border-grey-lightest;
         content: '';
         position: absolute;
         top: 0;
         left: 0;
-        width: 16px;
-        height: 100%;
+        width: 100%;
+        height: 16px;
         background-image: url('/svg/logo.svg');
         background-repeat: no-repeat;
         background-size: auto 1000px;
-        background-position: 30% 55%;
+        background-position: 5% 40%;
         opacity: 0.95;
     }
 }

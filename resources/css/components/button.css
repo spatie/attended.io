@@ -1,6 +1,6 @@
 .button {
     @apply font-bold;
-    @apply bg-blue-dark;
+    @apply bg-green;
     @apply text-white;
     @apply rounded;
     @apply uppercase;
@@ -11,7 +11,7 @@
     transition: background-color 0.3s ease;
 
     &:hover {
-        @apply bg-blue;
+        @apply bg-green-dark;
     }
 
     &:active {
@@ -20,6 +20,6 @@
 
     &:focus {
         outline: none;
-        @apply border border-blue-light;
+        @apply border border-green-lighter;
     }
 }

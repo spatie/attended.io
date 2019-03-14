@@ -19,12 +19,12 @@
             outline: none;
             @apply border-grey-lightest;
             @apply shadow;
-            @apply text-blue-dark;
+            @apply text-green-darker;
         }
     }
 
     & label {
-        @apply text-grey-light;
+        @apply text-grey;
         @apply text-sm;
         @apply uppercase;
     }
