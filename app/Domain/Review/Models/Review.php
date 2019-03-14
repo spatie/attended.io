@@ -38,6 +38,6 @@ class Review extends BaseModel
             $url = action(ShowEventFeedbackController::class, $this->reviewable_id);
         }
 
-        return "$url#review{$this->id}";
+        return "$url#review-{$this->id}";
     }
 }

@@ -1,4 +1,4 @@
-<div id="review{{ $review->id }}">
+<div id="review-{{ $review->id }}">
     {{ $review->user->name }}
     <a href="{{ $review->getPermalink() }}">{{ $review->updated_at->diffForHumans() }}</a>
     <br/>
