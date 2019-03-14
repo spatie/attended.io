@@ -3,7 +3,7 @@ const chokidar = require('chokidar');
 
 require('laravel-mix-purgecss');
 
-mix.react('resources/js/app.js', 'public/js');
+mix.ts('resources/js/app.ts', 'public/js');
 mix.postCss('resources/css/app.css', 'public/css/app.css');
 
 mix.autoload({
@@ -21,10 +21,6 @@ mix.options({
     // relative to the site root, we don't want the css loader to try to
     // follow paths in `url()` functions.
     processCssUrls: false,
-});
-
-mix.babelConfig({
-    plugins: ['@babel/plugin-syntax-dynamic-import'],
 });
 
 mix.webpackConfig({

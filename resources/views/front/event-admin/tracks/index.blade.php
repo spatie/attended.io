@@ -9,7 +9,7 @@
         @csrf
 
         {{ mount('TracksInput', [
-            'initialTracks' => $tracks,
+            'initial' => $tracks,
             'errors' => $errors->getMessages(),
         ]) }}
 

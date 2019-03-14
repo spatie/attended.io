@@ -10,7 +10,7 @@
     <input-field name="ends_at" label="Ends at"/>
 
     {{ mount('SpeakersInput', [
-        'initialSpeakers' => $speakers,
+        'initial' => $speakers,
         'errors' => $errors->getMessages(),
 ]   ) }}
 

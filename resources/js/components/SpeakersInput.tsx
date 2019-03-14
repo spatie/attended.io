@@ -1,9 +1,21 @@
+import * as React from 'react';
 import Repeater from '../lib/components/Repeater';
 
-export default function SpeakersInput({ initialSpeakers, errors }) {
+type Speaker = {
+    id: number | null;
+    name: string;
+    email: string;
+};
+
+type Props = {
+    initial: Speaker[];
+    errors: string[];
+};
+
+export default function SpeakersInput({ initial, errors }: Props) {
     return (
         <Repeater
-            initial={initialSpeakers}
+            initial={initial}
             blueprint={{ id: null, name: '', email: '' }}
             addNewLabel="Add new speaker"
         >

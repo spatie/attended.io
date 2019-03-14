@@ -1,9 +1,21 @@
+import * as React from 'react';
 import Repeater from '../lib/components/Repeater';
 
-export default function TracksInput({ initialTracks, errors }) {
+type Track = {
+    id: number | null;
+    name: string;
+    slotCount: number;
+};
+
+type Props = {
+    initial: Track[];
+    errors: string[];
+};
+
+export default function TracksInput({ initial, errors }: Props) {
     return (
         <Repeater
-            initial={initialTracks}
+            initial={initial}
             blueprint={{ id: null, name: '', slotCount: 0 }}
             addNewLabel="Add new track"
         >
