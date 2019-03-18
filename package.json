@@ -25,5 +25,8 @@
     "resolve-url-loader": "2.3.1",
     "tailwindcss": "^0.7.4",
     "vue-template-compiler": "^2.6.6"
+  },
+  "dependencies": {
+    "postcss-color-mod-function": "^3.0.3"
   }
 }

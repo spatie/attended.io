@@ -15,6 +15,7 @@ mix.options({
         require('postcss-easy-import')(),
         require('tailwindcss')('./tailwind.js'),
         require('postcss-nested'),
+        require('postcss-color-mod-function'),
     ],
 
     // Since we don't do any image preprocessing and write url's that are

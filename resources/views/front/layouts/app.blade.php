@@ -38,7 +38,16 @@
         <div id="app" class="layout">
             @include('front/layouts/partials/nav')
 
-            @yield('main')
+            <main class="layout-content">
+                <div class="flex justify-end z-10 p-8 | md:hidden">
+                    <div class="text-grey-darker" style="width: 12rem">
+                        @include('front/layouts/partials/logo')
+                    </div> 
+                </div>
+                <div> 
+                    @yield('main')
+                </div>
+            </main>
         </div>
     </body>
 </html>

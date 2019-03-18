@@ -1,4 +1,4 @@
-@extends('front.layouts.main')
+@extends('front.layouts.auth')
 
 @section('content')
 
@@ -57,7 +57,7 @@
         </form>
     </div>
 
-    <div class="mt-16 text-center markup">
+    <div class="mt-8 text-center markup">
         <a class="link text-grey" href="{{ route('login') }}">
             {{ __('Already have an account? Log in') }}
         </a>

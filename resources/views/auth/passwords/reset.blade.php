@@ -1,4 +1,4 @@
-@extends('front.layouts.main')
+@extends('front.layouts.auth')
 
 @section('content')
 

@@ -40,5 +40,6 @@
 
     @screen md {
         grid-template-rows: 1fr;
+        z-index: 2;
     }
 }

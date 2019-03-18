@@ -4,7 +4,7 @@
     transition: color 0.1s ease, text-decoration-color 0.1s ease;
     text-decoration: underline;
     text-decoration-skip-ink: auto;
-    text-decoration-color: config('colors.blue-lightest');
+    text-decoration-color: color-mod(config('colors.blue') a(0.5));
 
     &:focus {
         outline: 0;
@@ -21,9 +21,18 @@
 
 .link.text-grey {
     @apply text-grey;
-    text-decoration-color: config('colors.grey-lighter');
+    text-decoration-color: color-mod(config('colors.grey') a(0.5));
 
     &:hover {
         text-decoration-color: config('colors.grey');
+    }
+}
+
+.link.text-grey-lightest {
+    @apply text-grey-lightest;
+    text-decoration-color: color-mod(config('colors.grey-lightest') a(0.5));
+
+    &:hover {
+        text-decoration-color: config('colors.grey-lightest');
     }
 }

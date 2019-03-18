@@ -1,4 +1,4 @@
-@extends('front.layouts.main')
+@extends('front.layouts.auth')
 
 @section('content')
     
@@ -49,7 +49,7 @@
     </div>
 
     @if (Route::has('password.request'))
-        <div class="mt-16 text-center markup">
+        <div class="mt-8 text-center markup">
             <a class="link text-grey" href="{{ route('password.request') }}">
                 {{ __('Forgot your password?') }}
             </a>

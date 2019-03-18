@@ -2,11 +2,12 @@
 
 @section('main')
 
-    <div class="p-8 | md:p-16">
+    <div class="sticky grid pin-t px-8 py-16 | md:p-16 md:min-h-screen md:justify-start md:content-center">
         @include('front.layouts.partials.unverified-email-warning')
         @include('front.layouts.partials.flashMessage')
-        
-        @yield('content')
+        <div class="md:-ml-24">    
+            @yield('content')
+        </div>
     </div>
 
 @endsection
