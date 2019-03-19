@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use App\Domain\User\Models\User;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Laravel\Horizon\Horizon;
-use Illuminate\Support\Facades\Gate;
 use Laravel\Horizon\HorizonApplicationServiceProvider;
 
 class HorizonServiceProvider extends HorizonApplicationServiceProvider

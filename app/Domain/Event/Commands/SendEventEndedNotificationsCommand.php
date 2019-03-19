@@ -5,7 +5,6 @@ namespace App\Domain\Event\Commands;
 use App\Domain\Event\Models\Attendee;
 use App\Domain\Event\Models\Event;
 use App\Domain\Event\Notifications\EventEndedNotification;
-use App\Domain\User\Models\User;
 use Illuminate\Console\Command;
 
 class SendEventEndedNotificationsCommand extends Command
@@ -16,7 +15,6 @@ class SendEventEndedNotificationsCommand extends Command
 
     public function handle()
     {
-
         Event::query()
            // ->whereNull('event_ended_notification_sent_at')
             ->where('ends_at', '>=', now())

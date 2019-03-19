@@ -20,7 +20,6 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
-use Spatie\PersonalDataDownload\PersonalData;
 use Spatie\PersonalDataExport\ExportsPersonalData;
 use Spatie\PersonalDataExport\PersonalDataSelection;
 

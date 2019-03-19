@@ -83,7 +83,6 @@ class NavigationServiceProvider extends ServiceProvider
                 ->action([SettingsController::class, 'edit'], 'Profile')
                 ->action([ChangePasswordController::class, 'edit'], 'Change password')
             ->action([PersonalDataDownloadController::class, 'index'], 'Download personal data');
-
         });
     }
 }

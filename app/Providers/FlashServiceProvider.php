@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Spatie\Flash\Flash;
-use Spatie\Flash\Message;
 
 class FlashServiceProvider extends ServiceProvider
 {
