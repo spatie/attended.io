@@ -33,7 +33,7 @@
 
                 <div class="form-field  {{ $errors->has('password') ? 'has-errors' : ''}}" >
                     <label class="text-right" for="password">{{ __('Password') }}</label>
-                    <input id="password" type="text" name="password" value="{{ old('password') }}" required>
+                    <input id="password" type="password" type="text" name="password" value="{{ old('password') }}" required>
                     
                     @if ($errors->has('password'))
                         <div class="alert is-error" role="alert">
@@ -44,7 +44,7 @@
 
                 <div class="form-field">
                     <label class="text-right" for="password-confirm">{{ __('Confirm password') }}</label>
-                    <input id="password-confirm" type="text" name="password_confirmation" required> 
+                    <input id="password-confirm" type="password" type="text" name="password_confirmation" required>
                 </div>             
             </div>
 
