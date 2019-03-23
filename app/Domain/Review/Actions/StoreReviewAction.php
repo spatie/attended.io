@@ -23,7 +23,7 @@ class StoreReviewAction
 
         (new AttendEventAction())->execute($user, $this->getEvent($reviewable));
 
-        $type = class_basename($reviewable);
+        $type = $reviewable->getMorphClass();
 
         activity()
             ->by($user)
