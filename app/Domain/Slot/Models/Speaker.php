@@ -55,6 +55,6 @@ class Speaker extends BaseModel
 
     public function hasUserAccount(): bool
     {
-        return ! is_null($this->user);
+        return ! is_null($this->user_id);
     }
 }

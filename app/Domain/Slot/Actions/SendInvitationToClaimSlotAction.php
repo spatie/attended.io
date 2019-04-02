@@ -19,7 +19,7 @@ class SendInvitationToClaimSlotAction
                 return $speaker->hasBeenSentInvitation();
             })
             ->reject(function (Speaker $speaker) {
-                return $speaker->user;
+                return $speaker->hasUserAccount();
             })
             ->each(function (Speaker $speaker) use ($slot) {
                 $speaker->notify(new SpeakerInvitationNotification($slot));

@@ -23,6 +23,7 @@ export default function Repeater({ initial, blueprint, addNewLabel, children }) 
                                             <span {...draggableHandleProps}>DRAG ME</span>
                                             {children({
                                                 item,
+                                                index,
                                                 update: newItem => update(newItem, index),
                                                 remove: () => remove(index),
                                             })}
