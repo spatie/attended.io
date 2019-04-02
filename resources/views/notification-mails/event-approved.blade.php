@@ -1,10 +1,10 @@
 @component('mail::message')
-    # Event approved
+# Event approved
 
-   Your event `{{ $event->name }}` has been approved.
+Your event `{{ $event->name }}` has been approved.
 
-    After you've made sure you've added all tracks and slots, head over to the <a href="{{ route('event-admin.events.edit', $event->idSlug()) }}">event detail page</a> to publish it.
+After you've made sure you've added all tracks and slots, head over to the <a href="{{ route('event-admin.events.edit', $event->idSlug()) }}">event detail page</a> to publish it.
 
-    Thanks,<br>
-    {{ config('app.name') }}
+Thanks,<br>
+{{ config('app.name') }}
 @endcomponent
