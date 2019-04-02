@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\Policies\Review;
 
+use App\Domain\Event\Models\Event;
 use App\Domain\Review\Models\Review;
 use App\Domain\Slot\Models\Slot;
 use App\Domain\User\Models\User;
@@ -67,7 +68,7 @@ class EditReviewPolicyTest extends TestCase
 
         $review = factory(Review::class)->create([
             'reviewable_id' => $slot->id,
-            'reviewable_type' => get_class($slot)
+            'reviewable_type' => get_class($slot),
         ]);
 
         $user = factory(User::class)->create();

@@ -22,25 +22,22 @@ class UpdateSpeakersAction
         $remainingSpeakerIds = collect($speakerProperties)->pluck('id')->filter()->toArray();
         $remainingSpeakerEmails = collect($speakerProperties)->pluck('email')->filter()->toArray();
 
-        $speakersToRemove = $slot->speakers
+        $slot->speakers
             ->reject(function (Speaker $speaker) use ($remainingSpeakerIds) {
                 return in_array($speaker->id, $remainingSpeakerIds);
             })
             ->reject(function (Speaker $speaker) use ($remainingSpeakerEmails) {
-                if (! $speaker->hasUserAccount()) {
-                    return false;
-                }
+                // Don't delete speakers with an email that's being added again as a new speaker
 
-                return in_array($speaker->user->email, $remainingSpeakerEmails);
+                return in_array(optional($speaker->user)->email, $remainingSpeakerEmails);
+            })
+            ->each(function (Speaker $speaker) use ($slot, $speakerProperties) {
+                $speaker->delete();
+
+                activity()
+                    ->performedOn($speaker)
+                    ->log("Speaker `{$speaker->name}` removed from slot `{$slot->name}`.");
             });
-
-        $speakersToRemove->each(function (Speaker $speaker) use ($slot, $speakerProperties) {
-            $speaker->delete();
-
-            activity()
-                ->performedOn($speaker)
-                ->log("Speaker `{$speaker->name}` removed from slot `{$slot->name}`.");
-        });
 
         return $this;
     }
@@ -59,10 +56,9 @@ class UpdateSpeakersAction
                 return $speakerExists;
             })
             ->each(function (array $newSpeakerProperties) use ($slot) {
-                Speaker::create([
+                $slot->speakers()->create([
                     'name' => $newSpeakerProperties['name'],
                     'email' => $newSpeakerProperties['email'] ?? null,
-                    'slot_id' => $slot->id,
                 ]);
 
                 activity()

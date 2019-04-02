@@ -60,11 +60,16 @@ class Slot extends BaseModel implements Reviewable
         });
     }
 
-    public function scopeHasSpeaker(Builder $query, User $user)
+    public function scopeWhereHavingSpeaker(Builder $query, User $user)
     {
         $query->whereHas('speakers', function (Builder $query) use ($user) {
             $query->where('user_id', $user->id);
         });
+    }
+
+    public function hasSpeaker(User $user): bool
+    {
+        return $this->speakers()->where('user_id', $user->id)->exists();
     }
 
     public function claims(): HasMany

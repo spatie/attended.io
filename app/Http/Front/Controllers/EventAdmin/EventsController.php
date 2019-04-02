@@ -16,7 +16,7 @@ class EventsController
     public function index()
     {
         $query = auth()->user()->admin
-            ? Event::all()
+            ? Event::query()
             : Event::organizedBy(auth()->user());
 
         $events = $query

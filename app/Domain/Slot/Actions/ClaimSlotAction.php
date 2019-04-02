@@ -14,20 +14,13 @@ class ClaimSlotAction
         $slot->claimWillBeApprovedImmediatelyFor($claimingUser)
             ? $this->attachUserToSlot($claimingUser, $slot)
             : $this->createNewClaim($claimingUser, $slot);
-
-
-        $this->createNewClaim($claimingUser, $slot);
     }
 
     protected function attachUserToSlot(User $claimingUser, Slot $slot)
     {
-        $speaker = Speaker::query()
+        $slot->speakers()
             ->where('email', $claimingUser->email)
-            ->where('slot_id', $slot->id)
-            ->first();
-
-        $speaker->user_id = $claimingUser->id;
-        $speaker->save();
+            ->update(['user_id', $claimingUser->id]);
     }
 
     protected function createNewClaim(User $claimingUser, Slot $slot)

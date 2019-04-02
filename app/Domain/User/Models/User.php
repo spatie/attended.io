@@ -64,9 +64,7 @@ class User extends Authenticatable implements MustVerifyEmail, ExportsPersonalDa
 
     public function isSpeaker(Slot $slot): bool
     {
-        return $slot->speakers->contains(function (Speaker $speaker) {
-            return $speaker->user->id === $this->id;
-        });
+        return $slot->hasSpeaker($this);
     }
 
     public function isClaimingSlot(Slot $slot): bool

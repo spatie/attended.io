@@ -12,7 +12,7 @@ class TalksController
         $slots = Slot::query()
             ->with(['event', 'speakers'])
             ->published()
-            ->hasSpeaker($user)
+            ->whereHavingSpeaker($user)
             ->orderByDesc('starts_at')
             ->paginate();
 
