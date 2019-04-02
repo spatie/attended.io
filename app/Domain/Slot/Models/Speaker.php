@@ -57,4 +57,9 @@ class Speaker extends BaseModel
     {
         return ! is_null($this->user_id);
     }
+
+    public function emailBelongsToUserAccount(): bool
+    {
+        return User::query()->where('email', $this->email)->exists();
+    }
 }

@@ -45,7 +45,7 @@ class SlotsViewModel extends ViewModel
                      'id' => $speaker->id,
                      'name' => $speaker->name(),
                      'email' => $speaker->email(),
-                     'editable' => ! is_null($speaker->user),
+                     'editable' => ! $speaker->hasUserAccount(),
                  ];
             })
             ->toArray();

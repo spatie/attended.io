@@ -4,7 +4,7 @@ export default function SpeakersInput({ initialSpeakers, errors }) {
     return (
         <Repeater
             initial={initialSpeakers}
-            blueprint={{ id: null, name: '', email: '' }}
+            blueprint={{ id: null, name: '', email: '', editable: true }}
             addNewLabel="Add new speaker"
         >
             {({ item, index, update, remove }) => (
@@ -15,6 +15,7 @@ export default function SpeakersInput({ initialSpeakers, errors }) {
                         type="text"
                         name={`speakers[${index}][name]`}
                         value={item.name}
+                        readOnly={item.editable}
                         onChange={event => update({ ...item, name: event.target.value })}
                     />
                     <label>Email</label>
@@ -22,8 +23,12 @@ export default function SpeakersInput({ initialSpeakers, errors }) {
                         type="email"
                         name={`speakers[${index}][email]`}
                         value={item.email}
+                        readOnly={item.editable}
                         onChange={event => update({ ...item, email: event.target.value })}
                     />
+                    {! item.editable && (
+                        <strong>Has account</strong>
+                    )}
                     <button type="button" onClick={remove}>
                         Remove
                     </button>
