@@ -14,6 +14,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'editor' => 'phpstorm',
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
