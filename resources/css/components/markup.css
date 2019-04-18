@@ -1,8 +1,13 @@
 .markup {
     & h1 {
         @apply font-condensed;
-        @apply text-5xl;
-        @apply text-grey-dark;
-        @apply mt-0 mb-12;
+        @apply text-4xl;
+        @apply text-blue-darker;
+        @apply mt-2 mb-12;
+        @apply leading-tight;
+    }
+
+    & p {
+        @apply text-xl;
     }
 }

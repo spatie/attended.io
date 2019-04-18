@@ -11,7 +11,7 @@
     }
 
     &:hover {
-        text-decoration-color: config('colors.blue');
+        text-decoration-color: currentColor;
     }
 
     &:active {
@@ -20,19 +20,9 @@
 }
 
 .link.text-grey {
-    @apply text-grey;
     text-decoration-color: color-mod(config('colors.grey') a(0.5));
-
-    &:hover {
-        text-decoration-color: config('colors.grey');
-    }
 }
 
 .link.text-grey-lightest {
-    @apply text-grey-lightest;
     text-decoration-color: color-mod(config('colors.grey-lightest') a(0.5));
-
-    &:hover {
-        text-decoration-color: config('colors.grey-lightest');
-    }
 }

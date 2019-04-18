@@ -1,6 +1,4 @@
 .form {
-    perspective: 800px;
-
     & [type='text'],
     & [type='email'],
     & [type='password'] {

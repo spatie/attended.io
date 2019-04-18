@@ -3,6 +3,11 @@
     @apply p-2;
     @apply block;
 
+    &.is-message {
+        @apply bg-blue-lightest;
+        @apply text-blue-dark;
+    }
+
     &.is-error {
         @apply bg-red-lightest;
         @apply text-red-dark;

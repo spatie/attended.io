@@ -1,13 +1,3 @@
-.cards {
-    display: grid;
-    grid-gap: 2rem;
-    align-items: stretch;
-
-    @screen md {
-        grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-    }
-}
-
 .card {
     @apply bg-white;
     @apply shadow;

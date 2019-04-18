@@ -10,9 +10,9 @@ class FlashServiceProvider extends ServiceProvider
     public function register()
     {
         Flash::levels([
-            'message' => 'flash-message-class',
-            'success' => 'flash-success-class',
-            'error' => 'flesh-error-class',
+            'message' => 'alert is-message',
+            'success' => 'alert is-success',
+            'error' => 'alert is-error',
         ]);
     }
 }

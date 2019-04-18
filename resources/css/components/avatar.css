@@ -1,0 +1,16 @@
+.avatar {
+    @apply rounded-t-full rounded-l-full;
+    @apply w-16 h-16;
+    @apply overflow-hidden;
+    transform: rotate(45deg);
+}
+
+.avatar-content {
+    @apply absolute pin-t pin-l;
+    @apply rounded-full;
+    @apply bg-paper;
+    border: solid 8px #fff;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-45deg);
+}

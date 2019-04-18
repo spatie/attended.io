@@ -32,7 +32,7 @@
                 </div>               
 
                 <div class="form-field">
-                    <label class="startx-2 label-checkbox" for="remember">
+                    <label class="start-2 label-checkbox" for="remember">
                         <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                         <span class="normal-case">{{ __('Remember me next time') }}</span>
                     </label>
