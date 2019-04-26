@@ -1,4 +1,4 @@
-import Repeater from '../lib/components/Repeater';
+import Repeater from './Repeater';
 
 export default function TracksInput({ initialTracks, errors }) {
     return (

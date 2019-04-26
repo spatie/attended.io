@@ -1,4 +1,4 @@
-import Repeater from '../lib/components/Repeater';
+import Repeater from './Repeater';
 
 export default function SpeakersInput({ initialSpeakers, errors }) {
     return (
@@ -15,7 +15,7 @@ export default function SpeakersInput({ initialSpeakers, errors }) {
                         type="text"
                         name={`speakers[${index}][name]`}
                         value={item.name}
-                        readOnly={! item.editable}
+                        readOnly={!item.editable}
                         onChange={event => update({ ...item, name: event.target.value })}
                     />
                     <label>Email</label>
@@ -23,12 +23,10 @@ export default function SpeakersInput({ initialSpeakers, errors }) {
                         type="email"
                         name={`speakers[${index}][email]`}
                         value={item.email}
-                        readOnly={! item.editable}
+                        readOnly={!item.editable}
                         onChange={event => update({ ...item, email: event.target.value })}
                     />
-                    {item.editable === false && (
-                        <strong>Has account</strong>
-                    )}
+                    {item.editable === false && <strong>Has account</strong>}
                     <button type="button" onClick={remove}>
                         Remove
                     </button>

@@ -3734,11 +3734,6 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
 
-laravel-javascript-views@^0.2.1:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/laravel-javascript-views/-/laravel-javascript-views-0.2.4.tgz#edc25a15974a1240cc96560f3f2f309aabca769a"
-  integrity sha512-gT6pDymzpYBFv5oL4rGi5UKAiwqP4BQERwTXHliU1JAHifH+bqiHJMyn1UCfLb82l8aJgOCQcSjF+TyoKRoFCA==
-
 laravel-mix-purgecss@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/laravel-mix-purgecss/-/laravel-mix-purgecss-4.1.0.tgz#1aaea75948d80d3035041c65af4e55c921acee83"

@@ -1,17 +1,12 @@
-import Views from 'laravel-javascript-views/react';
+import { render } from 'react-dom';
+import SpeakersInput from './components/SpeakersInput';
+import TracksInput from './components/TracksInput';
 
-const views = new Views();
+function mount(componentName, Component) {
+    [...document.querySelectorAll(`[data-component=${componentName}]`)].forEach(container => {
+        render(<Component {...JSON.parse(container.dataset.props)} />, container);
+    });
+}
 
-views.context(() => {
-    const context = require.context('./components', true, /\.js$/i);
-
-    if (module.hot) {
-        module.hot.accept(context.id, () => {
-            views.reload();
-        });
-    }
-
-    return context;
-});
-
-views.mount();
+mount('SpeakersInput', SpeakersInput);
+mount('TracksInput', TracksInput);
