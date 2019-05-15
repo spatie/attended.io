@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Rules;
 
-use App\Domain\User\Rules\CountryCodeRule;
+use App\Domain\Shared\Rules\CountryCodeRule;
 use Tests\TestCase;
 
 class CountryCodeTest extends TestCase
