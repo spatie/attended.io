@@ -16,7 +16,7 @@
                         {{ $event->timespan() }}<br>
                         {{ $event->location }}
                     </div>
-                </>
+                </a>
             @endforeach
         </div>
         {{ $events->links() }}

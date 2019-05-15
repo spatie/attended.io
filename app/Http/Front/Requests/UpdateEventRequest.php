@@ -2,7 +2,7 @@
 
 namespace App\Http\Front\Requests;
 
-use App\Domain\User\Rules\CountryCodeRule;
+use App\Domain\Shared\Rules\CountryCodeRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateEventRequest extends FormRequest
