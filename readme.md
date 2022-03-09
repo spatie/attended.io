@@ -1,3 +1,6 @@
+
+[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
+
 [![CircleCI](https://circleci.com/gh/spatie/attended.io/tree/master.svg?style=svg)](https://circleci.com/gh/spatie/attended.io/tree/master)
 
 # An app to organise events and get feedback from attendees
